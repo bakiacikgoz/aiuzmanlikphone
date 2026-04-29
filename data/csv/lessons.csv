@@ -1,0 +1,127 @@
+id,module_id,slug,title,lesson_type,sort_order,estimated_minutes,xp_reward,status
+78c050b3-e5e0-57b3-99de-0b9a20b890eb,c72e7573-aaa6-55ca-8f7a-b1108c178e24,python-ai-temelleri-m1-l1,"Python, paketler ve notebook akışı",video,1,16,20,published
+4b8dc8ff-a694-5381-896b-b1a11e19178d,c72e7573-aaa6-55ca-8f7a-b1108c178e24,python-ai-temelleri-m1-l2,"Değişkenler, veri tipleri ve kontrol akışı",reading,2,16,20,published
+bb3b04a1-70e4-58e0-a9dd-79d9db347f30,c72e7573-aaa6-55ca-8f7a-b1108c178e24,python-ai-temelleri-m1-l3,"Fonksiyonlar, modüller ve hata yönetimi",mixed,3,16,20,published
+0369807a-3291-542f-8957-769e10325422,7cedb17a-5c15-5042-b28f-b5d4df367f7a,python-ai-temelleri-m2-l1,"Liste, sözlük, küme ve tuple",video,1,16,22,published
+506cf978-81f2-5eeb-b768-cad251e24599,7cedb17a-5c15-5042-b28f-b5d4df367f7a,python-ai-temelleri-m2-l2,List comprehension ve iterator mantığı,reading,2,16,22,published
+c0769359-4998-5ab3-9616-5767ba0585f2,7cedb17a-5c15-5042-b28f-b5d4df367f7a,python-ai-temelleri-m2-l3,JSON/CSV okuma ve küçük veri pipeline,mixed,3,16,22,published
+82804846-a16d-51ba-85dc-159400929ba5,6f17b9f5-1372-5d3a-a25e-0729361c6dc1,python-ai-temelleri-m3-l1,"Tip ipuçları, test ve tekrar kullanılabilir fonksiyonlar",video,1,16,24,published
+647963f3-44dd-5a37-bc44-23913e27f6d8,6f17b9f5-1372-5d3a-a25e-0729361c6dc1,python-ai-temelleri-m3-l2,Debugging ve performans ölçümü,reading,2,16,24,published
+b46745fa-4d8b-53d5-a0b4-93316f466585,6f17b9f5-1372-5d3a-a25e-0729361c6dc1,python-ai-temelleri-m3-l3,Mini proje: metin temizleme hazırlığı,mixed,3,16,24,published
+028127ff-5317-503a-b0d2-7f7e30638025,aa8cfb67-6291-5f8a-a83d-9b18c19199fa,numpy-pandas-veri-m1-l1,Array yapısı ve vektörleştirme,video,1,16,20,published
+cf8c3a1b-620e-5eda-950f-2bcb7bd4b07f,aa8cfb67-6291-5f8a-a83d-9b18c19199fa,numpy-pandas-veri-m1-l2,Broadcasting ve indeksleme,reading,2,16,20,published
+a9cf8393-0590-5fef-b53f-ac516eac032a,aa8cfb67-6291-5f8a-a83d-9b18c19199fa,numpy-pandas-veri-m1-l3,Matris işlemleri ve rastgelelik,mixed,3,16,20,published
+d9ff3461-8273-5d3e-9b83-f2a321e141b4,6e11b35e-f7b3-58cb-8e57-06987cbc7ad3,numpy-pandas-veri-m2-l1,DataFrame okuma ve keşif,video,1,16,22,published
+39080644-63a5-58a2-b8c5-aa10bdb01f1c,6e11b35e-f7b3-58cb-8e57-06987cbc7ad3,numpy-pandas-veri-m2-l2,"Filtreleme, gruplama ve birleştirme",reading,2,16,22,published
+b95466f3-6ac3-5605-a3f8-febf7cdb4f69,6e11b35e-f7b3-58cb-8e57-06987cbc7ad3,numpy-pandas-veri-m2-l3,Eksik veri ve aykırı değer işlemleri,mixed,3,16,22,published
+39e216b6-6ff8-5d3d-99f6-a404af0a0438,a058f7e7-8879-5a5e-be3b-b28ddefdbf32,numpy-pandas-veri-m3-l1,Sayısal özellik ölçekleme,video,1,16,24,published
+8e5c9aaf-a5f7-5f4f-9a83-b604e76f60e4,a058f7e7-8879-5a5e-be3b-b28ddefdbf32,numpy-pandas-veri-m3-l2,Kategorik özellik kodlama,reading,2,16,24,published
+8d61f073-44db-51c2-9e31-7afa59ba3544,a058f7e7-8879-5a5e-be3b-b28ddefdbf32,numpy-pandas-veri-m3-l3,Eğitim/test ayrımı ve veri sızıntısı,mixed,3,16,24,published
+f7cf0462-f76d-5393-a1c8-09d0ece57ef6,3ae0a119-c7bb-5e62-bac4-f75fea8a487d,matematik-istatistik-ai-m1-l1,"Vektör, matris ve tensör kavramı",video,1,16,20,published
+6c75b14e-8892-50f3-87f4-6ec28220ffdf,3ae0a119-c7bb-5e62-bac4-f75fea8a487d,matematik-istatistik-ai-m1-l2,"Norm, mesafe ve benzerlik",reading,2,16,20,published
+ff1364d9-20f1-5d82-af06-6ea32d066d7b,3ae0a119-c7bb-5e62-bac4-f75fea8a487d,matematik-istatistik-ai-m1-l3,Matris çarpımıyla özellik dönüşümü,mixed,3,16,20,published
+afc64722-9797-559c-8556-727f8a5c98fe,d052e5d8-61ad-5338-8b23-eababe308ef9,matematik-istatistik-ai-m2-l1,Rastgele değişken ve beklenen değer,video,1,16,22,published
+15329bfa-5d9f-57d5-8825-004ede5da288,d052e5d8-61ad-5338-8b23-eababe308ef9,matematik-istatistik-ai-m2-l2,"Normal, Bernoulli ve kategorik dağılımlar",reading,2,16,22,published
+a5e85991-dff7-5b09-8b6e-13a7a0a825f1,d052e5d8-61ad-5338-8b23-eababe308ef9,matematik-istatistik-ai-m2-l3,Bayes sezgisi ve belirsizlik,mixed,3,16,22,published
+749a823c-3305-56df-8906-0bc67df9dc8d,c62db22a-2c91-51cc-9e6c-efa9da562d14,matematik-istatistik-ai-m3-l1,Sınıflandırma metrikleri,video,1,16,24,published
+1adaa87b-33ef-504c-9a27-b21df6fb795c,c62db22a-2c91-51cc-9e6c-efa9da562d14,matematik-istatistik-ai-m3-l2,Regresyon metrikleri,reading,2,16,24,published
+cc29d04a-0ba9-5b5d-857d-9c9f34244c9b,c62db22a-2c91-51cc-9e6c-efa9da562d14,matematik-istatistik-ai-m3-l3,Güven aralığı ve örnekleme yanlılığı,mixed,3,16,24,published
+ce12fbb1-8543-5947-a3b9-4374c2f37666,e6832acf-5f40-5831-bc2c-580c7cdeafd5,makine-ogrenmesi-temelleri-m1-l1,Problem tipini sınıflandırma,video,1,16,20,published
+766fa3b5-2fca-5a3f-a39a-031029787296,e6832acf-5f40-5831-bc2c-580c7cdeafd5,makine-ogrenmesi-temelleri-m1-l2,Regresyon ve sınıflandırma algoritmaları,reading,2,16,20,published
+a538664c-4c1c-5561-a1f7-48571cc09d10,e6832acf-5f40-5831-bc2c-580c7cdeafd5,makine-ogrenmesi-temelleri-m1-l3,Train/validation/test ayrımı,mixed,3,16,20,published
+e8303683-6b63-57a8-a5ec-63c20311d804,28d968f5-a5a7-52d3-a6bc-88108bbac498,makine-ogrenmesi-temelleri-m2-l1,K-means ve müşteri segmentasyonu,video,1,16,22,published
+7c8fc8d1-7d0e-5aee-83ce-14fbb0e50e47,28d968f5-a5a7-52d3-a6bc-88108bbac498,makine-ogrenmesi-temelleri-m2-l2,Boyut indirgeme sezgisi,reading,2,16,22,published
+e5b13d55-160d-5d57-8dd1-6a6c7a9d1b29,28d968f5-a5a7-52d3-a6bc-88108bbac498,makine-ogrenmesi-temelleri-m2-l3,Anomali tespiti ve küme değerlendirme,mixed,3,16,22,published
+c4fd1547-735e-5b3f-8c44-354576d61bb2,ec62f943-94b9-5094-b36e-7c5dc46c8c04,makine-ogrenmesi-temelleri-m3-l1,Ön işleme pipeline kurma,video,1,16,24,published
+f13c74a6-1c53-5412-904c-a4ac1401b674,ec62f943-94b9-5094-b36e-7c5dc46c8c04,makine-ogrenmesi-temelleri-m3-l2,Cross-validation ve leakage kontrolü,reading,2,16,24,published
+48d774e6-bc03-5602-8891-9f5b7bbd1311,ec62f943-94b9-5094-b36e-7c5dc46c8c04,makine-ogrenmesi-temelleri-m3-l3,Baseline modelden iyileştirmeye geçiş,mixed,3,16,24,published
+76204e6b-4947-5c17-829b-d6b7dbfdac04,968856e6-d60d-52b6-8372-4e3375e58521,neural-networks-101-m1-l1,Nöron modeli ve ağırlıklı toplam,video,1,16,20,published
+ed98bc72-44ff-53e6-bb9b-e8211a092fd4,968856e6-d60d-52b6-8372-4e3375e58521,neural-networks-101-m1-l2,Aktivasyon fonksiyonları,reading,2,16,20,published
+6e4c9822-4972-5059-a4f1-a5d67b154182,968856e6-d60d-52b6-8372-4e3375e58521,neural-networks-101-m1-l3,Tek katmanlı karar sınırı,mixed,3,16,20,published
+06190ec4-2673-5b7d-870b-57e1d0fb2e92,63b4a6d0-6348-53b4-8e7d-e12f31917d46,neural-networks-101-m2-l1,Loss fonksiyonu seçimi,video,1,16,22,published
+4a254d63-fbd5-53be-8cd0-6f13a7d8971b,63b4a6d0-6348-53b4-8e7d-e12f31917d46,neural-networks-101-m2-l2,Gradient descent sezgisi,reading,2,16,22,published
+7bb29e24-b2b2-572f-b0bc-bc34a19bf10e,63b4a6d0-6348-53b4-8e7d-e12f31917d46,neural-networks-101-m2-l3,Learning rate ve stabil eğitim,mixed,3,16,22,published
+3a74b02d-d7e6-59d3-9b20-d4cef361c98a,b16c9abe-836f-5d19-88bf-e39b3e294430,neural-networks-101-m3-l1,Zincir kuralı ile geri yayılım,video,1,16,24,published
+7a4a15da-58af-5eeb-b4f6-78ab98bdb325,b16c9abe-836f-5d19-88bf-e39b3e294430,neural-networks-101-m3-l2,Ağırlık güncelleme adımları,reading,2,16,24,published
+52aaa647-177b-5a52-a15f-79e9c5cd61e9,b16c9abe-836f-5d19-88bf-e39b3e294430,neural-networks-101-m3-l3,Mini-batch eğitim ve overfitting,mixed,3,16,24,published
+6b4b4bb0-8ce5-5130-8fb9-44acb017732e,18a06440-e256-5a5c-a6c6-6c6b00ef46bc,model-degerlendirme-deneyler-m1-l1,"Precision, recall ve F1 seçimi",video,1,16,20,published
+d11df183-cab7-560b-a35b-86d636bae2ba,18a06440-e256-5a5c-a6c6-6c6b00ef46bc,model-degerlendirme-deneyler-m1-l2,ROC-AUC ve threshold ayarı,reading,2,16,20,published
+f93cfbf9-b7c4-5d4f-9ad0-220bed016986,18a06440-e256-5a5c-a6c6-6c6b00ef46bc,model-degerlendirme-deneyler-m1-l3,İş metriği ile model metriği bağlama,mixed,3,16,20,published
+2ee6c1b5-1a93-5727-a3e4-7a64fcd89f84,0818cf44-c247-54e4-9beb-4ecac9dcc8cc,model-degerlendirme-deneyler-m2-l1,Deney hipotezi yazma,video,1,16,22,published
+a678ed4e-bc7c-5aaa-aed0-aefbf260f6be,0818cf44-c247-54e4-9beb-4ecac9dcc8cc,model-degerlendirme-deneyler-m2-l2,Parametre ve metrik kayıtları,reading,2,16,22,published
+914ec2d8-1a95-5e4f-ae33-ccafc53f2c0a,0818cf44-c247-54e4-9beb-4ecac9dcc8cc,model-degerlendirme-deneyler-m2-l3,Sonuç karşılaştırma ve model kartı,mixed,3,16,22,published
+eff32f26-5fb1-5326-8560-e204caca0a5c,60290600-f8c9-52bc-a080-32ce0e5877f3,model-degerlendirme-deneyler-m3-l1,Confusion matrix okuma,video,1,16,24,published
+3af69713-74f7-5bfa-b43b-8cd45c0b3c45,60290600-f8c9-52bc-a080-32ce0e5877f3,model-degerlendirme-deneyler-m3-l2,Segment bazlı hata analizi,reading,2,16,24,published
+b24e6dbb-59fb-50d1-b2f0-abda52fbd2e5,60290600-f8c9-52bc-a080-32ce0e5877f3,model-degerlendirme-deneyler-m3-l3,Aksiyon planı ve iterasyon,mixed,3,16,24,published
+62bd66e7-7a24-5864-81ed-6a8e6192aee5,8afa5014-3704-525f-b509-1395540cc1d0,deep-learning-pytorch-m1-l1,Tensor operasyonları,video,1,16,20,published
+ef283f3f-db43-5d87-ae09-bfe196779818,8afa5014-3704-525f-b509-1395540cc1d0,deep-learning-pytorch-m1-l2,Autograd ile türev takibi,reading,2,16,20,published
+ad7b1414-ec2c-53a7-8a57-334ddd6e7137,8afa5014-3704-525f-b509-1395540cc1d0,deep-learning-pytorch-m1-l3,Dataset ve DataLoader yapısı,mixed,3,16,20,published
+e469ea2b-1af8-5dfd-a787-af7f8a4ac4a4,30ff8c1d-0359-5fd5-8b66-5439d085827f,deep-learning-pytorch-m2-l1,"Model, loss ve optimizer kurma",video,1,16,22,published
+07e27f3a-3512-57b3-b2c2-00b62c7b9fc0,30ff8c1d-0359-5fd5-8b66-5439d085827f,deep-learning-pytorch-m2-l2,Validation loop ve checkpoint,reading,2,16,22,published
+8bc5b1c5-6252-5802-a2e5-3609cd0e0d17,30ff8c1d-0359-5fd5-8b66-5439d085827f,deep-learning-pytorch-m2-l3,GPU ve batch yönetimi,mixed,3,16,22,published
+fda07d3f-3fd8-580c-be03-2d63c53fa249,26c59210-63d2-52f7-b808-47c8459fed12,deep-learning-pytorch-m3-l1,"Dropout, weight decay ve erken durdurma",video,1,16,24,published
+42801935-8fb1-58c8-9716-510f52727565,26c59210-63d2-52f7-b808-47c8459fed12,deep-learning-pytorch-m3-l2,Transfer learning yaklaşımı,reading,2,16,24,published
+5702830a-3997-5c69-bd40-3ee37b2966a1,26c59210-63d2-52f7-b808-47c8459fed12,deep-learning-pytorch-m3-l3,Model export ve inference,mixed,3,16,24,published
+5ccfeb80-51ee-567b-a90c-4460ac943497,a2638f38-8bbb-5080-9d8e-94f673d9b8a0,bilgisayarli-goru-temelleri-m1-l1,"Piksel, kanal ve normalize etme",video,1,16,20,published
+8178004d-c703-5f33-8207-2f9bd0a9ca32,a2638f38-8bbb-5080-9d8e-94f673d9b8a0,bilgisayarli-goru-temelleri-m1-l2,Augmentation stratejileri,reading,2,16,20,published
+2d508b98-5cbc-5013-92ef-8d9dd81f4219,a2638f38-8bbb-5080-9d8e-94f673d9b8a0,bilgisayarli-goru-temelleri-m1-l3,Dataset dengesi ve etiket kalitesi,mixed,3,16,20,published
+89f367cc-5946-56eb-9ce0-d91880b33fef,f9eef59c-8ec9-5e9e-ab44-1f8402d44529,bilgisayarli-goru-temelleri-m2-l1,Convolution ve pooling sezgisi,video,1,16,22,published
+f52beba4-581d-5673-b45f-e6c68d39aafe,f9eef59c-8ec9-5e9e-ab44-1f8402d44529,bilgisayarli-goru-temelleri-m2-l2,Feature map okuma,reading,2,16,22,published
+6f9809f9-ffca-50ce-83f6-1e754d691599,f9eef59c-8ec9-5e9e-ab44-1f8402d44529,bilgisayarli-goru-temelleri-m2-l3,Transfer learning ile sınıflandırma,mixed,3,16,22,published
+e6d70ae9-c0f4-59ee-8824-cc0d282df259,8ec836f3-e12d-5890-9f91-b65d8ecfd8e1,bilgisayarli-goru-temelleri-m3-l1,Batch inference tasarımı,video,1,16,24,published
+dd00ba7c-5c11-5d8a-ac30-45c89af17ccd,8ec836f3-e12d-5890-9f91-b65d8ecfd8e1,bilgisayarli-goru-temelleri-m3-l2,Model boyutu ve latency takası,reading,2,16,24,published
+3e2dff34-7fed-5697-8ecd-3b9bca2af769,8ec836f3-e12d-5890-9f91-b65d8ecfd8e1,bilgisayarli-goru-temelleri-m3-l3,Hata örneklerini etiketleme döngüsüne bağlama,mixed,3,16,24,published
+11778a43-92ed-596a-b876-eddd55c79edf,b35d12cd-19fa-5b13-b72d-237a24f2a9c6,nlp-llm-temelleri-m1-l1,Token nedir ve nasıl sayılır,video,1,16,20,published
+cc6d6a68-ff2f-5d7e-b887-d312e9af3d2d,b35d12cd-19fa-5b13-b72d-237a24f2a9c6,nlp-llm-temelleri-m1-l2,Embedding uzayında benzerlik,reading,2,16,20,published
+b14e2e26-b516-5d7f-81f4-12d60a777c38,b35d12cd-19fa-5b13-b72d-237a24f2a9c6,nlp-llm-temelleri-m1-l3,Metin temizleme ve chunk hazırlığı,mixed,3,16,20,published
+68df36b4-019c-53bb-92b1-975e9efa9e61,d604804d-1c64-5d94-89ee-5ab3af65cb5a,nlp-llm-temelleri-m2-l1,Attention mekanizması,video,1,16,22,published
+522c25f5-43b3-5067-bf6a-b8c229ab13f7,d604804d-1c64-5d94-89ee-5ab3af65cb5a,nlp-llm-temelleri-m2-l2,Encoder/decoder ayrımı,reading,2,16,22,published
+0ef12391-3a10-5d84-ae87-bd7310b7a904,d604804d-1c64-5d94-89ee-5ab3af65cb5a,nlp-llm-temelleri-m2-l3,Context window ve maliyet,mixed,3,16,22,published
+e1cd3e6f-da66-5603-916d-2cc13df09dc0,e52bab1f-b6f9-501f-98f7-30bf0a262404,nlp-llm-temelleri-m3-l1,Model seçimi ve görev eşleştirme,video,1,16,24,published
+7c22b824-08be-5790-9dba-6222b32ec6b1,e52bab1f-b6f9-501f-98f7-30bf0a262404,nlp-llm-temelleri-m3-l2,Temperature ve deterministik çıktı,reading,2,16,24,published
+6b362fcc-2b79-5dde-b06f-51d249767c0a,e52bab1f-b6f9-501f-98f7-30bf0a262404,nlp-llm-temelleri-m3-l3,Kısıtlı çıktı ve güvenli kullanım,mixed,3,16,24,published
+4b6e1c02-6e89-5889-aa87-38572f912bbe,9cf4822e-a2fb-5c9e-b926-78f59a8e943b,prompt-engineering-pratikleri-m1-l1,"Rol, amaç ve bağlam ayrımı",video,1,16,20,published
+0666b147-0c97-5739-bb3f-7be28edb255d,9cf4822e-a2fb-5c9e-b926-78f59a8e943b,prompt-engineering-pratikleri-m1-l2,Few-shot örnek tasarımı,reading,2,16,20,published
+ebf83e29-fa8c-5ae5-96b4-341443b23208,9cf4822e-a2fb-5c9e-b926-78f59a8e943b,prompt-engineering-pratikleri-m1-l3,Kısıtlar ve başarı kriteri yazma,mixed,3,16,20,published
+9229cbb0-f8a3-51a4-9166-064aeae0e65f,0daaa333-1cad-5824-b93f-ca640f3ba95a,prompt-engineering-pratikleri-m2-l1,JSON şeması ile çıktı isteme,video,1,16,22,published
+e2a952fd-80cf-52b1-8d6d-681404896c73,0daaa333-1cad-5824-b93f-ca640f3ba95a,prompt-engineering-pratikleri-m2-l2,Hata toleransı ve yeniden deneme,reading,2,16,22,published
+f8189461-ac6a-5bee-a877-1433206c13e6,0daaa333-1cad-5824-b93f-ca640f3ba95a,prompt-engineering-pratikleri-m2-l3,Araç çağrısı için alan tasarımı,mixed,3,16,22,published
+bada3887-1f7a-5b75-b639-a90cbe9e0701,f1b3ba0c-8b22-5108-a46c-2bca476bcfbb,prompt-engineering-pratikleri-m3-l1,Prompt karşılaştırma deneyi,video,1,16,24,published
+08a11b04-ea0b-5124-9001-e149da226668,f1b3ba0c-8b22-5108-a46c-2bca476bcfbb,prompt-engineering-pratikleri-m3-l2,Prompt injection riskleri,reading,2,16,24,published
+0e4dbc17-f633-5ca4-a710-b691f76b4e11,f1b3ba0c-8b22-5108-a46c-2bca476bcfbb,prompt-engineering-pratikleri-m3-l3,Red-team örnekleri ve koruma,mixed,3,16,24,published
+89f467b3-6349-577b-877a-58275869185c,6623645f-9dcb-5b0f-9c94-9daaae65b11b,rag-ai-uygulamalari-m1-l1,Chunking stratejileri,video,1,16,20,published
+d14ae7ee-1b93-54b7-a6d2-4117f2fd8417,6623645f-9dcb-5b0f-9c94-9daaae65b11b,rag-ai-uygulamalari-m1-l2,Embedding ve cosine similarity,reading,2,16,20,published
+dafa552a-6038-578a-b9bd-1af47fb0fd7d,6623645f-9dcb-5b0f-9c94-9daaae65b11b,rag-ai-uygulamalari-m1-l3,Top-k ve threshold seçimi,mixed,3,16,20,published
+71053336-71cc-5d9b-a249-9ea55a253f74,0dcc9061-bff0-581a-b0c6-4044206800dd,rag-ai-uygulamalari-m2-l1,Indexleme ve metadata filtreleri,video,1,16,22,published
+713023dc-360a-54f3-bafe-fc12d3e86aa1,0dcc9061-bff0-581a-b0c6-4044206800dd,rag-ai-uygulamalari-m2-l2,Context oluşturma ve kaynak gösterme,reading,2,16,22,published
+e2df0514-3357-5502-a166-c1a8734b6a75,0dcc9061-bff0-581a-b0c6-4044206800dd,rag-ai-uygulamalari-m2-l3,Hallucination azaltma kontrolleri,mixed,3,16,22,published
+1f170a47-7dde-5a97-ab15-7c9febc3c987,437e7a5e-2693-597d-88f6-0bc70a2ef539,rag-ai-uygulamalari-m3-l1,React Native istemci akışı,video,1,16,24,published
+0737a068-1998-562b-add8-c436312eb6f2,437e7a5e-2693-597d-88f6-0bc70a2ef539,rag-ai-uygulamalari-m3-l2,Edge Function ile LLM çağrısı,reading,2,16,24,published
+7bcc921c-bd92-5094-b982-bb45eb81a001,437e7a5e-2693-597d-88f6-0bc70a2ef539,rag-ai-uygulamalari-m3-l3,Conversation state ve maliyet izleme,mixed,3,16,24,published
+8f180fff-6f5f-569c-bce4-0c05ca42a779,956c7ee2-7648-52a8-90e5-1a6ef98f0abf,mlops-uretim-m1-l1,"Batch, API ve streaming kararları",video,1,16,20,published
+f437a9a9-816b-5afc-a3d7-04c23070ce5b,956c7ee2-7648-52a8-90e5-1a6ef98f0abf,mlops-uretim-m1-l2,Model servis sözleşmesi,reading,2,16,20,published
+41102c57-6bc3-5be9-acd9-946dd832fc04,956c7ee2-7648-52a8-90e5-1a6ef98f0abf,mlops-uretim-m1-l3,"Latency, throughput ve maliyet",mixed,3,16,20,published
+3407cc26-01db-5d48-994e-a307411d8a7b,647ca0e0-ff7c-5f39-8eaa-e433516eff22,mlops-uretim-m2-l1,Model versiyonlama,video,1,16,22,published
+c9fdb9c6-ce16-5e08-a575-aa063b0c8305,647ca0e0-ff7c-5f39-8eaa-e433516eff22,mlops-uretim-m2-l2,Otomatik test ve validasyon,reading,2,16,22,published
+5a33623d-9541-5c81-88a0-e1ec6a523d52,647ca0e0-ff7c-5f39-8eaa-e433516eff22,mlops-uretim-m2-l3,Rollback ve canary release,mixed,3,16,22,published
+7c26ac10-1e73-584b-976e-13325dac2ed1,63b6afb7-29d2-55b0-a4f2-610dffd1fb63,mlops-uretim-m3-l1,Veri drift göstergeleri,video,1,16,24,published
+8eda7baf-4a1d-5ff8-adbc-d2f9372c76ad,63b6afb7-29d2-55b0-a4f2-610dffd1fb63,mlops-uretim-m3-l2,Prediction kalite izlemesi,reading,2,16,24,published
+c3923407-d95a-5fff-9370-ca071d8d770f,63b6afb7-29d2-55b0-a4f2-610dffd1fb63,mlops-uretim-m3-l3,Alarm ve yeniden eğitim tetikleri,mixed,3,16,24,published
+dc8512aa-3f6e-5687-aee9-1ab380d71899,5fe4af3b-bd15-555c-9181-1bec24a444b7,ai-urun-guvenlik-etik-m1-l1,Problem-solution fit,video,1,16,20,published
+9e1733a5-4129-5bf1-9ec2-53ebd5be1fe2,5fe4af3b-bd15-555c-9181-1bec24a444b7,ai-urun-guvenlik-etik-m1-l2,Kullanıcı akışı ve insan onayı,reading,2,16,20,published
+cff571f4-42cb-57f5-9f3c-4eaf4bd96003,5fe4af3b-bd15-555c-9181-1bec24a444b7,ai-urun-guvenlik-etik-m1-l3,Başarı metriği ve telemetry,mixed,3,16,20,published
+d3f85bf8-7d9f-57a1-942f-a1a7515d5cd7,375117ea-190c-5d64-abb9-06606371f699,ai-urun-guvenlik-etik-m2-l1,PII ve veri minimizasyonu,video,1,16,22,published
+2c073552-d99f-5cc5-9e4a-dfe23547da88,375117ea-190c-5d64-abb9-06606371f699,ai-urun-guvenlik-etik-m2-l2,Bias ve fairness kontrolü,reading,2,16,22,published
+43597261-4d69-5bbd-82c5-269514698491,375117ea-190c-5d64-abb9-06606371f699,ai-urun-guvenlik-etik-m2-l3,Model açıklanabilirliği,mixed,3,16,22,published
+da9b5f1a-d802-5302-955a-c7786eff7c88,efd84879-3961-53ac-a915-d7446967e4dd,ai-urun-guvenlik-etik-m3-l1,Prompt injection yüzeyi,video,1,16,24,published
+1f05d1c7-94b9-5120-8a40-097996c4031b,efd84879-3961-53ac-a915-d7446967e4dd,ai-urun-guvenlik-etik-m3-l2,İzinler ve veri sınırları,reading,2,16,24,published
+5365959e-86a2-589b-8d28-d0b3542be275,efd84879-3961-53ac-a915-d7446967e4dd,ai-urun-guvenlik-etik-m3-l3,Güvenlik test matrisi,mixed,3,16,24,published
+bfb52e6a-beef-57b5-b65a-3a70211131c7,3194ce86-f9a0-5fcb-836a-032a164a900e,capstone-ai-engineer-m1-l1,Kullanıcı problemi ve veri kaynağı,video,1,16,20,published
+cb074ac2-1b73-562a-9041-c93c535e3ed2,3194ce86-f9a0-5fcb-836a-032a164a900e,capstone-ai-engineer-m1-l2,Başarı metrikleri ve riskler,reading,2,16,20,published
+837b7c2a-687e-53e3-ad5d-c782eeed0f15,3194ce86-f9a0-5fcb-836a-032a164a900e,capstone-ai-engineer-m1-l3,Mimari karar dokümanı,mixed,3,16,20,published
+14ea4b1f-9531-5c70-8d1c-1fdb1357f5d6,347b537a-c130-5fa9-b812-4ad89b80bb93,capstone-ai-engineer-m2-l1,"Baseline, model/RAG ve servis katmanı",video,1,16,22,published
+49fa4302-5cda-5721-91f8-df62a030535e,347b537a-c130-5fa9-b812-4ad89b80bb93,capstone-ai-engineer-m2-l2,Mobil akış ve Supabase entegrasyonu,reading,2,16,22,published
+015df0ee-8a2b-5e97-a41f-c92956a810ad,347b537a-c130-5fa9-b812-4ad89b80bb93,capstone-ai-engineer-m2-l3,"Test, logging ve maliyet kontrolü",mixed,3,16,22,published
+d2ec538d-c234-5ddf-8fa7-7e06261d3c4d,d4b704a6-ce9f-5f9e-8872-70e17281f398,capstone-ai-engineer-m3-l1,Demo senaryosu hazırlama,video,1,16,24,published
+f642bee3-ebdf-5b50-9e0a-ca6f4548f0e7,d4b704a6-ce9f-5f9e-8872-70e17281f398,capstone-ai-engineer-m3-l2,Model kartı ve teknik rapor,reading,2,16,24,published
+ab68ee2d-f46f-5d10-93b2-8f27e12c9f91,d4b704a6-ce9f-5f9e-8872-70e17281f398,capstone-ai-engineer-m3-l3,Geri bildirimle ikinci versiyon planı,mixed,3,16,24,published

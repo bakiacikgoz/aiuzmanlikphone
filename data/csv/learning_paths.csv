@@ -1,0 +1,5 @@
+id,slug,title,subtitle,level,estimated_minutes,sort_order
+c058fccf-66ee-5841-96b3-bb1318c345f4,baslangic-ai-engineering,Başlangıç,"Python, veri ve temel ML temelleri",beginner,900,1
+7c8fbe51-6e9f-5b2a-8167-9e60128a34ca,orta-ai-engineering,Orta,"Modelleme, sinir ağları ve LLM uygulamaları",intermediate,1320,2
+062d103b-53e5-5569-93f9-bfeb9218a7df,ileri-ai-engineering,İleri,"Deep learning, MLOps ve production",advanced,1260,3
+48525465-134d-5b74-ae39-0de461172337,uzman-capstone,Uzmanlık / Capstone,Uçtan uca ürün ve portfolyo,expert,720,4

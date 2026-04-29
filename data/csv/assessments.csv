@@ -1,0 +1,58 @@
+id,slug,assessment_type,title,level,course_id,module_id,passing_score,xp_reward,question_count
+f9eb680a-8c85-500d-981e-e8ab14032c08,seviye-tespit-ai-engineering-v1,placement,AI Engineering Seviye Tespit Testi,,,,0,40,12
+559e27d2-5894-5d14-a0b2-a00483e0117f,python-ai-temelleri-modul-1-quiz,module_quiz,Python çalışma ortamı Ara Quiz,beginner,f61cc498-ce42-5ae7-bf73-85f1597324b3,c72e7573-aaa6-55ca-8f7a-b1108c178e24,70,25,3
+e3f5a681-9014-5d74-b30e-154e9127c29a,python-ai-temelleri-modul-2-quiz,module_quiz,Veri yapıları ve dosya işlemleri Ara Quiz,beginner,f61cc498-ce42-5ae7-bf73-85f1597324b3,7cedb17a-5c15-5042-b28f-b5d4df367f7a,70,25,3
+74a2e9d8-df3d-5dc5-bb11-36534555dfbc,python-ai-temelleri-modul-3-quiz,module_quiz,AI kod kalitesi Ara Quiz,beginner,f61cc498-ce42-5ae7-bf73-85f1597324b3,6f17b9f5-1372-5d3a-a25e-0729361c6dc1,70,25,3
+e5e1dd5d-423c-54c3-a67b-df5b8a234e13,python-ai-temelleri-final-sinavi,course_exam,Python ile AI Temelleri Final Sınavı,beginner,f61cc498-ce42-5ae7-bf73-85f1597324b3,,75,60,5
+367ae176-1861-5870-89be-e3c4c01f4187,numpy-pandas-veri-modul-1-quiz,module_quiz,NumPy temelleri Ara Quiz,beginner,1d31e98b-0fc5-586e-9896-61758b1e35c6,aa8cfb67-6291-5f8a-a83d-9b18c19199fa,70,25,3
+6125d789-f21c-5ce4-af9d-e0568c906d12,numpy-pandas-veri-modul-2-quiz,module_quiz,Pandas veri akışı Ara Quiz,beginner,1d31e98b-0fc5-586e-9896-61758b1e35c6,6e11b35e-f7b3-58cb-8e57-06987cbc7ad3,70,25,3
+c2f9d345-18a5-5763-a414-8b945c6b9409,numpy-pandas-veri-modul-3-quiz,module_quiz,Feature engineering başlangıcı Ara Quiz,beginner,1d31e98b-0fc5-586e-9896-61758b1e35c6,a058f7e7-8879-5a5e-be3b-b28ddefdbf32,70,25,3
+2975af7b-58ff-59fa-a319-38bcab01911c,numpy-pandas-veri-final-sinavi,course_exam,NumPy & Pandas ile Veri İşleme Final Sınavı,beginner,1d31e98b-0fc5-586e-9896-61758b1e35c6,,75,60,5
+3777aa0c-e9a5-568f-9be4-76f6276b145e,matematik-istatistik-ai-modul-1-quiz,module_quiz,Lineer cebir sezgisi Ara Quiz,beginner,7ebace68-cb4a-5d5b-a8d2-268b497b5791,3ae0a119-c7bb-5e62-bac4-f75fea8a487d,70,25,3
+936652c2-35fb-53fa-b87d-090680cf79bc,matematik-istatistik-ai-modul-2-quiz,module_quiz,Olasılık ve dağılımlar Ara Quiz,beginner,7ebace68-cb4a-5d5b-a8d2-268b497b5791,d052e5d8-61ad-5338-8b23-eababe308ef9,70,25,3
+04d5b981-8470-54a7-8ebe-c2a05d33617c,matematik-istatistik-ai-modul-3-quiz,module_quiz,Metrikler ve güven Ara Quiz,beginner,7ebace68-cb4a-5d5b-a8d2-268b497b5791,c62db22a-2c91-51cc-9e6c-efa9da562d14,70,25,3
+21752fc7-b279-5c5b-bfb9-7af520b41276,matematik-istatistik-ai-final-sinavi,course_exam,AI için Matematik ve İstatistik Final Sınavı,beginner,7ebace68-cb4a-5d5b-a8d2-268b497b5791,,75,60,5
+0a81a644-fd66-56e8-991b-21eb9abaaccc,makine-ogrenmesi-temelleri-modul-1-quiz,module_quiz,Denetimli öğrenme Ara Quiz,beginner,67f36abd-070e-5795-a6e0-36b3b851c709,e6832acf-5f40-5831-bc2c-580c7cdeafd5,70,25,3
+e08a6ea7-786f-5be9-946c-235467d6def3,makine-ogrenmesi-temelleri-modul-2-quiz,module_quiz,Denetimsiz öğrenme Ara Quiz,beginner,67f36abd-070e-5795-a6e0-36b3b851c709,28d968f5-a5a7-52d3-a6bc-88108bbac498,70,25,3
+4de14f5e-9268-599e-a402-46a0c87fd0da,makine-ogrenmesi-temelleri-modul-3-quiz,module_quiz,Pipeline ve validasyon Ara Quiz,beginner,67f36abd-070e-5795-a6e0-36b3b851c709,ec62f943-94b9-5094-b36e-7c5dc46c8c04,70,25,3
+4bb7617b-db05-5735-9fb7-b0247816e2b4,makine-ogrenmesi-temelleri-final-sinavi,course_exam,Makine Öğrenmesi Temelleri Final Sınavı,beginner,67f36abd-070e-5795-a6e0-36b3b851c709,,75,60,5
+73235f9b-5917-5268-b304-19ece9b4f59d,neural-networks-101-modul-1-quiz,module_quiz,Perceptron temelleri Ara Quiz,intermediate,bcbfa4cb-70c6-528e-9e8e-e035e48606fb,968856e6-d60d-52b6-8372-4e3375e58521,70,25,3
+78a07218-8ced-5f30-bcf1-0a0ef3a3709f,neural-networks-101-modul-2-quiz,module_quiz,Loss ve optimizasyon Ara Quiz,intermediate,bcbfa4cb-70c6-528e-9e8e-e035e48606fb,63b4a6d0-6348-53b4-8e7d-e12f31917d46,70,25,3
+9bd88d66-b55d-5746-831e-24c360e6852d,neural-networks-101-modul-3-quiz,module_quiz,Backpropagation Ara Quiz,intermediate,bcbfa4cb-70c6-528e-9e8e-e035e48606fb,b16c9abe-836f-5d19-88bf-e39b3e294430,70,25,3
+95c006c7-eb63-55ea-a98e-bff49cbfe8e3,neural-networks-101-final-sinavi,course_exam,Neural Networks 101 Final Sınavı,intermediate,bcbfa4cb-70c6-528e-9e8e-e035e48606fb,,75,60,5
+7b418a24-ecba-513f-bf66-48476183b5d1,model-degerlendirme-deneyler-modul-1-quiz,module_quiz,Metrik seçimi Ara Quiz,intermediate,1baef71c-6bb1-5c08-9b0d-1e1fc9095ae3,18a06440-e256-5a5c-a6c6-6c6b00ef46bc,70,25,3
+c66672e5-aeb3-563e-8e8f-e32072d7492f,model-degerlendirme-deneyler-modul-2-quiz,module_quiz,Deney izleme Ara Quiz,intermediate,1baef71c-6bb1-5c08-9b0d-1e1fc9095ae3,0818cf44-c247-54e4-9beb-4ecac9dcc8cc,70,25,3
+a6486757-a055-5b22-9248-71a80a09c9b5,model-degerlendirme-deneyler-modul-3-quiz,module_quiz,Hata analizi Ara Quiz,intermediate,1baef71c-6bb1-5c08-9b0d-1e1fc9095ae3,60290600-f8c9-52bc-a080-32ce0e5877f3,70,25,3
+7618777e-388b-5edf-ae00-024964695002,model-degerlendirme-deneyler-final-sinavi,course_exam,Model Değerlendirme ve Deney Yönetimi Final Sınavı,intermediate,1baef71c-6bb1-5c08-9b0d-1e1fc9095ae3,,75,60,5
+942e0189-1bae-5dd8-82ff-99c12efda1b8,deep-learning-pytorch-modul-1-quiz,module_quiz,Tensor ve autograd Ara Quiz,advanced,bfc97ff1-7723-5a4d-ab79-c61aad02adc1,8afa5014-3704-525f-b509-1395540cc1d0,70,25,3
+479eadda-0ac4-54a3-9ed4-0a5cafcfeb7d,deep-learning-pytorch-modul-2-quiz,module_quiz,Eğitim döngüsü Ara Quiz,advanced,bfc97ff1-7723-5a4d-ab79-c61aad02adc1,30ff8c1d-0359-5fd5-8b66-5439d085827f,70,25,3
+6bbc86b8-ccc4-5be1-825b-efcff5815cdb,deep-learning-pytorch-modul-3-quiz,module_quiz,Regularization ve transfer Ara Quiz,advanced,bfc97ff1-7723-5a4d-ab79-c61aad02adc1,26c59210-63d2-52f7-b808-47c8459fed12,70,25,3
+6d597cd9-0328-5562-b999-794fef9d6c40,deep-learning-pytorch-final-sinavi,course_exam,PyTorch ile Deep Learning Final Sınavı,advanced,bfc97ff1-7723-5a4d-ab79-c61aad02adc1,,75,60,5
+828fd9fd-73ab-53f5-ba5b-698685e9a356,bilgisayarli-goru-temelleri-modul-1-quiz,module_quiz,Görüntü ön işleme Ara Quiz,advanced,d754b36d-1921-5657-9ad5-120e5f76cc88,a2638f38-8bbb-5080-9d8e-94f673d9b8a0,70,25,3
+7656864f-dd23-535c-83b7-a20c3b319c69,bilgisayarli-goru-temelleri-modul-2-quiz,module_quiz,CNN mimarileri Ara Quiz,advanced,d754b36d-1921-5657-9ad5-120e5f76cc88,f9eef59c-8ec9-5e9e-ab44-1f8402d44529,70,25,3
+039bb5ea-af30-56e1-8ffd-1fe590d6b16b,bilgisayarli-goru-temelleri-modul-3-quiz,module_quiz,Görsel model üretimi Ara Quiz,advanced,d754b36d-1921-5657-9ad5-120e5f76cc88,8ec836f3-e12d-5890-9f91-b65d8ecfd8e1,70,25,3
+e425d610-ff24-590a-aaa5-d286ea8b331c,bilgisayarli-goru-temelleri-final-sinavi,course_exam,Bilgisayarlı Görü Temelleri Final Sınavı,advanced,d754b36d-1921-5657-9ad5-120e5f76cc88,,75,60,5
+a4b503da-4571-5223-a938-33b51c3f7dbc,nlp-llm-temelleri-modul-1-quiz,module_quiz,Tokenization ve embedding Ara Quiz,intermediate,59d71826-4660-5cb3-a932-2cdae8fd78fc,b35d12cd-19fa-5b13-b72d-237a24f2a9c6,70,25,3
+919f629d-b5bb-5ea7-b856-995b2c4be439,nlp-llm-temelleri-modul-2-quiz,module_quiz,Transformer sezgisi Ara Quiz,intermediate,59d71826-4660-5cb3-a932-2cdae8fd78fc,d604804d-1c64-5d94-89ee-5ab3af65cb5a,70,25,3
+14c0638d-30b8-5dd7-a8f2-5c9d883135bd,nlp-llm-temelleri-modul-3-quiz,module_quiz,LLM uygulama temelleri Ara Quiz,intermediate,59d71826-4660-5cb3-a932-2cdae8fd78fc,e52bab1f-b6f9-501f-98f7-30bf0a262404,70,25,3
+4820c8a7-722e-5302-97fc-5811a35fdcd1,nlp-llm-temelleri-final-sinavi,course_exam,NLP ve LLM Temelleri Final Sınavı,intermediate,59d71826-4660-5cb3-a932-2cdae8fd78fc,,75,60,5
+c63cc6f6-aad9-5f55-98fc-d3b875197855,prompt-engineering-pratikleri-modul-1-quiz,module_quiz,Prompt anatomisi Ara Quiz,intermediate,1fdeade7-65c9-5126-b54c-a3ac6042c73c,9cf4822e-a2fb-5c9e-b926-78f59a8e943b,70,25,3
+f250014c-e9ea-583e-8f64-5f4a31ffefe1,prompt-engineering-pratikleri-modul-2-quiz,module_quiz,Yapılandırılmış çıktı Ara Quiz,intermediate,1fdeade7-65c9-5126-b54c-a3ac6042c73c,0daaa333-1cad-5824-b93f-ca640f3ba95a,70,25,3
+1628bdd2-8bb9-57e2-b37b-254facd4dbe3,prompt-engineering-pratikleri-modul-3-quiz,module_quiz,Prompt eval ve güvenlik Ara Quiz,intermediate,1fdeade7-65c9-5126-b54c-a3ac6042c73c,f1b3ba0c-8b22-5108-a46c-2bca476bcfbb,70,25,3
+83abc162-ac35-5403-8afe-51f18b380796,prompt-engineering-pratikleri-final-sinavi,course_exam,Prompt Engineering Pratikleri Final Sınavı,intermediate,1fdeade7-65c9-5126-b54c-a3ac6042c73c,,75,60,5
+7abfc1bb-ceb5-5995-bfe6-cd73dd174c6e,rag-ai-uygulamalari-modul-1-quiz,module_quiz,Retrieval temelleri Ara Quiz,intermediate,5a1edc5f-4b10-5c71-8a74-06654c8d0d39,6623645f-9dcb-5b0f-9c94-9daaae65b11b,70,25,3
+ed844892-05c0-5dd6-9400-fe860beb0f3c,rag-ai-uygulamalari-modul-2-quiz,module_quiz,RAG pipeline Ara Quiz,intermediate,5a1edc5f-4b10-5c71-8a74-06654c8d0d39,0dcc9061-bff0-581a-b0c6-4044206800dd,70,25,3
+bd25be6f-1178-5ab4-a713-fce0087915bf,rag-ai-uygulamalari-modul-3-quiz,module_quiz,AI uygulama mimarisi Ara Quiz,intermediate,5a1edc5f-4b10-5c71-8a74-06654c8d0d39,437e7a5e-2693-597d-88f6-0bc70a2ef539,70,25,3
+8f4e7ab2-9216-57a8-a2cb-f15ef3cb3abb,rag-ai-uygulamalari-final-sinavi,course_exam,RAG ve AI Uygulamaları Final Sınavı,intermediate,5a1edc5f-4b10-5c71-8a74-06654c8d0d39,,75,60,5
+296a635b-7158-56fe-93dc-8d6ba653b63b,mlops-uretim-modul-1-quiz,module_quiz,Deployment seçenekleri Ara Quiz,advanced,c8004415-e11a-5fa1-92bf-f8e5a623e327,956c7ee2-7648-52a8-90e5-1a6ef98f0abf,70,25,3
+fa8d5c9b-4c2c-527d-b168-7d787b2d4803,mlops-uretim-modul-2-quiz,module_quiz,Model registry ve CI/CD Ara Quiz,advanced,c8004415-e11a-5fa1-92bf-f8e5a623e327,647ca0e0-ff7c-5f39-8eaa-e433516eff22,70,25,3
+14440d7f-8e5d-5b73-8ae2-6eab10e53cc4,mlops-uretim-modul-3-quiz,module_quiz,Monitoring ve drift Ara Quiz,advanced,c8004415-e11a-5fa1-92bf-f8e5a623e327,63b6afb7-29d2-55b0-a4f2-610dffd1fb63,70,25,3
+b0b08c57-6793-51e4-ae6b-767db879b7fa,mlops-uretim-final-sinavi,course_exam,MLOps ve Üretimleştirme Final Sınavı,advanced,c8004415-e11a-5fa1-92bf-f8e5a623e327,,75,60,5
+72ddaf01-961c-55c4-a987-562e21aeb2f2,ai-urun-guvenlik-etik-modul-1-quiz,module_quiz,AI ürün keşfi Ara Quiz,advanced,12956a13-40f1-5480-8ed0-de328b267218,5fe4af3b-bd15-555c-9181-1bec24a444b7,70,25,3
+4896f19e-652f-5f1d-b080-baa3ddceceb9,ai-urun-guvenlik-etik-modul-2-quiz,module_quiz,Risk ve gizlilik Ara Quiz,advanced,12956a13-40f1-5480-8ed0-de328b267218,375117ea-190c-5d64-abb9-06606371f699,70,25,3
+fda97fc9-8e14-5c89-9d8b-f08028de14b1,ai-urun-guvenlik-etik-modul-3-quiz,module_quiz,Güvenlik tasarımı Ara Quiz,advanced,12956a13-40f1-5480-8ed0-de328b267218,efd84879-3961-53ac-a915-d7446967e4dd,70,25,3
+fab560f8-5342-5f21-9e50-f30df04b8dc2,ai-urun-guvenlik-etik-final-sinavi,course_exam,"AI Ürün, Güvenlik ve Etik Final Sınavı",advanced,12956a13-40f1-5480-8ed0-de328b267218,,75,60,5
+6aa7e4c1-a370-5621-b485-6c0f290d0c4d,capstone-ai-engineer-modul-1-quiz,module_quiz,Problem çerçeveleme Ara Quiz,expert,21aa174e-ed70-552a-83cf-c95f6ef119d3,3194ce86-f9a0-5fcb-836a-032a164a900e,70,25,3
+c71aabfe-a5f9-5c00-8e4d-6422cdd5327e,capstone-ai-engineer-modul-2-quiz,module_quiz,Ürünü geliştirme Ara Quiz,expert,21aa174e-ed70-552a-83cf-c95f6ef119d3,347b537a-c130-5fa9-b812-4ad89b80bb93,70,25,3
+e99d2fed-15ee-5ef1-b8da-2cad8ed91646,capstone-ai-engineer-modul-3-quiz,module_quiz,Sunum ve iterasyon Ara Quiz,expert,21aa174e-ed70-552a-83cf-c95f6ef119d3,d4b704a6-ce9f-5f9e-8872-70e17281f398,70,25,3
+e19ba5f1-79c2-5a9f-af1d-bfa120768e8c,capstone-ai-engineer-final-sinavi,course_exam,Capstone: AI Engineer Uzmanlık Projesi Final Sınavı,expert,21aa174e-ed70-552a-83cf-c95f6ef119d3,,75,60,5

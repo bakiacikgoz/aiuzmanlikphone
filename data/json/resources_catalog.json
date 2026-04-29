@@ -1,0 +1,112 @@
+{
+  "python": [
+    "Python resmi öğreticisi",
+    "link",
+    "https://docs.python.org/3/tutorial/index.html"
+  ],
+  "numpy-pandas": [
+    "NumPy başlangıç kılavuzu",
+    "link",
+    "https://numpy.org/doc/stable/user/absolute_beginners.html"
+  ],
+  "statistics": [
+    "scikit-learn kullanıcı rehberi",
+    "link",
+    "https://scikit-learn.org/stable/user_guide.html"
+  ],
+  "machine-learning": [
+    "scikit-learn kullanıcı rehberi",
+    "link",
+    "https://scikit-learn.org/stable/user_guide.html"
+  ],
+  "model-evaluation": [
+    "scikit-learn model evaluation rehberi",
+    "link",
+    "https://scikit-learn.org/stable/modules/model_evaluation.html"
+  ],
+  "experimentation": [
+    "MLflow dokümantasyonu",
+    "link",
+    "https://mlflow.org/docs/latest/index.html"
+  ],
+  "neural-networks": [
+    "PyTorch öğrenme kaynakları",
+    "link",
+    "https://docs.pytorch.org/tutorials/"
+  ],
+  "deep-learning": [
+    "PyTorch tutorial koleksiyonu",
+    "link",
+    "https://docs.pytorch.org/tutorials/"
+  ],
+  "pytorch": [
+    "PyTorch tutorial koleksiyonu",
+    "link",
+    "https://docs.pytorch.org/tutorials/"
+  ],
+  "computer-vision": [
+    "PyTorch computer vision tutorialları",
+    "link",
+    "https://docs.pytorch.org/tutorials/"
+  ],
+  "nlp": [
+    "Hugging Face LLM kursu",
+    "link",
+    "https://huggingface.co/learn/llm-course/chapter1/1"
+  ],
+  "llm": [
+    "Hugging Face LLM kursu",
+    "link",
+    "https://huggingface.co/learn/llm-course/chapter1/1"
+  ],
+  "prompt-engineering": [
+    "OpenAI prompt engineering rehberi",
+    "link",
+    "https://platform.openai.com/docs/guides/prompt-engineering"
+  ],
+  "rag": [
+    "OpenAI embeddings rehberi",
+    "link",
+    "https://platform.openai.com/docs/guides/embeddings"
+  ],
+  "vector-databases": [
+    "LangChain dokümantasyonu",
+    "link",
+    "https://docs.langchain.com/"
+  ],
+  "mlops": [
+    "MLflow dokümantasyonu",
+    "link",
+    "https://mlflow.org/docs/latest/index.html"
+  ],
+  "deployment": [
+    "MLflow deployment kaynakları",
+    "link",
+    "https://mlflow.org/docs/latest/index.html"
+  ],
+  "monitoring": [
+    "MLflow dokümantasyonu",
+    "link",
+    "https://mlflow.org/docs/latest/index.html"
+  ],
+  "ai-security": [
+    "OpenAI safety best practices",
+    "link",
+    "https://platform.openai.com/docs/guides/safety-best-practices"
+  ],
+  "responsible-ai": [
+    "scikit-learn model evaluation rehberi",
+    "link",
+    "https://scikit-learn.org/stable/modules/model_evaluation.html"
+  ],
+  "ai-product": [
+    "LangChain dokümantasyonu",
+    "link",
+    "https://docs.langchain.com/"
+  ],
+  "capstone": [
+    "MLflow dokümantasyonu",
+    "link",
+    "https://mlflow.org/docs/latest/index.html"
+  ]
+}

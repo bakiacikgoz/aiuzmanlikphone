@@ -1,0 +1,43 @@
+id,lesson_id,slug,title,language,difficulty,xp_reward,status
+47c7c3e2-5dcb-57ca-96cf-f35cc97d42aa,bb3b04a1-70e4-58e0-a9dd-79d9db347f30,python-ai-temelleri-m1-lab,Mini Lab: Python çalışma ortamı,python,beginner,30,published
+be1e59a9-031c-54cd-89e4-246aa079b2be,c0769359-4998-5ab3-9616-5767ba0585f2,python-ai-temelleri-m2-lab,Mini Lab: Veri yapıları ve dosya işlemleri,python,beginner,30,published
+e8c5535e-abba-5808-bff7-c77b6fed2d67,b46745fa-4d8b-53d5-a0b4-93316f466585,python-ai-temelleri-m3-lab,Mini Lab: AI kod kalitesi,python,beginner,30,published
+3f08264e-f487-5f57-85df-72e88a170fcc,a9cf8393-0590-5fef-b53f-ac516eac032a,numpy-pandas-veri-m1-lab,Mini Lab: NumPy temelleri,python,beginner,30,published
+bbaa2778-5df7-594d-85d5-2aed335035ab,b95466f3-6ac3-5605-a3f8-febf7cdb4f69,numpy-pandas-veri-m2-lab,Mini Lab: Pandas veri akışı,python,beginner,30,published
+f622945c-b5c8-53ea-9235-c13efa9dc9ec,8d61f073-44db-51c2-9e31-7afa59ba3544,numpy-pandas-veri-m3-lab,Mini Lab: Feature engineering başlangıcı,python,beginner,30,published
+25f5895c-9447-5be0-b911-342e95a13b4f,ff1364d9-20f1-5d82-af06-6ea32d066d7b,matematik-istatistik-ai-m1-lab,Mini Lab: Lineer cebir sezgisi,python,beginner,30,published
+77fc359a-146e-5c93-93b5-217cd3d1b34e,a5e85991-dff7-5b09-8b6e-13a7a0a825f1,matematik-istatistik-ai-m2-lab,Mini Lab: Olasılık ve dağılımlar,python,beginner,30,published
+f09ec8a2-d8a9-5e04-ae29-8b0f044d7152,cc29d04a-0ba9-5b5d-857d-9c9f34244c9b,matematik-istatistik-ai-m3-lab,Mini Lab: Metrikler ve güven,python,beginner,30,published
+39bde9c1-bc5a-5c96-8731-42e679b33d12,a538664c-4c1c-5561-a1f7-48571cc09d10,makine-ogrenmesi-temelleri-m1-lab,Mini Lab: Denetimli öğrenme,python,beginner,30,published
+8da83b52-6826-545d-ae0c-4c67ff3b3d1d,e5b13d55-160d-5d57-8dd1-6a6c7a9d1b29,makine-ogrenmesi-temelleri-m2-lab,Mini Lab: Denetimsiz öğrenme,python,beginner,30,published
+c768f01e-4936-51d3-acca-b0936060d5d6,48d774e6-bc03-5602-8891-9f5b7bbd1311,makine-ogrenmesi-temelleri-m3-lab,Mini Lab: Pipeline ve validasyon,python,beginner,30,published
+174cc889-607d-5b7b-8ff1-c86bad21de4d,6e4c9822-4972-5059-a4f1-a5d67b154182,neural-networks-101-m1-lab,Mini Lab: Perceptron temelleri,python,intermediate,30,published
+f5ed7a36-103c-53ce-b148-9c894a317ff7,7bb29e24-b2b2-572f-b0bc-bc34a19bf10e,neural-networks-101-m2-lab,Mini Lab: Loss ve optimizasyon,python,intermediate,30,published
+78bce975-b57a-5e3f-8a33-f036307e32df,52aaa647-177b-5a52-a15f-79e9c5cd61e9,neural-networks-101-m3-lab,Mini Lab: Backpropagation,python,intermediate,30,published
+034b655f-2c97-55f6-b6c1-2c0db469f44c,f93cfbf9-b7c4-5d4f-9ad0-220bed016986,model-degerlendirme-deneyler-m1-lab,Mini Lab: Metrik seçimi,python,intermediate,30,published
+af3a7320-8f9e-5447-beb6-a58ec6d268c2,914ec2d8-1a95-5e4f-ae33-ccafc53f2c0a,model-degerlendirme-deneyler-m2-lab,Mini Lab: Deney izleme,python,intermediate,30,published
+725bef31-109d-542b-8d57-cf2dd9d90e50,b24e6dbb-59fb-50d1-b2f0-abda52fbd2e5,model-degerlendirme-deneyler-m3-lab,Mini Lab: Hata analizi,python,intermediate,30,published
+a97c073b-dac9-50d5-a1d7-f6d250120185,ad7b1414-ec2c-53a7-8a57-334ddd6e7137,deep-learning-pytorch-m1-lab,Mini Lab: Tensor ve autograd,python,advanced,30,published
+82676da3-d8e2-5a3e-ad5a-67784d5db68c,8bc5b1c5-6252-5802-a2e5-3609cd0e0d17,deep-learning-pytorch-m2-lab,Mini Lab: Eğitim döngüsü,python,advanced,30,published
+ce47d5a6-87b3-5bca-957b-41cd1bbf827c,5702830a-3997-5c69-bd40-3ee37b2966a1,deep-learning-pytorch-m3-lab,Mini Lab: Regularization ve transfer,python,advanced,30,published
+6fc461de-44bc-5172-aa97-f56b9ec0be37,2d508b98-5cbc-5013-92ef-8d9dd81f4219,bilgisayarli-goru-temelleri-m1-lab,Mini Lab: Görüntü ön işleme,python,advanced,30,published
+458f7432-964b-5c10-a051-5ae9f33ed6aa,6f9809f9-ffca-50ce-83f6-1e754d691599,bilgisayarli-goru-temelleri-m2-lab,Mini Lab: CNN mimarileri,python,advanced,30,published
+7d147074-6deb-5b62-b586-adc343222f0a,3e2dff34-7fed-5697-8ecd-3b9bca2af769,bilgisayarli-goru-temelleri-m3-lab,Mini Lab: Görsel model üretimi,python,advanced,30,published
+9d33d9d3-e468-508c-8dda-f23383d132d0,b14e2e26-b516-5d7f-81f4-12d60a777c38,nlp-llm-temelleri-m1-lab,Mini Lab: Tokenization ve embedding,python,intermediate,30,published
+25bfafd7-3a84-5e0e-a94f-8711449616d5,0ef12391-3a10-5d84-ae87-bd7310b7a904,nlp-llm-temelleri-m2-lab,Mini Lab: Transformer sezgisi,python,intermediate,30,published
+4408e1a7-7107-505f-9866-2fd835463f2a,6b362fcc-2b79-5dde-b06f-51d249767c0a,nlp-llm-temelleri-m3-lab,Mini Lab: LLM uygulama temelleri,python,intermediate,30,published
+5a8e4be1-055f-5ced-a55b-bd5cec3594b1,ebf83e29-fa8c-5ae5-96b4-341443b23208,prompt-engineering-pratikleri-m1-lab,Mini Lab: Prompt anatomisi,python,intermediate,30,published
+b4940bf5-508e-56d0-95f4-9a2bc7ae53c7,f8189461-ac6a-5bee-a877-1433206c13e6,prompt-engineering-pratikleri-m2-lab,Mini Lab: Yapılandırılmış çıktı,python,intermediate,30,published
+46d11cfc-2272-5145-9963-a0f3c862bc1c,0e4dbc17-f633-5ca4-a710-b691f76b4e11,prompt-engineering-pratikleri-m3-lab,Mini Lab: Prompt eval ve güvenlik,python,intermediate,30,published
+5ab1748e-2013-5cc3-b02e-d9efbd887403,dafa552a-6038-578a-b9bd-1af47fb0fd7d,rag-ai-uygulamalari-m1-lab,Mini Lab: Retrieval temelleri,python,intermediate,30,published
+a08ea3a3-3ac5-5924-844c-551b69088f87,e2df0514-3357-5502-a166-c1a8734b6a75,rag-ai-uygulamalari-m2-lab,Mini Lab: RAG pipeline,python,intermediate,30,published
+8d582f6a-211f-52b9-bbd3-f53330de4da1,7bcc921c-bd92-5094-b982-bb45eb81a001,rag-ai-uygulamalari-m3-lab,Mini Lab: AI uygulama mimarisi,python,intermediate,30,published
+e5182cdc-40e3-51e9-a2d3-b63b4f999adf,41102c57-6bc3-5be9-acd9-946dd832fc04,mlops-uretim-m1-lab,Mini Lab: Deployment seçenekleri,python,advanced,30,published
+71322b4f-0848-5519-be5f-9086a8d5d25a,5a33623d-9541-5c81-88a0-e1ec6a523d52,mlops-uretim-m2-lab,Mini Lab: Model registry ve CI/CD,python,advanced,30,published
+1cf7c3f2-c8b5-53b0-a911-d75b75622d03,c3923407-d95a-5fff-9370-ca071d8d770f,mlops-uretim-m3-lab,Mini Lab: Monitoring ve drift,python,advanced,30,published
+7de5ea80-303b-5b27-b95e-3c7783453a59,cff571f4-42cb-57f5-9f3c-4eaf4bd96003,ai-urun-guvenlik-etik-m1-lab,Mini Lab: AI ürün keşfi,python,advanced,30,published
+39041c39-b2e6-5ede-97f7-0a33e0fc3734,43597261-4d69-5bbd-82c5-269514698491,ai-urun-guvenlik-etik-m2-lab,Mini Lab: Risk ve gizlilik,python,advanced,30,published
+8dd38f37-d54e-5b56-81f5-dff367d074a8,5365959e-86a2-589b-8d28-d0b3542be275,ai-urun-guvenlik-etik-m3-lab,Mini Lab: Güvenlik tasarımı,python,advanced,30,published
+779c43d6-69f4-5d70-8bd1-c42e66c29fae,837b7c2a-687e-53e3-ad5d-c782eeed0f15,capstone-ai-engineer-m1-lab,Mini Lab: Problem çerçeveleme,python,expert,30,published
+46cbfe8b-5af5-5eff-8e9a-6bb2a321a715,015df0ee-8a2b-5e97-a41f-c92956a810ad,capstone-ai-engineer-m2-lab,Mini Lab: Ürünü geliştirme,python,expert,30,published
+d0fe2de3-cd7a-5b58-9ca3-5eb6fdcdd51d,ab68ee2d-f46f-5d10-93b2-8f27e12c9f91,capstone-ai-engineer-m3-lab,Mini Lab: Sunum ve iterasyon,python,expert,30,published

@@ -1,0 +1,209 @@
+id,assessment_id,question_type,prompt,difficulty,sort_order,points
+7c4b9a7b-a31e-534e-81dd-5aa5a5e1d43b,f9eb680a-8c85-500d-981e-e8ab14032c08,single_select,Aşağıdakilerden hangisi denetimli öğrenme örneğidir?,beginner,1,1
+fcaaf1bc-fb4f-578c-9ee2-066c12cc9e51,f9eb680a-8c85-500d-981e-e8ab14032c08,single_select,"Modelin eğitim verisinde çok iyi, yeni veride kötü performans göstermesi neyi işaret eder?",beginner,2,1
+944715a9-14c5-5a1c-ac88-680a01497286,f9eb680a-8c85-500d-981e-e8ab14032c08,single_select,RAG mimarisinde retrieval adımının temel amacı nedir?,beginner,3,1
+910b7e5a-8902-57ad-9c9b-cdec9fbc098c,f9eb680a-8c85-500d-981e-e8ab14032c08,single_select,Precision metriği özellikle neyi ölçer?,beginner,4,1
+daf762a2-b9d7-5a80-a0c6-568afa139bc0,f9eb680a-8c85-500d-981e-e8ab14032c08,single_select,Backpropagation hangi amaçla kullanılır?,intermediate,5,1
+664adc0b-bfc6-501d-9ec0-dab0f26d1267,f9eb680a-8c85-500d-981e-e8ab14032c08,single_select,Prompt injection riski en çok hangi durumda artar?,intermediate,6,1
+5449f009-838b-5360-9aa6-4ad3449387fc,f9eb680a-8c85-500d-981e-e8ab14032c08,single_select,Cross-validation neden kullanılır?,intermediate,7,1
+7f55877a-aeef-5d7c-bdda-9259b3acb9e9,f9eb680a-8c85-500d-981e-e8ab14032c08,single_select,Embedding neyi temsil eder?,intermediate,8,1
+3ec41c91-caa3-5c98-a537-729b5bb06b31,f9eb680a-8c85-500d-981e-e8ab14032c08,single_select,MLOps izleme hattında drift ne anlama gelir?,intermediate,9,1
+11be5fae-db53-5b83-b703-e74aff9598e3,f9eb680a-8c85-500d-981e-e8ab14032c08,single_select,Bir AI ürününde insan onayı hangi durumlarda kritiktir?,advanced,10,1
+15f788f6-93a4-5bb3-aacc-5df85c2227ab,f9eb680a-8c85-500d-981e-e8ab14032c08,single_select,Learning rate çok yüksekse genelde ne olur?,advanced,11,1
+56d775f3-c5b2-550d-bd66-66525df9f417,f9eb680a-8c85-500d-981e-e8ab14032c08,single_select,AI mühendisliğinde baseline neden önemlidir?,advanced,12,1
+61dca2c3-26ce-5bd8-a64c-9b8a5dfae62b,559e27d2-5894-5d14-a0b2-a00483e0117f,single_select,Python çalışma ortamı modülünün ana çıktısı hangisidir?,beginner,1,1
+2e05679c-61d8-57fd-a94a-a2f587167860,559e27d2-5894-5d14-a0b2-a00483e0117f,single_select,"Python, paketler ve notebook akışı çalışılırken ilk yapılması gereken nedir?",beginner,2,1
+ce649458-f740-5cd3-aa67-de190f0aaf7d,559e27d2-5894-5d14-a0b2-a00483e0117f,single_select,Python çalışma ortamı için en sağlıklı pratik yaklaşım hangisidir?,beginner,3,1
+daa74be8-d98a-50e0-ba46-7343d03c5a8c,e3f5a681-9014-5d74-b30e-154e9127c29a,single_select,Veri yapıları ve dosya işlemleri modülünün ana çıktısı hangisidir?,beginner,1,1
+d44c2f99-7c41-56d8-85a3-e6265c992da9,e3f5a681-9014-5d74-b30e-154e9127c29a,single_select,"Liste, sözlük, küme ve tuple çalışılırken ilk yapılması gereken nedir?",beginner,2,1
+15945480-b754-5e81-9d78-6690b0f2227c,e3f5a681-9014-5d74-b30e-154e9127c29a,single_select,Veri yapıları ve dosya işlemleri için en sağlıklı pratik yaklaşım hangisidir?,beginner,3,1
+e176bcdc-be4a-529e-9a9a-723deae4435a,74a2e9d8-df3d-5dc5-bb11-36534555dfbc,single_select,AI kod kalitesi modülünün ana çıktısı hangisidir?,beginner,1,1
+f8c2e1d0-6fbf-5802-a085-0f9bd9c27449,74a2e9d8-df3d-5dc5-bb11-36534555dfbc,single_select,"Tip ipuçları, test ve tekrar kullanılabilir fonksiyonlar çalışılırken ilk yapılması gereken nedir?",beginner,2,1
+fff63ef4-cf49-52b4-b3c3-e9a61d32425e,74a2e9d8-df3d-5dc5-bb11-36534555dfbc,single_select,AI kod kalitesi için en sağlıklı pratik yaklaşım hangisidir?,beginner,3,1
+b15bb560-f6b7-5c48-852e-7dc7345c8dbf,e5e1dd5d-423c-54c3-a67b-df5b8a234e13,single_select,Python ile AI Temelleri kapsamında doğru çalışma sırası hangisidir?,beginner,1,1
+d96f0081-aafe-5299-9a78-6306eaf6f0c8,e5e1dd5d-423c-54c3-a67b-df5b8a234e13,single_select,Bir sonucu güvenilir kabul etmek için ne gerekir?,beginner,2,1
+1dbfefa4-bd87-550e-a167-c9cd03e196ed,e5e1dd5d-423c-54c3-a67b-df5b8a234e13,single_select,Hata analizi ne zaman yapılmalıdır?,beginner,3,1
+fb8b7154-523d-5f6e-a895-da8799518f51,e5e1dd5d-423c-54c3-a67b-df5b8a234e13,single_select,Üretim ortamına geçerken hangi kayıtlar önemlidir?,beginner,4,1
+6bd00c77-f617-54b1-9832-3dc7f4ef9ac2,e5e1dd5d-423c-54c3-a67b-df5b8a234e13,single_select,Kullanıcıya dönük AI uygulamasında en önemli güvenlik ilkesi nedir?,beginner,5,1
+b88352b4-b8ce-58d2-a5b6-5713c0d89f83,367ae176-1861-5870-89be-e3c4c01f4187,single_select,NumPy temelleri modülünün ana çıktısı hangisidir?,beginner,1,1
+0f5c9e60-b8be-5784-a482-75ed8153a573,367ae176-1861-5870-89be-e3c4c01f4187,single_select,Array yapısı ve vektörleştirme çalışılırken ilk yapılması gereken nedir?,beginner,2,1
+bff81f48-5bba-50f6-b706-36216403b03e,367ae176-1861-5870-89be-e3c4c01f4187,single_select,NumPy temelleri için en sağlıklı pratik yaklaşım hangisidir?,beginner,3,1
+d14261c6-c3f9-592f-99bb-e4cd2b58fc4b,6125d789-f21c-5ce4-af9d-e0568c906d12,single_select,Pandas veri akışı modülünün ana çıktısı hangisidir?,beginner,1,1
+8d1679d4-f70d-5c9e-bb39-e367567fd699,6125d789-f21c-5ce4-af9d-e0568c906d12,single_select,DataFrame okuma ve keşif çalışılırken ilk yapılması gereken nedir?,beginner,2,1
+ba9e79fe-842b-57a7-9d0d-d17c81738d4e,6125d789-f21c-5ce4-af9d-e0568c906d12,single_select,Pandas veri akışı için en sağlıklı pratik yaklaşım hangisidir?,beginner,3,1
+4490c25f-047f-5c23-9efa-7312a394d2dd,c2f9d345-18a5-5763-a414-8b945c6b9409,single_select,Feature engineering başlangıcı modülünün ana çıktısı hangisidir?,beginner,1,1
+bdbfa550-9368-51c2-954b-857fa066ffbd,c2f9d345-18a5-5763-a414-8b945c6b9409,single_select,Sayısal özellik ölçekleme çalışılırken ilk yapılması gereken nedir?,beginner,2,1
+0ac6b18e-c83f-5cc1-b60e-7d77ae813463,c2f9d345-18a5-5763-a414-8b945c6b9409,single_select,Feature engineering başlangıcı için en sağlıklı pratik yaklaşım hangisidir?,beginner,3,1
+636537d7-ae45-55f7-a75f-d01561326d8d,2975af7b-58ff-59fa-a319-38bcab01911c,single_select,NumPy & Pandas ile Veri İşleme kapsamında doğru çalışma sırası hangisidir?,beginner,1,1
+e818c72e-89f6-5de3-aa30-c0b603ada09b,2975af7b-58ff-59fa-a319-38bcab01911c,single_select,Bir sonucu güvenilir kabul etmek için ne gerekir?,beginner,2,1
+a3dd4257-fc4e-57b9-9c04-e2eb0aa48737,2975af7b-58ff-59fa-a319-38bcab01911c,single_select,Hata analizi ne zaman yapılmalıdır?,beginner,3,1
+99c3af2b-2d45-5189-bbc7-cdf45bfb60e4,2975af7b-58ff-59fa-a319-38bcab01911c,single_select,Üretim ortamına geçerken hangi kayıtlar önemlidir?,beginner,4,1
+af0afbf9-21b1-58fc-8763-7170da06ce5e,2975af7b-58ff-59fa-a319-38bcab01911c,single_select,Kullanıcıya dönük AI uygulamasında en önemli güvenlik ilkesi nedir?,beginner,5,1
+ee555fe4-e38a-585f-8e3f-5aa0950deece,3777aa0c-e9a5-568f-9be4-76f6276b145e,single_select,Lineer cebir sezgisi modülünün ana çıktısı hangisidir?,beginner,1,1
+d7eb8656-8d36-5283-abc7-f77e9ed7bc2c,3777aa0c-e9a5-568f-9be4-76f6276b145e,single_select,"Vektör, matris ve tensör kavramı çalışılırken ilk yapılması gereken nedir?",beginner,2,1
+83f05120-8980-5e72-acbf-aefa8f8ea0ec,3777aa0c-e9a5-568f-9be4-76f6276b145e,single_select,Lineer cebir sezgisi için en sağlıklı pratik yaklaşım hangisidir?,beginner,3,1
+2b01204a-a8dd-560d-8c97-1bf5b55ea891,936652c2-35fb-53fa-b87d-090680cf79bc,single_select,Olasılık ve dağılımlar modülünün ana çıktısı hangisidir?,beginner,1,1
+159af69a-d159-5128-bf53-9a285422b375,936652c2-35fb-53fa-b87d-090680cf79bc,single_select,Rastgele değişken ve beklenen değer çalışılırken ilk yapılması gereken nedir?,beginner,2,1
+ed871a08-9d08-5784-ab6f-0f1dd20617b4,936652c2-35fb-53fa-b87d-090680cf79bc,single_select,Olasılık ve dağılımlar için en sağlıklı pratik yaklaşım hangisidir?,beginner,3,1
+ad96f46e-a527-5854-a228-378860245f31,04d5b981-8470-54a7-8ebe-c2a05d33617c,single_select,Metrikler ve güven modülünün ana çıktısı hangisidir?,beginner,1,1
+e898fab3-dec4-5bb2-a525-615273be681a,04d5b981-8470-54a7-8ebe-c2a05d33617c,single_select,Sınıflandırma metrikleri çalışılırken ilk yapılması gereken nedir?,beginner,2,1
+4c30f0e9-7165-5ec5-8ff8-9b00d0322fa4,04d5b981-8470-54a7-8ebe-c2a05d33617c,single_select,Metrikler ve güven için en sağlıklı pratik yaklaşım hangisidir?,beginner,3,1
+8e4ca3aa-41f7-572e-95aa-951fdb4eb25a,21752fc7-b279-5c5b-bfb9-7af520b41276,single_select,AI için Matematik ve İstatistik kapsamında doğru çalışma sırası hangisidir?,beginner,1,1
+f67a5857-9f92-59be-862d-08df56c6639d,21752fc7-b279-5c5b-bfb9-7af520b41276,single_select,Bir sonucu güvenilir kabul etmek için ne gerekir?,beginner,2,1
+9b81143f-988c-517d-9546-544d5632606b,21752fc7-b279-5c5b-bfb9-7af520b41276,single_select,Hata analizi ne zaman yapılmalıdır?,beginner,3,1
+d76521a7-20c3-5076-9c5e-d4dda113387c,21752fc7-b279-5c5b-bfb9-7af520b41276,single_select,Üretim ortamına geçerken hangi kayıtlar önemlidir?,beginner,4,1
+9740eb51-0e1a-5aa1-a5bd-2f18308acd8d,21752fc7-b279-5c5b-bfb9-7af520b41276,single_select,Kullanıcıya dönük AI uygulamasında en önemli güvenlik ilkesi nedir?,beginner,5,1
+3e991827-8a4f-5b36-85f3-ebb4092cff6e,0a81a644-fd66-56e8-991b-21eb9abaaccc,single_select,Denetimli öğrenme modülünün ana çıktısı hangisidir?,beginner,1,1
+99aa31ca-03b2-511e-a785-979ca1ca681f,0a81a644-fd66-56e8-991b-21eb9abaaccc,single_select,Problem tipini sınıflandırma çalışılırken ilk yapılması gereken nedir?,beginner,2,1
+f5d2c46b-d2d0-513e-9dbb-bfc1ca375299,0a81a644-fd66-56e8-991b-21eb9abaaccc,single_select,Denetimli öğrenme için en sağlıklı pratik yaklaşım hangisidir?,beginner,3,1
+83f425a1-a3b4-553d-b632-ea94163e4c15,e08a6ea7-786f-5be9-946c-235467d6def3,single_select,Denetimsiz öğrenme modülünün ana çıktısı hangisidir?,beginner,1,1
+3855b063-67d4-53c6-8219-efd512314451,e08a6ea7-786f-5be9-946c-235467d6def3,single_select,K-means ve müşteri segmentasyonu çalışılırken ilk yapılması gereken nedir?,beginner,2,1
+9b61ad1a-6df4-5079-939f-5c546a672926,e08a6ea7-786f-5be9-946c-235467d6def3,single_select,Denetimsiz öğrenme için en sağlıklı pratik yaklaşım hangisidir?,beginner,3,1
+8ac3ddb3-6645-5928-9515-068e7c1aba0d,4de14f5e-9268-599e-a402-46a0c87fd0da,single_select,Pipeline ve validasyon modülünün ana çıktısı hangisidir?,beginner,1,1
+7c3ac5f0-edfb-5a48-9dd0-97cdf156d5e6,4de14f5e-9268-599e-a402-46a0c87fd0da,single_select,Ön işleme pipeline kurma çalışılırken ilk yapılması gereken nedir?,beginner,2,1
+80337577-24ff-569c-b4c4-f33c4f14e6db,4de14f5e-9268-599e-a402-46a0c87fd0da,single_select,Pipeline ve validasyon için en sağlıklı pratik yaklaşım hangisidir?,beginner,3,1
+2433480f-40c3-5af6-a934-48d7755d792f,4bb7617b-db05-5735-9fb7-b0247816e2b4,single_select,Makine Öğrenmesi Temelleri kapsamında doğru çalışma sırası hangisidir?,beginner,1,1
+3d893c07-1b7f-532d-bd92-380b79df18dd,4bb7617b-db05-5735-9fb7-b0247816e2b4,single_select,Bir sonucu güvenilir kabul etmek için ne gerekir?,beginner,2,1
+6cd5d80e-e790-5f58-8173-f8b56efa59df,4bb7617b-db05-5735-9fb7-b0247816e2b4,single_select,Hata analizi ne zaman yapılmalıdır?,beginner,3,1
+e6aa8fac-94aa-5d83-b913-6fcb7752bfd8,4bb7617b-db05-5735-9fb7-b0247816e2b4,single_select,Üretim ortamına geçerken hangi kayıtlar önemlidir?,beginner,4,1
+d1a41f16-4f91-5b43-b20b-8e3c3325e616,4bb7617b-db05-5735-9fb7-b0247816e2b4,single_select,Kullanıcıya dönük AI uygulamasında en önemli güvenlik ilkesi nedir?,beginner,5,1
+ef771fa2-de12-5734-9e26-2d6363ae6aea,73235f9b-5917-5268-b304-19ece9b4f59d,single_select,Perceptron temelleri modülünün ana çıktısı hangisidir?,intermediate,1,1
+0edb48a7-10d3-58bc-b15b-be8028590432,73235f9b-5917-5268-b304-19ece9b4f59d,single_select,Nöron modeli ve ağırlıklı toplam çalışılırken ilk yapılması gereken nedir?,intermediate,2,1
+9c4a0129-4e48-5fc4-ba29-14208a8b5e0b,73235f9b-5917-5268-b304-19ece9b4f59d,single_select,Perceptron temelleri için en sağlıklı pratik yaklaşım hangisidir?,intermediate,3,1
+81a2ee67-cba0-5ded-861d-9544c8d4866d,78a07218-8ced-5f30-bcf1-0a0ef3a3709f,single_select,Loss ve optimizasyon modülünün ana çıktısı hangisidir?,intermediate,1,1
+ad9425c0-dcc7-56b1-8dd7-50898c80984a,78a07218-8ced-5f30-bcf1-0a0ef3a3709f,single_select,Loss fonksiyonu seçimi çalışılırken ilk yapılması gereken nedir?,intermediate,2,1
+c38db5eb-e9b2-5b57-a6d1-2f274c1590e2,78a07218-8ced-5f30-bcf1-0a0ef3a3709f,single_select,Loss ve optimizasyon için en sağlıklı pratik yaklaşım hangisidir?,intermediate,3,1
+4a94bd44-9a77-5a4f-b6d6-da37cf7d4e14,9bd88d66-b55d-5746-831e-24c360e6852d,single_select,Backpropagation modülünün ana çıktısı hangisidir?,intermediate,1,1
+5e99c051-a91d-5a68-823c-fdcd133cb8b8,9bd88d66-b55d-5746-831e-24c360e6852d,single_select,Zincir kuralı ile geri yayılım çalışılırken ilk yapılması gereken nedir?,intermediate,2,1
+d33ed110-1526-52dc-b618-76ba264dce72,9bd88d66-b55d-5746-831e-24c360e6852d,single_select,Backpropagation için en sağlıklı pratik yaklaşım hangisidir?,intermediate,3,1
+56f6b446-0c58-5844-915e-0297471ee974,95c006c7-eb63-55ea-a98e-bff49cbfe8e3,single_select,Neural Networks 101 kapsamında doğru çalışma sırası hangisidir?,intermediate,1,1
+19b486ab-80b6-5c53-90c7-08191df4009c,95c006c7-eb63-55ea-a98e-bff49cbfe8e3,single_select,Bir sonucu güvenilir kabul etmek için ne gerekir?,intermediate,2,1
+bfc51d2a-9349-589e-a532-f2108ed8b0e0,95c006c7-eb63-55ea-a98e-bff49cbfe8e3,single_select,Hata analizi ne zaman yapılmalıdır?,intermediate,3,1
+57467512-4ab1-526e-9bf2-bf78c2f1218e,95c006c7-eb63-55ea-a98e-bff49cbfe8e3,single_select,Üretim ortamına geçerken hangi kayıtlar önemlidir?,intermediate,4,1
+2281632a-5c09-55b3-a1cf-8992507e6145,95c006c7-eb63-55ea-a98e-bff49cbfe8e3,single_select,Kullanıcıya dönük AI uygulamasında en önemli güvenlik ilkesi nedir?,intermediate,5,1
+a907a80b-ea06-58e6-b222-5ec3818fd456,7b418a24-ecba-513f-bf66-48476183b5d1,single_select,Metrik seçimi modülünün ana çıktısı hangisidir?,intermediate,1,1
+35fdc0cc-dd5d-57e0-ba5c-11c87eefb4a9,7b418a24-ecba-513f-bf66-48476183b5d1,single_select,"Precision, recall ve F1 seçimi çalışılırken ilk yapılması gereken nedir?",intermediate,2,1
+41936347-260f-5aa9-8fe4-54fabc9426a1,7b418a24-ecba-513f-bf66-48476183b5d1,single_select,Metrik seçimi için en sağlıklı pratik yaklaşım hangisidir?,intermediate,3,1
+58a09130-1591-58c9-8a74-190231acfd29,c66672e5-aeb3-563e-8e8f-e32072d7492f,single_select,Deney izleme modülünün ana çıktısı hangisidir?,intermediate,1,1
+376dbd3e-b3cb-56b8-b004-b5f2b210355b,c66672e5-aeb3-563e-8e8f-e32072d7492f,single_select,Deney hipotezi yazma çalışılırken ilk yapılması gereken nedir?,intermediate,2,1
+8a0f4dee-493b-59eb-bd52-752a1bf3df13,c66672e5-aeb3-563e-8e8f-e32072d7492f,single_select,Deney izleme için en sağlıklı pratik yaklaşım hangisidir?,intermediate,3,1
+8c494f92-304c-5413-ba50-c4907d9f80de,a6486757-a055-5b22-9248-71a80a09c9b5,single_select,Hata analizi modülünün ana çıktısı hangisidir?,intermediate,1,1
+ad42c342-aabb-54e3-ac1c-a0d217024883,a6486757-a055-5b22-9248-71a80a09c9b5,single_select,Confusion matrix okuma çalışılırken ilk yapılması gereken nedir?,intermediate,2,1
+441c31de-40b8-5143-a31d-8ae3976f0fd2,a6486757-a055-5b22-9248-71a80a09c9b5,single_select,Hata analizi için en sağlıklı pratik yaklaşım hangisidir?,intermediate,3,1
+52e53abd-b09a-5a97-b96c-4f1ed789f0e2,7618777e-388b-5edf-ae00-024964695002,single_select,Model Değerlendirme ve Deney Yönetimi kapsamında doğru çalışma sırası hangisidir?,intermediate,1,1
+a6031ad9-61ae-596c-8b07-15a0cbb3a2eb,7618777e-388b-5edf-ae00-024964695002,single_select,Bir sonucu güvenilir kabul etmek için ne gerekir?,intermediate,2,1
+e6207a68-d22a-5abd-a625-6ea007e1d328,7618777e-388b-5edf-ae00-024964695002,single_select,Hata analizi ne zaman yapılmalıdır?,intermediate,3,1
+920a0194-1002-59fc-9d2d-de957de4fee8,7618777e-388b-5edf-ae00-024964695002,single_select,Üretim ortamına geçerken hangi kayıtlar önemlidir?,intermediate,4,1
+499206f5-d4e9-5abb-a5de-730ff7f66c18,7618777e-388b-5edf-ae00-024964695002,single_select,Kullanıcıya dönük AI uygulamasında en önemli güvenlik ilkesi nedir?,intermediate,5,1
+89b48571-1afc-56d4-9871-7cd905af4487,942e0189-1bae-5dd8-82ff-99c12efda1b8,single_select,Tensor ve autograd modülünün ana çıktısı hangisidir?,advanced,1,1
+80a7be69-20fd-5db8-9c58-5920f6140f21,942e0189-1bae-5dd8-82ff-99c12efda1b8,single_select,Tensor operasyonları çalışılırken ilk yapılması gereken nedir?,advanced,2,1
+d35e3152-d3f0-5d10-a148-0aa610508dc7,942e0189-1bae-5dd8-82ff-99c12efda1b8,single_select,Tensor ve autograd için en sağlıklı pratik yaklaşım hangisidir?,advanced,3,1
+4743d1a5-897c-5593-ba21-6e9874f8a07d,479eadda-0ac4-54a3-9ed4-0a5cafcfeb7d,single_select,Eğitim döngüsü modülünün ana çıktısı hangisidir?,advanced,1,1
+a3f298ce-032b-53e8-a2aa-74ffad6dca6c,479eadda-0ac4-54a3-9ed4-0a5cafcfeb7d,single_select,"Model, loss ve optimizer kurma çalışılırken ilk yapılması gereken nedir?",advanced,2,1
+43ab9c8a-1ea0-567b-9ed6-2128a7fb9614,479eadda-0ac4-54a3-9ed4-0a5cafcfeb7d,single_select,Eğitim döngüsü için en sağlıklı pratik yaklaşım hangisidir?,advanced,3,1
+f7e9ce88-563d-5a44-8b70-6065546a7b2d,6bbc86b8-ccc4-5be1-825b-efcff5815cdb,single_select,Regularization ve transfer modülünün ana çıktısı hangisidir?,advanced,1,1
+666da10c-c51a-5d1a-ab12-c3521286c989,6bbc86b8-ccc4-5be1-825b-efcff5815cdb,single_select,"Dropout, weight decay ve erken durdurma çalışılırken ilk yapılması gereken nedir?",advanced,2,1
+5d1ab825-6b2a-5556-bf7c-69d873c62131,6bbc86b8-ccc4-5be1-825b-efcff5815cdb,single_select,Regularization ve transfer için en sağlıklı pratik yaklaşım hangisidir?,advanced,3,1
+7064e923-019f-51a8-a2a0-6d8ab6eb08db,6d597cd9-0328-5562-b999-794fef9d6c40,single_select,PyTorch ile Deep Learning kapsamında doğru çalışma sırası hangisidir?,advanced,1,1
+5b86fa8f-efca-57b8-bfec-ae4f61724815,6d597cd9-0328-5562-b999-794fef9d6c40,single_select,Bir sonucu güvenilir kabul etmek için ne gerekir?,advanced,2,1
+2e9cd642-9d0b-5abd-87b6-6ff0eb9a5ae6,6d597cd9-0328-5562-b999-794fef9d6c40,single_select,Hata analizi ne zaman yapılmalıdır?,advanced,3,1
+82912654-792d-5da2-9568-2ddca6733caa,6d597cd9-0328-5562-b999-794fef9d6c40,single_select,Üretim ortamına geçerken hangi kayıtlar önemlidir?,advanced,4,1
+72d0f64e-6d73-57b0-b9d6-ef7dc673bde5,6d597cd9-0328-5562-b999-794fef9d6c40,single_select,Kullanıcıya dönük AI uygulamasında en önemli güvenlik ilkesi nedir?,advanced,5,1
+b5aaeef4-e4f8-52ea-a71f-e77b36e173c7,828fd9fd-73ab-53f5-ba5b-698685e9a356,single_select,Görüntü ön işleme modülünün ana çıktısı hangisidir?,advanced,1,1
+2d7b76df-6083-52a9-a2a8-898f783dfdc0,828fd9fd-73ab-53f5-ba5b-698685e9a356,single_select,"Piksel, kanal ve normalize etme çalışılırken ilk yapılması gereken nedir?",advanced,2,1
+dc46cbb1-ee42-58d4-83ed-04699b14704c,828fd9fd-73ab-53f5-ba5b-698685e9a356,single_select,Görüntü ön işleme için en sağlıklı pratik yaklaşım hangisidir?,advanced,3,1
+58255b4e-a254-50ab-b2f2-69e525d8500d,7656864f-dd23-535c-83b7-a20c3b319c69,single_select,CNN mimarileri modülünün ana çıktısı hangisidir?,advanced,1,1
+4bfa38e0-8b07-56ab-a709-fddd34a5479b,7656864f-dd23-535c-83b7-a20c3b319c69,single_select,Convolution ve pooling sezgisi çalışılırken ilk yapılması gereken nedir?,advanced,2,1
+1fd5e7ba-8ada-5848-9031-39b1854db39a,7656864f-dd23-535c-83b7-a20c3b319c69,single_select,CNN mimarileri için en sağlıklı pratik yaklaşım hangisidir?,advanced,3,1
+44e1c11e-fdda-5d2d-a012-5b39e62a0b86,039bb5ea-af30-56e1-8ffd-1fe590d6b16b,single_select,Görsel model üretimi modülünün ana çıktısı hangisidir?,advanced,1,1
+3741d4c9-e1ba-56f6-9d62-f2ccac6c417b,039bb5ea-af30-56e1-8ffd-1fe590d6b16b,single_select,Batch inference tasarımı çalışılırken ilk yapılması gereken nedir?,advanced,2,1
+fd9095a0-144d-5ad8-bdf1-693dd45a92b1,039bb5ea-af30-56e1-8ffd-1fe590d6b16b,single_select,Görsel model üretimi için en sağlıklı pratik yaklaşım hangisidir?,advanced,3,1
+6261b774-a28e-53e8-b220-3b7943911007,e425d610-ff24-590a-aaa5-d286ea8b331c,single_select,Bilgisayarlı Görü Temelleri kapsamında doğru çalışma sırası hangisidir?,advanced,1,1
+69b30427-f24e-5b8d-a784-a8d32b069030,e425d610-ff24-590a-aaa5-d286ea8b331c,single_select,Bir sonucu güvenilir kabul etmek için ne gerekir?,advanced,2,1
+383a3378-f845-5d78-8665-a62dbf88de2a,e425d610-ff24-590a-aaa5-d286ea8b331c,single_select,Hata analizi ne zaman yapılmalıdır?,advanced,3,1
+dddcf29b-eac1-5934-bf6d-aa2844894b50,e425d610-ff24-590a-aaa5-d286ea8b331c,single_select,Üretim ortamına geçerken hangi kayıtlar önemlidir?,advanced,4,1
+a0c79a05-e708-5df8-9856-4167e10e8a19,e425d610-ff24-590a-aaa5-d286ea8b331c,single_select,Kullanıcıya dönük AI uygulamasında en önemli güvenlik ilkesi nedir?,advanced,5,1
+09b78f0f-0da0-5e70-ae82-3b4890de08ed,a4b503da-4571-5223-a938-33b51c3f7dbc,single_select,Tokenization ve embedding modülünün ana çıktısı hangisidir?,intermediate,1,1
+93735610-4909-535a-b7ff-e14f0c6b9903,a4b503da-4571-5223-a938-33b51c3f7dbc,single_select,Token nedir ve nasıl sayılır çalışılırken ilk yapılması gereken nedir?,intermediate,2,1
+5711373b-5730-5b3a-8df7-980372981ec9,a4b503da-4571-5223-a938-33b51c3f7dbc,single_select,Tokenization ve embedding için en sağlıklı pratik yaklaşım hangisidir?,intermediate,3,1
+5cc0ca5e-ded7-5401-a416-f8ccc61e5635,919f629d-b5bb-5ea7-b856-995b2c4be439,single_select,Transformer sezgisi modülünün ana çıktısı hangisidir?,intermediate,1,1
+cb131f19-2ed8-574f-aebc-eef2f2796aef,919f629d-b5bb-5ea7-b856-995b2c4be439,single_select,Attention mekanizması çalışılırken ilk yapılması gereken nedir?,intermediate,2,1
+e723fdb7-82cf-56f5-94c6-df1c29b98b81,919f629d-b5bb-5ea7-b856-995b2c4be439,single_select,Transformer sezgisi için en sağlıklı pratik yaklaşım hangisidir?,intermediate,3,1
+9cb2de5f-e416-5933-a63f-ccf2e05d8e76,14c0638d-30b8-5dd7-a8f2-5c9d883135bd,single_select,LLM uygulama temelleri modülünün ana çıktısı hangisidir?,intermediate,1,1
+5b6f0758-1908-52c8-9a83-10b987d83af9,14c0638d-30b8-5dd7-a8f2-5c9d883135bd,single_select,Model seçimi ve görev eşleştirme çalışılırken ilk yapılması gereken nedir?,intermediate,2,1
+19314c9f-b289-5209-a50e-6792d8448a08,14c0638d-30b8-5dd7-a8f2-5c9d883135bd,single_select,LLM uygulama temelleri için en sağlıklı pratik yaklaşım hangisidir?,intermediate,3,1
+f6ec27f5-1ed9-5644-9c56-cc126c77b893,4820c8a7-722e-5302-97fc-5811a35fdcd1,single_select,NLP ve LLM Temelleri kapsamında doğru çalışma sırası hangisidir?,intermediate,1,1
+b29fbeb9-111d-5af2-bdc7-93cd2e53c17a,4820c8a7-722e-5302-97fc-5811a35fdcd1,single_select,Bir sonucu güvenilir kabul etmek için ne gerekir?,intermediate,2,1
+bd93b328-a618-5d60-badd-a803b413ad3f,4820c8a7-722e-5302-97fc-5811a35fdcd1,single_select,Hata analizi ne zaman yapılmalıdır?,intermediate,3,1
+0f3cf6ef-e246-5c37-9943-dbc4410e7e76,4820c8a7-722e-5302-97fc-5811a35fdcd1,single_select,Üretim ortamına geçerken hangi kayıtlar önemlidir?,intermediate,4,1
+efe86fa8-6377-51a9-b176-c95fa6472e99,4820c8a7-722e-5302-97fc-5811a35fdcd1,single_select,Kullanıcıya dönük AI uygulamasında en önemli güvenlik ilkesi nedir?,intermediate,5,1
+b917f55b-93dc-5161-9334-07f7f4922f9e,c63cc6f6-aad9-5f55-98fc-d3b875197855,single_select,Prompt anatomisi modülünün ana çıktısı hangisidir?,intermediate,1,1
+126eb226-10cd-54ec-b43f-19456ba135bb,c63cc6f6-aad9-5f55-98fc-d3b875197855,single_select,"Rol, amaç ve bağlam ayrımı çalışılırken ilk yapılması gereken nedir?",intermediate,2,1
+d246916d-1a77-523f-9996-b3095f66fe96,c63cc6f6-aad9-5f55-98fc-d3b875197855,single_select,Prompt anatomisi için en sağlıklı pratik yaklaşım hangisidir?,intermediate,3,1
+498c1b79-405b-5798-b1f8-996e258eed06,f250014c-e9ea-583e-8f64-5f4a31ffefe1,single_select,Yapılandırılmış çıktı modülünün ana çıktısı hangisidir?,intermediate,1,1
+9569472d-a902-59c2-bfe4-9544662dc328,f250014c-e9ea-583e-8f64-5f4a31ffefe1,single_select,JSON şeması ile çıktı isteme çalışılırken ilk yapılması gereken nedir?,intermediate,2,1
+376c7b50-064e-57d1-b902-a4ac405be7e4,f250014c-e9ea-583e-8f64-5f4a31ffefe1,single_select,Yapılandırılmış çıktı için en sağlıklı pratik yaklaşım hangisidir?,intermediate,3,1
+bc34762c-4145-5bec-bea7-0d254bf89794,1628bdd2-8bb9-57e2-b37b-254facd4dbe3,single_select,Prompt eval ve güvenlik modülünün ana çıktısı hangisidir?,intermediate,1,1
+18f3925e-027b-50e1-81aa-4ad815ce90ec,1628bdd2-8bb9-57e2-b37b-254facd4dbe3,single_select,Prompt karşılaştırma deneyi çalışılırken ilk yapılması gereken nedir?,intermediate,2,1
+b51c2cab-3620-58a1-abb4-f7047e3222b3,1628bdd2-8bb9-57e2-b37b-254facd4dbe3,single_select,Prompt eval ve güvenlik için en sağlıklı pratik yaklaşım hangisidir?,intermediate,3,1
+9f642ce4-90cc-5620-a8b8-e37fdef11821,83abc162-ac35-5403-8afe-51f18b380796,single_select,Prompt Engineering Pratikleri kapsamında doğru çalışma sırası hangisidir?,intermediate,1,1
+08043c95-1352-56d9-9185-f0e2d515cfdc,83abc162-ac35-5403-8afe-51f18b380796,single_select,Bir sonucu güvenilir kabul etmek için ne gerekir?,intermediate,2,1
+ac7a9403-5d38-5208-b46d-bbe6b5229bb2,83abc162-ac35-5403-8afe-51f18b380796,single_select,Hata analizi ne zaman yapılmalıdır?,intermediate,3,1
+55df655f-03d5-5e71-b197-6ee3a3d23495,83abc162-ac35-5403-8afe-51f18b380796,single_select,Üretim ortamına geçerken hangi kayıtlar önemlidir?,intermediate,4,1
+6d21f73b-4c97-5ba5-b7b7-612892ce3359,83abc162-ac35-5403-8afe-51f18b380796,single_select,Kullanıcıya dönük AI uygulamasında en önemli güvenlik ilkesi nedir?,intermediate,5,1
+064f79a4-8c7e-5a2b-9bf4-2cf2b24eeaf6,7abfc1bb-ceb5-5995-bfe6-cd73dd174c6e,single_select,Retrieval temelleri modülünün ana çıktısı hangisidir?,intermediate,1,1
+22f1253a-a0f5-55eb-98d3-bb06f1fe35e3,7abfc1bb-ceb5-5995-bfe6-cd73dd174c6e,single_select,Chunking stratejileri çalışılırken ilk yapılması gereken nedir?,intermediate,2,1
+804ed23a-e840-5951-ace1-c616f6726f6b,7abfc1bb-ceb5-5995-bfe6-cd73dd174c6e,single_select,Retrieval temelleri için en sağlıklı pratik yaklaşım hangisidir?,intermediate,3,1
+edee7681-ab8b-5437-9bf4-e6c81fd58d3c,ed844892-05c0-5dd6-9400-fe860beb0f3c,single_select,RAG pipeline modülünün ana çıktısı hangisidir?,intermediate,1,1
+9fa0702b-3b9a-5ae3-b521-9aeebabf292d,ed844892-05c0-5dd6-9400-fe860beb0f3c,single_select,Indexleme ve metadata filtreleri çalışılırken ilk yapılması gereken nedir?,intermediate,2,1
+b6cb0131-f4b5-50dd-b187-bcf08d07cffa,ed844892-05c0-5dd6-9400-fe860beb0f3c,single_select,RAG pipeline için en sağlıklı pratik yaklaşım hangisidir?,intermediate,3,1
+afdc6eb5-10a1-53ff-808c-026d0ce03fe0,bd25be6f-1178-5ab4-a713-fce0087915bf,single_select,AI uygulama mimarisi modülünün ana çıktısı hangisidir?,intermediate,1,1
+79f2dcb1-20dd-53f6-82eb-b50ec45b7461,bd25be6f-1178-5ab4-a713-fce0087915bf,single_select,React Native istemci akışı çalışılırken ilk yapılması gereken nedir?,intermediate,2,1
+9d05e93e-f87b-5362-b521-3d6b5e2a1c61,bd25be6f-1178-5ab4-a713-fce0087915bf,single_select,AI uygulama mimarisi için en sağlıklı pratik yaklaşım hangisidir?,intermediate,3,1
+3170dc17-e330-56d9-a060-400bb3f780f0,8f4e7ab2-9216-57a8-a2cb-f15ef3cb3abb,single_select,RAG ve AI Uygulamaları kapsamında doğru çalışma sırası hangisidir?,intermediate,1,1
+5f258a61-247f-55e5-9dba-c21f4fcbf60c,8f4e7ab2-9216-57a8-a2cb-f15ef3cb3abb,single_select,Bir sonucu güvenilir kabul etmek için ne gerekir?,intermediate,2,1
+92013bf4-484a-507a-b7bf-08e6ada7c90f,8f4e7ab2-9216-57a8-a2cb-f15ef3cb3abb,single_select,Hata analizi ne zaman yapılmalıdır?,intermediate,3,1
+26205a89-80bc-51b8-b864-28a5f148cbee,8f4e7ab2-9216-57a8-a2cb-f15ef3cb3abb,single_select,Üretim ortamına geçerken hangi kayıtlar önemlidir?,intermediate,4,1
+9b3d8518-b5b8-5f65-9906-13e0f95040e5,8f4e7ab2-9216-57a8-a2cb-f15ef3cb3abb,single_select,Kullanıcıya dönük AI uygulamasında en önemli güvenlik ilkesi nedir?,intermediate,5,1
+00f84492-b574-54c7-b778-831b0411bb0f,296a635b-7158-56fe-93dc-8d6ba653b63b,single_select,Deployment seçenekleri modülünün ana çıktısı hangisidir?,advanced,1,1
+8dfc02f6-141c-5f7c-910e-a6ffe0ab7dbc,296a635b-7158-56fe-93dc-8d6ba653b63b,single_select,"Batch, API ve streaming kararları çalışılırken ilk yapılması gereken nedir?",advanced,2,1
+886c5b7d-3ac4-5fe6-b749-5f5d5e8a6504,296a635b-7158-56fe-93dc-8d6ba653b63b,single_select,Deployment seçenekleri için en sağlıklı pratik yaklaşım hangisidir?,advanced,3,1
+f12d7734-5add-527c-bd9a-5b0a13174944,fa8d5c9b-4c2c-527d-b168-7d787b2d4803,single_select,Model registry ve CI/CD modülünün ana çıktısı hangisidir?,advanced,1,1
+ef448117-59ec-557f-9780-eac1afdca617,fa8d5c9b-4c2c-527d-b168-7d787b2d4803,single_select,Model versiyonlama çalışılırken ilk yapılması gereken nedir?,advanced,2,1
+6cd1fc97-68ef-5016-980b-9167b22fe88c,fa8d5c9b-4c2c-527d-b168-7d787b2d4803,single_select,Model registry ve CI/CD için en sağlıklı pratik yaklaşım hangisidir?,advanced,3,1
+7be4fa85-493f-545c-b4b7-335b4c214848,14440d7f-8e5d-5b73-8ae2-6eab10e53cc4,single_select,Monitoring ve drift modülünün ana çıktısı hangisidir?,advanced,1,1
+fc673c71-534b-5b7f-a8cc-8df935adfd94,14440d7f-8e5d-5b73-8ae2-6eab10e53cc4,single_select,Veri drift göstergeleri çalışılırken ilk yapılması gereken nedir?,advanced,2,1
+b28398e0-d032-5b37-af7d-e3a4b083d266,14440d7f-8e5d-5b73-8ae2-6eab10e53cc4,single_select,Monitoring ve drift için en sağlıklı pratik yaklaşım hangisidir?,advanced,3,1
+7235474d-9d42-5dd9-af62-ebe519cadf51,b0b08c57-6793-51e4-ae6b-767db879b7fa,single_select,MLOps ve Üretimleştirme kapsamında doğru çalışma sırası hangisidir?,advanced,1,1
+c1747675-a210-5537-b934-1f21161f8277,b0b08c57-6793-51e4-ae6b-767db879b7fa,single_select,Bir sonucu güvenilir kabul etmek için ne gerekir?,advanced,2,1
+139243be-b96b-5843-b5c0-b26f0394a240,b0b08c57-6793-51e4-ae6b-767db879b7fa,single_select,Hata analizi ne zaman yapılmalıdır?,advanced,3,1
+07ec65fd-eda2-5b0a-b94e-f881f45f1d68,b0b08c57-6793-51e4-ae6b-767db879b7fa,single_select,Üretim ortamına geçerken hangi kayıtlar önemlidir?,advanced,4,1
+34015d18-0767-5770-a912-33797590f71d,b0b08c57-6793-51e4-ae6b-767db879b7fa,single_select,Kullanıcıya dönük AI uygulamasında en önemli güvenlik ilkesi nedir?,advanced,5,1
+e335df05-263d-59cd-998b-9303de98b3cf,72ddaf01-961c-55c4-a987-562e21aeb2f2,single_select,AI ürün keşfi modülünün ana çıktısı hangisidir?,advanced,1,1
+131e07c8-f175-5b2b-9c41-1ecdfb33f65b,72ddaf01-961c-55c4-a987-562e21aeb2f2,single_select,Problem-solution fit çalışılırken ilk yapılması gereken nedir?,advanced,2,1
+fc81c44c-4ddd-5043-8cf3-99d3cdea940d,72ddaf01-961c-55c4-a987-562e21aeb2f2,single_select,AI ürün keşfi için en sağlıklı pratik yaklaşım hangisidir?,advanced,3,1
+e6918e61-aa0e-5e8c-ac9c-5d3c06dd6615,4896f19e-652f-5f1d-b080-baa3ddceceb9,single_select,Risk ve gizlilik modülünün ana çıktısı hangisidir?,advanced,1,1
+a75cd4c4-ae4b-5a76-a037-ffd32a34a630,4896f19e-652f-5f1d-b080-baa3ddceceb9,single_select,PII ve veri minimizasyonu çalışılırken ilk yapılması gereken nedir?,advanced,2,1
+607fa246-68d9-504a-ae6c-0d992c30c0db,4896f19e-652f-5f1d-b080-baa3ddceceb9,single_select,Risk ve gizlilik için en sağlıklı pratik yaklaşım hangisidir?,advanced,3,1
+8000ea1b-2375-5f99-8b9c-b513528fd245,fda97fc9-8e14-5c89-9d8b-f08028de14b1,single_select,Güvenlik tasarımı modülünün ana çıktısı hangisidir?,advanced,1,1
+58290587-40f0-5e86-a8ab-01e3eef3c11e,fda97fc9-8e14-5c89-9d8b-f08028de14b1,single_select,Prompt injection yüzeyi çalışılırken ilk yapılması gereken nedir?,advanced,2,1
+fbe44958-e125-50c9-b05d-b0d2df7cca98,fda97fc9-8e14-5c89-9d8b-f08028de14b1,single_select,Güvenlik tasarımı için en sağlıklı pratik yaklaşım hangisidir?,advanced,3,1
+0bf4d7d8-89c5-5387-b3b8-610898a43811,fab560f8-5342-5f21-9e50-f30df04b8dc2,single_select,"AI Ürün, Güvenlik ve Etik kapsamında doğru çalışma sırası hangisidir?",advanced,1,1
+a7834123-d837-5b1c-bae4-4f90373c2682,fab560f8-5342-5f21-9e50-f30df04b8dc2,single_select,Bir sonucu güvenilir kabul etmek için ne gerekir?,advanced,2,1
+68e9ec55-e96a-5bcd-8ec2-8bda993aa8ed,fab560f8-5342-5f21-9e50-f30df04b8dc2,single_select,Hata analizi ne zaman yapılmalıdır?,advanced,3,1
+3f14190a-7754-5f34-94ae-f366a19b56c2,fab560f8-5342-5f21-9e50-f30df04b8dc2,single_select,Üretim ortamına geçerken hangi kayıtlar önemlidir?,advanced,4,1
+5f9b9e81-94df-5e2c-89ef-2e3e99ca9976,fab560f8-5342-5f21-9e50-f30df04b8dc2,single_select,Kullanıcıya dönük AI uygulamasında en önemli güvenlik ilkesi nedir?,advanced,5,1
+4f4ffef1-c2f1-5163-8833-4a201adeddaf,6aa7e4c1-a370-5621-b485-6c0f290d0c4d,single_select,Problem çerçeveleme modülünün ana çıktısı hangisidir?,expert,1,1
+bdd00db8-6e92-576f-9675-14029d1aa6f2,6aa7e4c1-a370-5621-b485-6c0f290d0c4d,single_select,Kullanıcı problemi ve veri kaynağı çalışılırken ilk yapılması gereken nedir?,expert,2,1
+6b12c92f-a754-5382-b6b0-076534cfa1f0,6aa7e4c1-a370-5621-b485-6c0f290d0c4d,single_select,Problem çerçeveleme için en sağlıklı pratik yaklaşım hangisidir?,expert,3,1
+84d857e3-e4aa-58e6-8f94-d3c865902ac7,c71aabfe-a5f9-5c00-8e4d-6422cdd5327e,single_select,Ürünü geliştirme modülünün ana çıktısı hangisidir?,expert,1,1
+4848a56d-014c-501a-ac82-bfd25cf04e1a,c71aabfe-a5f9-5c00-8e4d-6422cdd5327e,single_select,"Baseline, model/RAG ve servis katmanı çalışılırken ilk yapılması gereken nedir?",expert,2,1
+4e09f84c-5999-5797-9824-3f823941762a,c71aabfe-a5f9-5c00-8e4d-6422cdd5327e,single_select,Ürünü geliştirme için en sağlıklı pratik yaklaşım hangisidir?,expert,3,1
+d344b0e3-59c8-58db-b124-613a96b77b10,e99d2fed-15ee-5ef1-b8da-2cad8ed91646,single_select,Sunum ve iterasyon modülünün ana çıktısı hangisidir?,expert,1,1
+b7e8a128-e29c-52ef-9ca4-4ae50ef103b5,e99d2fed-15ee-5ef1-b8da-2cad8ed91646,single_select,Demo senaryosu hazırlama çalışılırken ilk yapılması gereken nedir?,expert,2,1
+8b254b53-1101-5023-acc0-d2b6d7049958,e99d2fed-15ee-5ef1-b8da-2cad8ed91646,single_select,Sunum ve iterasyon için en sağlıklı pratik yaklaşım hangisidir?,expert,3,1
+df240a8e-9a7f-5cc4-b569-a7547d41fbe7,e19ba5f1-79c2-5a9f-af1d-bfa120768e8c,single_select,Capstone: AI Engineer Uzmanlık Projesi kapsamında doğru çalışma sırası hangisidir?,expert,1,1
+1692b412-f3be-543d-90ea-32d4009f6081,e19ba5f1-79c2-5a9f-af1d-bfa120768e8c,single_select,Bir sonucu güvenilir kabul etmek için ne gerekir?,expert,2,1
+3a492106-2e04-509e-953e-017c95e9113d,e19ba5f1-79c2-5a9f-af1d-bfa120768e8c,single_select,Hata analizi ne zaman yapılmalıdır?,expert,3,1
+dd7b2d46-51d5-56cc-abc5-75bc1f216737,e19ba5f1-79c2-5a9f-af1d-bfa120768e8c,single_select,Üretim ortamına geçerken hangi kayıtlar önemlidir?,expert,4,1
+f9e1c140-a7c9-55ae-bbb4-843cc14a428d,e19ba5f1-79c2-5a9f-af1d-bfa120768e8c,single_select,Kullanıcıya dönük AI uygulamasında en önemli güvenlik ilkesi nedir?,expert,5,1

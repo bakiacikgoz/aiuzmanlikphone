@@ -1,0 +1,43 @@
+{
+  "name": "AI Engineering Academy Dataset",
+  "version": "1.0.0",
+  "seed_pack": "ai-eng-academy-v1",
+  "generated_at": "2026-04-28T14:14:26.766961+00:00",
+  "counts": {
+    "skills": 24,
+    "interest_categories": 10,
+    "learning_goals": 6,
+    "learning_paths": 4,
+    "courses": 14,
+    "modules": 42,
+    "lessons": 126,
+    "lesson_content_blocks": 420,
+    "lesson_resources": 252,
+    "assessments": 57,
+    "assessment_questions": 208,
+    "assessment_options": 832,
+    "labs": 42,
+    "lab_parameters": 126,
+    "lab_test_cases": 84,
+    "glossary_terms": 30,
+    "content_embeddings": 534,
+    "badges": 9,
+    "rewards": 3,
+    "certificate_templates": 2,
+    "plans": 3,
+    "feature_flags": 4,
+    "league_seasons": 1,
+    "league_groups": 5,
+    "season_rewards": 3
+  },
+  "sql_files": [
+    "sql/01_seed_content.sql",
+    "sql/02_seed_demo_for_existing_users.sql",
+    "sql/99_reset_dataset_dev_only.sql"
+  ],
+  "storage_buckets": [
+    "course-media",
+    "certificates"
+  ],
+  "notes": "Run schema first. Content seed is idempotent. Demo seed requires at least one existing Supabase Auth user/profile."
+}

@@ -1,0 +1,15 @@
+id,path_id,slug,title,subtitle,level,estimated_minutes,xp_reward,sort_order
+f61cc498-ce42-5ae7-bf73-85f1597324b3,c058fccf-66ee-5841-96b3-bb1318c345f4,python-ai-temelleri,Python ile AI Temelleri,AI projeleri için Python çalışma akışı,beginner,144,250,1
+1d31e98b-0fc5-586e-9896-61758b1e35c6,c058fccf-66ee-5841-96b3-bb1318c345f4,numpy-pandas-veri,NumPy & Pandas ile Veri İşleme,"AI verisini temizle, dönüştür ve hazırla",beginner,144,280,2
+7ebace68-cb4a-5d5b-a8d2-268b497b5791,c058fccf-66ee-5841-96b3-bb1318c345f4,matematik-istatistik-ai,AI için Matematik ve İstatistik,Model kararlarını anlamak için gerekli temel,beginner,144,280,3
+67f36abd-070e-5795-a6e0-36b3b851c709,c058fccf-66ee-5841-96b3-bb1318c345f4,makine-ogrenmesi-temelleri,Makine Öğrenmesi Temelleri,"Denetimli, denetimsiz ve validasyon odaklı ML",beginner,144,320,4
+bcbfa4cb-70c6-528e-9e8e-e035e48606fb,7c8fbe51-6e9f-5b2a-8167-9e60128a34ca,neural-networks-101,Neural Networks 101,"Perceptron, aktivasyon, loss ve backpropagation",intermediate,144,350,5
+1baef71c-6bb1-5c08-9b0d-1e1fc9095ae3,7c8fbe51-6e9f-5b2a-8167-9e60128a34ca,model-degerlendirme-deneyler,Model Değerlendirme ve Deney Yönetimi,"Metrik, hata analizi ve deney izleme",intermediate,144,300,6
+bfc97ff1-7723-5a4d-ab79-c61aad02adc1,062d103b-53e5-5569-93f9-bfeb9218a7df,deep-learning-pytorch,PyTorch ile Deep Learning,"Tensor, autograd ve eğitim döngüleri",advanced,144,380,7
+d754b36d-1921-5657-9ad5-120e5f76cc88,062d103b-53e5-5569-93f9-bfeb9218a7df,bilgisayarli-goru-temelleri,Bilgisayarlı Görü Temelleri,"Görüntü verisi, CNN ve deployment sezgisi",advanced,144,340,8
+59d71826-4660-5cb3-a932-2cdae8fd78fc,7c8fbe51-6e9f-5b2a-8167-9e60128a34ca,nlp-llm-temelleri,NLP ve LLM Temelleri,"Token, embedding, transformer ve LLM davranışı",intermediate,144,330,9
+1fdeade7-65c9-5126-b54c-a3ac6042c73c,7c8fbe51-6e9f-5b2a-8167-9e60128a34ca,prompt-engineering-pratikleri,Prompt Engineering Pratikleri,"Talimat, örnek, format ve eval temelli prompt tasarımı",intermediate,144,300,10
+5a1edc5f-4b10-5c71-8a74-06654c8d0d39,7c8fbe51-6e9f-5b2a-8167-9e60128a34ca,rag-ai-uygulamalari,RAG ve AI Uygulamaları,"Bilgi tabanlı üretim, retrieval ve semantik arama",intermediate,144,360,11
+c8004415-e11a-5fa1-92bf-f8e5a623e327,062d103b-53e5-5569-93f9-bfeb9218a7df,mlops-uretim,MLOps ve Üretimleştirme,"Modeli API, batch ve izleme hattına taşıma",advanced,144,380,12
+12956a13-40f1-5480-8ed0-de328b267218,062d103b-53e5-5569-93f9-bfeb9218a7df,ai-urun-guvenlik-etik,"AI Ürün, Güvenlik ve Etik","Kullanıcı, risk ve güvenilirlik odağında AI ürünleri",advanced,144,300,13
+21aa174e-ed70-552a-83cf-c95f6ef119d3,48525465-134d-5b74-ae39-0de461172337,capstone-ai-engineer,Capstone: AI Engineer Uzmanlık Projesi,"Uçtan uca AI ürünü tasarla, geliştir ve yayınla",expert,144,500,14

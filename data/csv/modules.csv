@@ -1,0 +1,43 @@
+id,course_id,title,sort_order,estimated_minutes,status
+c72e7573-aaa6-55ca-8f7a-b1108c178e24,f61cc498-ce42-5ae7-bf73-85f1597324b3,Python çalışma ortamı,1,48,published
+7cedb17a-5c15-5042-b28f-b5d4df367f7a,f61cc498-ce42-5ae7-bf73-85f1597324b3,Veri yapıları ve dosya işlemleri,2,48,published
+6f17b9f5-1372-5d3a-a25e-0729361c6dc1,f61cc498-ce42-5ae7-bf73-85f1597324b3,AI kod kalitesi,3,48,published
+aa8cfb67-6291-5f8a-a83d-9b18c19199fa,1d31e98b-0fc5-586e-9896-61758b1e35c6,NumPy temelleri,1,48,published
+6e11b35e-f7b3-58cb-8e57-06987cbc7ad3,1d31e98b-0fc5-586e-9896-61758b1e35c6,Pandas veri akışı,2,48,published
+a058f7e7-8879-5a5e-be3b-b28ddefdbf32,1d31e98b-0fc5-586e-9896-61758b1e35c6,Feature engineering başlangıcı,3,48,published
+3ae0a119-c7bb-5e62-bac4-f75fea8a487d,7ebace68-cb4a-5d5b-a8d2-268b497b5791,Lineer cebir sezgisi,1,48,published
+d052e5d8-61ad-5338-8b23-eababe308ef9,7ebace68-cb4a-5d5b-a8d2-268b497b5791,Olasılık ve dağılımlar,2,48,published
+c62db22a-2c91-51cc-9e6c-efa9da562d14,7ebace68-cb4a-5d5b-a8d2-268b497b5791,Metrikler ve güven,3,48,published
+e6832acf-5f40-5831-bc2c-580c7cdeafd5,67f36abd-070e-5795-a6e0-36b3b851c709,Denetimli öğrenme,1,48,published
+28d968f5-a5a7-52d3-a6bc-88108bbac498,67f36abd-070e-5795-a6e0-36b3b851c709,Denetimsiz öğrenme,2,48,published
+ec62f943-94b9-5094-b36e-7c5dc46c8c04,67f36abd-070e-5795-a6e0-36b3b851c709,Pipeline ve validasyon,3,48,published
+968856e6-d60d-52b6-8372-4e3375e58521,bcbfa4cb-70c6-528e-9e8e-e035e48606fb,Perceptron temelleri,1,48,published
+63b4a6d0-6348-53b4-8e7d-e12f31917d46,bcbfa4cb-70c6-528e-9e8e-e035e48606fb,Loss ve optimizasyon,2,48,published
+b16c9abe-836f-5d19-88bf-e39b3e294430,bcbfa4cb-70c6-528e-9e8e-e035e48606fb,Backpropagation,3,48,published
+18a06440-e256-5a5c-a6c6-6c6b00ef46bc,1baef71c-6bb1-5c08-9b0d-1e1fc9095ae3,Metrik seçimi,1,48,published
+0818cf44-c247-54e4-9beb-4ecac9dcc8cc,1baef71c-6bb1-5c08-9b0d-1e1fc9095ae3,Deney izleme,2,48,published
+60290600-f8c9-52bc-a080-32ce0e5877f3,1baef71c-6bb1-5c08-9b0d-1e1fc9095ae3,Hata analizi,3,48,published
+8afa5014-3704-525f-b509-1395540cc1d0,bfc97ff1-7723-5a4d-ab79-c61aad02adc1,Tensor ve autograd,1,48,published
+30ff8c1d-0359-5fd5-8b66-5439d085827f,bfc97ff1-7723-5a4d-ab79-c61aad02adc1,Eğitim döngüsü,2,48,published
+26c59210-63d2-52f7-b808-47c8459fed12,bfc97ff1-7723-5a4d-ab79-c61aad02adc1,Regularization ve transfer,3,48,published
+a2638f38-8bbb-5080-9d8e-94f673d9b8a0,d754b36d-1921-5657-9ad5-120e5f76cc88,Görüntü ön işleme,1,48,published
+f9eef59c-8ec9-5e9e-ab44-1f8402d44529,d754b36d-1921-5657-9ad5-120e5f76cc88,CNN mimarileri,2,48,published
+8ec836f3-e12d-5890-9f91-b65d8ecfd8e1,d754b36d-1921-5657-9ad5-120e5f76cc88,Görsel model üretimi,3,48,published
+b35d12cd-19fa-5b13-b72d-237a24f2a9c6,59d71826-4660-5cb3-a932-2cdae8fd78fc,Tokenization ve embedding,1,48,published
+d604804d-1c64-5d94-89ee-5ab3af65cb5a,59d71826-4660-5cb3-a932-2cdae8fd78fc,Transformer sezgisi,2,48,published
+e52bab1f-b6f9-501f-98f7-30bf0a262404,59d71826-4660-5cb3-a932-2cdae8fd78fc,LLM uygulama temelleri,3,48,published
+9cf4822e-a2fb-5c9e-b926-78f59a8e943b,1fdeade7-65c9-5126-b54c-a3ac6042c73c,Prompt anatomisi,1,48,published
+0daaa333-1cad-5824-b93f-ca640f3ba95a,1fdeade7-65c9-5126-b54c-a3ac6042c73c,Yapılandırılmış çıktı,2,48,published
+f1b3ba0c-8b22-5108-a46c-2bca476bcfbb,1fdeade7-65c9-5126-b54c-a3ac6042c73c,Prompt eval ve güvenlik,3,48,published
+6623645f-9dcb-5b0f-9c94-9daaae65b11b,5a1edc5f-4b10-5c71-8a74-06654c8d0d39,Retrieval temelleri,1,48,published
+0dcc9061-bff0-581a-b0c6-4044206800dd,5a1edc5f-4b10-5c71-8a74-06654c8d0d39,RAG pipeline,2,48,published
+437e7a5e-2693-597d-88f6-0bc70a2ef539,5a1edc5f-4b10-5c71-8a74-06654c8d0d39,AI uygulama mimarisi,3,48,published
+956c7ee2-7648-52a8-90e5-1a6ef98f0abf,c8004415-e11a-5fa1-92bf-f8e5a623e327,Deployment seçenekleri,1,48,published
+647ca0e0-ff7c-5f39-8eaa-e433516eff22,c8004415-e11a-5fa1-92bf-f8e5a623e327,Model registry ve CI/CD,2,48,published
+63b6afb7-29d2-55b0-a4f2-610dffd1fb63,c8004415-e11a-5fa1-92bf-f8e5a623e327,Monitoring ve drift,3,48,published
+5fe4af3b-bd15-555c-9181-1bec24a444b7,12956a13-40f1-5480-8ed0-de328b267218,AI ürün keşfi,1,48,published
+375117ea-190c-5d64-abb9-06606371f699,12956a13-40f1-5480-8ed0-de328b267218,Risk ve gizlilik,2,48,published
+efd84879-3961-53ac-a915-d7446967e4dd,12956a13-40f1-5480-8ed0-de328b267218,Güvenlik tasarımı,3,48,published
+3194ce86-f9a0-5fcb-836a-032a164a900e,21aa174e-ed70-552a-83cf-c95f6ef119d3,Problem çerçeveleme,1,48,published
+347b537a-c130-5fa9-b812-4ad89b80bb93,21aa174e-ed70-552a-83cf-c95f6ef119d3,Ürünü geliştirme,2,48,published
+d4b704a6-ce9f-5f9e-8872-70e17281f398,21aa174e-ed70-552a-83cf-c95f6ef119d3,Sunum ve iterasyon,3,48,published

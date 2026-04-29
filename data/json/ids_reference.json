@@ -1,0 +1,31 @@
+{
+  "paths": {
+    "baslangic-ai-engineering": "c058fccf-66ee-5841-96b3-bb1318c345f4",
+    "orta-ai-engineering": "7c8fbe51-6e9f-5b2a-8167-9e60128a34ca",
+    "ileri-ai-engineering": "062d103b-53e5-5569-93f9-bfeb9218a7df",
+    "uzman-capstone": "48525465-134d-5b74-ae39-0de461172337"
+  },
+  "courses": {
+    "python-ai-temelleri": "f61cc498-ce42-5ae7-bf73-85f1597324b3",
+    "numpy-pandas-veri": "1d31e98b-0fc5-586e-9896-61758b1e35c6",
+    "matematik-istatistik-ai": "7ebace68-cb4a-5d5b-a8d2-268b497b5791",
+    "makine-ogrenmesi-temelleri": "67f36abd-070e-5795-a6e0-36b3b851c709",
+    "neural-networks-101": "bcbfa4cb-70c6-528e-9e8e-e035e48606fb",
+    "model-degerlendirme-deneyler": "1baef71c-6bb1-5c08-9b0d-1e1fc9095ae3",
+    "deep-learning-pytorch": "bfc97ff1-7723-5a4d-ab79-c61aad02adc1",
+    "bilgisayarli-goru-temelleri": "d754b36d-1921-5657-9ad5-120e5f76cc88",
+    "nlp-llm-temelleri": "59d71826-4660-5cb3-a932-2cdae8fd78fc",
+    "prompt-engineering-pratikleri": "1fdeade7-65c9-5126-b54c-a3ac6042c73c",
+    "rag-ai-uygulamalari": "5a1edc5f-4b10-5c71-8a74-06654c8d0d39",
+    "mlops-uretim": "c8004415-e11a-5fa1-92bf-f8e5a623e327",
+    "ai-urun-guvenlik-etik": "12956a13-40f1-5480-8ed0-de328b267218",
+    "capstone-ai-engineer": "21aa174e-ed70-552a-83cf-c95f6ef119d3"
+  },
+  "sample_ids": {
+    "neural_networks_course": "bcbfa4cb-70c6-528e-9e8e-e035e48606fb",
+    "sample_lesson": "76204e6b-4947-5c17-829b-d6b7dbfdac04",
+    "sample_lab": "174cc889-607d-5b7b-8ff1-c86bad21de4d",
+    "placement_assessment": "f9eb680a-8c85-500d-981e-e8ab14032c08",
+    "active_league_season": "c242e1d2-83e6-57c6-b0c1-a0daa2f75593"
+  }
+}

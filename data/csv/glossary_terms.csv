@@ -1,0 +1,31 @@
+id,skill_id,term,definition,status
+99fd6ae7-0f73-599b-a5ee-6e3da4bb6da0,5f775b53-7db1-5f64-bcac-65e12a5e17ea,Değişken,Program içinde değer tutan isimlendirilmiş referans.,published
+f7cd4a51-d062-5efd-abfe-a1d5f320c6e0,5f775b53-7db1-5f64-bcac-65e12a5e17ea,Fonksiyon,Tekrar kullanılabilir davranış bloğu.,published
+9095c819-b573-5991-89e6-c4fec5e0241c,70eb4456-4013-57a4-a35b-f12e977207b6,Array,Aynı tipte sayısal değerlerden oluşan çok boyutlu yapı.,published
+3b121123-5ce0-58ab-a502-26f844ec96ec,70eb4456-4013-57a4-a35b-f12e977207b6,DataFrame,Satır ve sütunlardan oluşan tablo veri yapısı.,published
+b79fc394-3ff4-5f3c-ba58-e3dc3ebb4837,773e80ea-6ed2-595b-b9f8-ab6d434665b2,Dağılım,Bir değişkenin olası değerlerinin olasılık yapısı.,published
+46f47218-4476-5472-9d64-6094c4307abc,773e80ea-6ed2-595b-b9f8-ab6d434665b2,Varyans,Değerlerin ortalamadan ne kadar saptığını ölçen büyüklük.,published
+c681db7e-ca24-52ff-a788-10360d122468,29a5049a-eff5-5297-a91f-1e45775bf293,Denetimli Öğrenme,Etiketli örneklerden hedef değişken tahmini öğrenen yaklaşım.,published
+2f8e5c78-da39-5341-9fe4-146389fe220c,29a5049a-eff5-5297-a91f-1e45775bf293,Denetimsiz Öğrenme,Etiketsiz veride yapı veya küme arayan yaklaşım.,published
+b048bf1b-ac00-5a52-88e1-1ba311eedc71,325e2885-0188-50b7-83a6-e500122f67fa,Veri Sızıntısı,Eğitimde geleceğe veya hedefe ait bilginin yanlışlıkla kullanılması.,published
+9ab460c6-6e2b-584f-8bbc-26c7e7432703,b8c3a4f7-c2d7-5db4-a824-35c262d08876,Precision,Pozitif tahminlerin ne kadarının doğru olduğunu ölçer.,published
+5e2c3ed4-a090-5c6d-8bd8-98903af07279,b8c3a4f7-c2d7-5db4-a824-35c262d08876,Recall,Gerçek pozitiflerin ne kadarının yakalandığını ölçer.,published
+6f34d97b-490a-503d-aab7-a2092493fe52,5b51f628-eab2-517a-a5bb-adcecdf8f58a,Baseline,İyileştirmeleri karşılaştırmak için kullanılan ilk referans çözüm.,published
+69ea99df-5cdc-53d6-be21-5dafd914cc15,086b2de3-8a92-5919-802c-d6ea45d3f472,Perceptron,Ağırlıklı toplam ve aktivasyonla çalışan temel yapay nöron.,published
+e1e5fd32-1a37-5f13-9ca0-c37e95a91fbb,086b2de3-8a92-5919-802c-d6ea45d3f472,Aktivasyon Fonksiyonu,Nöron çıktısına doğrusal olmayanlık katan fonksiyon.,published
+9683fc3b-a34a-5d6c-a824-ab05e490be90,bda78a0a-28ec-5aba-9d20-7dfe25773d08,Backpropagation,Hata sinyalini katmanlar boyunca geriye taşıyarak gradyan hesaplama yöntemi.,published
+3bccb4c1-c56a-57e4-89c1-8dc66cb7cbe9,1d181b2c-01e8-5acd-9807-30b960da091a,Autograd,PyTorch içinde otomatik türev hesaplama sistemi.,published
+ce5c29a0-a885-5516-9e87-5fbf5447d721,a972975a-3d62-5f12-80f6-15335390bf1a,Convolution,Görüntüde yerel örüntüleri yakalayan filtreleme işlemi.,published
+d9a10b25-8bd5-5d70-a99a-ee8aa0553f67,494af6b7-040b-5723-99fd-d534e9f9b3d1,Token,Metnin modele verilen küçük parçası.,published
+f436f253-ceb8-54ac-867f-5c4628e2f806,6b250c3b-a3a0-524d-a26b-0b84f9e21bcc,Context Window,Modelin tek çağrıda dikkate alabildiği bağlam uzunluğu.,published
+b4499937-ad56-508f-b4f5-df825fd76aaa,ef05b767-cb69-518b-9a46-087bbe6c94b9,Few-shot,Modele istenen davranışı birkaç örnekle gösterme tekniği.,published
+ad09426f-dd5f-5262-8700-79c5891b3f73,ef05b767-cb69-518b-9a46-087bbe6c94b9,Structured Output,Model çıktısını JSON gibi belirli bir şemaya bağlama yaklaşımı.,published
+451e4d73-9d39-5c02-bd79-a771d3a917c9,d8444a47-ca60-580b-ab78-656f33067f30,RAG,Model yanıtını harici kaynaklardan getirilen bağlamla destekleyen mimari.,published
+259606cf-e03e-5d5c-ae8b-26b8c9133ea4,5284e742-62fd-593c-8cce-816e865d04a3,Embedding,Metin veya nesneyi semantik anlam taşıyan vektöre dönüştürme.,published
+7729871d-d4bc-5ee9-92ad-1734f8393931,61fa5aef-0459-5062-a1ee-0903be1f3856,Model Registry,Model sürümlerini ve durumlarını yöneten kayıt sistemi.,published
+77a8e3aa-d33a-58d7-881b-3dc16aba8a8f,8e7eb37d-02d4-500c-9aee-41addf21a113,Inference API,Model tahminini istemcilere sunan servis arayüzü.,published
+bc864c86-1e7a-5bf7-8894-fc2db9fb5ee8,0c9aa461-18c1-5967-a09c-9a1b7a03e0ee,Drift,Canlı veri dağılımının eğitim verisinden farklılaşması.,published
+1298eabb-afbb-5715-a098-bd0d3dab7cef,12f19adb-a7b6-53c2-a44f-1f57468c6ce8,Prompt Injection,Güvenilmeyen girdinin sistem talimatını manipüle etmeye çalışması.,published
+34d8f611-762d-56d7-a41c-896d6c7058d5,d9552f17-efc1-5011-9146-958fa945592d,Bias,Model çıktılarında gruplar arasında sistematik dengesizlik.,published
+050543c2-15a5-57e3-acc1-b264b896dab0,be5a7668-556b-5f04-a79d-76ad5d31b65a,Human-in-the-loop,Kritik karar veya belirsizlikte insan onayı ekleyen tasarım.,published
+b80995bb-ce74-56b5-8940-a77f6fbbf9dd,e6ba6b8d-7a37-581a-bcb3-2facc6f58c91,Model Card,"Modelin amacı, veri kapsamı, sınırlamaları ve risklerini özetleyen doküman.",published

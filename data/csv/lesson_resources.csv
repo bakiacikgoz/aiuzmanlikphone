@@ -1,0 +1,253 @@
+id,lesson_id,title,resource_type,url,storage_path,sort_order
+6540c8df-4cc3-550c-8eb2-03d46ec235e7,78c050b3-e5e0-57b3-99de-0b9a20b890eb,Python resmi öğreticisi,link,https://docs.python.org/3/tutorial/index.html,,1
+ff71651c-41c0-5036-ac2c-15ff01154529,78c050b3-e5e0-57b3-99de-0b9a20b890eb,Ders çalışma föyü,worksheet,,course-media/worksheets/python-ai-temelleri-m1-l1.md,2
+3618dc2e-3558-5fdc-b147-5b67c5df2636,4b8dc8ff-a694-5381-896b-b1a11e19178d,Python resmi öğreticisi,link,https://docs.python.org/3/tutorial/index.html,,1
+978c25b8-28b0-5fb5-863b-cccba8ee9772,4b8dc8ff-a694-5381-896b-b1a11e19178d,Ders çalışma föyü,worksheet,,course-media/worksheets/python-ai-temelleri-m1-l2.md,2
+3cb42528-15a9-5961-8464-ebac15d8c1a3,bb3b04a1-70e4-58e0-a9dd-79d9db347f30,Python resmi öğreticisi,link,https://docs.python.org/3/tutorial/index.html,,1
+445c6adc-38c1-5032-a37a-bbf716572218,bb3b04a1-70e4-58e0-a9dd-79d9db347f30,Ders çalışma föyü,worksheet,,course-media/worksheets/python-ai-temelleri-m1-l3.md,2
+6743c1b0-ff23-529e-9998-44a42d500586,0369807a-3291-542f-8957-769e10325422,Python resmi öğreticisi,link,https://docs.python.org/3/tutorial/index.html,,1
+4949ffff-aecb-5706-ac68-a959ad2b06cc,0369807a-3291-542f-8957-769e10325422,Ders çalışma föyü,worksheet,,course-media/worksheets/python-ai-temelleri-m2-l1.md,2
+ce8e7135-bdab-5fd9-82b3-86d05dcb77d1,506cf978-81f2-5eeb-b768-cad251e24599,Python resmi öğreticisi,link,https://docs.python.org/3/tutorial/index.html,,1
+69e75c73-f1cd-53cc-8192-9a7d6f4dee81,506cf978-81f2-5eeb-b768-cad251e24599,Ders çalışma föyü,worksheet,,course-media/worksheets/python-ai-temelleri-m2-l2.md,2
+834e6dfb-f974-5c5a-b6eb-29e51d25c82f,c0769359-4998-5ab3-9616-5767ba0585f2,Python resmi öğreticisi,link,https://docs.python.org/3/tutorial/index.html,,1
+d401177b-28dc-5a8c-96e9-261d3d15907d,c0769359-4998-5ab3-9616-5767ba0585f2,Ders çalışma föyü,worksheet,,course-media/worksheets/python-ai-temelleri-m2-l3.md,2
+99b8b53c-a89a-5d05-bac2-96c1ebf13bb1,82804846-a16d-51ba-85dc-159400929ba5,Python resmi öğreticisi,link,https://docs.python.org/3/tutorial/index.html,,1
+7973f7fc-da5b-57d4-958b-beaf7b4bfbdf,82804846-a16d-51ba-85dc-159400929ba5,Ders çalışma föyü,worksheet,,course-media/worksheets/python-ai-temelleri-m3-l1.md,2
+3f2c00f4-0b51-5ebd-a493-ca8fec500b52,647963f3-44dd-5a37-bc44-23913e27f6d8,Python resmi öğreticisi,link,https://docs.python.org/3/tutorial/index.html,,1
+46a3dd2e-7d97-56a5-a8cc-7eba549d46fa,647963f3-44dd-5a37-bc44-23913e27f6d8,Ders çalışma föyü,worksheet,,course-media/worksheets/python-ai-temelleri-m3-l2.md,2
+4da0e07e-1fc4-5a61-b655-fb279cee007c,b46745fa-4d8b-53d5-a0b4-93316f466585,Python resmi öğreticisi,link,https://docs.python.org/3/tutorial/index.html,,1
+4a71008a-e201-5b5f-b59a-32a3e0e7347f,b46745fa-4d8b-53d5-a0b4-93316f466585,Ders çalışma föyü,worksheet,,course-media/worksheets/python-ai-temelleri-m3-l3.md,2
+3953da71-4bb0-50b3-af97-ae481f0b0b39,028127ff-5317-503a-b0d2-7f7e30638025,NumPy başlangıç kılavuzu,link,https://numpy.org/doc/stable/user/absolute_beginners.html,,1
+b69c18b6-4efa-5c3e-abc9-b61bb0763c68,028127ff-5317-503a-b0d2-7f7e30638025,Ders çalışma föyü,worksheet,,course-media/worksheets/numpy-pandas-veri-m1-l1.md,2
+abe46158-2e86-5005-8623-9e8c7f6a8ad1,cf8c3a1b-620e-5eda-950f-2bcb7bd4b07f,NumPy başlangıç kılavuzu,link,https://numpy.org/doc/stable/user/absolute_beginners.html,,1
+2a0f7d34-a987-5941-89a8-19c296927789,cf8c3a1b-620e-5eda-950f-2bcb7bd4b07f,Ders çalışma föyü,worksheet,,course-media/worksheets/numpy-pandas-veri-m1-l2.md,2
+74fa0256-9fb0-5ba6-8a84-e0fa70e501c1,a9cf8393-0590-5fef-b53f-ac516eac032a,NumPy başlangıç kılavuzu,link,https://numpy.org/doc/stable/user/absolute_beginners.html,,1
+8ead00a2-c647-5de3-842d-bbae4255801b,a9cf8393-0590-5fef-b53f-ac516eac032a,Ders çalışma föyü,worksheet,,course-media/worksheets/numpy-pandas-veri-m1-l3.md,2
+d46aa58b-982d-5e72-a2d6-c8fd2d566b17,d9ff3461-8273-5d3e-9b83-f2a321e141b4,NumPy başlangıç kılavuzu,link,https://numpy.org/doc/stable/user/absolute_beginners.html,,1
+3d34fe80-0c8d-5fc2-9654-5ca394b17dd8,d9ff3461-8273-5d3e-9b83-f2a321e141b4,Ders çalışma föyü,worksheet,,course-media/worksheets/numpy-pandas-veri-m2-l1.md,2
+8cc92c64-eb9d-5d1b-9415-6ff3f20645eb,39080644-63a5-58a2-b8c5-aa10bdb01f1c,NumPy başlangıç kılavuzu,link,https://numpy.org/doc/stable/user/absolute_beginners.html,,1
+d7949f2e-3ad0-5a79-8a7e-7c9a31a9f12b,39080644-63a5-58a2-b8c5-aa10bdb01f1c,Ders çalışma föyü,worksheet,,course-media/worksheets/numpy-pandas-veri-m2-l2.md,2
+db397d7a-658d-5cf1-99f6-a57c18580cd7,b95466f3-6ac3-5605-a3f8-febf7cdb4f69,NumPy başlangıç kılavuzu,link,https://numpy.org/doc/stable/user/absolute_beginners.html,,1
+4430cf44-9a5a-5aa1-b860-b9d44a472bb7,b95466f3-6ac3-5605-a3f8-febf7cdb4f69,Ders çalışma föyü,worksheet,,course-media/worksheets/numpy-pandas-veri-m2-l3.md,2
+b93bc004-4f37-5670-9416-d61b2bb135f5,39e216b6-6ff8-5d3d-99f6-a404af0a0438,NumPy başlangıç kılavuzu,link,https://numpy.org/doc/stable/user/absolute_beginners.html,,1
+c7ae4747-e73a-5c24-b14d-88f084e01f77,39e216b6-6ff8-5d3d-99f6-a404af0a0438,Ders çalışma föyü,worksheet,,course-media/worksheets/numpy-pandas-veri-m3-l1.md,2
+8ef5f1ae-9299-555f-8b92-13f0a3bf00bb,8e5c9aaf-a5f7-5f4f-9a83-b604e76f60e4,NumPy başlangıç kılavuzu,link,https://numpy.org/doc/stable/user/absolute_beginners.html,,1
+71026df6-e70f-5b0b-9337-075292a4e4fe,8e5c9aaf-a5f7-5f4f-9a83-b604e76f60e4,Ders çalışma föyü,worksheet,,course-media/worksheets/numpy-pandas-veri-m3-l2.md,2
+9b69dfe0-044f-5f29-9c75-c3703c455de1,8d61f073-44db-51c2-9e31-7afa59ba3544,NumPy başlangıç kılavuzu,link,https://numpy.org/doc/stable/user/absolute_beginners.html,,1
+7c4af104-b8f5-5b67-a699-5b77e5789ab8,8d61f073-44db-51c2-9e31-7afa59ba3544,Ders çalışma föyü,worksheet,,course-media/worksheets/numpy-pandas-veri-m3-l3.md,2
+471ac1e6-bcbd-5e4b-b9b3-a11a4e2381f7,f7cf0462-f76d-5393-a1c8-09d0ece57ef6,scikit-learn kullanıcı rehberi,link,https://scikit-learn.org/stable/user_guide.html,,1
+c18b1032-18b6-5778-b438-83bb18b7c1dd,f7cf0462-f76d-5393-a1c8-09d0ece57ef6,Ders çalışma föyü,worksheet,,course-media/worksheets/matematik-istatistik-ai-m1-l1.md,2
+394d8235-9e56-5d7c-aa2d-3b1110c3a608,6c75b14e-8892-50f3-87f4-6ec28220ffdf,scikit-learn kullanıcı rehberi,link,https://scikit-learn.org/stable/user_guide.html,,1
+de81b08e-c7c4-5e3d-a44f-e6ae04e2f0ca,6c75b14e-8892-50f3-87f4-6ec28220ffdf,Ders çalışma föyü,worksheet,,course-media/worksheets/matematik-istatistik-ai-m1-l2.md,2
+bdec429c-5cfe-5f35-a3cf-497b9ded0210,ff1364d9-20f1-5d82-af06-6ea32d066d7b,scikit-learn kullanıcı rehberi,link,https://scikit-learn.org/stable/user_guide.html,,1
+7a064a24-491e-5053-a5b4-6c882ba550df,ff1364d9-20f1-5d82-af06-6ea32d066d7b,Ders çalışma föyü,worksheet,,course-media/worksheets/matematik-istatistik-ai-m1-l3.md,2
+e6637061-8fb6-5063-8b6e-0714efa6eb29,afc64722-9797-559c-8556-727f8a5c98fe,scikit-learn kullanıcı rehberi,link,https://scikit-learn.org/stable/user_guide.html,,1
+83c701bd-6ced-527d-9934-a79ed6bafc6c,afc64722-9797-559c-8556-727f8a5c98fe,Ders çalışma föyü,worksheet,,course-media/worksheets/matematik-istatistik-ai-m2-l1.md,2
+63960a97-5815-5871-a389-9538aa7cbcf0,15329bfa-5d9f-57d5-8825-004ede5da288,scikit-learn kullanıcı rehberi,link,https://scikit-learn.org/stable/user_guide.html,,1
+3076e36b-26fd-59bc-89c9-bcc536a7448e,15329bfa-5d9f-57d5-8825-004ede5da288,Ders çalışma föyü,worksheet,,course-media/worksheets/matematik-istatistik-ai-m2-l2.md,2
+30ec871c-9101-5c19-a3df-220ec23b66a3,a5e85991-dff7-5b09-8b6e-13a7a0a825f1,scikit-learn kullanıcı rehberi,link,https://scikit-learn.org/stable/user_guide.html,,1
+866bacd2-b967-5946-aff9-3c2abbb534c0,a5e85991-dff7-5b09-8b6e-13a7a0a825f1,Ders çalışma föyü,worksheet,,course-media/worksheets/matematik-istatistik-ai-m2-l3.md,2
+7fd72ae0-a5c7-585b-a4ce-0a01c802f466,749a823c-3305-56df-8906-0bc67df9dc8d,scikit-learn kullanıcı rehberi,link,https://scikit-learn.org/stable/user_guide.html,,1
+4e82328d-dd0d-5a9e-ba20-dd84d077fc5c,749a823c-3305-56df-8906-0bc67df9dc8d,Ders çalışma föyü,worksheet,,course-media/worksheets/matematik-istatistik-ai-m3-l1.md,2
+6410b0de-6cbb-5527-9f16-b05f04c682b4,1adaa87b-33ef-504c-9a27-b21df6fb795c,scikit-learn kullanıcı rehberi,link,https://scikit-learn.org/stable/user_guide.html,,1
+12af300d-c69d-5e11-a3f1-f5dad6d44213,1adaa87b-33ef-504c-9a27-b21df6fb795c,Ders çalışma föyü,worksheet,,course-media/worksheets/matematik-istatistik-ai-m3-l2.md,2
+be33fb25-1160-5afd-aaa5-c879561ba1d8,cc29d04a-0ba9-5b5d-857d-9c9f34244c9b,scikit-learn kullanıcı rehberi,link,https://scikit-learn.org/stable/user_guide.html,,1
+d00ded12-997e-5ba0-86c2-33acd4236075,cc29d04a-0ba9-5b5d-857d-9c9f34244c9b,Ders çalışma föyü,worksheet,,course-media/worksheets/matematik-istatistik-ai-m3-l3.md,2
+bd3e513c-58cf-56fd-bad0-0e65a7d6848a,ce12fbb1-8543-5947-a3b9-4374c2f37666,scikit-learn kullanıcı rehberi,link,https://scikit-learn.org/stable/user_guide.html,,1
+82638a85-f8b0-5d63-9836-dd489752e78e,ce12fbb1-8543-5947-a3b9-4374c2f37666,Ders çalışma föyü,worksheet,,course-media/worksheets/makine-ogrenmesi-temelleri-m1-l1.md,2
+9c7ed326-851e-583b-b2ca-7ee962d47480,766fa3b5-2fca-5a3f-a39a-031029787296,scikit-learn kullanıcı rehberi,link,https://scikit-learn.org/stable/user_guide.html,,1
+98d251fb-dc6a-54b5-b369-0a602add4953,766fa3b5-2fca-5a3f-a39a-031029787296,Ders çalışma föyü,worksheet,,course-media/worksheets/makine-ogrenmesi-temelleri-m1-l2.md,2
+602d2c5c-630e-5983-9022-b9acf83ddf19,a538664c-4c1c-5561-a1f7-48571cc09d10,scikit-learn kullanıcı rehberi,link,https://scikit-learn.org/stable/user_guide.html,,1
+d4eb6cdd-f372-59e9-8986-639d0041d970,a538664c-4c1c-5561-a1f7-48571cc09d10,Ders çalışma föyü,worksheet,,course-media/worksheets/makine-ogrenmesi-temelleri-m1-l3.md,2
+e71a277c-09aa-5fde-ab15-d4487f0fc420,e8303683-6b63-57a8-a5ec-63c20311d804,scikit-learn kullanıcı rehberi,link,https://scikit-learn.org/stable/user_guide.html,,1
+78abfeaf-fd03-5dae-a037-8b31fbbdf15d,e8303683-6b63-57a8-a5ec-63c20311d804,Ders çalışma föyü,worksheet,,course-media/worksheets/makine-ogrenmesi-temelleri-m2-l1.md,2
+d5264e3d-1cd4-5815-bbd0-a1988cff40e2,7c8fc8d1-7d0e-5aee-83ce-14fbb0e50e47,scikit-learn kullanıcı rehberi,link,https://scikit-learn.org/stable/user_guide.html,,1
+a5236bd9-16f2-58d9-afb2-4e0824517348,7c8fc8d1-7d0e-5aee-83ce-14fbb0e50e47,Ders çalışma föyü,worksheet,,course-media/worksheets/makine-ogrenmesi-temelleri-m2-l2.md,2
+afccd65f-7e91-5f1e-b795-b78ed40e9f68,e5b13d55-160d-5d57-8dd1-6a6c7a9d1b29,scikit-learn kullanıcı rehberi,link,https://scikit-learn.org/stable/user_guide.html,,1
+cf566fcc-e612-5654-9d63-c1d066683168,e5b13d55-160d-5d57-8dd1-6a6c7a9d1b29,Ders çalışma föyü,worksheet,,course-media/worksheets/makine-ogrenmesi-temelleri-m2-l3.md,2
+dffd50a6-9bb4-5603-b7d1-30a5a8c3b281,c4fd1547-735e-5b3f-8c44-354576d61bb2,scikit-learn kullanıcı rehberi,link,https://scikit-learn.org/stable/user_guide.html,,1
+5429b606-d44b-593b-a541-d2f72e92db3b,c4fd1547-735e-5b3f-8c44-354576d61bb2,Ders çalışma föyü,worksheet,,course-media/worksheets/makine-ogrenmesi-temelleri-m3-l1.md,2
+738ba385-5b82-5f0d-bda1-7958e62a4d77,f13c74a6-1c53-5412-904c-a4ac1401b674,scikit-learn kullanıcı rehberi,link,https://scikit-learn.org/stable/user_guide.html,,1
+f756cc51-d0ae-5fc8-9c6c-10d738028023,f13c74a6-1c53-5412-904c-a4ac1401b674,Ders çalışma föyü,worksheet,,course-media/worksheets/makine-ogrenmesi-temelleri-m3-l2.md,2
+b5833fa0-6002-5f5f-ad47-9dde528bfcba,48d774e6-bc03-5602-8891-9f5b7bbd1311,scikit-learn kullanıcı rehberi,link,https://scikit-learn.org/stable/user_guide.html,,1
+d19f77a7-e5a4-56c7-9e67-9e8cbaa2cbd0,48d774e6-bc03-5602-8891-9f5b7bbd1311,Ders çalışma föyü,worksheet,,course-media/worksheets/makine-ogrenmesi-temelleri-m3-l3.md,2
+840df34f-7e47-5b67-b265-6275e59a04c8,76204e6b-4947-5c17-829b-d6b7dbfdac04,PyTorch öğrenme kaynakları,link,https://docs.pytorch.org/tutorials/,,1
+7f8dc4ec-8ac2-5dde-9369-bb411bcfc7c3,76204e6b-4947-5c17-829b-d6b7dbfdac04,Ders çalışma föyü,worksheet,,course-media/worksheets/neural-networks-101-m1-l1.md,2
+44f2572d-6c41-5046-a778-9290723730ed,ed98bc72-44ff-53e6-bb9b-e8211a092fd4,PyTorch öğrenme kaynakları,link,https://docs.pytorch.org/tutorials/,,1
+d4d9abc4-a8db-574d-87d1-f62ab9062ac8,ed98bc72-44ff-53e6-bb9b-e8211a092fd4,Ders çalışma föyü,worksheet,,course-media/worksheets/neural-networks-101-m1-l2.md,2
+af5e2e11-eb6a-56a2-a6fe-34a323287ed9,6e4c9822-4972-5059-a4f1-a5d67b154182,PyTorch öğrenme kaynakları,link,https://docs.pytorch.org/tutorials/,,1
+faa409f3-0a66-5a6b-91c3-60c9446ceaf0,6e4c9822-4972-5059-a4f1-a5d67b154182,Ders çalışma föyü,worksheet,,course-media/worksheets/neural-networks-101-m1-l3.md,2
+95c56eca-53aa-5e6a-b90f-09935b3777fe,06190ec4-2673-5b7d-870b-57e1d0fb2e92,PyTorch öğrenme kaynakları,link,https://docs.pytorch.org/tutorials/,,1
+9978d8aa-bf80-5a19-bfbe-409baeeab490,06190ec4-2673-5b7d-870b-57e1d0fb2e92,Ders çalışma föyü,worksheet,,course-media/worksheets/neural-networks-101-m2-l1.md,2
+97abd180-b44c-586a-9c38-6ca4a638b26c,4a254d63-fbd5-53be-8cd0-6f13a7d8971b,PyTorch öğrenme kaynakları,link,https://docs.pytorch.org/tutorials/,,1
+65fb5559-ec6e-570c-844c-562938a87350,4a254d63-fbd5-53be-8cd0-6f13a7d8971b,Ders çalışma föyü,worksheet,,course-media/worksheets/neural-networks-101-m2-l2.md,2
+2c8b6310-4bd8-513c-a76d-4994b39b5ffe,7bb29e24-b2b2-572f-b0bc-bc34a19bf10e,PyTorch öğrenme kaynakları,link,https://docs.pytorch.org/tutorials/,,1
+ce3fff66-deb0-58fe-a976-8b15fa59510e,7bb29e24-b2b2-572f-b0bc-bc34a19bf10e,Ders çalışma föyü,worksheet,,course-media/worksheets/neural-networks-101-m2-l3.md,2
+0e85aaf0-3f7c-5772-891d-6780d7061ff1,3a74b02d-d7e6-59d3-9b20-d4cef361c98a,PyTorch öğrenme kaynakları,link,https://docs.pytorch.org/tutorials/,,1
+1241ff98-979b-57f7-88b7-baa708574561,3a74b02d-d7e6-59d3-9b20-d4cef361c98a,Ders çalışma föyü,worksheet,,course-media/worksheets/neural-networks-101-m3-l1.md,2
+97be39b1-be8b-5f6f-ae33-2f40da4cd3f4,7a4a15da-58af-5eeb-b4f6-78ab98bdb325,PyTorch öğrenme kaynakları,link,https://docs.pytorch.org/tutorials/,,1
+6fb0b987-d65f-55cf-8740-08f6ce32181f,7a4a15da-58af-5eeb-b4f6-78ab98bdb325,Ders çalışma föyü,worksheet,,course-media/worksheets/neural-networks-101-m3-l2.md,2
+f58883cd-128b-547e-a2d4-023cb89cb6d9,52aaa647-177b-5a52-a15f-79e9c5cd61e9,PyTorch öğrenme kaynakları,link,https://docs.pytorch.org/tutorials/,,1
+5fa0fc98-5422-5ed2-9287-cd08b8fba244,52aaa647-177b-5a52-a15f-79e9c5cd61e9,Ders çalışma föyü,worksheet,,course-media/worksheets/neural-networks-101-m3-l3.md,2
+3f91c740-d2c2-5019-8f34-c5866c9e686b,6b4b4bb0-8ce5-5130-8fb9-44acb017732e,scikit-learn model evaluation rehberi,link,https://scikit-learn.org/stable/modules/model_evaluation.html,,1
+4cae3a2a-7e51-5490-b199-7a21789a8ab2,6b4b4bb0-8ce5-5130-8fb9-44acb017732e,Ders çalışma föyü,worksheet,,course-media/worksheets/model-degerlendirme-deneyler-m1-l1.md,2
+d895dc55-78ec-597e-a620-72f845d53fd4,d11df183-cab7-560b-a35b-86d636bae2ba,scikit-learn model evaluation rehberi,link,https://scikit-learn.org/stable/modules/model_evaluation.html,,1
+26e4fde1-56b5-5551-8b15-a7c06064c311,d11df183-cab7-560b-a35b-86d636bae2ba,Ders çalışma föyü,worksheet,,course-media/worksheets/model-degerlendirme-deneyler-m1-l2.md,2
+5b0a14d6-353c-5fc3-81b5-c5cf83410935,f93cfbf9-b7c4-5d4f-9ad0-220bed016986,scikit-learn model evaluation rehberi,link,https://scikit-learn.org/stable/modules/model_evaluation.html,,1
+32d2c69e-f675-5c57-85cf-db579747e532,f93cfbf9-b7c4-5d4f-9ad0-220bed016986,Ders çalışma föyü,worksheet,,course-media/worksheets/model-degerlendirme-deneyler-m1-l3.md,2
+bcbdce7d-3ae5-5719-86d6-fb7d0b5a0e64,2ee6c1b5-1a93-5727-a3e4-7a64fcd89f84,scikit-learn model evaluation rehberi,link,https://scikit-learn.org/stable/modules/model_evaluation.html,,1
+6a1f06d9-e0c9-540f-a74c-26fcea988104,2ee6c1b5-1a93-5727-a3e4-7a64fcd89f84,Ders çalışma föyü,worksheet,,course-media/worksheets/model-degerlendirme-deneyler-m2-l1.md,2
+018e14d9-c45c-5124-ae4d-b68c6c789f2c,a678ed4e-bc7c-5aaa-aed0-aefbf260f6be,scikit-learn model evaluation rehberi,link,https://scikit-learn.org/stable/modules/model_evaluation.html,,1
+e5014a57-34f6-5fd4-a715-25a170ae930b,a678ed4e-bc7c-5aaa-aed0-aefbf260f6be,Ders çalışma föyü,worksheet,,course-media/worksheets/model-degerlendirme-deneyler-m2-l2.md,2
+e37da34b-8860-5b90-a71f-f6a81e8d7c3c,914ec2d8-1a95-5e4f-ae33-ccafc53f2c0a,scikit-learn model evaluation rehberi,link,https://scikit-learn.org/stable/modules/model_evaluation.html,,1
+4a0bc683-2979-5ec5-9c45-d46299fc2c43,914ec2d8-1a95-5e4f-ae33-ccafc53f2c0a,Ders çalışma föyü,worksheet,,course-media/worksheets/model-degerlendirme-deneyler-m2-l3.md,2
+87e42018-7603-5188-82c8-03ff6dfbc45d,eff32f26-5fb1-5326-8560-e204caca0a5c,scikit-learn model evaluation rehberi,link,https://scikit-learn.org/stable/modules/model_evaluation.html,,1
+324458ee-aec8-5db1-83b9-792e015de257,eff32f26-5fb1-5326-8560-e204caca0a5c,Ders çalışma föyü,worksheet,,course-media/worksheets/model-degerlendirme-deneyler-m3-l1.md,2
+f89d5966-95e4-593d-9a23-15a13815bb6d,3af69713-74f7-5bfa-b43b-8cd45c0b3c45,scikit-learn model evaluation rehberi,link,https://scikit-learn.org/stable/modules/model_evaluation.html,,1
+c9eb5004-09a7-578a-a47a-938421ab306c,3af69713-74f7-5bfa-b43b-8cd45c0b3c45,Ders çalışma föyü,worksheet,,course-media/worksheets/model-degerlendirme-deneyler-m3-l2.md,2
+e511229a-18b5-5905-a53e-40a4c739804b,b24e6dbb-59fb-50d1-b2f0-abda52fbd2e5,scikit-learn model evaluation rehberi,link,https://scikit-learn.org/stable/modules/model_evaluation.html,,1
+72e1f2f1-a791-5085-91f5-87cc773bac69,b24e6dbb-59fb-50d1-b2f0-abda52fbd2e5,Ders çalışma föyü,worksheet,,course-media/worksheets/model-degerlendirme-deneyler-m3-l3.md,2
+7af187b1-5869-5d3e-978f-9c214b7ed60c,62bd66e7-7a24-5864-81ed-6a8e6192aee5,PyTorch tutorial koleksiyonu,link,https://docs.pytorch.org/tutorials/,,1
+5faca4b2-956f-55b7-9b22-0001b8508aa6,62bd66e7-7a24-5864-81ed-6a8e6192aee5,Ders çalışma föyü,worksheet,,course-media/worksheets/deep-learning-pytorch-m1-l1.md,2
+80582f0a-38a2-54ae-9af9-ac332e975070,ef283f3f-db43-5d87-ae09-bfe196779818,PyTorch tutorial koleksiyonu,link,https://docs.pytorch.org/tutorials/,,1
+ef453f77-f233-50b4-8749-993a460ac607,ef283f3f-db43-5d87-ae09-bfe196779818,Ders çalışma föyü,worksheet,,course-media/worksheets/deep-learning-pytorch-m1-l2.md,2
+4195441a-b3a5-5619-9413-13b90b2dd1c8,ad7b1414-ec2c-53a7-8a57-334ddd6e7137,PyTorch tutorial koleksiyonu,link,https://docs.pytorch.org/tutorials/,,1
+6e5d200c-c8a6-57b1-81e0-d194b6bedb42,ad7b1414-ec2c-53a7-8a57-334ddd6e7137,Ders çalışma föyü,worksheet,,course-media/worksheets/deep-learning-pytorch-m1-l3.md,2
+e24b4110-f1f8-591d-a27e-7914a01954e5,e469ea2b-1af8-5dfd-a787-af7f8a4ac4a4,PyTorch tutorial koleksiyonu,link,https://docs.pytorch.org/tutorials/,,1
+a788640f-3f53-5aed-ae5f-4c871d0819bc,e469ea2b-1af8-5dfd-a787-af7f8a4ac4a4,Ders çalışma föyü,worksheet,,course-media/worksheets/deep-learning-pytorch-m2-l1.md,2
+eed54c61-e055-59ef-927b-5f933afa07ac,07e27f3a-3512-57b3-b2c2-00b62c7b9fc0,PyTorch tutorial koleksiyonu,link,https://docs.pytorch.org/tutorials/,,1
+94ecadd0-78db-561f-94f7-2f0b4d2cba13,07e27f3a-3512-57b3-b2c2-00b62c7b9fc0,Ders çalışma föyü,worksheet,,course-media/worksheets/deep-learning-pytorch-m2-l2.md,2
+41006ae7-013f-5766-9be0-b33fc18b87e9,8bc5b1c5-6252-5802-a2e5-3609cd0e0d17,PyTorch tutorial koleksiyonu,link,https://docs.pytorch.org/tutorials/,,1
+dab6ac76-a9be-56c0-97de-f0200a56c7e3,8bc5b1c5-6252-5802-a2e5-3609cd0e0d17,Ders çalışma föyü,worksheet,,course-media/worksheets/deep-learning-pytorch-m2-l3.md,2
+70ac56c1-ee2a-5c20-a99d-76f110036a3b,fda07d3f-3fd8-580c-be03-2d63c53fa249,PyTorch tutorial koleksiyonu,link,https://docs.pytorch.org/tutorials/,,1
+040a66f4-52d0-576c-938d-12c5d9f2a5b8,fda07d3f-3fd8-580c-be03-2d63c53fa249,Ders çalışma föyü,worksheet,,course-media/worksheets/deep-learning-pytorch-m3-l1.md,2
+b43f9847-b666-55ce-b2e6-d1cb57af2bb0,42801935-8fb1-58c8-9716-510f52727565,PyTorch tutorial koleksiyonu,link,https://docs.pytorch.org/tutorials/,,1
+2ef575ea-170a-5dd3-b970-d212b4995498,42801935-8fb1-58c8-9716-510f52727565,Ders çalışma föyü,worksheet,,course-media/worksheets/deep-learning-pytorch-m3-l2.md,2
+efd46f10-461f-5d0f-9345-89aa1ea4a228,5702830a-3997-5c69-bd40-3ee37b2966a1,PyTorch tutorial koleksiyonu,link,https://docs.pytorch.org/tutorials/,,1
+9ddd0388-5010-58a4-8d1b-4a2d73057a95,5702830a-3997-5c69-bd40-3ee37b2966a1,Ders çalışma föyü,worksheet,,course-media/worksheets/deep-learning-pytorch-m3-l3.md,2
+fc7c1405-9aea-51fa-988e-ca16a60b22b3,5ccfeb80-51ee-567b-a90c-4460ac943497,PyTorch computer vision tutorialları,link,https://docs.pytorch.org/tutorials/,,1
+4ac83f97-0f97-5b36-ba5f-884cdbab78c4,5ccfeb80-51ee-567b-a90c-4460ac943497,Ders çalışma föyü,worksheet,,course-media/worksheets/bilgisayarli-goru-temelleri-m1-l1.md,2
+e8b2c25d-6c8a-55a9-846b-a743062129bb,8178004d-c703-5f33-8207-2f9bd0a9ca32,PyTorch computer vision tutorialları,link,https://docs.pytorch.org/tutorials/,,1
+1653f743-0887-5d08-af83-14f70c1097f5,8178004d-c703-5f33-8207-2f9bd0a9ca32,Ders çalışma föyü,worksheet,,course-media/worksheets/bilgisayarli-goru-temelleri-m1-l2.md,2
+129f4d75-b17d-565f-a889-0fbed41f6a20,2d508b98-5cbc-5013-92ef-8d9dd81f4219,PyTorch computer vision tutorialları,link,https://docs.pytorch.org/tutorials/,,1
+7ab146f6-80b5-555d-a0d6-bc7702c7d65f,2d508b98-5cbc-5013-92ef-8d9dd81f4219,Ders çalışma föyü,worksheet,,course-media/worksheets/bilgisayarli-goru-temelleri-m1-l3.md,2
+c321bcb1-2072-556e-84ac-57a0bdd80967,89f367cc-5946-56eb-9ce0-d91880b33fef,PyTorch computer vision tutorialları,link,https://docs.pytorch.org/tutorials/,,1
+8692e5ba-4a05-569a-9fa0-e42caf1e10cd,89f367cc-5946-56eb-9ce0-d91880b33fef,Ders çalışma föyü,worksheet,,course-media/worksheets/bilgisayarli-goru-temelleri-m2-l1.md,2
+9e1bccfd-c6a9-5df3-9d23-a2232b07b76e,f52beba4-581d-5673-b45f-e6c68d39aafe,PyTorch computer vision tutorialları,link,https://docs.pytorch.org/tutorials/,,1
+99b21f9b-b77e-5d22-a018-4730706997de,f52beba4-581d-5673-b45f-e6c68d39aafe,Ders çalışma föyü,worksheet,,course-media/worksheets/bilgisayarli-goru-temelleri-m2-l2.md,2
+5a30484f-2e7f-5746-8e18-9616bc6a6479,6f9809f9-ffca-50ce-83f6-1e754d691599,PyTorch computer vision tutorialları,link,https://docs.pytorch.org/tutorials/,,1
+0f6768dd-a4bf-5fe7-8fe9-8cc44f0d0e78,6f9809f9-ffca-50ce-83f6-1e754d691599,Ders çalışma föyü,worksheet,,course-media/worksheets/bilgisayarli-goru-temelleri-m2-l3.md,2
+d2956033-5170-54f3-8a21-ce617b167fde,e6d70ae9-c0f4-59ee-8824-cc0d282df259,PyTorch computer vision tutorialları,link,https://docs.pytorch.org/tutorials/,,1
+907f2d1b-532a-52be-9d4b-13abad1c08b6,e6d70ae9-c0f4-59ee-8824-cc0d282df259,Ders çalışma föyü,worksheet,,course-media/worksheets/bilgisayarli-goru-temelleri-m3-l1.md,2
+b37d2757-f887-598e-954b-4b48d266e063,dd00ba7c-5c11-5d8a-ac30-45c89af17ccd,PyTorch computer vision tutorialları,link,https://docs.pytorch.org/tutorials/,,1
+c46126e5-85dc-5d57-a361-8c3c9becdc23,dd00ba7c-5c11-5d8a-ac30-45c89af17ccd,Ders çalışma föyü,worksheet,,course-media/worksheets/bilgisayarli-goru-temelleri-m3-l2.md,2
+3807076b-a6c7-54ac-b93a-4cc2c9e57993,3e2dff34-7fed-5697-8ecd-3b9bca2af769,PyTorch computer vision tutorialları,link,https://docs.pytorch.org/tutorials/,,1
+2379ef1c-a418-57dc-8507-e3c8fd1c94b6,3e2dff34-7fed-5697-8ecd-3b9bca2af769,Ders çalışma föyü,worksheet,,course-media/worksheets/bilgisayarli-goru-temelleri-m3-l3.md,2
+cf8203ef-09f0-5048-b83b-29d9d8bcc28a,11778a43-92ed-596a-b876-eddd55c79edf,Hugging Face LLM kursu,link,https://huggingface.co/learn/llm-course/chapter1/1,,1
+ed122d9d-6731-570b-8766-92a9259c7b51,11778a43-92ed-596a-b876-eddd55c79edf,Ders çalışma föyü,worksheet,,course-media/worksheets/nlp-llm-temelleri-m1-l1.md,2
+19282340-5147-50c1-89f2-3bc870fdbbc8,cc6d6a68-ff2f-5d7e-b887-d312e9af3d2d,Hugging Face LLM kursu,link,https://huggingface.co/learn/llm-course/chapter1/1,,1
+26215d1c-d101-5a66-ae3c-00a4f83b72a0,cc6d6a68-ff2f-5d7e-b887-d312e9af3d2d,Ders çalışma föyü,worksheet,,course-media/worksheets/nlp-llm-temelleri-m1-l2.md,2
+e253b4ce-f83d-5816-9167-2d4e1de1db1e,b14e2e26-b516-5d7f-81f4-12d60a777c38,Hugging Face LLM kursu,link,https://huggingface.co/learn/llm-course/chapter1/1,,1
+2e809606-b4d5-5aa4-947f-a9aa7cade93b,b14e2e26-b516-5d7f-81f4-12d60a777c38,Ders çalışma föyü,worksheet,,course-media/worksheets/nlp-llm-temelleri-m1-l3.md,2
+a1699cae-5f38-5fe1-95ee-d284d805410c,68df36b4-019c-53bb-92b1-975e9efa9e61,Hugging Face LLM kursu,link,https://huggingface.co/learn/llm-course/chapter1/1,,1
+f7f44c8a-5a0b-502f-8fc8-74dd9abff188,68df36b4-019c-53bb-92b1-975e9efa9e61,Ders çalışma föyü,worksheet,,course-media/worksheets/nlp-llm-temelleri-m2-l1.md,2
+8c87794f-2565-57fb-ab71-fbf5a34908ad,522c25f5-43b3-5067-bf6a-b8c229ab13f7,Hugging Face LLM kursu,link,https://huggingface.co/learn/llm-course/chapter1/1,,1
+43f1a7c4-325d-5176-bc6a-03560ee3452c,522c25f5-43b3-5067-bf6a-b8c229ab13f7,Ders çalışma föyü,worksheet,,course-media/worksheets/nlp-llm-temelleri-m2-l2.md,2
+2c761d12-3464-5659-a31f-f22bdfe13858,0ef12391-3a10-5d84-ae87-bd7310b7a904,Hugging Face LLM kursu,link,https://huggingface.co/learn/llm-course/chapter1/1,,1
+4fa6dcae-fdee-5bbf-8c03-5687ae9a8c7a,0ef12391-3a10-5d84-ae87-bd7310b7a904,Ders çalışma föyü,worksheet,,course-media/worksheets/nlp-llm-temelleri-m2-l3.md,2
+83fbfa7a-0a8b-5b1a-8d77-9d2b8b46e343,e1cd3e6f-da66-5603-916d-2cc13df09dc0,Hugging Face LLM kursu,link,https://huggingface.co/learn/llm-course/chapter1/1,,1
+5aab2c31-dbcc-5655-860c-8b416e869569,e1cd3e6f-da66-5603-916d-2cc13df09dc0,Ders çalışma föyü,worksheet,,course-media/worksheets/nlp-llm-temelleri-m3-l1.md,2
+2ea6d68b-1b2c-5746-bced-15902c278780,7c22b824-08be-5790-9dba-6222b32ec6b1,Hugging Face LLM kursu,link,https://huggingface.co/learn/llm-course/chapter1/1,,1
+3d1cb431-a282-5151-95d3-bd2bf0190a01,7c22b824-08be-5790-9dba-6222b32ec6b1,Ders çalışma föyü,worksheet,,course-media/worksheets/nlp-llm-temelleri-m3-l2.md,2
+fe4ac76b-d623-5639-aa87-bd7cfa27c88d,6b362fcc-2b79-5dde-b06f-51d249767c0a,Hugging Face LLM kursu,link,https://huggingface.co/learn/llm-course/chapter1/1,,1
+702679f9-d233-5f76-8c13-dd9b4d5fe35d,6b362fcc-2b79-5dde-b06f-51d249767c0a,Ders çalışma föyü,worksheet,,course-media/worksheets/nlp-llm-temelleri-m3-l3.md,2
+61bfe82c-5aaf-502f-8447-562564f7b09c,4b6e1c02-6e89-5889-aa87-38572f912bbe,OpenAI prompt engineering rehberi,link,https://platform.openai.com/docs/guides/prompt-engineering,,1
+8c607d82-1c1c-50f2-8d49-d590863aabed,4b6e1c02-6e89-5889-aa87-38572f912bbe,Ders çalışma föyü,worksheet,,course-media/worksheets/prompt-engineering-pratikleri-m1-l1.md,2
+aac46e97-02ca-5ce5-8d78-3d5adc245f17,0666b147-0c97-5739-bb3f-7be28edb255d,OpenAI prompt engineering rehberi,link,https://platform.openai.com/docs/guides/prompt-engineering,,1
+2d0f6561-b5a5-5b9b-b3fb-921cd357cd8d,0666b147-0c97-5739-bb3f-7be28edb255d,Ders çalışma föyü,worksheet,,course-media/worksheets/prompt-engineering-pratikleri-m1-l2.md,2
+9b40e550-a164-5b71-b1ff-c1985cb98427,ebf83e29-fa8c-5ae5-96b4-341443b23208,OpenAI prompt engineering rehberi,link,https://platform.openai.com/docs/guides/prompt-engineering,,1
+94e8da17-0a9a-544f-a8ea-81b5f7d040b8,ebf83e29-fa8c-5ae5-96b4-341443b23208,Ders çalışma föyü,worksheet,,course-media/worksheets/prompt-engineering-pratikleri-m1-l3.md,2
+8a2cc2ce-cb8e-59d5-adf0-4e98c34acf4a,9229cbb0-f8a3-51a4-9166-064aeae0e65f,OpenAI prompt engineering rehberi,link,https://platform.openai.com/docs/guides/prompt-engineering,,1
+16cfbbbd-49d3-5372-8df3-12cb8b0bfad1,9229cbb0-f8a3-51a4-9166-064aeae0e65f,Ders çalışma föyü,worksheet,,course-media/worksheets/prompt-engineering-pratikleri-m2-l1.md,2
+32df6398-d0e9-582b-9c3a-ad61e82f01b0,e2a952fd-80cf-52b1-8d6d-681404896c73,OpenAI prompt engineering rehberi,link,https://platform.openai.com/docs/guides/prompt-engineering,,1
+a3205de6-40be-523e-be3c-61fa9f8bc8c5,e2a952fd-80cf-52b1-8d6d-681404896c73,Ders çalışma föyü,worksheet,,course-media/worksheets/prompt-engineering-pratikleri-m2-l2.md,2
+523aa960-49e8-59e7-ba3c-68f0021b139f,f8189461-ac6a-5bee-a877-1433206c13e6,OpenAI prompt engineering rehberi,link,https://platform.openai.com/docs/guides/prompt-engineering,,1
+16d87e45-92d1-557b-ac4e-587816af3b7c,f8189461-ac6a-5bee-a877-1433206c13e6,Ders çalışma föyü,worksheet,,course-media/worksheets/prompt-engineering-pratikleri-m2-l3.md,2
+1490b1f9-01df-5562-89b9-0792da6363eb,bada3887-1f7a-5b75-b639-a90cbe9e0701,OpenAI prompt engineering rehberi,link,https://platform.openai.com/docs/guides/prompt-engineering,,1
+002eae72-fabe-5b2a-9290-a5711421752e,bada3887-1f7a-5b75-b639-a90cbe9e0701,Ders çalışma föyü,worksheet,,course-media/worksheets/prompt-engineering-pratikleri-m3-l1.md,2
+a68538e6-ddea-5652-8385-f798ce5f8a24,08a11b04-ea0b-5124-9001-e149da226668,OpenAI prompt engineering rehberi,link,https://platform.openai.com/docs/guides/prompt-engineering,,1
+495ddfe7-ec6c-5bbf-92cd-f351f796eba9,08a11b04-ea0b-5124-9001-e149da226668,Ders çalışma föyü,worksheet,,course-media/worksheets/prompt-engineering-pratikleri-m3-l2.md,2
+56a1d6ff-fec5-5b7d-ac68-1393687a4ccc,0e4dbc17-f633-5ca4-a710-b691f76b4e11,OpenAI prompt engineering rehberi,link,https://platform.openai.com/docs/guides/prompt-engineering,,1
+90112f62-ca3c-5226-a01e-a3f7f541ca7a,0e4dbc17-f633-5ca4-a710-b691f76b4e11,Ders çalışma föyü,worksheet,,course-media/worksheets/prompt-engineering-pratikleri-m3-l3.md,2
+2edd52a6-574c-595d-afb6-a2aa59874d98,89f467b3-6349-577b-877a-58275869185c,OpenAI embeddings rehberi,link,https://platform.openai.com/docs/guides/embeddings,,1
+d066521b-aabc-5788-b4ef-315e01ec50d0,89f467b3-6349-577b-877a-58275869185c,Ders çalışma föyü,worksheet,,course-media/worksheets/rag-ai-uygulamalari-m1-l1.md,2
+df5efd61-6dd9-5973-9c23-3bc5cf74a44c,d14ae7ee-1b93-54b7-a6d2-4117f2fd8417,OpenAI embeddings rehberi,link,https://platform.openai.com/docs/guides/embeddings,,1
+c985ed74-380b-5780-9dc5-e8c8342adf07,d14ae7ee-1b93-54b7-a6d2-4117f2fd8417,Ders çalışma föyü,worksheet,,course-media/worksheets/rag-ai-uygulamalari-m1-l2.md,2
+69217e04-fabb-5b8e-87c7-c135468d4d15,dafa552a-6038-578a-b9bd-1af47fb0fd7d,OpenAI embeddings rehberi,link,https://platform.openai.com/docs/guides/embeddings,,1
+a2617881-c7bd-5341-b738-39f3b6e8db89,dafa552a-6038-578a-b9bd-1af47fb0fd7d,Ders çalışma föyü,worksheet,,course-media/worksheets/rag-ai-uygulamalari-m1-l3.md,2
+2e2e13d7-1224-5de3-af00-057d0b52cc3d,71053336-71cc-5d9b-a249-9ea55a253f74,OpenAI embeddings rehberi,link,https://platform.openai.com/docs/guides/embeddings,,1
+6b596da9-d965-5d4b-8ec3-ae3347e0e808,71053336-71cc-5d9b-a249-9ea55a253f74,Ders çalışma föyü,worksheet,,course-media/worksheets/rag-ai-uygulamalari-m2-l1.md,2
+1a80a8c6-4d4c-560d-81bd-f6ca815ed72f,713023dc-360a-54f3-bafe-fc12d3e86aa1,OpenAI embeddings rehberi,link,https://platform.openai.com/docs/guides/embeddings,,1
+4dcbd305-5bee-5639-baf3-411da0a6e4fd,713023dc-360a-54f3-bafe-fc12d3e86aa1,Ders çalışma föyü,worksheet,,course-media/worksheets/rag-ai-uygulamalari-m2-l2.md,2
+118a0690-01f9-5f28-b2fa-0ec7fb5f8b4f,e2df0514-3357-5502-a166-c1a8734b6a75,OpenAI embeddings rehberi,link,https://platform.openai.com/docs/guides/embeddings,,1
+9ccd5e76-bdb8-5619-867c-f6736e857392,e2df0514-3357-5502-a166-c1a8734b6a75,Ders çalışma föyü,worksheet,,course-media/worksheets/rag-ai-uygulamalari-m2-l3.md,2
+e4e326fc-e564-5c08-8c05-b72a971ee45d,1f170a47-7dde-5a97-ab15-7c9febc3c987,OpenAI embeddings rehberi,link,https://platform.openai.com/docs/guides/embeddings,,1
+62e6e8f1-dcc6-50c0-b77f-d5a14ec95092,1f170a47-7dde-5a97-ab15-7c9febc3c987,Ders çalışma föyü,worksheet,,course-media/worksheets/rag-ai-uygulamalari-m3-l1.md,2
+09747751-2353-5041-91f3-daa0f46d5cc3,0737a068-1998-562b-add8-c436312eb6f2,OpenAI embeddings rehberi,link,https://platform.openai.com/docs/guides/embeddings,,1
+59fb0c95-51f6-5789-bc34-66a6c2ab09ca,0737a068-1998-562b-add8-c436312eb6f2,Ders çalışma föyü,worksheet,,course-media/worksheets/rag-ai-uygulamalari-m3-l2.md,2
+937fb388-d461-5a02-a7d8-e7c16fcf66f4,7bcc921c-bd92-5094-b982-bb45eb81a001,OpenAI embeddings rehberi,link,https://platform.openai.com/docs/guides/embeddings,,1
+8a61d07e-53df-5824-a39d-acb2b13588bf,7bcc921c-bd92-5094-b982-bb45eb81a001,Ders çalışma föyü,worksheet,,course-media/worksheets/rag-ai-uygulamalari-m3-l3.md,2
+9bc35c9d-6473-523c-b0ad-aa0858fcaaf0,8f180fff-6f5f-569c-bce4-0c05ca42a779,MLflow dokümantasyonu,link,https://mlflow.org/docs/latest/index.html,,1
+ab6d321d-2e6c-5c4f-a46c-7c962e8d343f,8f180fff-6f5f-569c-bce4-0c05ca42a779,Ders çalışma föyü,worksheet,,course-media/worksheets/mlops-uretim-m1-l1.md,2
+301fd13f-05f3-5e4f-8e7c-8a135fc83e46,f437a9a9-816b-5afc-a3d7-04c23070ce5b,MLflow dokümantasyonu,link,https://mlflow.org/docs/latest/index.html,,1
+c99563d4-8e2d-514c-9dfc-760152aa4538,f437a9a9-816b-5afc-a3d7-04c23070ce5b,Ders çalışma föyü,worksheet,,course-media/worksheets/mlops-uretim-m1-l2.md,2
+39413950-a5de-5c56-abd5-11e1da67bff1,41102c57-6bc3-5be9-acd9-946dd832fc04,MLflow dokümantasyonu,link,https://mlflow.org/docs/latest/index.html,,1
+db5765b9-4b13-57f4-9e55-360ac682f652,41102c57-6bc3-5be9-acd9-946dd832fc04,Ders çalışma föyü,worksheet,,course-media/worksheets/mlops-uretim-m1-l3.md,2
+e4e1184d-e274-5cfd-92d6-f944e4c71077,3407cc26-01db-5d48-994e-a307411d8a7b,MLflow dokümantasyonu,link,https://mlflow.org/docs/latest/index.html,,1
+1c2dd5cb-eca2-53f5-8d2d-0b160bc4340c,3407cc26-01db-5d48-994e-a307411d8a7b,Ders çalışma föyü,worksheet,,course-media/worksheets/mlops-uretim-m2-l1.md,2
+eb515a1e-1faf-5a00-a7e0-e3ea8145e254,c9fdb9c6-ce16-5e08-a575-aa063b0c8305,MLflow dokümantasyonu,link,https://mlflow.org/docs/latest/index.html,,1
+5addf368-9b80-5045-86e2-c91e76c824a7,c9fdb9c6-ce16-5e08-a575-aa063b0c8305,Ders çalışma föyü,worksheet,,course-media/worksheets/mlops-uretim-m2-l2.md,2
+57941ec2-eca9-5299-a90f-cac76da42c1c,5a33623d-9541-5c81-88a0-e1ec6a523d52,MLflow dokümantasyonu,link,https://mlflow.org/docs/latest/index.html,,1
+76b2808e-8e2f-5f22-933e-2ee6dd9d23d8,5a33623d-9541-5c81-88a0-e1ec6a523d52,Ders çalışma föyü,worksheet,,course-media/worksheets/mlops-uretim-m2-l3.md,2
+6026e439-667c-5b59-8ef3-8c8f995c304e,7c26ac10-1e73-584b-976e-13325dac2ed1,MLflow dokümantasyonu,link,https://mlflow.org/docs/latest/index.html,,1
+137201b7-3527-5aa7-a0ef-9a47071ad270,7c26ac10-1e73-584b-976e-13325dac2ed1,Ders çalışma föyü,worksheet,,course-media/worksheets/mlops-uretim-m3-l1.md,2
+2440e8d1-ebdc-53e9-b887-4e7ff413616c,8eda7baf-4a1d-5ff8-adbc-d2f9372c76ad,MLflow dokümantasyonu,link,https://mlflow.org/docs/latest/index.html,,1
+f1223ff2-dd4b-5817-9cc3-892822e01b47,8eda7baf-4a1d-5ff8-adbc-d2f9372c76ad,Ders çalışma föyü,worksheet,,course-media/worksheets/mlops-uretim-m3-l2.md,2
+5f9244bb-099d-53db-a6f7-e2c18b7b6eca,c3923407-d95a-5fff-9370-ca071d8d770f,MLflow dokümantasyonu,link,https://mlflow.org/docs/latest/index.html,,1
+78ce7536-fcae-5374-8fe3-6c01b4bf3961,c3923407-d95a-5fff-9370-ca071d8d770f,Ders çalışma föyü,worksheet,,course-media/worksheets/mlops-uretim-m3-l3.md,2
+e05cf819-6f83-5f60-af43-9c2b0b280dc1,dc8512aa-3f6e-5687-aee9-1ab380d71899,LangChain dokümantasyonu,link,https://docs.langchain.com/,,1
+61f9beeb-197c-5382-9675-93b0114529ff,dc8512aa-3f6e-5687-aee9-1ab380d71899,Ders çalışma föyü,worksheet,,course-media/worksheets/ai-urun-guvenlik-etik-m1-l1.md,2
+2ad080df-6e89-5d1e-abd9-00f2b4f4e2df,9e1733a5-4129-5bf1-9ec2-53ebd5be1fe2,LangChain dokümantasyonu,link,https://docs.langchain.com/,,1
+d496d604-40f6-5a34-89a2-bd095686ebe6,9e1733a5-4129-5bf1-9ec2-53ebd5be1fe2,Ders çalışma föyü,worksheet,,course-media/worksheets/ai-urun-guvenlik-etik-m1-l2.md,2
+4f324dc3-1e37-5f74-bdc9-9e570a7a279d,cff571f4-42cb-57f5-9f3c-4eaf4bd96003,LangChain dokümantasyonu,link,https://docs.langchain.com/,,1
+d900d8ac-c4d5-5708-8dae-d23931fb7294,cff571f4-42cb-57f5-9f3c-4eaf4bd96003,Ders çalışma föyü,worksheet,,course-media/worksheets/ai-urun-guvenlik-etik-m1-l3.md,2
+b5034d86-df82-5f82-8313-808f3d946eef,d3f85bf8-7d9f-57a1-942f-a1a7515d5cd7,LangChain dokümantasyonu,link,https://docs.langchain.com/,,1
+5eaace48-2d42-5116-8a4f-263a6a793f98,d3f85bf8-7d9f-57a1-942f-a1a7515d5cd7,Ders çalışma föyü,worksheet,,course-media/worksheets/ai-urun-guvenlik-etik-m2-l1.md,2
+d9dbbd50-f6bf-5907-b0a1-770d2cbc2035,2c073552-d99f-5cc5-9e4a-dfe23547da88,LangChain dokümantasyonu,link,https://docs.langchain.com/,,1
+0ef8905b-b7e4-50fe-81ee-ce4e29a1d9ee,2c073552-d99f-5cc5-9e4a-dfe23547da88,Ders çalışma föyü,worksheet,,course-media/worksheets/ai-urun-guvenlik-etik-m2-l2.md,2
+604092e0-8fdd-5ee5-a5bd-e2ffdf0860f6,43597261-4d69-5bbd-82c5-269514698491,LangChain dokümantasyonu,link,https://docs.langchain.com/,,1
+1afacc56-5467-5b39-9fef-82791f498945,43597261-4d69-5bbd-82c5-269514698491,Ders çalışma föyü,worksheet,,course-media/worksheets/ai-urun-guvenlik-etik-m2-l3.md,2
+6f9a72f2-9590-5ce3-81d1-f02ef5940d6f,da9b5f1a-d802-5302-955a-c7786eff7c88,LangChain dokümantasyonu,link,https://docs.langchain.com/,,1
+ef57cadd-0dea-5470-ba4a-2f74324897a0,da9b5f1a-d802-5302-955a-c7786eff7c88,Ders çalışma föyü,worksheet,,course-media/worksheets/ai-urun-guvenlik-etik-m3-l1.md,2
+2856c979-3728-5325-9444-2d35cdf68d1f,1f05d1c7-94b9-5120-8a40-097996c4031b,LangChain dokümantasyonu,link,https://docs.langchain.com/,,1
+74514fa2-f774-5b48-9bf0-fd17abd692fa,1f05d1c7-94b9-5120-8a40-097996c4031b,Ders çalışma föyü,worksheet,,course-media/worksheets/ai-urun-guvenlik-etik-m3-l2.md,2
+b6e3a212-b186-5f64-ab2d-1215e82bab58,5365959e-86a2-589b-8d28-d0b3542be275,LangChain dokümantasyonu,link,https://docs.langchain.com/,,1
+43e50372-0785-5805-8d3c-1382a5fb74d8,5365959e-86a2-589b-8d28-d0b3542be275,Ders çalışma föyü,worksheet,,course-media/worksheets/ai-urun-guvenlik-etik-m3-l3.md,2
+12a4e149-41ba-57de-984a-5a7da7a64b33,bfb52e6a-beef-57b5-b65a-3a70211131c7,MLflow dokümantasyonu,link,https://mlflow.org/docs/latest/index.html,,1
+1d8d1791-ddd1-50de-9d5d-f27379c0ce44,bfb52e6a-beef-57b5-b65a-3a70211131c7,Ders çalışma föyü,worksheet,,course-media/worksheets/capstone-ai-engineer-m1-l1.md,2
+04c6e3fa-dc24-5b87-b911-dfc173aede56,cb074ac2-1b73-562a-9041-c93c535e3ed2,MLflow dokümantasyonu,link,https://mlflow.org/docs/latest/index.html,,1
+150b02ca-20b1-54f9-8c4c-e233f7f25870,cb074ac2-1b73-562a-9041-c93c535e3ed2,Ders çalışma föyü,worksheet,,course-media/worksheets/capstone-ai-engineer-m1-l2.md,2
+5599866b-39bd-538d-ae34-fa11a021f9af,837b7c2a-687e-53e3-ad5d-c782eeed0f15,MLflow dokümantasyonu,link,https://mlflow.org/docs/latest/index.html,,1
+41728212-40ab-594c-8ea0-fbd060623c34,837b7c2a-687e-53e3-ad5d-c782eeed0f15,Ders çalışma föyü,worksheet,,course-media/worksheets/capstone-ai-engineer-m1-l3.md,2
+8b11af59-4ca2-5199-b0fc-dbdbbdfb1e4d,14ea4b1f-9531-5c70-8d1c-1fdb1357f5d6,MLflow dokümantasyonu,link,https://mlflow.org/docs/latest/index.html,,1
+4d31c93a-3a94-5aee-a023-a10d0dca49dc,14ea4b1f-9531-5c70-8d1c-1fdb1357f5d6,Ders çalışma föyü,worksheet,,course-media/worksheets/capstone-ai-engineer-m2-l1.md,2
+33f192bb-f603-50b9-86f4-c420939ae2d1,49fa4302-5cda-5721-91f8-df62a030535e,MLflow dokümantasyonu,link,https://mlflow.org/docs/latest/index.html,,1
+b17aab16-6caa-5809-9f5c-1f7cac9121c7,49fa4302-5cda-5721-91f8-df62a030535e,Ders çalışma föyü,worksheet,,course-media/worksheets/capstone-ai-engineer-m2-l2.md,2
+87663903-ad45-5743-91f5-60d818b97fd1,015df0ee-8a2b-5e97-a41f-c92956a810ad,MLflow dokümantasyonu,link,https://mlflow.org/docs/latest/index.html,,1
+b183089d-5be4-5647-9562-17114b807ed0,015df0ee-8a2b-5e97-a41f-c92956a810ad,Ders çalışma föyü,worksheet,,course-media/worksheets/capstone-ai-engineer-m2-l3.md,2
+1c29a125-53f8-5189-9c38-eabc10debe03,d2ec538d-c234-5ddf-8fa7-7e06261d3c4d,MLflow dokümantasyonu,link,https://mlflow.org/docs/latest/index.html,,1
+f72c6b40-980a-5ab4-bbea-c47643142960,d2ec538d-c234-5ddf-8fa7-7e06261d3c4d,Ders çalışma föyü,worksheet,,course-media/worksheets/capstone-ai-engineer-m3-l1.md,2
+c301ad35-c532-507c-8101-499e6a2f4da5,f642bee3-ebdf-5b50-9e0a-ca6f4548f0e7,MLflow dokümantasyonu,link,https://mlflow.org/docs/latest/index.html,,1
+aeec992c-8e48-5f2b-997d-3fe8860d616e,f642bee3-ebdf-5b50-9e0a-ca6f4548f0e7,Ders çalışma föyü,worksheet,,course-media/worksheets/capstone-ai-engineer-m3-l2.md,2
+baf3d76e-6fad-5022-92cc-b4a76099e40e,ab68ee2d-f46f-5d10-93b2-8f27e12c9f91,MLflow dokümantasyonu,link,https://mlflow.org/docs/latest/index.html,,1
+625e43c9-7ed6-59b4-87cc-c2b2130bc5d4,ab68ee2d-f46f-5d10-93b2-8f27e12c9f91,Ders çalışma föyü,worksheet,,course-media/worksheets/capstone-ai-engineer-m3-l3.md,2

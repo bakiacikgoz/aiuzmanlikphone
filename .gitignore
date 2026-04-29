@@ -1,0 +1,38 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# dependency folders
+node_modules/
+**/node_modules/
+
+# Expo / React Native outputs
+dist/
+web-build/
+.expo/
+**/.expo/
+expo-env.d.ts
+
+# local QA and logs
+*.log
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+browser-qa-*/
+visual-checks*/
+visual-fixes*/
+visual-real-catalog/
+**/browser-qa-*/
+**/visual-checks*/
+**/visual-fixes*/
+**/visual-real-catalog/
+
+# local nested git backup kept while the workspace moves to a root repo
+mobile/.git.local-backup/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
