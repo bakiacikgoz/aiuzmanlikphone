@@ -1,7 +1,7 @@
 import { router, useLocalSearchParams } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import type { ComponentType } from 'react';
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import {
   Award,
@@ -60,13 +60,24 @@ import {
 } from '../components/AcademyVisuals';
 import { useAuth } from '../auth/AuthProvider';
 import {
+  buildLessonLearningSteps,
+  buildLessonQuiz,
   calculatePlacementResult,
+  calculateProgressPercent,
   countCorrectPlacementAnswers,
+  createEmptyLessonFlowState,
   formatLabResultMessage,
+  getNextLessonInSequence,
   getPlacementStepLabel,
   getQuizResultMessage,
+  gradeLessonQuiz,
+  isLessonUnlocked,
   isLastPlacementQuestion,
   runPerceptronLab,
+  type LessonFlowState,
+  type LessonLearningStep,
+  type LessonQuiz,
+  type LessonQuizResult,
 } from '../domain/academy';
 import {
   formatAcademyError,
@@ -77,12 +88,17 @@ import {
   getLab,
   getLeaderboard,
   getLearningPaths,
+  getLessonContentBlocks,
+  getLessonFlowState,
   getLessons,
   getNotes,
   getPlacementQuestions,
   getQuizQuestion,
   issueCertificate,
+  resetLessonQuizAttempt,
   saveNote,
+  saveLessonQuizResult,
+  saveLessonStepProgress,
   saveSelectedInterests,
   submitLab,
   submitPlacement,
@@ -92,6 +108,7 @@ import {
   type CourseCard,
   type LabState,
   type LessonCard,
+  type LessonContentBlock,
   type NoteCard,
   type PathCard,
   type QuizQuestion,
@@ -454,8 +471,10 @@ export function CourseDetailScreen() {
   const params = useLocalSearchParams<{ path?: string; course?: string }>();
   const selectedPath = firstParam(params.path);
   const selectedCourseSlug = firstParam(params.course);
+  const { data: paths } = useAsyncData<PathCard[]>(getLearningPaths, []);
   const { data: courses, error: courseError } = useAsyncData<CourseCard[]>(getCourseCatalog, []);
   const { data: allLessons, error: lessonsError } = useAsyncData<LessonCard[]>(getLessons, []);
+  const { data: lessonFlowState } = useAsyncData<LessonFlowState>(getLessonFlowState, createEmptyLessonFlowState());
   const featuredCourse = courses[0] ?? {
     title: 'Neural Networks 101',
     subtitle: 'Yapay sinir aglarinin temelleri',
@@ -465,139 +484,520 @@ export function CourseDetailScreen() {
     progress: 65,
     slug: 'neural-networks-101',
   };
+  const selectedPathCard = paths.find((path) => path.slug === selectedPath);
+  const pathCourses = selectedPath ? courses.filter((course) => course.pathSlug === selectedPath) : [];
+  const isPathDetail = Boolean(selectedPath && !selectedCourseSlug && pathCourses.length);
   const selectedCourse = courses.find((course) => course.slug === selectedCourseSlug)
     ?? courses.find((course) => course.pathSlug === selectedPath)
     ?? featuredCourse;
   const courseLessons = allLessons.filter((lesson) => lesson.courseSlug === selectedCourse.slug);
-  const visibleLessons = courseLessons.length ? courseLessons : allLessons.slice(0, Math.max(4, selectedCourse.lessonCount ?? 4));
+  const pathCourseSlugs = new Set(pathCourses.map((course) => course.slug));
+  const pathLessons = allLessons.filter((lesson) => lesson.courseSlug && pathCourseSlugs.has(lesson.courseSlug));
+  const visibleLessons = isPathDetail
+    ? pathLessons
+    : courseLessons.length ? courseLessons : allLessons.slice(0, Math.max(4, selectedCourse.lessonCount ?? 4));
+  const statusCourseSlugs = new Set(
+    (isPathDetail
+      ? pathCourses
+      : selectedCourse.pathSlug
+        ? courses.filter((course) => course.pathSlug === selectedCourse.pathSlug)
+        : [selectedCourse]
+    ).map((course) => course.slug),
+  );
+  const lessonStatusSequence = allLessons.filter((lesson) => lesson.courseSlug && statusCourseSlugs.has(lesson.courseSlug));
+  const completedLessonSlugs = new Set(lessonFlowState.completedLessonSlugs);
+  const getVisibleLessonStatus = (lesson: LessonCard): LessonCard['status'] => {
+    if (completedLessonSlugs.has(lesson.slug)) return 'done';
+    return isLessonUnlocked(lessonStatusSequence.length ? lessonStatusSequence : visibleLessons, lesson.slug, completedLessonSlugs) ? 'active' : 'locked';
+  };
+  const visibleCompletedCount = visibleLessons.filter((lesson) => completedLessonSlugs.has(lesson.slug)).length;
+  const pathProgress = visibleLessons.length ? calculateProgressPercent(visibleCompletedCount, visibleLessons.length) : selectedCourse.progress;
+  const detailTitle = isPathDetail ? `${selectedPathCard?.title ?? selectedCourse.level} Seviye Rotası` : selectedCourse.title;
+  const detailSubtitle = isPathDetail ? (selectedPathCard?.subtitle ?? selectedCourse.subtitle) : selectedCourse.subtitle;
+  const detailDuration = isPathDetail ? `~ ${selectedPathCard?.estimatedHours ?? 1} Saat` : selectedCourse.duration;
+  const detailLevel = isPathDetail ? (selectedPathCard?.title ?? selectedCourse.level) : selectedCourse.level;
+  const detailProgress = isPathDetail ? pathProgress : selectedCourse.progress;
+  const lessonGroups = isPathDetail
+    ? pathCourses
+      .map((course) => ({
+        course,
+        lessons: visibleLessons.filter((lesson) => lesson.courseSlug === course.slug),
+      }))
+      .filter((group) => group.lessons.length)
+    : [{ course: selectedCourse, lessons: visibleLessons }];
+  const continueLesson = visibleLessons.find((lesson) => getVisibleLessonStatus(lesson) === 'active') ?? visibleLessons[0];
+  const openLesson = (lesson: LessonCard | undefined) => {
+    if (!lesson) return;
+    if (getVisibleLessonStatus(lesson) === 'locked') return;
+    router.push({ pathname: '/lesson-player', params: { lesson: lesson.slug } });
+  };
   return (
     <Screen>
       <StatusBar style="light" />
-      <Header back right={<Pressable onPress={() => toggleBookmark('course', selectedCourse.id)}><Bookmark size={22} color={colors.ink} /></Pressable>} />
+      <Header back backFallback="/paths" right={<Pressable onPress={() => toggleBookmark('course', selectedCourse.id)}><Bookmark size={22} color={colors.ink} /></Pressable>} />
       <CourseHeroVisual
         height={228}
-        title={selectedCourse.title}
-        subtitle={selectedCourse.subtitle}
-        metrics={[selectedCourse.duration, selectedCourse.level, `${selectedCourse.lessonCount ?? visibleLessons.length} ders`]}
-        progress={selectedCourse.progress}
+        title={detailTitle}
+        subtitle={detailSubtitle}
+        metrics={[detailDuration, detailLevel, `${visibleLessons.length || (selectedCourse.lessonCount ?? 0)} ders`]}
+        progress={detailProgress}
       />
       {courseError || lessonsError ? <Text style={styles.errorText}>{courseError ?? lessonsError}</Text> : null}
       <View style={styles.courseHeader}>
         <View style={{ flex: 1 }}>
-          <Text style={styles.bigTitle}>{selectedCourse.title}</Text>
-          <Text style={styles.muted}>{selectedCourse.subtitle}</Text>
+          <Text style={styles.bigTitle}>{detailTitle}</Text>
+          <Text style={styles.muted}>{detailSubtitle}</Text>
         </View>
         <View style={styles.progressCircle}>
-          <Text style={styles.progressCircleText}>%{selectedCourse.progress}</Text>
+          <Text style={styles.progressCircleText}>%{detailProgress}</Text>
         </View>
       </View>
       <View style={styles.metaStrip}>
-        <InfoMini icon={Clock3} label="Sure" value={selectedCourse.duration} />
-        <InfoMini icon={BookOpen} label="Icerik" value={`${selectedCourse.lessonCount ?? visibleLessons.length} Ders`} />
-        <InfoMini icon={BarChart3} label="Seviye" value={selectedCourse.level} />
+        <InfoMini icon={Clock3} label="Sure" value={detailDuration} />
+        <InfoMini icon={BookOpen} label="Icerik" value={`${visibleLessons.length || (selectedCourse.lessonCount ?? 0)} Ders`} />
+        <InfoMini icon={BarChart3} label="Seviye" value={detailLevel} />
       </View>
-      <SectionTitle title="Ders Icerigi" />
-      {visibleLessons.map((lesson) => (
-        <Pressable key={lesson.slug} onPress={() => router.push('/lesson-player')} style={styles.lessonRow}>
-          <View style={[styles.lessonStatus, lesson.status === 'done' && styles.lessonDone]}>
-            {lesson.status === 'locked' ? <Lock size={14} color="#8993a8" /> : lesson.status === 'done' ? <Check size={14} color={colors.surface} /> : <Play size={13} color={colors.primary} />}
-          </View>
-          <View style={{ flex: 1 }}>
-            <Text style={styles.lessonTitle}>{lesson.title}</Text>
-            <Text style={styles.metaText}>{lesson.type} • {lesson.duration}</Text>
-          </View>
-        </Pressable>
+      <SectionTitle title="Ders Icerigi" subtitle={isPathDetail ? `${pathCourses.length} kurs, ${visibleLessons.length} ders` : undefined} />
+      {lessonGroups.map((group) => (
+        <View key={group.course.slug}>
+          {isPathDetail ? (
+            <View style={styles.lessonGroupHeader}>
+              <Text style={styles.lessonGroupTitle}>{group.course.title}</Text>
+              <Text style={styles.lessonGroupMeta}>{group.lessons.length} ders</Text>
+            </View>
+          ) : null}
+          {group.lessons.map((lesson) => {
+            const lessonStatus = getVisibleLessonStatus(lesson);
+            return (
+              <Pressable key={lesson.slug} onPress={() => openLesson(lesson)} style={[styles.lessonRow, lessonStatus === 'locked' && styles.lessonRowLocked]}>
+                <View style={[styles.lessonStatus, lessonStatus === 'done' && styles.lessonDone]}>
+                  {lessonStatus === 'locked' ? <Lock size={14} color="#8993a8" /> : lessonStatus === 'done' ? <Check size={14} color={colors.surface} /> : <Play size={13} color={colors.primary} />}
+                </View>
+                <View style={{ flex: 1 }}>
+                  <Text style={[styles.lessonTitle, lessonStatus === 'locked' && styles.lockedLessonText]}>{lesson.title}</Text>
+                  <Text style={styles.metaText}>{lesson.type} • {lesson.duration}{lessonStatus === 'locked' ? ' • Kilitli' : lessonStatus === 'done' ? ' • Tamamlandi' : ' • Aktif'}</Text>
+                </View>
+              </Pressable>
+            );
+          })}
+        </View>
       ))}
       <View style={styles.quickActions}>
         <OutlineButton title="Notlar" onPress={() => router.push('/notes')} icon={<BookOpen size={18} color={colors.primary} />} style={styles.rowButton} />
         <OutlineButton title="Quiz" onPress={() => router.push('/quiz')} icon={<ShieldCheck size={18} color={colors.primary} />} style={styles.rowButton} />
       </View>
-      <PrimaryButton title="Derse Devam Et" onPress={() => router.push('/lesson-player')} icon={<Play size={18} color={colors.surface} />} />
+      <PrimaryButton title="Derse Devam Et" onPress={() => openLesson(continueLesson)} icon={<Play size={18} color={colors.surface} />} />
     </Screen>
   );
 }
 
+function getLearningStepLabel(kind: LessonLearningStep['kind']) {
+  if (kind === 'goal') return 'Hedef';
+  if (kind === 'concept') return 'Kavram';
+  if (kind === 'why') return 'Neden';
+  if (kind === 'practice') return 'Uygulama';
+  if (kind === 'code') return 'Kod';
+  if (kind === 'lab') return 'Mini Lab';
+  return 'Tekrar';
+}
+
+function LearningStepIcon({ kind }: { kind: LessonLearningStep['kind'] }) {
+  if (kind === 'goal') return <Target size={20} color={colors.primary} />;
+  if (kind === 'why') return <Lightbulb size={20} color={colors.amber} />;
+  if (kind === 'practice') return <Settings2 size={20} color={colors.purple} />;
+  if (kind === 'code') return <BookOpen size={20} color={colors.green} />;
+  if (kind === 'lab') return <Zap size={20} color={colors.primary} />;
+  if (kind === 'summary') return <ShieldCheck size={20} color={colors.green} />;
+  return <BookOpen size={20} color={colors.primary} />;
+}
+
+function LessonLearningStepView({ step, lessonSlug }: { step: LessonLearningStep; lessonSlug: string }) {
+  const labParams: Record<string, string> = {};
+  if (step.labSlug) labParams.lab = step.labSlug;
+  if (lessonSlug) labParams.lesson = lessonSlug;
+
+  return (
+    <Card style={styles.learningStepCard}>
+      <View style={styles.stepKickerRow}>
+        <View style={styles.stepIconBubble}>
+          <LearningStepIcon kind={step.kind} />
+        </View>
+        <Text style={styles.stepKicker}>{getLearningStepLabel(step.kind)}</Text>
+      </View>
+      <Text style={styles.learningStepTitle}>{step.title}</Text>
+      <Text style={styles.learningStepBody}>{step.body}</Text>
+      {step.bullets?.length ? (
+        <View style={styles.learningList}>
+          {step.bullets.map((item) => (
+            <View key={item} style={styles.learningBulletRow}>
+              <View style={styles.learningBulletDot} />
+              <Text style={styles.learningBulletText}>{item}</Text>
+            </View>
+          ))}
+        </View>
+      ) : null}
+      {step.orderedItems?.length ? (
+        <View style={styles.learningList}>
+          {step.orderedItems.map((item, index) => (
+            <View key={item} style={styles.learningOrderedRow}>
+              <View style={styles.learningNumberBadge}>
+                <Text style={styles.learningNumberText}>{index + 1}</Text>
+              </View>
+              <Text style={styles.learningBulletText}>{item}</Text>
+            </View>
+          ))}
+        </View>
+      ) : null}
+      {step.code ? (
+        <View style={styles.codeCard}>
+          {step.codeLanguage ? <Text style={styles.codeLanguage}>{step.codeLanguage}</Text> : null}
+          {step.code.split('\n').map((line, index) => (
+            <Text key={`${step.id}-code-${index}`} style={styles.codeLine}>{line || ' '}</Text>
+          ))}
+        </View>
+      ) : null}
+      {step.labSlug ? (
+        <Pressable
+          accessibilityRole="button"
+          onPress={() => router.push({ pathname: '/lab', params: labParams })}
+          style={({ pressed }) => [styles.labEmbedCard, pressed && styles.pressed]}
+        >
+          <View style={styles.lessonStatus}>
+            <Zap size={14} color={colors.primary} />
+          </View>
+          <View style={{ flex: 1 }}>
+            <Text style={styles.contentBlockTitle}>{step.actionLabel ?? "Mini Lab'a Git"}</Text>
+            <Text style={styles.contentBlockBody}>Lab isteğe bağlı pekiştirmedir; dersten geçiş quiz başarısıyla açılır.</Text>
+          </View>
+          <ChevronRight size={20} color={colors.primary} />
+        </Pressable>
+      ) : null}
+    </Card>
+  );
+}
+
+function LessonQuizPanel({
+  quiz,
+  currentQuestionIndex,
+  selectedAnswers,
+  quizResult,
+  quizError,
+  onSelectAnswer,
+}: {
+  quiz: LessonQuiz;
+  currentQuestionIndex: number;
+  selectedAnswers: Record<string, number | undefined>;
+  quizResult?: LessonQuizResult;
+  quizError?: string | null;
+  onSelectAnswer: (questionId: string, answerIndex: number) => void;
+}) {
+  const currentQuestion = quiz.questions[currentQuestionIndex] ?? quiz.questions[0];
+  const answeredCount = quizResult?.questionCount ?? quiz.questions.filter((question) => typeof selectedAnswers[question.id] === 'number').length;
+  const checked = Boolean(quizResult);
+  if (!currentQuestion) return null;
+
+  return (
+    <Card style={[styles.learningStepCard, styles.quizFocusCard]}>
+      <View style={styles.stepKickerRow}>
+        <View style={styles.stepIconBubble}>
+          <ShieldCheck size={20} color={colors.green} />
+        </View>
+        <Text style={styles.stepKicker}>Ders Sonu Quiz</Text>
+      </View>
+      <Text style={styles.learningStepTitle}>{quiz.title}</Text>
+      <Text style={styles.learningStepBody}>Sonraki derse geçmek için 5 sorudan en az 4 tanesini doğru cevaplamalısın.</Text>
+      <View style={styles.quizProgressRow}>
+        <Text style={styles.quizProgressText}>Soru {currentQuestionIndex + 1} / {quiz.questions.length}</Text>
+        <Text style={styles.quizProgressText}>{answeredCount} cevaplandı</Text>
+      </View>
+      <ProgressBar value={calculateProgressPercent(currentQuestionIndex + 1, quiz.questions.length)} />
+      {quizError ? <Text style={styles.errorText}>{quizError}</Text> : null}
+      {quizResult ? (
+        <Text style={quizResult.passed ? styles.successText : styles.errorText}>
+          Sonuç: {quizResult.correctCount} / {quizResult.questionCount} doğru (%{quizResult.scorePercent}). {quizResult.passed ? 'Başarılı, sonraki ders açıldı.' : 'Tekrar çalışıp yeniden dene.'}
+        </Text>
+      ) : null}
+      <View style={styles.lessonQuizStack}>
+        <View key={currentQuestion.id} style={styles.lessonQuizQuestion}>
+          <Text style={styles.lessonQuizPrompt}>{currentQuestionIndex + 1}. {currentQuestion.prompt}</Text>
+          {currentQuestion.options.map((option, optionIndex) => {
+            const selected = selectedAnswers[currentQuestion.id] === optionIndex;
+            const correct = currentQuestion.answerIndex === optionIndex;
+            const wrongSelection = checked && selected && !correct;
+            return (
+              <Pressable
+                key={`${currentQuestion.id}-${option}`}
+                accessibilityRole="button"
+                onPress={() => {
+                  if (!quizResult) onSelectAnswer(currentQuestion.id, optionIndex);
+                }}
+                style={[
+                  styles.lessonQuizOption,
+                  selected && styles.lessonQuizOptionSelected,
+                  checked && correct && styles.lessonQuizOptionCorrect,
+                  wrongSelection && styles.lessonQuizOptionWrong,
+                ]}
+              >
+                <Text style={[
+                  styles.lessonQuizOptionText,
+                  selected && styles.lessonQuizOptionTextSelected,
+                  checked && correct && styles.lessonQuizOptionTextCorrect,
+                  wrongSelection && styles.lessonQuizOptionTextWrong,
+                ]}>
+                  {option}
+                </Text>
+              </Pressable>
+            );
+          })}
+          {quizResult ? <Text style={styles.quizExplanation}>{currentQuestion.explanation}</Text> : null}
+        </View>
+      </View>
+    </Card>
+  );
+}
+
 export function LessonPlayerScreen() {
+  const params = useLocalSearchParams<{ lesson?: string }>();
+  const selectedLessonSlug = firstParam(params.lesson);
   const { data: courseLessons } = useAsyncData<LessonCard[]>(getLessons, []);
+  const { data: courses } = useAsyncData<CourseCard[]>(getCourseCatalog, []);
+  const { data: lessonFlowState, setData: setLessonFlowState } = useAsyncData<LessonFlowState>(getLessonFlowState, createEmptyLessonFlowState());
   const currentLesson = courseLessons[1] ?? {
+    courseSlug: 'neural-networks-101',
     title: 'Perceptron ve Aktivasyon Fonksiyonlari',
     slug: 'neural-networks-101-m1-l2',
     type: 'Video' as const,
     duration: '12 dk',
     status: 'active' as const,
   };
+  const selectedLesson = courseLessons.find((lesson) => lesson.slug === selectedLessonSlug)
+    ?? courseLessons.find((lesson) => lesson.status === 'active')
+    ?? currentLesson;
+  const selectedCourse = courses.find((course) => course.slug === selectedLesson.courseSlug);
+  const contentLoader = useCallback(() => getLessonContentBlocks(selectedLesson.id), [selectedLesson.id]);
+  const { data: contentBlocks, error: contentError } = useAsyncData<LessonContentBlock[]>(contentLoader, []);
+  const lessonSequence = useMemo(() => {
+    if (!selectedCourse?.slug) return courseLessons;
+    const pathCourses = selectedCourse.pathSlug ? courses.filter((course) => course.pathSlug === selectedCourse.pathSlug) : [selectedCourse];
+    const sequencedLessons = pathCourses.flatMap((course) => courseLessons.filter((lesson) => lesson.courseSlug === course.slug));
+    return sequencedLessons.length ? sequencedLessons : courseLessons.filter((lesson) => lesson.courseSlug === selectedCourse.slug);
+  }, [courseLessons, courses, selectedCourse]);
+  const nextLesson = useMemo(() => getNextLessonInSequence(lessonSequence, selectedLesson.slug), [lessonSequence, selectedLesson.slug]);
+  const previousLessonIndex = lessonSequence.findIndex((lesson) => lesson.slug === selectedLesson.slug) - 1;
+  const previousLesson = previousLessonIndex >= 0 ? lessonSequence[previousLessonIndex] : undefined;
+  const completedLessonSlugs = useMemo(() => new Set(lessonFlowState.completedLessonSlugs), [lessonFlowState.completedLessonSlugs]);
+  const lessonUnlocked = !lessonSequence.length || isLessonUnlocked(lessonSequence, selectedLesson.slug, completedLessonSlugs);
+  const learningSteps = useMemo(() => buildLessonLearningSteps(selectedLesson, contentBlocks), [contentBlocks, selectedLesson]);
+  const lessonQuiz = useMemo(() => buildLessonQuiz(selectedLesson, contentBlocks), [contentBlocks, selectedLesson]);
+  const savedStepIndex = Math.min(lessonFlowState.stepProgressByLessonSlug[selectedLesson.slug] ?? 0, learningSteps.length);
+  const savedQuizResult = lessonFlowState.quizResultsByLessonSlug[selectedLesson.slug];
+  const [stepIndex, setStepIndex] = useState(savedStepIndex);
+  const [quizQuestionIndex, setQuizQuestionIndex] = useState(0);
+  const [selectedAnswers, setSelectedAnswers] = useState<Record<string, number | undefined>>({});
+  const [quizError, setQuizError] = useState<string | null>(null);
+  const [localQuizResult, setLocalQuizResult] = useState<LessonQuizResult | undefined>();
+  const quizResult = localQuizResult ?? savedQuizResult;
+  const isQuizStep = stepIndex >= learningSteps.length;
+  const activeStep = learningSteps[Math.min(stepIndex, Math.max(0, learningSteps.length - 1))];
+  const totalSteps = learningSteps.length + 1;
+  const displayedStep = Math.min(stepIndex + 1, totalSteps);
+  const lessonProgress = quizResult?.passed ? 100 : calculateProgressPercent(displayedStep, totalSteps);
+  const quizQuestionCount = lessonQuiz.questions.length;
+  const currentQuizQuestion = lessonQuiz.questions[quizQuestionIndex];
+  const currentQuizAnswered = currentQuizQuestion ? typeof selectedAnswers[currentQuizQuestion.id] === 'number' : false;
+  const isLastQuizQuestion = quizQuestionIndex >= quizQuestionCount - 1;
+  const courseDetailRoute = selectedCourse?.pathSlug
+    ? ({ pathname: '/course-detail', params: { path: selectedCourse.pathSlug } } as const)
+    : selectedCourse?.slug
+      ? ({ pathname: '/course-detail', params: { course: selectedCourse.slug } } as const)
+      : ('/paths' as const);
+
+  useEffect(() => {
+    setStepIndex(savedStepIndex);
+    setQuizQuestionIndex(0);
+    setSelectedAnswers({});
+    setQuizError(null);
+    setLocalQuizResult(undefined);
+  }, [selectedLesson.slug, savedStepIndex, learningSteps.length]);
+
+  async function goToStep(nextStepIndex: number) {
+    const boundedStepIndex = Math.min(Math.max(0, nextStepIndex), learningSteps.length);
+    setStepIndex(boundedStepIndex);
+    const nextState = await saveLessonStepProgress(selectedLesson.slug, boundedStepIndex);
+    setLessonFlowState(nextState);
+  }
+
+  async function submitLessonQuiz() {
+    const allAnswered = lessonQuiz.questions.every((question) => typeof selectedAnswers[question.id] === 'number');
+    if (!allAnswered) {
+      setQuizError('Devam etmek için tüm quiz sorularını cevapla.');
+      return;
+    }
+
+    const result = gradeLessonQuiz(lessonQuiz, selectedAnswers);
+    setQuizError(null);
+    setQuizQuestionIndex(0);
+    setLocalQuizResult(result);
+    const nextState = await saveLessonQuizResult(selectedLesson.slug, result);
+    setLessonFlowState(nextState);
+    if (result.passed) {
+      await updateLessonProgress(selectedLesson.id, 100);
+    }
+  }
+
+  async function retryQuiz() {
+    const nextState = await resetLessonQuizAttempt(selectedLesson.slug);
+    setLessonFlowState(nextState);
+    setQuizQuestionIndex(0);
+    setSelectedAnswers({});
+    setQuizError(null);
+    setLocalQuizResult(undefined);
+    await goToStep(learningSteps.length);
+  }
+
+  async function studyAgain() {
+    const nextState = await resetLessonQuizAttempt(selectedLesson.slug);
+    setLessonFlowState(nextState);
+    setQuizQuestionIndex(0);
+    setSelectedAnswers({});
+    setQuizError(null);
+    setLocalQuizResult(undefined);
+    await goToStep(0);
+  }
+
+  function goToNextQuizQuestion() {
+    if (!currentQuizAnswered) {
+      setQuizError('Önce bu soruya bir cevap seç.');
+      return;
+    }
+    setQuizError(null);
+    setQuizQuestionIndex((index) => Math.min(index + 1, Math.max(0, quizQuestionCount - 1)));
+  }
+
+  function continueAfterPassedQuiz() {
+    if (nextLesson) {
+      router.push({ pathname: '/lesson-player', params: { lesson: nextLesson.slug } });
+      return;
+    }
+
+    router.push(courseDetailRoute);
+  }
+
+  if (courseLessons.length && !lessonUnlocked) {
+    return (
+      <Screen fullWidth contentStyle={styles.lessonScreenContent}>
+        <StatusBar style="dark" />
+        <Header title="Ders kilitli" back backFallback={courseDetailRoute} />
+        <Card style={styles.lockedLessonCard}>
+          <Lock size={34} color="#8993a8" />
+          <Text style={styles.learningStepTitle}>Önce önceki dersi tamamla</Text>
+          <Text style={styles.learningStepBody}>
+            Bu dersin açılması için önce {previousLesson?.title ?? 'önceki ders'} dersinin quizinden başarılı olmalısın.
+          </Text>
+          <PrimaryButton
+            title={previousLesson ? 'Önceki Derse Git' : 'Ders Listesine Dön'}
+            onPress={() => {
+              if (previousLesson) router.push({ pathname: '/lesson-player', params: { lesson: previousLesson.slug } });
+              else router.push(courseDetailRoute);
+            }}
+          />
+        </Card>
+      </Screen>
+    );
+  }
+
   return (
-    <Screen>
+    <Screen fullWidth contentStyle={styles.lessonScreenContent}>
       <StatusBar style="dark" />
-      <Header title="Neural Networks 101" back right={<Pressable onPress={() => toggleBookmark('lesson', currentLesson.id)}><Bookmark size={22} color={colors.ink} /></Pressable>} />
-      <CourseHeroVisual
-        height={218}
-        title={currentLesson.title}
-        subtitle="Yapay sinir aglarinin temel yapi taslari"
-        metrics={[currentLesson.duration, 'Orta', currentLesson.type]}
-        progress={35}
-      />
-      <Text style={styles.bigTitle}>{currentLesson.title}</Text>
-      <Text style={styles.muted}>Yapay sinir aglarinin temel yapi taslari</Text>
-      <View style={styles.metaStrip}>
-        <InfoMini icon={Clock3} label="12 dk" value="" />
-        <InfoMini icon={Play} label="Video" value="" />
-        <InfoMini icon={BarChart3} label="Orta" value="" />
+      <Header title={selectedCourse?.title ?? 'Ders'} back backFallback={courseDetailRoute} right={<Pressable onPress={() => toggleBookmark('lesson', selectedLesson.id)}><Bookmark size={22} color={colors.ink} /></Pressable>} />
+      <View style={styles.lessonProgressBlock}>
+        <View style={styles.rowBetween}>
+          <Text style={styles.cardTitle}>Adım {displayedStep} / {totalSteps}</Text>
+          <Text style={styles.metaText}>{isQuizStep ? `Quiz • Soru ${quizQuestionIndex + 1}/${quizQuestionCount}` : getLearningStepLabel(activeStep.kind)}</Text>
+        </View>
+        <ProgressBar value={lessonProgress} />
       </View>
-      <Text style={styles.cardTitle}>Ilerleme</Text>
-      <ProgressBar value={35} />
-      <Card style={styles.bulletCard}>
-        <Text style={styles.cardTitle}>Bu derste ogreneceklerin</Text>
-        {['Perceptron modelinin calisma prensibi', 'Aktivasyon fonksiyonlarinin rolu', 'ReLU, Sigmoid ve Tanh karsilastirmasi'].map((item) => (
-          <Text key={item} style={styles.bullet}>• {item}</Text>
-        ))}
-      </Card>
+      {contentError ? <Text style={styles.errorText}>{contentError}</Text> : null}
+      {isQuizStep ? (
+        <LessonQuizPanel
+          quiz={lessonQuiz}
+          currentQuestionIndex={quizQuestionIndex}
+          selectedAnswers={selectedAnswers}
+          quizResult={quizResult}
+          quizError={quizError}
+          onSelectAnswer={(questionId, answerIndex) => {
+            setSelectedAnswers((answers) => ({ ...answers, [questionId]: answerIndex }));
+            setQuizError(null);
+            const answeredQuestionIndex = lessonQuiz.questions.findIndex((question) => question.id === questionId);
+            if (answeredQuestionIndex >= 0 && answeredQuestionIndex < lessonQuiz.questions.length - 1) {
+              setQuizQuestionIndex(answeredQuestionIndex + 1);
+            }
+          }}
+        />
+      ) : (
+        <LessonLearningStepView step={activeStep} lessonSlug={selectedLesson.slug} />
+      )}
       <View style={styles.rowGap}>
-        <OutlineButton title="Not Al" onPress={() => router.push('/notes')} style={styles.rowButton} />
-        <PrimaryButton title="Derse Devam Et" onPress={async () => {
-          await updateLessonProgress(currentLesson.id, 55);
-          router.push('/reading');
-        }} style={styles.rowButton} />
+        <OutlineButton
+          title={isQuizStep && !quizResult && quizQuestionIndex > 0 ? 'Önceki Soru' : stepIndex > 0 ? 'Önceki' : 'Not Al'}
+          onPress={() => {
+            if (isQuizStep && !quizResult && quizQuestionIndex > 0) {
+              setQuizQuestionIndex((index) => Math.max(0, index - 1));
+              setQuizError(null);
+              return;
+            }
+            if (stepIndex > 0) {
+              goToStep(stepIndex - 1);
+              return;
+            }
+            router.push({ pathname: '/notes', params: { lesson: selectedLesson.slug } });
+          }}
+          style={styles.rowButton}
+        />
+        {!isQuizStep ? (
+          <PrimaryButton title={stepIndex === learningSteps.length - 1 ? "Quiz'e Geç" : 'Devam'} onPress={() => goToStep(stepIndex + 1)} style={styles.rowButton} />
+        ) : quizResult?.passed ? (
+          <PrimaryButton title={nextLesson ? 'Sonraki Derse Geç' : 'Dersi Tamamla'} onPress={continueAfterPassedQuiz} style={styles.rowButton} />
+        ) : quizResult ? (
+          <PrimaryButton title="Yeniden Dene" onPress={retryQuiz} style={styles.rowButton} />
+        ) : !isLastQuizQuestion ? (
+          <PrimaryButton title={currentQuizAnswered ? 'Sonraki Soru' : 'Cevap Seç'} onPress={goToNextQuizQuestion} style={styles.rowButton} />
+        ) : (
+          <PrimaryButton title="Quiz'i Kontrol Et" onPress={submitLessonQuiz} style={styles.rowButton} />
+        )}
       </View>
+      {isQuizStep && quizResult && !quizResult.passed ? <OutlineButton title="Tekrar Çalış" onPress={studyAgain} /> : null}
     </Screen>
   );
 }
 
 export function ReadingScreen() {
+  const params = useLocalSearchParams<{ lesson?: string }>();
+  const selectedLessonSlug = firstParam(params.lesson);
+  const returnToLesson = () => router.replace({ pathname: '/lesson-player', params: selectedLessonSlug ? { lesson: selectedLessonSlug } : {} });
+
   return (
     <Screen>
       <Header title="Ders Notu" back />
-      <SectionTitle title="Aktivasyon Fonksiyonlari" subtitle="Aktivasyon fonksiyonlari, yapay sinir aglarinda noronun cikti degerini belirler ve modele lineer olmayanlik kazandirir." />
-      <Card style={styles.activationCard}>
-        <Text style={styles.linkTitle}>Yaygin Aktivasyon Fonksiyonlari</Text>
-        <View style={styles.activationGrid}>
-          {['ReLU', 'Sigmoid', 'Tanh'].map((name, index) => (
-            <View key={name} style={styles.activationCell}>
-              <Text style={styles.activationName}>{name}</Text>
-              <View style={styles.tinyChart}>
-                <View style={[styles.chartLine, { transform: [{ rotate: index === 0 ? '-35deg' : index === 1 ? '-65deg' : '-78deg' }] }]} />
-              </View>
-            </View>
-          ))}
-        </View>
-      </Card>
-      <Card style={styles.noteCallout}>
-        <Star size={24} color={colors.primary} />
+      <SectionTitle title="Ders akisi lesson-player ekraninda" subtitle="Secilen dersin konu anlatimi, kod ornegi, mini lab ve sonraki adimi artik tek ekranda tasiniyor." />
+      <Card style={styles.infoCallout}>
+        <BookOpen size={24} color={colors.primary} />
         <View style={{ flex: 1 }}>
-          <Text style={styles.linkTitle}>Onemli Nokta</Text>
-          <Text style={styles.muted}>ReLU, negatif degerlerde 0 ciktigi icin hesaplama daha hizlidir ve gradient kaybolma problemini azaltmaya yardimci olur.</Text>
+          <Text style={styles.linkTitle}>Eski okuma ekrani pasif</Text>
+          <Text style={styles.muted}>Bu sayfa geriye uyumluluk icin duruyor. Ders icindeki devam butonlari artik secili dersin gercek icerigini ve lab baglantisini kullanir.</Text>
         </View>
       </Card>
-      <View style={styles.rowGap}>
-        <OutlineButton title="Sayfa 2 / 5" style={styles.rowButton} />
-        <PrimaryButton title="Sonraki" onPress={() => router.push('/lab')} style={styles.rowButton} />
-      </View>
+      <PrimaryButton title="Derse Don" onPress={returnToLesson} />
     </Screen>
   );
 }
 
 export function LabScreen() {
-  const { data: lab, error } = useAsyncData<LabState>(getLab, {
+  const params = useLocalSearchParams<{ lab?: string; lesson?: string }>();
+  const selectedLabSlug = firstParam(params.lab);
+  const selectedLessonSlug = firstParam(params.lesson);
+  const labLoader = useCallback(() => getLab(selectedLabSlug), [selectedLabSlug]);
+  const { data: lab, error } = useAsyncData<LabState>(labLoader, {
     title: 'Perceptron Hesapla',
     description: 'Agirliklari ve girdi degerlerini kullanarak ciktiyi hesapla.',
     starterCode: 'def perceptron(x1, x2, w1, w2, bias):\n  z = w1*x1 + w2*x2 + bias\n  return 1 if z >= 0 else 0',
@@ -607,6 +1007,14 @@ export function LabScreen() {
   const [labMessage, setLabMessage] = useState<string | null>(null);
   useEffect(() => setValues(lab.values), [lab.values]);
   const result = useMemo(() => runPerceptronLab(values), [values]);
+  function returnToLesson() {
+    if (selectedLessonSlug) {
+      router.push({ pathname: '/lesson-player', params: { lesson: selectedLessonSlug } });
+      return;
+    }
+
+    router.push('/course-detail');
+  }
   return (
     <Screen>
       <Header title="Mini Lab" back right={<CircleHelp size={22} color={colors.ink} />} />
@@ -649,15 +1057,25 @@ export function LabScreen() {
           icon={<RotateCcw size={18} color={colors.primary} />}
           style={styles.rowButton}
         />
-        <PrimaryButton title={labMessage ? "Quiz'e Gec" : 'Calistir'} onPress={async () => {
-          if (labMessage) {
-            router.push('/quiz');
-            return;
-          }
+        <PrimaryButton title="Calistir" onPress={async () => {
           const submitted = await submitLab(lab.id, values);
           setLabMessage(formatLabResultMessage(submitted));
         }} icon={<Play size={18} color={colors.surface} />} style={styles.rowButton} />
       </View>
+      {labMessage ? (
+        <Card style={styles.flowCard}>
+          <View style={styles.flowCardContent}>
+            <View style={styles.flowIcon}>
+              <Check size={18} color={colors.green} />
+          </View>
+          <View style={{ flex: 1 }}>
+            <Text style={styles.flowTitle}>Lab tamamlandi</Text>
+            <Text style={styles.contentBlockBody}>Lab pekiştirme adımı tamamlandı. Sonraki dersi açmak için derse dönüp quizden başarılı olmalısın.</Text>
+          </View>
+          </View>
+          <PrimaryButton title="Derse Dön" onPress={returnToLesson} style={styles.flowButton} />
+        </Card>
+      ) : null}
     </Screen>
   );
 }
@@ -1523,15 +1941,17 @@ const styles = StyleSheet.create<Record<string, any>>({
     borderWidth: 1,
     borderColor: colors.line,
     borderRadius: radius.md,
-    marginTop: spacing.md,
+    marginTop: spacing.lg,
     overflow: 'hidden',
   },
   infoMini: {
     flex: 1,
-    minHeight: 56,
+    minHeight: 76,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 4,
+    gap: 6,
+    paddingVertical: spacing.md,
+    paddingHorizontal: spacing.xs,
     borderRightWidth: 1,
     borderRightColor: colors.line,
   },
@@ -1545,6 +1965,10 @@ const styles = StyleSheet.create<Record<string, any>>({
     borderRadius: radius.md,
     paddingHorizontal: spacing.md,
     marginBottom: spacing.sm,
+  },
+  lessonRowLocked: {
+    backgroundColor: '#f6f8fc',
+    opacity: 0.72,
   },
   lessonStatus: {
     width: 24,
@@ -1561,6 +1985,278 @@ const styles = StyleSheet.create<Record<string, any>>({
     color: colors.text,
     fontSize: 13,
     fontWeight: '800',
+  },
+  lockedLessonText: {
+    color: '#778198',
+  },
+  lessonGroupHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginTop: spacing.sm,
+    marginBottom: spacing.sm,
+  },
+  lessonGroupTitle: {
+    flex: 1,
+    color: colors.ink,
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  lessonGroupMeta: {
+    color: colors.muted,
+    fontSize: 12,
+    fontWeight: '800',
+  },
+  contentCard: {
+    marginTop: spacing.md,
+    gap: spacing.sm,
+  },
+  contentCallout: {
+    marginTop: spacing.md,
+    flexDirection: 'row',
+    gap: spacing.md,
+    backgroundColor: colors.primarySoft,
+  },
+  contentBlockTitle: {
+    color: colors.ink,
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  contentBlockBody: {
+    color: colors.text,
+    fontSize: 13,
+    lineHeight: 20,
+  },
+  markdownHeading: {
+    color: colors.ink,
+    fontSize: 18,
+    fontWeight: '900',
+    lineHeight: 24,
+  },
+  markdownSubheading: {
+    color: colors.ink,
+    fontSize: 15,
+    fontWeight: '900',
+    lineHeight: 22,
+    marginTop: 2,
+  },
+  markdownText: {
+    color: colors.text,
+    fontSize: 13,
+    lineHeight: 20,
+  },
+  markdownBullet: {
+    color: colors.text,
+    fontSize: 13,
+    lineHeight: 20,
+    paddingLeft: 4,
+  },
+  markdownSpacer: {
+    height: 4,
+  },
+  codeLanguage: {
+    color: '#d4e4ff',
+    fontSize: 11,
+    fontWeight: '900',
+    marginBottom: 8,
+  },
+  labEmbedCard: {
+    minHeight: 72,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+    borderWidth: 1,
+    borderColor: '#c7dcff',
+    borderRadius: radius.md,
+    padding: spacing.md,
+    marginTop: spacing.md,
+    backgroundColor: colors.primarySoft,
+  },
+  lockedLessonCard: {
+    marginTop: spacing.xl,
+    gap: spacing.md,
+    alignItems: 'flex-start',
+  },
+  lessonScreenContent: {
+    gap: spacing.md,
+    minHeight: '100%',
+  },
+  lessonProgressBlock: {
+    gap: spacing.sm,
+  },
+  learningStepCard: {
+    marginTop: spacing.md,
+    gap: spacing.md,
+  },
+  stepKickerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  stepIconBubble: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.primarySoft,
+  },
+  stepKicker: {
+    color: colors.primary,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  learningStepTitle: {
+    color: colors.ink,
+    fontSize: 20,
+    lineHeight: 26,
+    fontWeight: '900',
+  },
+  learningStepBody: {
+    color: colors.text,
+    fontSize: 14,
+    lineHeight: 22,
+    fontWeight: '600',
+  },
+  learningList: {
+    gap: spacing.sm,
+  },
+  learningBulletRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+    alignItems: 'flex-start',
+  },
+  learningBulletDot: {
+    width: 7,
+    height: 7,
+    borderRadius: 4,
+    backgroundColor: colors.primary,
+    marginTop: 7,
+  },
+  learningBulletText: {
+    flex: 1,
+    color: colors.text,
+    fontSize: 13,
+    lineHeight: 20,
+    fontWeight: '700',
+  },
+  learningOrderedRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+    alignItems: 'flex-start',
+  },
+  learningNumberBadge: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.primary,
+  },
+  learningNumberText: {
+    color: colors.surface,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  lessonQuizStack: {
+    gap: spacing.md,
+  },
+  quizFocusCard: {
+    borderColor: colors.primary,
+    backgroundColor: colors.surface,
+  },
+  quizProgressRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: spacing.md,
+    alignItems: 'center',
+  },
+  quizProgressText: {
+    color: colors.muted,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  lessonQuizQuestion: {
+    gap: spacing.sm,
+    paddingTop: spacing.md,
+    borderTopWidth: 1,
+    borderTopColor: colors.line,
+  },
+  lessonQuizPrompt: {
+    color: colors.ink,
+    fontSize: 14,
+    lineHeight: 21,
+    fontWeight: '900',
+  },
+  lessonQuizOption: {
+    minHeight: 44,
+    borderWidth: 1,
+    borderColor: colors.line,
+    borderRadius: radius.md,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    justifyContent: 'center',
+    backgroundColor: colors.surface,
+  },
+  lessonQuizOptionSelected: {
+    borderColor: colors.primary,
+    backgroundColor: colors.primarySoft,
+  },
+  lessonQuizOptionCorrect: {
+    borderColor: colors.green,
+    backgroundColor: '#eafaf1',
+  },
+  lessonQuizOptionWrong: {
+    borderColor: colors.red,
+    backgroundColor: '#fff1f1',
+  },
+  lessonQuizOptionText: {
+    color: colors.text,
+    fontSize: 13,
+    lineHeight: 19,
+    fontWeight: '700',
+  },
+  lessonQuizOptionTextSelected: {
+    color: colors.ink,
+  },
+  lessonQuizOptionTextCorrect: {
+    color: colors.green,
+  },
+  lessonQuizOptionTextWrong: {
+    color: colors.red,
+  },
+  quizExplanation: {
+    color: colors.muted,
+    fontSize: 12,
+    lineHeight: 18,
+    fontWeight: '700',
+  },
+  flowCard: {
+    marginTop: spacing.md,
+    gap: spacing.md,
+    backgroundColor: '#f7fbff',
+  },
+  flowCardContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+  },
+  flowIcon: {
+    width: 34,
+    height: 34,
+    borderRadius: 17,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.primarySoft,
+  },
+  flowTitle: {
+    color: colors.ink,
+    fontSize: 13,
+    fontWeight: '900',
+    marginBottom: 3,
+  },
+  flowButton: {
+    width: '100%',
   },
   quickActions: {
     flexDirection: 'row',

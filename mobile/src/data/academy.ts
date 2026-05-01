@@ -2,6 +2,7 @@ import {
   datasetCourses,
   datasetLabs,
   datasetLearningPaths,
+  datasetLessonContentBlocks,
   datasetLessons,
   datasetPlacementQuestions,
   datasetQuizQuestions,
@@ -40,6 +41,20 @@ export type Lesson = {
   status: 'done' | 'active' | 'locked';
 };
 
+export type LessonContentBlock = {
+  id?: string;
+  lessonId: string;
+  type: 'callout' | 'markdown' | 'code' | 'lab_embed';
+  title: string;
+  body: string;
+  mediaUrl?: string;
+  codeLanguage?: string;
+  code?: string;
+  calloutVariant?: string;
+  data: Record<string, unknown>;
+  sortOrder: number;
+};
+
 export type QuizSeedQuestion = {
   id?: string;
   title: string;
@@ -62,6 +77,7 @@ export const learningPaths: LearningPath[] = datasetLearningPaths.map((path) => 
 export const courses: Course[] = datasetCourses.map((course) => ({ ...course }));
 export const featuredCourse: Course = courses.find((course) => course.slug === 'neural-networks-101') ?? courses[0];
 export const lessons: Lesson[] = datasetLessons.map((lesson) => ({ ...lesson }));
+export const lessonContentBlocks: LessonContentBlock[] = datasetLessonContentBlocks.map((block) => ({ ...block }));
 export const placementQuestions: QuizSeedQuestion[] = datasetPlacementQuestions.map((question) => ({
   ...question,
   options: [...question.options],

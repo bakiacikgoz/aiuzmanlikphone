@@ -15,27 +15,32 @@ import { BrandMark } from './AcademyVisuals';
 import { colors, radius, shadow, spacing } from '../theme';
 
 export type IconType = ComponentType<{ size?: number; color?: string; strokeWidth?: number }>;
+type RouteTarget = Parameters<typeof router.push>[0];
 
 export function Screen({
   children,
   bottomTab,
   scroll = true,
+  fullWidth = false,
+  contentStyle,
 }: {
   children: ReactNode;
   bottomTab?: 'home' | 'paths' | 'progress' | 'league' | 'profile';
   scroll?: boolean;
+  fullWidth?: boolean;
+  contentStyle?: object;
 }) {
   const content = scroll ? (
-    <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
+    <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={[styles.scrollContent, fullWidth && styles.scrollContentFull, contentStyle]}>
       {children}
     </ScrollView>
   ) : (
-    <View style={styles.fixedContent}>{children}</View>
+    <View style={[styles.fixedContent, fullWidth && styles.fixedContentFull, contentStyle]}>{children}</View>
   );
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <View style={styles.phone}>
+    <SafeAreaView style={[styles.safeArea, fullWidth && styles.safeAreaFull]}>
+      <View style={[styles.phone, fullWidth && styles.phoneFull]}>
         {content}
         {bottomTab ? <BottomNav active={bottomTab} /> : null}
       </View>
@@ -48,16 +53,32 @@ export function Header({
   subtitle,
   right,
   back = false,
+  backFallback,
+  onBack,
 }: {
   title?: string;
   subtitle?: string;
   right?: ReactNode;
   back?: boolean;
+  backFallback?: RouteTarget;
+  onBack?: () => void;
 }) {
+  function goBack() {
+    if (onBack) {
+      onBack();
+      return;
+    }
+    if (router.canGoBack()) {
+      router.back();
+      return;
+    }
+    router.replace((backFallback ?? '/dashboard') as RouteTarget);
+  }
+
   return (
     <View style={styles.header}>
       {back ? (
-        <IconButton icon={ChevronLeft} onPress={() => router.back()} />
+        <IconButton icon={ChevronLeft} onPress={goBack} />
       ) : (
         <View style={styles.headerSpacer} />
       )}
@@ -203,6 +224,9 @@ const styles = StyleSheet.create<Record<string, any>>({
     backgroundColor: colors.surfaceSoft,
     alignItems: 'flex-start',
   },
+  safeAreaFull: {
+    alignItems: 'stretch',
+  },
   phone: {
     flex: 1,
     width: '100%',
@@ -211,16 +235,32 @@ const styles = StyleSheet.create<Record<string, any>>({
     backgroundColor: colors.surface,
     overflow: 'hidden',
   },
+  phoneFull: {
+    maxWidth: '100%',
+    alignSelf: 'stretch',
+    backgroundColor: colors.surfaceSoft,
+  },
   scrollContent: {
     paddingHorizontal: spacing.lg,
     paddingTop: spacing.sm,
     paddingBottom: 104,
+  },
+  scrollContentFull: {
+    width: '100%',
+    maxWidth: 760,
+    alignSelf: 'center',
+    paddingBottom: spacing.xl,
   },
   fixedContent: {
     flex: 1,
     paddingHorizontal: spacing.lg,
     paddingTop: spacing.sm,
     paddingBottom: spacing.lg,
+  },
+  fixedContentFull: {
+    width: '100%',
+    maxWidth: 760,
+    alignSelf: 'center',
   },
   header: {
     minHeight: 48,

@@ -7,16 +7,102 @@ import {
   labs as fallbackLabs,
   leaderboard as fallbackLeaderboard,
   learningPaths as fallbackPaths,
+  lessonContentBlocks as fallbackLessonContentBlocks,
   lessons as fallbackLessons,
   notes as fallbackNotes,
   placementQuestion as fallbackPlacementQuestion,
   placementQuestions as fallbackPlacementQuestions,
   quizQuestions as fallbackQuizQuestions,
 } from '../data/academy';
-import { calculatePlacementResult, formatDuration, runPerceptronLab, type PerceptronInput } from '../domain/academy';
+import {
+  calculatePlacementResult,
+  createEmptyLessonFlowState,
+  formatDuration,
+  runPerceptronLab,
+  type LessonFlowState,
+  type LessonQuizResult,
+  type PerceptronInput,
+} from '../domain/academy';
 
 async function getSupabaseClient() {
   return import('./supabase');
+}
+
+function hasSupabaseAnonKey() {
+  const anonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY ?? '';
+  return Boolean(anonKey && !anonKey.includes('replace-with'));
+}
+
+const lessonFlowStateKey = 'ai-academy.lesson-flow-state.v1';
+let memoryLessonFlowState: LessonFlowState = createEmptyLessonFlowState();
+
+type KeyValueStorage = {
+  getItem: (key: string) => Promise<string | null>;
+  setItem: (key: string, value: string) => Promise<void>;
+};
+
+async function getLessonFlowStorage(): Promise<KeyValueStorage | null> {
+  if (process.env.NODE_ENV === 'test') return null;
+  try {
+    const storageModule = await import('@react-native-async-storage/async-storage');
+    return storageModule.default as KeyValueStorage;
+  } catch {
+    return null;
+  }
+}
+
+function cloneLessonFlowState(state: LessonFlowState): LessonFlowState {
+  return {
+    completedLessonSlugs: [...state.completedLessonSlugs],
+    stepProgressByLessonSlug: { ...state.stepProgressByLessonSlug },
+    quizResultsByLessonSlug: { ...state.quizResultsByLessonSlug },
+  };
+}
+
+function normalizeLessonFlowState(value: unknown): LessonFlowState {
+  if (!value || typeof value !== 'object') return createEmptyLessonFlowState();
+  const partial = value as Partial<LessonFlowState>;
+  return {
+    completedLessonSlugs: Array.isArray(partial.completedLessonSlugs)
+      ? [...new Set(partial.completedLessonSlugs.filter((slug): slug is string => typeof slug === 'string'))]
+      : [],
+    stepProgressByLessonSlug: partial.stepProgressByLessonSlug && typeof partial.stepProgressByLessonSlug === 'object'
+      ? Object.fromEntries(
+        Object.entries(partial.stepProgressByLessonSlug).filter((entry): entry is [string, number] => typeof entry[0] === 'string' && typeof entry[1] === 'number'),
+      )
+      : {},
+    quizResultsByLessonSlug: partial.quizResultsByLessonSlug && typeof partial.quizResultsByLessonSlug === 'object'
+      ? Object.fromEntries(
+        Object.entries(partial.quizResultsByLessonSlug).filter((entry): entry is [string, LessonQuizResult] => {
+          const result = entry[1] as LessonQuizResult;
+          return typeof entry[0] === 'string' && Boolean(result) && typeof result.lessonSlug === 'string' && typeof result.passed === 'boolean';
+        }),
+      )
+      : {},
+  };
+}
+
+async function readLessonFlowState(): Promise<LessonFlowState> {
+  const storage = await getLessonFlowStorage();
+  if (!storage) return cloneLessonFlowState(memoryLessonFlowState);
+
+  try {
+    const rawState = await storage.getItem(lessonFlowStateKey);
+    if (!rawState) return createEmptyLessonFlowState();
+    return normalizeLessonFlowState(JSON.parse(rawState));
+  } catch {
+    return cloneLessonFlowState(memoryLessonFlowState);
+  }
+}
+
+async function writeLessonFlowState(nextState: LessonFlowState): Promise<LessonFlowState> {
+  const normalizedState = normalizeLessonFlowState(nextState);
+  memoryLessonFlowState = cloneLessonFlowState(normalizedState);
+  const storage = await getLessonFlowStorage();
+  if (storage) {
+    await storage.setItem(lessonFlowStateKey, JSON.stringify(normalizedState));
+  }
+  return cloneLessonFlowState(normalizedState);
 }
 
 export type PathCard = {
@@ -50,6 +136,20 @@ export type LessonCard = {
   type: 'Video' | 'Okuma' | 'Karma';
   duration: string;
   status: 'done' | 'active' | 'locked';
+};
+
+export type LessonContentBlock = {
+  id?: string;
+  lessonId: string;
+  type: 'callout' | 'markdown' | 'code' | 'lab_embed';
+  title: string;
+  body: string;
+  mediaUrl?: string;
+  codeLanguage?: string;
+  code?: string;
+  calloutVariant?: string;
+  data: Record<string, unknown>;
+  sortOrder: number;
 };
 
 export type NoteCard = {
@@ -120,6 +220,20 @@ type LessonCatalogRow = {
   } | null;
 };
 
+type LessonContentBlockRow = {
+  id?: string;
+  lesson_id: string;
+  block_type: string;
+  title?: string | null;
+  body?: string | null;
+  media_url?: string | null;
+  code_language?: string | null;
+  code?: string | null;
+  callout_variant?: string | null;
+  data?: Record<string, unknown> | null;
+  sort_order?: number | null;
+};
+
 export function mapPathCatalogRows(rows: PathCatalogRow[]): PathCard[] {
   return rows
     .slice()
@@ -148,6 +262,27 @@ export function mapCourseCatalogRows(rows: CourseCatalogRow[]): CourseCard[] {
     pathSlug: (row as any).path_slug ?? (row as any).learning_path_slug,
     progress: 0,
   }));
+}
+
+export function mapLessonContentBlockRows(rows: LessonContentBlockRow[]): LessonContentBlock[] {
+  return rows
+    .slice()
+    .sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0))
+    .map((row) => ({
+      id: row.id,
+      lessonId: row.lesson_id,
+      type: (row.block_type === 'callout' || row.block_type === 'markdown' || row.block_type === 'code' || row.block_type === 'lab_embed'
+        ? row.block_type
+        : 'markdown') as LessonContentBlock['type'],
+      title: row.title ?? '',
+      body: row.body ?? '',
+      mediaUrl: row.media_url ?? undefined,
+      codeLanguage: row.code_language ?? undefined,
+      code: row.code ?? undefined,
+      calloutVariant: row.callout_variant ?? undefined,
+      data: row.data ?? {},
+      sortOrder: row.sort_order ?? 0,
+    }));
 }
 
 export function formatAcademyError(error: unknown): string {
@@ -226,6 +361,69 @@ export async function getLessons(): Promise<LessonCard[]> {
     .map(({ order: _order, ...lesson }) => lesson);
 }
 
+export async function getLessonContentBlocks(lessonId: string | undefined): Promise<LessonContentBlock[]> {
+  if (!lessonId) return [];
+  const fallbackBlocks = fallbackLessonContentBlocks
+    .filter((block) => block.lessonId === lessonId)
+    .sort((a, b) => a.sortOrder - b.sortOrder);
+  if (!hasSupabaseAnonKey()) return fallbackBlocks;
+  const { isSupabaseConfigured, supabase } = await getSupabaseClient();
+  if (!isSupabaseConfigured) return fallbackBlocks;
+  const { data, error } = await supabase
+    .from('lesson_content_blocks')
+    .select('id, lesson_id, block_type, title, body, media_url, code_language, code, callout_variant, data, sort_order')
+    .eq('lesson_id', lessonId)
+    .order('sort_order');
+  if (error) throw error;
+  if (!data?.length) return fallbackBlocks;
+  return mapLessonContentBlockRows(data as LessonContentBlockRow[]);
+}
+
+export async function getLessonFlowState(): Promise<LessonFlowState> {
+  return readLessonFlowState();
+}
+
+export async function saveLessonStepProgress(lessonSlug: string | undefined, stepIndex: number): Promise<LessonFlowState> {
+  if (!lessonSlug) return readLessonFlowState();
+  const state = await readLessonFlowState();
+  return writeLessonFlowState({
+    ...state,
+    stepProgressByLessonSlug: {
+      ...state.stepProgressByLessonSlug,
+      [lessonSlug]: Math.max(0, Math.floor(stepIndex)),
+    },
+  });
+}
+
+export async function saveLessonQuizResult(lessonSlug: string | undefined, result: LessonQuizResult): Promise<LessonFlowState> {
+  if (!lessonSlug) return readLessonFlowState();
+  const state = await readLessonFlowState();
+  const completedLessonSlugs = result.passed
+    ? [...new Set([...state.completedLessonSlugs, lessonSlug])]
+    : state.completedLessonSlugs.filter((slug) => slug !== lessonSlug);
+
+  return writeLessonFlowState({
+    ...state,
+    completedLessonSlugs,
+    quizResultsByLessonSlug: {
+      ...state.quizResultsByLessonSlug,
+      [lessonSlug]: result,
+    },
+  });
+}
+
+export async function resetLessonQuizAttempt(lessonSlug: string | undefined): Promise<LessonFlowState> {
+  if (!lessonSlug) return readLessonFlowState();
+  const state = await readLessonFlowState();
+  const { [lessonSlug]: _removedResult, ...quizResultsByLessonSlug } = state.quizResultsByLessonSlug;
+
+  return writeLessonFlowState({
+    ...state,
+    completedLessonSlugs: state.completedLessonSlugs.filter((slug) => slug !== lessonSlug),
+    quizResultsByLessonSlug,
+  });
+}
+
 export async function getInterests(): Promise<string[]> {
   const { isSupabaseConfigured, supabase } = await getSupabaseClient();
   if (!isSupabaseConfigured) return fallbackInterests;
@@ -281,10 +479,19 @@ export async function getQuizQuestion(): Promise<QuizQuestion> {
   };
 }
 
-export async function getLab(): Promise<LabState> {
-  const { isSupabaseConfigured, supabase } = await getSupabaseClient();
+export async function getLab(slug?: string): Promise<LabState> {
   const fallbackValues = { x1: 0.6, x2: -0.3, w1: 0.8, w2: -0.5, bias: 0.1 };
-  const fallbackLab = fallbackLabs[0];
+  const fallbackLab = fallbackLabs.find((lab) => lab.slug === slug) ?? fallbackLabs[0];
+  if (!hasSupabaseAnonKey()) {
+    return {
+      id: fallbackLab.id,
+      title: fallbackLab.title,
+      description: fallbackLab.description,
+      starterCode: fallbackLab.starterCode,
+      values: fallbackValues,
+    };
+  }
+  const { isSupabaseConfigured, supabase } = await getSupabaseClient();
   if (!isSupabaseConfigured) {
     return {
       id: fallbackLab.id,
@@ -294,7 +501,8 @@ export async function getLab(): Promise<LabState> {
       values: fallbackValues,
     };
   }
-  const { data, error } = await supabase.from('v_labs_safe').select('*').eq('status', 'published').order('sort_order').limit(1).maybeSingle();
+  const query = supabase.from('v_labs_safe').select('*').eq('status', 'published');
+  const { data, error } = await (slug ? query.eq('slug', slug) : query).order('sort_order').limit(1).maybeSingle();
   if (error) throw error;
   if (!data) {
     return {

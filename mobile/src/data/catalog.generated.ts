@@ -1348,6 +1348,5427 @@ export const datasetLessons = [
   }
 ] as const;
 
+export const datasetLessonContentBlocks = [
+  {
+    "id": "8f809914-e810-5b1d-b199-344de5ec7b39",
+    "lessonId": "015df0ee-8a2b-5e97-a41f-c92956a810ad",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda test, logging ve maliyet kontrolü konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "804217d5-ab39-5921-8443-a96654271c97",
+    "lessonId": "015df0ee-8a2b-5e97-a41f-c92956a810ad",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Test, logging ve maliyet kontrolü** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "43523ed9-a4ad-5ad8-a0d6-39e10d1afa14",
+    "lessonId": "015df0ee-8a2b-5e97-a41f-c92956a810ad",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "7668a969-ca8a-5d97-a72d-4a52b15b5aa6",
+    "lessonId": "015df0ee-8a2b-5e97-a41f-c92956a810ad",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "capstone-ai-engineer-m2-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "e7a7747c-5fd5-5902-a326-bd2bddc68766",
+    "lessonId": "028127ff-5317-503a-b0d2-7f7e30638025",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda array yapısı ve vektörleştirme konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "b1ae5be9-301b-577d-a7d5-88bedbae0d1d",
+    "lessonId": "028127ff-5317-503a-b0d2-7f7e30638025",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Array yapısı ve vektörleştirme** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "459f5bc5-3c49-51e8-a9bd-3e7c43032e5e",
+    "lessonId": "028127ff-5317-503a-b0d2-7f7e30638025",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import numpy as np\n\nX = np.array([[1.0, 0.2], [0.7, 1.3]])\nw = np.array([0.4, -0.1])\nscores = X @ w",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "3581d26f-6e00-51a6-bcdd-25808235c4f6",
+    "lessonId": "0369807a-3291-542f-8957-769e10325422",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda liste, sözlük, küme ve tuple konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "d46ae192-ea75-50b7-a785-28755bb17ba8",
+    "lessonId": "0369807a-3291-542f-8957-769e10325422",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Liste, sözlük, küme ve tuple** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "683caa6b-e58d-59b1-acbb-a1c91a19cf2a",
+    "lessonId": "0369807a-3291-542f-8957-769e10325422",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "34609afa-f30b-5602-a834-9cdf1faa476b",
+    "lessonId": "06190ec4-2673-5b7d-870b-57e1d0fb2e92",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda loss fonksiyonu seçimi konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "d4989a7c-ec4d-5246-abdd-c1a147df136a",
+    "lessonId": "06190ec4-2673-5b7d-870b-57e1d0fb2e92",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Loss fonksiyonu seçimi** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "cfaefe9d-6dad-5343-8f1d-48fb99c17752",
+    "lessonId": "06190ec4-2673-5b7d-870b-57e1d0fb2e92",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "ac84b5e6-d639-5cfb-8eaa-90edd739fc83",
+    "lessonId": "0666b147-0c97-5739-bb3f-7be28edb255d",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda few-shot örnek tasarımı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "75f4f062-29ad-5190-abcf-5be170ca32f0",
+    "lessonId": "0666b147-0c97-5739-bb3f-7be28edb255d",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Few-shot örnek tasarımı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "18b4c920-abff-5d25-94df-2d4a1e53b57d",
+    "lessonId": "0666b147-0c97-5739-bb3f-7be28edb255d",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "markdown",
+    "code": "<gorev>\nKullanıcının seviyesine uygun, kaynaklı ve kısa bir açıklama üret.\n</gorev>\n<basari_kriterleri>\n- En fazla 5 madde\n- Varsayımları açıkça belirt\n- JSON formatında döndür\n</basari_kriterleri>",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "58530164-42aa-55a2-a8f3-4c3e1fbdab47",
+    "lessonId": "0737a068-1998-562b-add8-c436312eb6f2",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda edge function ile llm çağrısı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "742d632d-6c95-5f19-9fa9-3dbe669b0135",
+    "lessonId": "0737a068-1998-562b-add8-c436312eb6f2",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Edge Function ile LLM çağrısı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "3833f15e-9f80-5616-985f-d795e87df006",
+    "lessonId": "0737a068-1998-562b-add8-c436312eb6f2",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def build_context(chunks, query_embedding, top_k=4):\n    ranked = sorted(chunks, key=lambda c: cosine(c['embedding'], query_embedding), reverse=True)\n    return '\n\n'.join(chunk['text'] for chunk in ranked[:top_k])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "7b455b09-7ca7-5a49-8a64-c4631431ccdb",
+    "lessonId": "07e27f3a-3512-57b3-b2c2-00b62c7b9fc0",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda validation loop ve checkpoint konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "415477d9-8df2-5a98-a2bb-709e8fae8c5b",
+    "lessonId": "07e27f3a-3512-57b3-b2c2-00b62c7b9fc0",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Validation loop ve checkpoint** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "34fc940e-d44e-5e5b-b212-1916388e32e1",
+    "lessonId": "07e27f3a-3512-57b3-b2c2-00b62c7b9fc0",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "4dcdee96-f7bf-56de-a7a0-9ac105469110",
+    "lessonId": "08a11b04-ea0b-5124-9001-e149da226668",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda prompt injection riskleri konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "63aa1bc1-df0c-5b73-b569-8dcbc1f505be",
+    "lessonId": "08a11b04-ea0b-5124-9001-e149da226668",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Prompt injection riskleri** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "41ba6451-03ab-540e-ae3a-a2f81627edb3",
+    "lessonId": "08a11b04-ea0b-5124-9001-e149da226668",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "markdown",
+    "code": "<gorev>\nKullanıcının seviyesine uygun, kaynaklı ve kısa bir açıklama üret.\n</gorev>\n<basari_kriterleri>\n- En fazla 5 madde\n- Varsayımları açıkça belirt\n- JSON formatında döndür\n</basari_kriterleri>",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "b6b69f26-d561-51a6-aa8c-418c96cbffbb",
+    "lessonId": "0e4dbc17-f633-5ca4-a710-b691f76b4e11",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda red-team örnekleri ve koruma konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "968a3612-bc0d-53ff-96d8-1858e07e0a93",
+    "lessonId": "0e4dbc17-f633-5ca4-a710-b691f76b4e11",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Red-team örnekleri ve koruma** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "1a2bbb68-1a6c-571c-9ca0-0598bbc3a5d9",
+    "lessonId": "0e4dbc17-f633-5ca4-a710-b691f76b4e11",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "markdown",
+    "code": "<gorev>\nKullanıcının seviyesine uygun, kaynaklı ve kısa bir açıklama üret.\n</gorev>\n<basari_kriterleri>\n- En fazla 5 madde\n- Varsayımları açıkça belirt\n- JSON formatında döndür\n</basari_kriterleri>",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "0aa832c9-079f-5831-abac-22fc368f7c9a",
+    "lessonId": "0e4dbc17-f633-5ca4-a710-b691f76b4e11",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "prompt-engineering-pratikleri-m3-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "4a5f9d97-a340-537e-8aa6-695bdd1f4d06",
+    "lessonId": "0ef12391-3a10-5d84-ae87-bd7310b7a904",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda context window ve maliyet konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "c967581b-ecf8-5de9-bfeb-4e06334995f1",
+    "lessonId": "0ef12391-3a10-5d84-ae87-bd7310b7a904",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Context window ve maliyet** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "97f777dc-053f-51fd-8c36-38034fada469",
+    "lessonId": "0ef12391-3a10-5d84-ae87-bd7310b7a904",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "accd7065-ed18-5692-8884-07a9e502daa5",
+    "lessonId": "0ef12391-3a10-5d84-ae87-bd7310b7a904",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "nlp-llm-temelleri-m2-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "353cd860-98b3-5bc4-8722-1a01f42bcf76",
+    "lessonId": "11778a43-92ed-596a-b876-eddd55c79edf",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda token nedir ve nasıl sayılır konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "4e8c87f0-f265-5be0-b102-48261867fdc2",
+    "lessonId": "11778a43-92ed-596a-b876-eddd55c79edf",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Token nedir ve nasıl sayılır** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "84375b1e-bb9c-51b2-b0fa-34b9e0b974aa",
+    "lessonId": "11778a43-92ed-596a-b876-eddd55c79edf",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "8b9a5cb4-36ee-598a-ba7c-aa23fda03a72",
+    "lessonId": "14ea4b1f-9531-5c70-8d1c-1fdb1357f5d6",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda baseline, model/rag ve servis katmanı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "6d7920c8-a6e5-5566-a2a3-b2d49374154b",
+    "lessonId": "14ea4b1f-9531-5c70-8d1c-1fdb1357f5d6",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Baseline, model/RAG ve servis katmanı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "c182c188-3d53-5778-91b2-bd8d60745881",
+    "lessonId": "14ea4b1f-9531-5c70-8d1c-1fdb1357f5d6",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "ec674ebb-92ee-5880-8500-487ab6660b39",
+    "lessonId": "15329bfa-5d9f-57d5-8825-004ede5da288",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda normal, bernoulli ve kategorik dağılımlar konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "2d1a66de-84e1-5a2e-b718-6588da48fa69",
+    "lessonId": "15329bfa-5d9f-57d5-8825-004ede5da288",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Normal, Bernoulli ve kategorik dağılımlar** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "b0efe84a-b9b1-5eb1-90a8-b89265e6440d",
+    "lessonId": "15329bfa-5d9f-57d5-8825-004ede5da288",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import numpy as np\n\nX = np.array([[1.0, 0.2], [0.7, 1.3]])\nw = np.array([0.4, -0.1])\nscores = X @ w",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "8c3d3834-daf2-54f0-9543-3bdc46766cbd",
+    "lessonId": "1adaa87b-33ef-504c-9a27-b21df6fb795c",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda regresyon metrikleri konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "f4f44562-d1fc-533a-b681-d7ffb7c18e3e",
+    "lessonId": "1adaa87b-33ef-504c-9a27-b21df6fb795c",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Regresyon metrikleri** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "bf0d10d6-da3e-5e8f-951d-35d569d43feb",
+    "lessonId": "1adaa87b-33ef-504c-9a27-b21df6fb795c",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import numpy as np\n\nX = np.array([[1.0, 0.2], [0.7, 1.3]])\nw = np.array([0.4, -0.1])\nscores = X @ w",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "8d3ae6da-6b62-5c63-8ab7-684b107a0786",
+    "lessonId": "1f05d1c7-94b9-5120-8a40-097996c4031b",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda i̇zinler ve veri sınırları konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "5b092b9e-686c-50e8-b190-2f96d968b395",
+    "lessonId": "1f05d1c7-94b9-5120-8a40-097996c4031b",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **İzinler ve veri sınırları** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "5b04fbc5-94cc-5cdb-b089-6d6d1ba0d28e",
+    "lessonId": "1f05d1c7-94b9-5120-8a40-097996c4031b",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "192f6c3b-4dc0-52c2-854f-f0eb84812d19",
+    "lessonId": "1f170a47-7dde-5a97-ab15-7c9febc3c987",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda react native istemci akışı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "d6f554ad-1ee4-5da5-8a9c-0d08276f988c",
+    "lessonId": "1f170a47-7dde-5a97-ab15-7c9febc3c987",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **React Native istemci akışı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "81e8abda-c03c-5340-b68b-0e10ee32c886",
+    "lessonId": "1f170a47-7dde-5a97-ab15-7c9febc3c987",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def build_context(chunks, query_embedding, top_k=4):\n    ranked = sorted(chunks, key=lambda c: cosine(c['embedding'], query_embedding), reverse=True)\n    return '\n\n'.join(chunk['text'] for chunk in ranked[:top_k])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "806ac5d4-3dc6-55a6-afe0-6def8534b9ae",
+    "lessonId": "2c073552-d99f-5cc5-9e4a-dfe23547da88",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda bias ve fairness kontrolü konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "8fd7a1e6-7d4e-5cde-80e8-2371e7ecf14a",
+    "lessonId": "2c073552-d99f-5cc5-9e4a-dfe23547da88",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Bias ve fairness kontrolü** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "c5afc79a-0d19-5e39-9843-03c60298a1e7",
+    "lessonId": "2c073552-d99f-5cc5-9e4a-dfe23547da88",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "f7c64a48-c57f-55d8-b0a1-8b56310c3180",
+    "lessonId": "2d508b98-5cbc-5013-92ef-8d9dd81f4219",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda dataset dengesi ve etiket kalitesi konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "3d343b21-a56f-5010-8646-19796c3ad46e",
+    "lessonId": "2d508b98-5cbc-5013-92ef-8d9dd81f4219",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Dataset dengesi ve etiket kalitesi** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "9c16195b-3518-503d-b173-543253f41530",
+    "lessonId": "2d508b98-5cbc-5013-92ef-8d9dd81f4219",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "9c88f8ae-dfa2-5aa5-a01e-6f42c0584188",
+    "lessonId": "2d508b98-5cbc-5013-92ef-8d9dd81f4219",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "bilgisayarli-goru-temelleri-m1-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "ab181d79-ac70-5013-b236-f0c0c4badbb1",
+    "lessonId": "2ee6c1b5-1a93-5727-a3e4-7a64fcd89f84",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda deney hipotezi yazma konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "a03f7f3a-0137-5e03-b76a-42810e4e0e07",
+    "lessonId": "2ee6c1b5-1a93-5727-a3e4-7a64fcd89f84",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Deney hipotezi yazma** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "4ee40a62-b457-5f59-83e6-89d9f57af91f",
+    "lessonId": "2ee6c1b5-1a93-5727-a3e4-7a64fcd89f84",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = Pipeline([\n    ('scale', StandardScaler()),\n    ('model', LogisticRegression(max_iter=1000))\n])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "2efb9042-5cb8-5afe-8aae-f143a1dad084",
+    "lessonId": "3407cc26-01db-5d48-994e-a307411d8a7b",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda model versiyonlama konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "28166d2d-aae1-51a7-8345-7037b385e67d",
+    "lessonId": "3407cc26-01db-5d48-994e-a307411d8a7b",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Model versiyonlama** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "3bcd6f96-1cf1-51fc-bbeb-b073f8af42e1",
+    "lessonId": "3407cc26-01db-5d48-994e-a307411d8a7b",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "yaml",
+    "code": "model:\n  name: ai-academy-baseline\n  version: 1\nchecks:\n  min_accuracy: 0.82\n  max_latency_ms: 300\nrollback:\n  enabled: true",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "fe55e40b-9368-5caf-b9fc-b4c01089841e",
+    "lessonId": "39080644-63a5-58a2-b8c5-aa10bdb01f1c",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda filtreleme, gruplama ve birleştirme konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "c8c46bb6-5f91-51ac-be05-69b1359ac283",
+    "lessonId": "39080644-63a5-58a2-b8c5-aa10bdb01f1c",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Filtreleme, gruplama ve birleştirme** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "a0490e66-9840-5771-9f81-e3253732cf80",
+    "lessonId": "39080644-63a5-58a2-b8c5-aa10bdb01f1c",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import numpy as np\n\nX = np.array([[1.0, 0.2], [0.7, 1.3]])\nw = np.array([0.4, -0.1])\nscores = X @ w",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "c27b4564-e15a-5f04-9a93-036c596ead28",
+    "lessonId": "39e216b6-6ff8-5d3d-99f6-a404af0a0438",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda sayısal özellik ölçekleme konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "b5abd041-aa5c-563b-82d2-339d5ee6a43f",
+    "lessonId": "39e216b6-6ff8-5d3d-99f6-a404af0a0438",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Sayısal özellik ölçekleme** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "3002b86e-bee2-5fbf-be3a-db1caef9a36d",
+    "lessonId": "39e216b6-6ff8-5d3d-99f6-a404af0a0438",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import numpy as np\n\nX = np.array([[1.0, 0.2], [0.7, 1.3]])\nw = np.array([0.4, -0.1])\nscores = X @ w",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "8b8ced61-9d16-5eeb-b960-4006255ad832",
+    "lessonId": "3a74b02d-d7e6-59d3-9b20-d4cef361c98a",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda zincir kuralı ile geri yayılım konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "081b3ccc-59bc-54d6-a2f2-8f56eb3be97d",
+    "lessonId": "3a74b02d-d7e6-59d3-9b20-d4cef361c98a",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Zincir kuralı ile geri yayılım** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "396cbf08-ccdb-5c91-a2a9-6b83691a6318",
+    "lessonId": "3a74b02d-d7e6-59d3-9b20-d4cef361c98a",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "652069d0-c450-5837-8c24-de40f0a49726",
+    "lessonId": "3af69713-74f7-5bfa-b43b-8cd45c0b3c45",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda segment bazlı hata analizi konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "6cf2bec8-6cee-505d-bdbd-108edaa3c6b0",
+    "lessonId": "3af69713-74f7-5bfa-b43b-8cd45c0b3c45",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Segment bazlı hata analizi** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "35ed1acd-e97e-5121-a32c-1e5df927449e",
+    "lessonId": "3af69713-74f7-5bfa-b43b-8cd45c0b3c45",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = Pipeline([\n    ('scale', StandardScaler()),\n    ('model', LogisticRegression(max_iter=1000))\n])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "9147ecb0-a924-5067-a79b-2306811376f8",
+    "lessonId": "3e2dff34-7fed-5697-8ecd-3b9bca2af769",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda hata örneklerini etiketleme döngüsüne bağlama konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "31c877c7-c891-5f44-a5a3-e040df00a337",
+    "lessonId": "3e2dff34-7fed-5697-8ecd-3b9bca2af769",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Hata örneklerini etiketleme döngüsüne bağlama** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "e0b305af-ad20-573e-898c-66aa7874cda3",
+    "lessonId": "3e2dff34-7fed-5697-8ecd-3b9bca2af769",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "f4d28017-eb9d-5e76-bfd3-68704470a6db",
+    "lessonId": "3e2dff34-7fed-5697-8ecd-3b9bca2af769",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "bilgisayarli-goru-temelleri-m3-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "109df578-210b-56f0-b81c-05f1c8c724aa",
+    "lessonId": "41102c57-6bc3-5be9-acd9-946dd832fc04",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda latency, throughput ve maliyet konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "7298b911-89bb-55de-acb0-c7af80f4a0a2",
+    "lessonId": "41102c57-6bc3-5be9-acd9-946dd832fc04",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Latency, throughput ve maliyet** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "27f55b67-cb66-5a40-bac9-998b4ecb973b",
+    "lessonId": "41102c57-6bc3-5be9-acd9-946dd832fc04",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "yaml",
+    "code": "model:\n  name: ai-academy-baseline\n  version: 1\nchecks:\n  min_accuracy: 0.82\n  max_latency_ms: 300\nrollback:\n  enabled: true",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "a73e8748-52fa-5a95-b944-2420c1e6198d",
+    "lessonId": "41102c57-6bc3-5be9-acd9-946dd832fc04",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "mlops-uretim-m1-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "f33a499b-b46c-5aed-a55d-d2e40159fb0c",
+    "lessonId": "42801935-8fb1-58c8-9716-510f52727565",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda transfer learning yaklaşımı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "67c03e13-cc8c-5ab1-baf3-db03ffc42b59",
+    "lessonId": "42801935-8fb1-58c8-9716-510f52727565",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Transfer learning yaklaşımı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "197a635e-0882-5731-a534-7c00695ffb2e",
+    "lessonId": "42801935-8fb1-58c8-9716-510f52727565",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "673d72d4-f0d4-5e8c-948f-208079e5e562",
+    "lessonId": "43597261-4d69-5bbd-82c5-269514698491",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda model açıklanabilirliği konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "465866ff-2da3-5d20-95e5-6dee271e8fc0",
+    "lessonId": "43597261-4d69-5bbd-82c5-269514698491",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Model açıklanabilirliği** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "48ac8c5a-8a9c-545c-901d-6afbe995fc9f",
+    "lessonId": "43597261-4d69-5bbd-82c5-269514698491",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "2520ea7a-3830-52e8-983c-160faaa52699",
+    "lessonId": "43597261-4d69-5bbd-82c5-269514698491",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "ai-urun-guvenlik-etik-m2-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "f86637b4-5215-5804-8d33-479dbd417858",
+    "lessonId": "48d774e6-bc03-5602-8891-9f5b7bbd1311",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda baseline modelden iyileştirmeye geçiş konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "5e1da7c6-2e70-5677-b64a-554a9dafea2c",
+    "lessonId": "48d774e6-bc03-5602-8891-9f5b7bbd1311",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Baseline modelden iyileştirmeye geçiş** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "6d91cffe-0ea0-5d63-9bc9-e595b0fbefad",
+    "lessonId": "48d774e6-bc03-5602-8891-9f5b7bbd1311",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = Pipeline([\n    ('scale', StandardScaler()),\n    ('model', LogisticRegression(max_iter=1000))\n])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "1311a6ac-403d-5106-a40f-462ca01c6831",
+    "lessonId": "48d774e6-bc03-5602-8891-9f5b7bbd1311",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "makine-ogrenmesi-temelleri-m3-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "a786a899-3880-5a30-b773-406af7db1f28",
+    "lessonId": "49fa4302-5cda-5721-91f8-df62a030535e",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda mobil akış ve supabase entegrasyonu konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "e539cbc2-4eea-5d67-b9eb-de433ca314e0",
+    "lessonId": "49fa4302-5cda-5721-91f8-df62a030535e",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Mobil akış ve Supabase entegrasyonu** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "9784d39f-d423-51e7-9865-75ff14d63a4f",
+    "lessonId": "49fa4302-5cda-5721-91f8-df62a030535e",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "6c60730a-4831-5ed6-bd7b-c75663b62968",
+    "lessonId": "4a254d63-fbd5-53be-8cd0-6f13a7d8971b",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda gradient descent sezgisi konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "fb11acd7-1f66-57d9-b019-61e059631e24",
+    "lessonId": "4a254d63-fbd5-53be-8cd0-6f13a7d8971b",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Gradient descent sezgisi** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "9b7d9888-d273-5bb2-bf74-51eb59089439",
+    "lessonId": "4a254d63-fbd5-53be-8cd0-6f13a7d8971b",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "d864b16f-b05e-5d6b-b4c3-59040da5727e",
+    "lessonId": "4b6e1c02-6e89-5889-aa87-38572f912bbe",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda rol, amaç ve bağlam ayrımı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "33823d90-c3ec-5854-9842-3078816b1ab0",
+    "lessonId": "4b6e1c02-6e89-5889-aa87-38572f912bbe",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Rol, amaç ve bağlam ayrımı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "6786b238-b3be-5a86-ad5d-d192956950d4",
+    "lessonId": "4b6e1c02-6e89-5889-aa87-38572f912bbe",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "markdown",
+    "code": "<gorev>\nKullanıcının seviyesine uygun, kaynaklı ve kısa bir açıklama üret.\n</gorev>\n<basari_kriterleri>\n- En fazla 5 madde\n- Varsayımları açıkça belirt\n- JSON formatında döndür\n</basari_kriterleri>",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "a90e1bbe-d3e0-56ca-a5ee-45253639539d",
+    "lessonId": "4b8dc8ff-a694-5381-896b-b1a11e19178d",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda değişkenler, veri tipleri ve kontrol akışı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "1b947656-9530-51f9-badb-ae895fdb527f",
+    "lessonId": "4b8dc8ff-a694-5381-896b-b1a11e19178d",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Değişkenler, veri tipleri ve kontrol akışı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "e197f9da-6dd1-5edc-a30a-6f60befb2fab",
+    "lessonId": "4b8dc8ff-a694-5381-896b-b1a11e19178d",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "6a3d4e4b-2da0-5c2b-8716-36165a04197d",
+    "lessonId": "506cf978-81f2-5eeb-b768-cad251e24599",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda list comprehension ve iterator mantığı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "4b911b5a-b4b9-5e32-9c9f-3cd0fa292a96",
+    "lessonId": "506cf978-81f2-5eeb-b768-cad251e24599",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **List comprehension ve iterator mantığı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "3d5efdb5-7ed3-5444-a516-cf362b984259",
+    "lessonId": "506cf978-81f2-5eeb-b768-cad251e24599",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "e0222f92-2669-5bc1-86bc-92f56a618679",
+    "lessonId": "522c25f5-43b3-5067-bf6a-b8c229ab13f7",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda encoder/decoder ayrımı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "0ac80fe9-4409-5e30-a0d6-dfe91a65333d",
+    "lessonId": "522c25f5-43b3-5067-bf6a-b8c229ab13f7",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Encoder/decoder ayrımı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "09a08e66-5327-54c4-90e6-40f9aa142efa",
+    "lessonId": "522c25f5-43b3-5067-bf6a-b8c229ab13f7",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "54e46300-99dc-5b44-b302-b68ed80d8362",
+    "lessonId": "52aaa647-177b-5a52-a15f-79e9c5cd61e9",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda mini-batch eğitim ve overfitting konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "dd1da78c-33ae-58ac-9801-89fb769f16e9",
+    "lessonId": "52aaa647-177b-5a52-a15f-79e9c5cd61e9",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Mini-batch eğitim ve overfitting** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "e67759ec-6454-5d88-be54-695911079e4e",
+    "lessonId": "52aaa647-177b-5a52-a15f-79e9c5cd61e9",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "d803d02b-fddd-5952-a8ba-99017bf296bd",
+    "lessonId": "52aaa647-177b-5a52-a15f-79e9c5cd61e9",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "neural-networks-101-m3-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "8a6d3ea2-a211-5efb-a2e1-c333012bac90",
+    "lessonId": "5365959e-86a2-589b-8d28-d0b3542be275",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda güvenlik test matrisi konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "5c5e6a20-9b1b-51c0-be76-57287f967c6f",
+    "lessonId": "5365959e-86a2-589b-8d28-d0b3542be275",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Güvenlik test matrisi** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "80135075-6798-52c6-a9df-fb80b7424bda",
+    "lessonId": "5365959e-86a2-589b-8d28-d0b3542be275",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "2d96f14e-edda-5b3f-bc3e-123a00f1bca9",
+    "lessonId": "5365959e-86a2-589b-8d28-d0b3542be275",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "ai-urun-guvenlik-etik-m3-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "d2ac035e-33b9-5e0f-ab9b-fcabe7a160f8",
+    "lessonId": "5702830a-3997-5c69-bd40-3ee37b2966a1",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda model export ve inference konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "57e9a695-9f20-5f70-ad81-156a9d9a15a8",
+    "lessonId": "5702830a-3997-5c69-bd40-3ee37b2966a1",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Model export ve inference** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "c4ee0a12-fae4-5c9e-966d-20cd742ec01b",
+    "lessonId": "5702830a-3997-5c69-bd40-3ee37b2966a1",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "80ab42c1-463a-5787-a82f-2ad47949ff7e",
+    "lessonId": "5702830a-3997-5c69-bd40-3ee37b2966a1",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "deep-learning-pytorch-m3-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "cb679b08-bdf5-5d1d-97f4-948c50daea30",
+    "lessonId": "5a33623d-9541-5c81-88a0-e1ec6a523d52",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda rollback ve canary release konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "2f560161-e309-5b62-bb1c-4e2d1d129784",
+    "lessonId": "5a33623d-9541-5c81-88a0-e1ec6a523d52",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Rollback ve canary release** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "d850b95c-6b4a-5283-b3f4-971078d04dd0",
+    "lessonId": "5a33623d-9541-5c81-88a0-e1ec6a523d52",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "yaml",
+    "code": "model:\n  name: ai-academy-baseline\n  version: 1\nchecks:\n  min_accuracy: 0.82\n  max_latency_ms: 300\nrollback:\n  enabled: true",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "2f155455-2c4f-59cf-a0f3-b31560d52d57",
+    "lessonId": "5a33623d-9541-5c81-88a0-e1ec6a523d52",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "mlops-uretim-m2-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "d48c1eb4-23e6-5915-90b3-92cae0e2d93f",
+    "lessonId": "5ccfeb80-51ee-567b-a90c-4460ac943497",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda piksel, kanal ve normalize etme konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "84240399-8741-55d9-9b3a-411d1d774979",
+    "lessonId": "5ccfeb80-51ee-567b-a90c-4460ac943497",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Piksel, kanal ve normalize etme** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "c37e77c3-869d-5506-a42f-8e43c046b72e",
+    "lessonId": "5ccfeb80-51ee-567b-a90c-4460ac943497",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "436c1478-4ef2-5585-91c9-a5d3b4737f38",
+    "lessonId": "62bd66e7-7a24-5864-81ed-6a8e6192aee5",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda tensor operasyonları konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "0e1d2340-ebbb-5653-866f-0f23a3b43412",
+    "lessonId": "62bd66e7-7a24-5864-81ed-6a8e6192aee5",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Tensor operasyonları** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "f2e90a8b-102e-5e7b-ab27-98bb09e12d88",
+    "lessonId": "62bd66e7-7a24-5864-81ed-6a8e6192aee5",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "2c3bd3bb-3293-55d0-8fa3-5dcc5483e9b4",
+    "lessonId": "647963f3-44dd-5a37-bc44-23913e27f6d8",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda debugging ve performans ölçümü konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "e236a20c-86c4-572a-b4b7-6640f020b186",
+    "lessonId": "647963f3-44dd-5a37-bc44-23913e27f6d8",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Debugging ve performans ölçümü** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "d8689e59-6608-5976-b8da-f972f5862a29",
+    "lessonId": "647963f3-44dd-5a37-bc44-23913e27f6d8",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "e67744f2-87f8-59e3-a3c7-e8c771acdd4e",
+    "lessonId": "68df36b4-019c-53bb-92b1-975e9efa9e61",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda attention mekanizması konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "263145ac-e151-5ba7-bc10-cbad86cede54",
+    "lessonId": "68df36b4-019c-53bb-92b1-975e9efa9e61",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Attention mekanizması** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "200f7011-34de-5969-96c4-7d86607a3ab9",
+    "lessonId": "68df36b4-019c-53bb-92b1-975e9efa9e61",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "7ca3bcf5-ae4a-50d5-8a0e-95c82a1dc817",
+    "lessonId": "6b362fcc-2b79-5dde-b06f-51d249767c0a",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda kısıtlı çıktı ve güvenli kullanım konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "c9a68a1f-21dc-5eab-97df-24c75042402f",
+    "lessonId": "6b362fcc-2b79-5dde-b06f-51d249767c0a",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Kısıtlı çıktı ve güvenli kullanım** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "898c9442-fbba-550b-bb23-18c86469c22a",
+    "lessonId": "6b362fcc-2b79-5dde-b06f-51d249767c0a",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "d6450ea7-f865-5950-8a13-9361ae09fa04",
+    "lessonId": "6b362fcc-2b79-5dde-b06f-51d249767c0a",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "nlp-llm-temelleri-m3-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "b6c425fc-bb6b-566b-99c5-eca0704d7fd3",
+    "lessonId": "6b4b4bb0-8ce5-5130-8fb9-44acb017732e",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda precision, recall ve f1 seçimi konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "2ea4cb38-eaed-5734-b6d7-3f8b7afdf3b7",
+    "lessonId": "6b4b4bb0-8ce5-5130-8fb9-44acb017732e",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Precision, recall ve F1 seçimi** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "d35d8286-ff91-5f60-af61-3dc5071649e4",
+    "lessonId": "6b4b4bb0-8ce5-5130-8fb9-44acb017732e",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = Pipeline([\n    ('scale', StandardScaler()),\n    ('model', LogisticRegression(max_iter=1000))\n])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "aeb004ad-4c61-5970-a5be-55dba0967155",
+    "lessonId": "6c75b14e-8892-50f3-87f4-6ec28220ffdf",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda norm, mesafe ve benzerlik konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "96bb9c95-837b-5b04-b408-28817b8f9c13",
+    "lessonId": "6c75b14e-8892-50f3-87f4-6ec28220ffdf",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Norm, mesafe ve benzerlik** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "f31e7235-61c4-5d6b-86f2-ec404f94f091",
+    "lessonId": "6c75b14e-8892-50f3-87f4-6ec28220ffdf",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import numpy as np\n\nX = np.array([[1.0, 0.2], [0.7, 1.3]])\nw = np.array([0.4, -0.1])\nscores = X @ w",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "a6e6d677-80c7-5296-9841-f9d9ac7f360f",
+    "lessonId": "6e4c9822-4972-5059-a4f1-a5d67b154182",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda tek katmanlı karar sınırı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "850943a7-3728-50d3-8c33-e418eabd27a1",
+    "lessonId": "6e4c9822-4972-5059-a4f1-a5d67b154182",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Tek katmanlı karar sınırı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "1d614537-0a0a-5857-a8dd-c17603df3d49",
+    "lessonId": "6e4c9822-4972-5059-a4f1-a5d67b154182",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "dd15c554-7359-51a8-ae04-419bacc58521",
+    "lessonId": "6e4c9822-4972-5059-a4f1-a5d67b154182",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "neural-networks-101-m1-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "88741ada-83f4-55b3-a408-ee777207f576",
+    "lessonId": "6f9809f9-ffca-50ce-83f6-1e754d691599",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda transfer learning ile sınıflandırma konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "f31dd042-475d-5a48-b7ad-14c0a2c7088b",
+    "lessonId": "6f9809f9-ffca-50ce-83f6-1e754d691599",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Transfer learning ile sınıflandırma** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "0fd3f124-a2bf-5803-b222-88cee5a9e8a7",
+    "lessonId": "6f9809f9-ffca-50ce-83f6-1e754d691599",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "459439b0-d761-5e6c-9a27-bff1f83b9b2c",
+    "lessonId": "6f9809f9-ffca-50ce-83f6-1e754d691599",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "bilgisayarli-goru-temelleri-m2-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "3fdd5b9e-66b6-5e9f-8fca-9aa43e8329ba",
+    "lessonId": "71053336-71cc-5d9b-a249-9ea55a253f74",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda indexleme ve metadata filtreleri konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "50bd3a30-e235-513e-837b-ecff49e185f1",
+    "lessonId": "71053336-71cc-5d9b-a249-9ea55a253f74",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Indexleme ve metadata filtreleri** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "dddee58e-180d-51d8-90bf-e4f19cc75fe5",
+    "lessonId": "71053336-71cc-5d9b-a249-9ea55a253f74",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def build_context(chunks, query_embedding, top_k=4):\n    ranked = sorted(chunks, key=lambda c: cosine(c['embedding'], query_embedding), reverse=True)\n    return '\n\n'.join(chunk['text'] for chunk in ranked[:top_k])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "152c2499-a8e4-5e6d-9f35-43b8aff9143e",
+    "lessonId": "713023dc-360a-54f3-bafe-fc12d3e86aa1",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda context oluşturma ve kaynak gösterme konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "fad9fe87-3d0b-5b67-b4c2-29a5ca195b4f",
+    "lessonId": "713023dc-360a-54f3-bafe-fc12d3e86aa1",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Context oluşturma ve kaynak gösterme** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "cd3bf34e-2f61-53c3-889e-31ea083dc544",
+    "lessonId": "713023dc-360a-54f3-bafe-fc12d3e86aa1",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def build_context(chunks, query_embedding, top_k=4):\n    ranked = sorted(chunks, key=lambda c: cosine(c['embedding'], query_embedding), reverse=True)\n    return '\n\n'.join(chunk['text'] for chunk in ranked[:top_k])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "86da6ae2-853c-546d-89c9-f6502b04631b",
+    "lessonId": "749a823c-3305-56df-8906-0bc67df9dc8d",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda sınıflandırma metrikleri konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "c8002953-ae9e-5e39-91b8-4803de437ab1",
+    "lessonId": "749a823c-3305-56df-8906-0bc67df9dc8d",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Sınıflandırma metrikleri** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "a803ebd7-ba1b-51ed-8f6b-61a578dbf56c",
+    "lessonId": "749a823c-3305-56df-8906-0bc67df9dc8d",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import numpy as np\n\nX = np.array([[1.0, 0.2], [0.7, 1.3]])\nw = np.array([0.4, -0.1])\nscores = X @ w",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "2a0a59a7-8da1-521a-b153-5a0a591bb352",
+    "lessonId": "76204e6b-4947-5c17-829b-d6b7dbfdac04",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda nöron modeli ve ağırlıklı toplam konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "ef03e9f9-9682-5987-a139-c4fb0fd81caf",
+    "lessonId": "76204e6b-4947-5c17-829b-d6b7dbfdac04",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Nöron modeli ve ağırlıklı toplam** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "19a01e40-8fa4-58dd-8bd3-9f2d11586941",
+    "lessonId": "76204e6b-4947-5c17-829b-d6b7dbfdac04",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "35ca7825-7a03-5bd1-8982-7b1ef5cfac87",
+    "lessonId": "766fa3b5-2fca-5a3f-a39a-031029787296",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda regresyon ve sınıflandırma algoritmaları konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "4fbcd400-a8a6-5497-a5f1-c9815e3715a0",
+    "lessonId": "766fa3b5-2fca-5a3f-a39a-031029787296",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Regresyon ve sınıflandırma algoritmaları** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "2c117cad-37bd-5ba3-af78-e2278a0c4d3f",
+    "lessonId": "766fa3b5-2fca-5a3f-a39a-031029787296",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = Pipeline([\n    ('scale', StandardScaler()),\n    ('model', LogisticRegression(max_iter=1000))\n])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "72a2ce70-aaf8-5193-a45b-b1370cfe2b45",
+    "lessonId": "78c050b3-e5e0-57b3-99de-0b9a20b890eb",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda python, paketler ve notebook akışı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "7c8feeb5-19af-5845-b489-c184618ce0e3",
+    "lessonId": "78c050b3-e5e0-57b3-99de-0b9a20b890eb",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Python, paketler ve notebook akışı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "9f0812ef-46ab-5146-aeaf-90bd45ca3c3a",
+    "lessonId": "78c050b3-e5e0-57b3-99de-0b9a20b890eb",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "06d3948f-01bd-5d9b-8297-784793939d9e",
+    "lessonId": "7a4a15da-58af-5eeb-b4f6-78ab98bdb325",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda ağırlık güncelleme adımları konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "269a19d3-9ec3-5e49-9e5b-1ae02d8eccf9",
+    "lessonId": "7a4a15da-58af-5eeb-b4f6-78ab98bdb325",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Ağırlık güncelleme adımları** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "3231adef-5a08-53fc-b7fb-2e4e6b7276b2",
+    "lessonId": "7a4a15da-58af-5eeb-b4f6-78ab98bdb325",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "a78b54a6-6fb8-5401-9868-fc25a6b64a7d",
+    "lessonId": "7bb29e24-b2b2-572f-b0bc-bc34a19bf10e",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda learning rate ve stabil eğitim konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "44939c15-62a7-5931-baa4-e62f8f76c019",
+    "lessonId": "7bb29e24-b2b2-572f-b0bc-bc34a19bf10e",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Learning rate ve stabil eğitim** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "fab40f19-d9a2-5e50-bfb4-b2bcadb2e293",
+    "lessonId": "7bb29e24-b2b2-572f-b0bc-bc34a19bf10e",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "cdefb8e8-d496-5e2b-98fa-1a1219fdd7aa",
+    "lessonId": "7bb29e24-b2b2-572f-b0bc-bc34a19bf10e",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "neural-networks-101-m2-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "ea86e1b1-7a8c-5a57-8b62-885e0eec55e8",
+    "lessonId": "7bcc921c-bd92-5094-b982-bb45eb81a001",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda conversation state ve maliyet izleme konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "858e9e03-2fff-59b3-8f96-eb0cc3d11876",
+    "lessonId": "7bcc921c-bd92-5094-b982-bb45eb81a001",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Conversation state ve maliyet izleme** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "21f5ebe0-1c66-59ef-8804-eced9b3d0836",
+    "lessonId": "7bcc921c-bd92-5094-b982-bb45eb81a001",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def build_context(chunks, query_embedding, top_k=4):\n    ranked = sorted(chunks, key=lambda c: cosine(c['embedding'], query_embedding), reverse=True)\n    return '\n\n'.join(chunk['text'] for chunk in ranked[:top_k])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "78273f0b-b195-59fc-9489-8fec37df6abe",
+    "lessonId": "7bcc921c-bd92-5094-b982-bb45eb81a001",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "rag-ai-uygulamalari-m3-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "a9a7aae1-bbc0-5d95-a353-c8fc30ba9753",
+    "lessonId": "7c22b824-08be-5790-9dba-6222b32ec6b1",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda temperature ve deterministik çıktı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "c53bc028-e4c2-5511-b879-58ea1e227e16",
+    "lessonId": "7c22b824-08be-5790-9dba-6222b32ec6b1",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Temperature ve deterministik çıktı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "05e4bb71-d0ec-516c-b59f-ea5a032c3c9d",
+    "lessonId": "7c22b824-08be-5790-9dba-6222b32ec6b1",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "56f12d6d-12e4-5086-8b68-fcea9fad7c3d",
+    "lessonId": "7c26ac10-1e73-584b-976e-13325dac2ed1",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda veri drift göstergeleri konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "416b954f-b348-5e1c-a7d8-2630b6c26f5b",
+    "lessonId": "7c26ac10-1e73-584b-976e-13325dac2ed1",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Veri drift göstergeleri** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "6d37988b-aa60-5d84-94af-706ca1d6157d",
+    "lessonId": "7c26ac10-1e73-584b-976e-13325dac2ed1",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "yaml",
+    "code": "model:\n  name: ai-academy-baseline\n  version: 1\nchecks:\n  min_accuracy: 0.82\n  max_latency_ms: 300\nrollback:\n  enabled: true",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "880974bc-6227-5acb-83c5-8c3021532a19",
+    "lessonId": "7c8fc8d1-7d0e-5aee-83ce-14fbb0e50e47",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda boyut indirgeme sezgisi konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "c5e4597f-ba1e-5201-b044-f2f50f6718ff",
+    "lessonId": "7c8fc8d1-7d0e-5aee-83ce-14fbb0e50e47",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Boyut indirgeme sezgisi** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "5ae62973-c026-54e2-ba62-ca760f9a57cc",
+    "lessonId": "7c8fc8d1-7d0e-5aee-83ce-14fbb0e50e47",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = Pipeline([\n    ('scale', StandardScaler()),\n    ('model', LogisticRegression(max_iter=1000))\n])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "78b60049-40ff-5be9-ab67-a986dcd31d06",
+    "lessonId": "8178004d-c703-5f33-8207-2f9bd0a9ca32",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda augmentation stratejileri konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "5c4760ac-ef57-5e0d-a82f-28144885d0c8",
+    "lessonId": "8178004d-c703-5f33-8207-2f9bd0a9ca32",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Augmentation stratejileri** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "05d0e9e2-40d6-5df1-9ed9-25d4e8219a24",
+    "lessonId": "8178004d-c703-5f33-8207-2f9bd0a9ca32",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "26d8f170-5819-540f-9270-f4b082a9537c",
+    "lessonId": "82804846-a16d-51ba-85dc-159400929ba5",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda tip ipuçları, test ve tekrar kullanılabilir fonksiyonlar konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "985bd300-371d-5730-997d-0e7fbadb391e",
+    "lessonId": "82804846-a16d-51ba-85dc-159400929ba5",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Tip ipuçları, test ve tekrar kullanılabilir fonksiyonlar** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "143f161b-7b56-5fca-8e71-143a61c9c594",
+    "lessonId": "82804846-a16d-51ba-85dc-159400929ba5",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "27995f9d-7eaa-53f4-87bb-afacd6da9834",
+    "lessonId": "837b7c2a-687e-53e3-ad5d-c782eeed0f15",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda mimari karar dokümanı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "848e9b16-3b73-5942-8995-6507d1411096",
+    "lessonId": "837b7c2a-687e-53e3-ad5d-c782eeed0f15",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Mimari karar dokümanı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "e1aace7a-2f19-59b9-9ac7-02baa8a6ca85",
+    "lessonId": "837b7c2a-687e-53e3-ad5d-c782eeed0f15",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "83f364ef-3e9e-5278-8cf9-4447e20583fd",
+    "lessonId": "837b7c2a-687e-53e3-ad5d-c782eeed0f15",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "capstone-ai-engineer-m1-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "5425fc59-fb76-5e0b-b7d8-592402a3a441",
+    "lessonId": "89f367cc-5946-56eb-9ce0-d91880b33fef",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda convolution ve pooling sezgisi konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "869b7622-2f84-55eb-ad54-0fe73af1e65a",
+    "lessonId": "89f367cc-5946-56eb-9ce0-d91880b33fef",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Convolution ve pooling sezgisi** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "5c463853-0511-517d-ae71-f69a84dfdc08",
+    "lessonId": "89f367cc-5946-56eb-9ce0-d91880b33fef",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "4c87b2cf-a4ad-5f4b-8aae-0e347158dd0b",
+    "lessonId": "89f467b3-6349-577b-877a-58275869185c",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda chunking stratejileri konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "1931c570-fa1d-5f2f-b664-4723f5bd2ad1",
+    "lessonId": "89f467b3-6349-577b-877a-58275869185c",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Chunking stratejileri** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "c066c679-d45c-5692-b83f-10375acebbcb",
+    "lessonId": "89f467b3-6349-577b-877a-58275869185c",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def build_context(chunks, query_embedding, top_k=4):\n    ranked = sorted(chunks, key=lambda c: cosine(c['embedding'], query_embedding), reverse=True)\n    return '\n\n'.join(chunk['text'] for chunk in ranked[:top_k])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "27cfaccb-b1df-54a4-8640-0af66fff71a1",
+    "lessonId": "8bc5b1c5-6252-5802-a2e5-3609cd0e0d17",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda gpu ve batch yönetimi konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "b9c28f46-1bd4-5d15-9b6e-0ebd98ffacc6",
+    "lessonId": "8bc5b1c5-6252-5802-a2e5-3609cd0e0d17",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **GPU ve batch yönetimi** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "c5217898-d00c-5519-acf7-0ff7c208b6af",
+    "lessonId": "8bc5b1c5-6252-5802-a2e5-3609cd0e0d17",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "db88164d-d3fc-54c4-b9f7-277dc72eb304",
+    "lessonId": "8bc5b1c5-6252-5802-a2e5-3609cd0e0d17",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "deep-learning-pytorch-m2-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "b5d1df93-e188-53bc-9f29-c754d9be9919",
+    "lessonId": "8d61f073-44db-51c2-9e31-7afa59ba3544",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda eğitim/test ayrımı ve veri sızıntısı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "5a5bf05c-2d61-5641-a929-f847353dd562",
+    "lessonId": "8d61f073-44db-51c2-9e31-7afa59ba3544",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Eğitim/test ayrımı ve veri sızıntısı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "ceca6430-631d-5705-a985-4d35fde0d808",
+    "lessonId": "8d61f073-44db-51c2-9e31-7afa59ba3544",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import numpy as np\n\nX = np.array([[1.0, 0.2], [0.7, 1.3]])\nw = np.array([0.4, -0.1])\nscores = X @ w",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "f9f051f3-b373-579c-94ac-42801d6b8637",
+    "lessonId": "8d61f073-44db-51c2-9e31-7afa59ba3544",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "numpy-pandas-veri-m3-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "e865e3ab-9486-5808-8ee1-0a8ed221ec2e",
+    "lessonId": "8e5c9aaf-a5f7-5f4f-9a83-b604e76f60e4",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda kategorik özellik kodlama konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "7da457d4-204a-5f57-abd7-ab6a21ebd70b",
+    "lessonId": "8e5c9aaf-a5f7-5f4f-9a83-b604e76f60e4",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Kategorik özellik kodlama** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "9586d80b-e8d9-595e-9625-4165e75f06dd",
+    "lessonId": "8e5c9aaf-a5f7-5f4f-9a83-b604e76f60e4",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import numpy as np\n\nX = np.array([[1.0, 0.2], [0.7, 1.3]])\nw = np.array([0.4, -0.1])\nscores = X @ w",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "5d230eda-d11c-5ad1-b9e7-d59e5785f9dc",
+    "lessonId": "8eda7baf-4a1d-5ff8-adbc-d2f9372c76ad",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda prediction kalite izlemesi konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "964113ca-3a57-5ad3-858e-4d33691766af",
+    "lessonId": "8eda7baf-4a1d-5ff8-adbc-d2f9372c76ad",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Prediction kalite izlemesi** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "fab98677-d1ad-51da-a6b8-a64d97c38ae2",
+    "lessonId": "8eda7baf-4a1d-5ff8-adbc-d2f9372c76ad",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "yaml",
+    "code": "model:\n  name: ai-academy-baseline\n  version: 1\nchecks:\n  min_accuracy: 0.82\n  max_latency_ms: 300\nrollback:\n  enabled: true",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "a1955f7d-703b-56b9-953a-af721035925d",
+    "lessonId": "8f180fff-6f5f-569c-bce4-0c05ca42a779",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda batch, api ve streaming kararları konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "a0b49d87-dd74-5900-a93e-2ecb533747f7",
+    "lessonId": "8f180fff-6f5f-569c-bce4-0c05ca42a779",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Batch, API ve streaming kararları** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "b5d07096-f48d-5203-8b52-8786a3b075ca",
+    "lessonId": "8f180fff-6f5f-569c-bce4-0c05ca42a779",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "yaml",
+    "code": "model:\n  name: ai-academy-baseline\n  version: 1\nchecks:\n  min_accuracy: 0.82\n  max_latency_ms: 300\nrollback:\n  enabled: true",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "1a5a8127-d37c-52b3-a2fd-313de227eaf1",
+    "lessonId": "914ec2d8-1a95-5e4f-ae33-ccafc53f2c0a",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda sonuç karşılaştırma ve model kartı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "9fbff3df-49bb-53b5-a6f4-1cb46249d975",
+    "lessonId": "914ec2d8-1a95-5e4f-ae33-ccafc53f2c0a",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Sonuç karşılaştırma ve model kartı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "a46cfc60-817d-5940-8834-d4431a9d32bd",
+    "lessonId": "914ec2d8-1a95-5e4f-ae33-ccafc53f2c0a",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = Pipeline([\n    ('scale', StandardScaler()),\n    ('model', LogisticRegression(max_iter=1000))\n])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "eed899c6-00a1-5326-aa27-a804c15b9da4",
+    "lessonId": "914ec2d8-1a95-5e4f-ae33-ccafc53f2c0a",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "model-degerlendirme-deneyler-m2-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "e989037c-d662-52f6-9fac-0b2bdfc1c156",
+    "lessonId": "9229cbb0-f8a3-51a4-9166-064aeae0e65f",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda json şeması ile çıktı isteme konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "3e9d7db5-9bce-5964-850c-d3bec8de3681",
+    "lessonId": "9229cbb0-f8a3-51a4-9166-064aeae0e65f",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **JSON şeması ile çıktı isteme** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "90a0af70-d9ab-5481-912d-9afe781a162d",
+    "lessonId": "9229cbb0-f8a3-51a4-9166-064aeae0e65f",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "markdown",
+    "code": "<gorev>\nKullanıcının seviyesine uygun, kaynaklı ve kısa bir açıklama üret.\n</gorev>\n<basari_kriterleri>\n- En fazla 5 madde\n- Varsayımları açıkça belirt\n- JSON formatında döndür\n</basari_kriterleri>",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "71720e97-f870-5a5a-8321-20337bba85dc",
+    "lessonId": "9e1733a5-4129-5bf1-9ec2-53ebd5be1fe2",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda kullanıcı akışı ve insan onayı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "a5834639-7783-5dcb-95a9-7c6189932252",
+    "lessonId": "9e1733a5-4129-5bf1-9ec2-53ebd5be1fe2",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Kullanıcı akışı ve insan onayı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "4b5a0e48-e639-5ba9-83f6-aaac413e3adc",
+    "lessonId": "9e1733a5-4129-5bf1-9ec2-53ebd5be1fe2",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "6a1b9acc-015d-5f03-abcc-5e0b58dfb7a9",
+    "lessonId": "a538664c-4c1c-5561-a1f7-48571cc09d10",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda train/validation/test ayrımı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "987f46b1-65d7-5bd6-88bd-09087533b706",
+    "lessonId": "a538664c-4c1c-5561-a1f7-48571cc09d10",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Train/validation/test ayrımı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "78cb681e-2afa-5953-8c3f-fcbb83fa81aa",
+    "lessonId": "a538664c-4c1c-5561-a1f7-48571cc09d10",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = Pipeline([\n    ('scale', StandardScaler()),\n    ('model', LogisticRegression(max_iter=1000))\n])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "efedc5cc-170b-5d3d-adc7-be962a6664b3",
+    "lessonId": "a538664c-4c1c-5561-a1f7-48571cc09d10",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "makine-ogrenmesi-temelleri-m1-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "039e6316-b695-537e-bb6e-d48cfb8bc1be",
+    "lessonId": "a5e85991-dff7-5b09-8b6e-13a7a0a825f1",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda bayes sezgisi ve belirsizlik konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "c294a32b-80a4-52ab-9e2f-7238713af703",
+    "lessonId": "a5e85991-dff7-5b09-8b6e-13a7a0a825f1",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Bayes sezgisi ve belirsizlik** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "9a15d771-20c2-5198-8511-f048b79b0f28",
+    "lessonId": "a5e85991-dff7-5b09-8b6e-13a7a0a825f1",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import numpy as np\n\nX = np.array([[1.0, 0.2], [0.7, 1.3]])\nw = np.array([0.4, -0.1])\nscores = X @ w",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "0a9ad8c5-b0a1-53b8-885f-51a75971cc60",
+    "lessonId": "a5e85991-dff7-5b09-8b6e-13a7a0a825f1",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "matematik-istatistik-ai-m2-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "7d7e0d96-9fe8-5208-8706-8bd2135ee262",
+    "lessonId": "a678ed4e-bc7c-5aaa-aed0-aefbf260f6be",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda parametre ve metrik kayıtları konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "b913c937-ae6a-5514-b43e-62be4a2ae830",
+    "lessonId": "a678ed4e-bc7c-5aaa-aed0-aefbf260f6be",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Parametre ve metrik kayıtları** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "14443846-ee5a-5c03-8a79-9035f104cd8b",
+    "lessonId": "a678ed4e-bc7c-5aaa-aed0-aefbf260f6be",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = Pipeline([\n    ('scale', StandardScaler()),\n    ('model', LogisticRegression(max_iter=1000))\n])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "72494a4c-0532-5661-8f24-f1f2a50ac8c9",
+    "lessonId": "a9cf8393-0590-5fef-b53f-ac516eac032a",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda matris işlemleri ve rastgelelik konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "4a8e7062-05ee-5dbd-b23c-788d766808e7",
+    "lessonId": "a9cf8393-0590-5fef-b53f-ac516eac032a",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Matris işlemleri ve rastgelelik** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "86e3b9a5-1158-5653-ae86-a9b65025a9e4",
+    "lessonId": "a9cf8393-0590-5fef-b53f-ac516eac032a",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import numpy as np\n\nX = np.array([[1.0, 0.2], [0.7, 1.3]])\nw = np.array([0.4, -0.1])\nscores = X @ w",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "bf567adf-21cc-5c76-a8ce-ba354b11712e",
+    "lessonId": "a9cf8393-0590-5fef-b53f-ac516eac032a",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "numpy-pandas-veri-m1-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "14bed2d9-3124-57d3-8994-54f4257fc854",
+    "lessonId": "ab68ee2d-f46f-5d10-93b2-8f27e12c9f91",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda geri bildirimle ikinci versiyon planı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "03bf48f2-faba-5843-a5ad-266102d2a6fa",
+    "lessonId": "ab68ee2d-f46f-5d10-93b2-8f27e12c9f91",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Geri bildirimle ikinci versiyon planı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "7d8700df-64d5-537d-b288-43d4bcf19381",
+    "lessonId": "ab68ee2d-f46f-5d10-93b2-8f27e12c9f91",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "e45df9d3-7605-55b5-a228-3398bc9e14ab",
+    "lessonId": "ab68ee2d-f46f-5d10-93b2-8f27e12c9f91",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "capstone-ai-engineer-m3-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "f482e9f1-ab8c-5ea5-88cf-472f9fc8f1c3",
+    "lessonId": "ad7b1414-ec2c-53a7-8a57-334ddd6e7137",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda dataset ve dataloader yapısı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "3c0c269f-5b1a-5a43-975e-a61b907535ce",
+    "lessonId": "ad7b1414-ec2c-53a7-8a57-334ddd6e7137",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Dataset ve DataLoader yapısı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "f4876ab7-69d2-57ba-a0e3-be0798412bc4",
+    "lessonId": "ad7b1414-ec2c-53a7-8a57-334ddd6e7137",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "e08b6c9d-79d2-5f7c-bfb8-6026f89f24e2",
+    "lessonId": "ad7b1414-ec2c-53a7-8a57-334ddd6e7137",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "deep-learning-pytorch-m1-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "f4eec280-b69c-51cf-8266-3a16bf94c6aa",
+    "lessonId": "afc64722-9797-559c-8556-727f8a5c98fe",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda rastgele değişken ve beklenen değer konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "1f2436ba-b50e-52a3-ab19-50050fd3d62f",
+    "lessonId": "afc64722-9797-559c-8556-727f8a5c98fe",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Rastgele değişken ve beklenen değer** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "54b3abfe-54db-5f08-b260-00ffaf485ad8",
+    "lessonId": "afc64722-9797-559c-8556-727f8a5c98fe",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import numpy as np\n\nX = np.array([[1.0, 0.2], [0.7, 1.3]])\nw = np.array([0.4, -0.1])\nscores = X @ w",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "09499781-36c5-5675-b8a9-fb3ae3e1ad23",
+    "lessonId": "b14e2e26-b516-5d7f-81f4-12d60a777c38",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda metin temizleme ve chunk hazırlığı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "f4fffb1e-e0d0-5ef3-8af3-793f870c9dc5",
+    "lessonId": "b14e2e26-b516-5d7f-81f4-12d60a777c38",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Metin temizleme ve chunk hazırlığı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "051f18b6-8330-50fc-a8db-4f402e69d7b3",
+    "lessonId": "b14e2e26-b516-5d7f-81f4-12d60a777c38",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "b6910bbd-538c-5526-9a3f-49465f65c989",
+    "lessonId": "b14e2e26-b516-5d7f-81f4-12d60a777c38",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "nlp-llm-temelleri-m1-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "7aedeb66-e13c-51fd-9739-73318768287d",
+    "lessonId": "b24e6dbb-59fb-50d1-b2f0-abda52fbd2e5",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda aksiyon planı ve iterasyon konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "ca16bd5d-41d2-5018-9aab-db8e0729eafa",
+    "lessonId": "b24e6dbb-59fb-50d1-b2f0-abda52fbd2e5",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Aksiyon planı ve iterasyon** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "1b3b4492-3f75-545c-b29b-14264737de98",
+    "lessonId": "b24e6dbb-59fb-50d1-b2f0-abda52fbd2e5",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = Pipeline([\n    ('scale', StandardScaler()),\n    ('model', LogisticRegression(max_iter=1000))\n])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "ba32a21e-0c13-5407-986d-84534cd09d04",
+    "lessonId": "b24e6dbb-59fb-50d1-b2f0-abda52fbd2e5",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "model-degerlendirme-deneyler-m3-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "48866f46-749b-5d7f-bc90-5345359f985b",
+    "lessonId": "b46745fa-4d8b-53d5-a0b4-93316f466585",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda mini proje: metin temizleme hazırlığı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "18c9645e-ac54-55fc-bd15-391fef8cd7e9",
+    "lessonId": "b46745fa-4d8b-53d5-a0b4-93316f466585",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Mini proje: metin temizleme hazırlığı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "b3a1f298-fb5f-5359-a793-5fc79049b314",
+    "lessonId": "b46745fa-4d8b-53d5-a0b4-93316f466585",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "35586a07-aa59-598e-adde-8ccaf9f91bf3",
+    "lessonId": "b46745fa-4d8b-53d5-a0b4-93316f466585",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "python-ai-temelleri-m3-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "40618834-cf06-5490-bab5-4a4a1f216d6e",
+    "lessonId": "b95466f3-6ac3-5605-a3f8-febf7cdb4f69",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda eksik veri ve aykırı değer işlemleri konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "95b53ad6-fde0-5589-ab09-4f2020c296c6",
+    "lessonId": "b95466f3-6ac3-5605-a3f8-febf7cdb4f69",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Eksik veri ve aykırı değer işlemleri** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "e0ac54f0-9257-5444-b169-08d09ae09293",
+    "lessonId": "b95466f3-6ac3-5605-a3f8-febf7cdb4f69",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import numpy as np\n\nX = np.array([[1.0, 0.2], [0.7, 1.3]])\nw = np.array([0.4, -0.1])\nscores = X @ w",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "f02bc4f1-31b6-562e-89cf-5080e1172495",
+    "lessonId": "b95466f3-6ac3-5605-a3f8-febf7cdb4f69",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "numpy-pandas-veri-m2-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "62ca324b-234a-5f01-aca3-065e5120083d",
+    "lessonId": "bada3887-1f7a-5b75-b639-a90cbe9e0701",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda prompt karşılaştırma deneyi konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "300cb88d-1bb9-568d-abf6-aeb9149a19a1",
+    "lessonId": "bada3887-1f7a-5b75-b639-a90cbe9e0701",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Prompt karşılaştırma deneyi** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "85c2a547-af4e-5b9d-b65a-3e235a5a19b7",
+    "lessonId": "bada3887-1f7a-5b75-b639-a90cbe9e0701",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "markdown",
+    "code": "<gorev>\nKullanıcının seviyesine uygun, kaynaklı ve kısa bir açıklama üret.\n</gorev>\n<basari_kriterleri>\n- En fazla 5 madde\n- Varsayımları açıkça belirt\n- JSON formatında döndür\n</basari_kriterleri>",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "f5efc59f-e951-53d9-ab35-116ba6290245",
+    "lessonId": "bb3b04a1-70e4-58e0-a9dd-79d9db347f30",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda fonksiyonlar, modüller ve hata yönetimi konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "0d97c3f1-b59e-5a58-85ac-d9710f88703c",
+    "lessonId": "bb3b04a1-70e4-58e0-a9dd-79d9db347f30",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Fonksiyonlar, modüller ve hata yönetimi** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "044331b3-42d9-5eaa-8d2a-b416a9a88795",
+    "lessonId": "bb3b04a1-70e4-58e0-a9dd-79d9db347f30",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "6597d401-fae0-5973-acaa-3063fed83c14",
+    "lessonId": "bb3b04a1-70e4-58e0-a9dd-79d9db347f30",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "python-ai-temelleri-m1-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "c0a0db24-0279-5527-b446-5a941e231411",
+    "lessonId": "bfb52e6a-beef-57b5-b65a-3a70211131c7",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda kullanıcı problemi ve veri kaynağı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "09373f84-a7cd-57ea-a509-e8b5dd7403ef",
+    "lessonId": "bfb52e6a-beef-57b5-b65a-3a70211131c7",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Kullanıcı problemi ve veri kaynağı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "f58abbef-a3f4-5939-a1c9-c5219e1e0ea1",
+    "lessonId": "bfb52e6a-beef-57b5-b65a-3a70211131c7",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "136e39c7-c4f7-55c5-8c9b-ece5facb4814",
+    "lessonId": "c0769359-4998-5ab3-9616-5767ba0585f2",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda json/csv okuma ve küçük veri pipeline konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "b1e3c174-fc04-5e14-9b1d-37c30d776cb2",
+    "lessonId": "c0769359-4998-5ab3-9616-5767ba0585f2",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **JSON/CSV okuma ve küçük veri pipeline** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "b1f3e7ca-e85e-520e-8cb5-025c1db1a758",
+    "lessonId": "c0769359-4998-5ab3-9616-5767ba0585f2",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "be46dd4c-c3fd-5116-b284-d05d6362fc8d",
+    "lessonId": "c0769359-4998-5ab3-9616-5767ba0585f2",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "python-ai-temelleri-m2-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "46c7e8e1-0874-5328-83e5-8fa5c244f36a",
+    "lessonId": "c3923407-d95a-5fff-9370-ca071d8d770f",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda alarm ve yeniden eğitim tetikleri konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "e5772076-0f6f-5857-94d5-cd434594c74c",
+    "lessonId": "c3923407-d95a-5fff-9370-ca071d8d770f",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Alarm ve yeniden eğitim tetikleri** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "fb1f65ed-d433-5858-a714-54ada37bb161",
+    "lessonId": "c3923407-d95a-5fff-9370-ca071d8d770f",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "yaml",
+    "code": "model:\n  name: ai-academy-baseline\n  version: 1\nchecks:\n  min_accuracy: 0.82\n  max_latency_ms: 300\nrollback:\n  enabled: true",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "0ec8f2b1-b8d5-5acb-8ce0-80b60d5d47b3",
+    "lessonId": "c3923407-d95a-5fff-9370-ca071d8d770f",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "mlops-uretim-m3-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "b908965b-9f03-5c55-9435-bc5c7b6cc3ce",
+    "lessonId": "c4fd1547-735e-5b3f-8c44-354576d61bb2",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda ön işleme pipeline kurma konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "e65c1dc8-82d3-506e-9e88-7c257dc4ff24",
+    "lessonId": "c4fd1547-735e-5b3f-8c44-354576d61bb2",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Ön işleme pipeline kurma** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "bf90840a-0546-5dc2-a54f-ec3022c13a3e",
+    "lessonId": "c4fd1547-735e-5b3f-8c44-354576d61bb2",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = Pipeline([\n    ('scale', StandardScaler()),\n    ('model', LogisticRegression(max_iter=1000))\n])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "b2bc7501-554f-5a0e-9c6e-01ee6b4a18f7",
+    "lessonId": "c9fdb9c6-ce16-5e08-a575-aa063b0c8305",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda otomatik test ve validasyon konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "1297d371-4091-57fd-8e9e-f8c1e3fbab32",
+    "lessonId": "c9fdb9c6-ce16-5e08-a575-aa063b0c8305",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Otomatik test ve validasyon** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "4961fb91-6f2b-5453-87a9-147bf7135405",
+    "lessonId": "c9fdb9c6-ce16-5e08-a575-aa063b0c8305",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "yaml",
+    "code": "model:\n  name: ai-academy-baseline\n  version: 1\nchecks:\n  min_accuracy: 0.82\n  max_latency_ms: 300\nrollback:\n  enabled: true",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "a9c5968b-47cf-5e50-a779-e1fcaa59ee4f",
+    "lessonId": "cb074ac2-1b73-562a-9041-c93c535e3ed2",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda başarı metrikleri ve riskler konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "5ba275d5-1acd-559c-a970-71d086f0677a",
+    "lessonId": "cb074ac2-1b73-562a-9041-c93c535e3ed2",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Başarı metrikleri ve riskler** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "05d838df-d687-534d-b2f8-8168a8d19852",
+    "lessonId": "cb074ac2-1b73-562a-9041-c93c535e3ed2",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "817bdc5e-609c-5499-a86e-d2da1b692c28",
+    "lessonId": "cc29d04a-0ba9-5b5d-857d-9c9f34244c9b",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda güven aralığı ve örnekleme yanlılığı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "513ddfc1-44e8-55e5-9f77-e37736263c63",
+    "lessonId": "cc29d04a-0ba9-5b5d-857d-9c9f34244c9b",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Güven aralığı ve örnekleme yanlılığı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "5cdcbf29-0d90-5097-a94a-56626fd499df",
+    "lessonId": "cc29d04a-0ba9-5b5d-857d-9c9f34244c9b",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import numpy as np\n\nX = np.array([[1.0, 0.2], [0.7, 1.3]])\nw = np.array([0.4, -0.1])\nscores = X @ w",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "b7dd9753-1ebe-5761-9ded-4b2b4feaecba",
+    "lessonId": "cc29d04a-0ba9-5b5d-857d-9c9f34244c9b",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "matematik-istatistik-ai-m3-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "3ba91308-4857-5b69-a55e-5e2c381fc006",
+    "lessonId": "cc6d6a68-ff2f-5d7e-b887-d312e9af3d2d",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda embedding uzayında benzerlik konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "bd3b6508-b766-5c5e-a69b-344e3942beba",
+    "lessonId": "cc6d6a68-ff2f-5d7e-b887-d312e9af3d2d",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Embedding uzayında benzerlik** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "92eab3d9-1695-533e-90bd-61b99e9f4f27",
+    "lessonId": "cc6d6a68-ff2f-5d7e-b887-d312e9af3d2d",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "63a457c2-f77d-5884-9f47-780c913f8258",
+    "lessonId": "ce12fbb1-8543-5947-a3b9-4374c2f37666",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda problem tipini sınıflandırma konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "dad943b4-02d1-533b-a7ba-5b7002bfba3e",
+    "lessonId": "ce12fbb1-8543-5947-a3b9-4374c2f37666",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Problem tipini sınıflandırma** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "1c3e4632-0a8c-542e-ab28-e14f271070ce",
+    "lessonId": "ce12fbb1-8543-5947-a3b9-4374c2f37666",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = Pipeline([\n    ('scale', StandardScaler()),\n    ('model', LogisticRegression(max_iter=1000))\n])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "81c3c8a3-59c7-5a29-bada-d4eefa1669da",
+    "lessonId": "cf8c3a1b-620e-5eda-950f-2bcb7bd4b07f",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda broadcasting ve indeksleme konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "3d57bb30-1cc0-526f-a2aa-6eeb6b25064b",
+    "lessonId": "cf8c3a1b-620e-5eda-950f-2bcb7bd4b07f",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Broadcasting ve indeksleme** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "41d66575-e34f-50d1-979a-e25dd0f0e122",
+    "lessonId": "cf8c3a1b-620e-5eda-950f-2bcb7bd4b07f",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import numpy as np\n\nX = np.array([[1.0, 0.2], [0.7, 1.3]])\nw = np.array([0.4, -0.1])\nscores = X @ w",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "9be4fdd0-3f97-5986-9b65-3f7b2f53750d",
+    "lessonId": "cff571f4-42cb-57f5-9f3c-4eaf4bd96003",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda başarı metriği ve telemetry konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "edf95526-f6f2-5ba7-ad29-ef7675837410",
+    "lessonId": "cff571f4-42cb-57f5-9f3c-4eaf4bd96003",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Başarı metriği ve telemetry** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "598e3e3a-8f6c-56d2-8fcc-fa214ad84fff",
+    "lessonId": "cff571f4-42cb-57f5-9f3c-4eaf4bd96003",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "75445a02-b8a6-524c-99f3-086f72aa316e",
+    "lessonId": "cff571f4-42cb-57f5-9f3c-4eaf4bd96003",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "ai-urun-guvenlik-etik-m1-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "619a0d7f-a9c1-5fd3-9095-3df77d8c06d9",
+    "lessonId": "d11df183-cab7-560b-a35b-86d636bae2ba",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda roc-auc ve threshold ayarı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "50d1cf81-8d94-571c-8a11-1737053d21fb",
+    "lessonId": "d11df183-cab7-560b-a35b-86d636bae2ba",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **ROC-AUC ve threshold ayarı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "274f95d9-9ed6-5feb-82a5-a8f57def44f5",
+    "lessonId": "d11df183-cab7-560b-a35b-86d636bae2ba",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = Pipeline([\n    ('scale', StandardScaler()),\n    ('model', LogisticRegression(max_iter=1000))\n])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "714c1410-81d7-5409-8f75-5aa0602837b8",
+    "lessonId": "d14ae7ee-1b93-54b7-a6d2-4117f2fd8417",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda embedding ve cosine similarity konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "3daed463-68b6-5a76-aa5f-bc78333ff9e3",
+    "lessonId": "d14ae7ee-1b93-54b7-a6d2-4117f2fd8417",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Embedding ve cosine similarity** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "405e17cc-02c6-5974-a309-a333f91f0982",
+    "lessonId": "d14ae7ee-1b93-54b7-a6d2-4117f2fd8417",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def build_context(chunks, query_embedding, top_k=4):\n    ranked = sorted(chunks, key=lambda c: cosine(c['embedding'], query_embedding), reverse=True)\n    return '\n\n'.join(chunk['text'] for chunk in ranked[:top_k])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "c49d32ff-f3ff-548e-b285-559bd5fbc97e",
+    "lessonId": "d2ec538d-c234-5ddf-8fa7-7e06261d3c4d",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda demo senaryosu hazırlama konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "dc536d0f-3bd2-5737-9673-357e5b9b4251",
+    "lessonId": "d2ec538d-c234-5ddf-8fa7-7e06261d3c4d",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Demo senaryosu hazırlama** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "ef43095b-df83-53ee-a45a-6066ac925976",
+    "lessonId": "d2ec538d-c234-5ddf-8fa7-7e06261d3c4d",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "f72e3799-17f9-52c1-aaf6-15678e02267c",
+    "lessonId": "d3f85bf8-7d9f-57a1-942f-a1a7515d5cd7",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda pii ve veri minimizasyonu konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "72758dfe-6cab-5abe-902c-97acfe6cefef",
+    "lessonId": "d3f85bf8-7d9f-57a1-942f-a1a7515d5cd7",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **PII ve veri minimizasyonu** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "2ccc078d-f99b-53af-b510-dde204115a01",
+    "lessonId": "d3f85bf8-7d9f-57a1-942f-a1a7515d5cd7",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "33ea573c-c25f-54c9-b090-de2e67245d5d",
+    "lessonId": "d9ff3461-8273-5d3e-9b83-f2a321e141b4",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda dataframe okuma ve keşif konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "e032b43c-51f5-5409-8aec-8c2de98c5ff4",
+    "lessonId": "d9ff3461-8273-5d3e-9b83-f2a321e141b4",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **DataFrame okuma ve keşif** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "4e26fdd6-88b2-505c-a221-09aa4076c4a3",
+    "lessonId": "d9ff3461-8273-5d3e-9b83-f2a321e141b4",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import numpy as np\n\nX = np.array([[1.0, 0.2], [0.7, 1.3]])\nw = np.array([0.4, -0.1])\nscores = X @ w",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "769c3788-9c4b-58c1-8baf-929108b00ea1",
+    "lessonId": "da9b5f1a-d802-5302-955a-c7786eff7c88",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda prompt injection yüzeyi konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "929f46eb-943f-52b1-a15f-e12c777e1329",
+    "lessonId": "da9b5f1a-d802-5302-955a-c7786eff7c88",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Prompt injection yüzeyi** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "fc34cafe-d513-5bd3-9d34-3b22390b58df",
+    "lessonId": "da9b5f1a-d802-5302-955a-c7786eff7c88",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "0a1dac77-6398-5595-98d2-9d9e3858a6ee",
+    "lessonId": "dafa552a-6038-578a-b9bd-1af47fb0fd7d",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda top-k ve threshold seçimi konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "2452c0c3-301c-5f0e-8c52-c83fcfe3416e",
+    "lessonId": "dafa552a-6038-578a-b9bd-1af47fb0fd7d",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Top-k ve threshold seçimi** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "ebe97d90-da55-5948-a874-3b320dc8a8df",
+    "lessonId": "dafa552a-6038-578a-b9bd-1af47fb0fd7d",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def build_context(chunks, query_embedding, top_k=4):\n    ranked = sorted(chunks, key=lambda c: cosine(c['embedding'], query_embedding), reverse=True)\n    return '\n\n'.join(chunk['text'] for chunk in ranked[:top_k])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "317896bb-04ad-54f7-9e98-2c0a68df8e0b",
+    "lessonId": "dafa552a-6038-578a-b9bd-1af47fb0fd7d",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "rag-ai-uygulamalari-m1-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "550f583e-9ecc-5d16-a359-091d0bca99f1",
+    "lessonId": "dc8512aa-3f6e-5687-aee9-1ab380d71899",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda problem-solution fit konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "0d8858c5-3798-5dbe-bad2-39a0ca398123",
+    "lessonId": "dc8512aa-3f6e-5687-aee9-1ab380d71899",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Problem-solution fit** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "d06685e2-0d47-572f-99eb-d82cce78e410",
+    "lessonId": "dc8512aa-3f6e-5687-aee9-1ab380d71899",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "078548c3-9de7-51d5-8b43-6a3251824ad4",
+    "lessonId": "dd00ba7c-5c11-5d8a-ac30-45c89af17ccd",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda model boyutu ve latency takası konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "d3170148-07ce-58a7-a2f7-05895d3d28ae",
+    "lessonId": "dd00ba7c-5c11-5d8a-ac30-45c89af17ccd",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Model boyutu ve latency takası** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "dae2eb6c-c1e8-5a58-bc22-bcdcd04d86c2",
+    "lessonId": "dd00ba7c-5c11-5d8a-ac30-45c89af17ccd",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "1a4309ae-8aec-518a-90fb-d8919f0389d1",
+    "lessonId": "e1cd3e6f-da66-5603-916d-2cc13df09dc0",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda model seçimi ve görev eşleştirme konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "60fad878-86e0-5db3-b80c-41f7d73a0124",
+    "lessonId": "e1cd3e6f-da66-5603-916d-2cc13df09dc0",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Model seçimi ve görev eşleştirme** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "7ffc1b80-7e19-5900-8df4-5d671516a4a3",
+    "lessonId": "e1cd3e6f-da66-5603-916d-2cc13df09dc0",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "5ff5be0b-573b-5859-8843-4ed2abbb4351",
+    "lessonId": "e2a952fd-80cf-52b1-8d6d-681404896c73",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda hata toleransı ve yeniden deneme konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "3af35d62-c53b-5f45-8de5-f7a112d6a9d8",
+    "lessonId": "e2a952fd-80cf-52b1-8d6d-681404896c73",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Hata toleransı ve yeniden deneme** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "1aa1959f-1440-58f3-a754-f64de03aec05",
+    "lessonId": "e2a952fd-80cf-52b1-8d6d-681404896c73",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "markdown",
+    "code": "<gorev>\nKullanıcının seviyesine uygun, kaynaklı ve kısa bir açıklama üret.\n</gorev>\n<basari_kriterleri>\n- En fazla 5 madde\n- Varsayımları açıkça belirt\n- JSON formatında döndür\n</basari_kriterleri>",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "3ce74346-5044-5177-8eaf-c0e6ebce265a",
+    "lessonId": "e2df0514-3357-5502-a166-c1a8734b6a75",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda hallucination azaltma kontrolleri konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "7119a1a9-321d-51e5-9b04-9ef924ae6b59",
+    "lessonId": "e2df0514-3357-5502-a166-c1a8734b6a75",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Hallucination azaltma kontrolleri** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "eb07aa05-5f94-5c7a-8ff8-a99a3b51c987",
+    "lessonId": "e2df0514-3357-5502-a166-c1a8734b6a75",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def build_context(chunks, query_embedding, top_k=4):\n    ranked = sorted(chunks, key=lambda c: cosine(c['embedding'], query_embedding), reverse=True)\n    return '\n\n'.join(chunk['text'] for chunk in ranked[:top_k])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "7198e16b-add1-5efb-88fc-82007a5e0264",
+    "lessonId": "e2df0514-3357-5502-a166-c1a8734b6a75",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "rag-ai-uygulamalari-m2-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "28b5fabe-0374-5c62-a66d-1de3295b6f09",
+    "lessonId": "e469ea2b-1af8-5dfd-a787-af7f8a4ac4a4",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda model, loss ve optimizer kurma konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "57888944-0625-55a0-b2fb-044c2a0dfe20",
+    "lessonId": "e469ea2b-1af8-5dfd-a787-af7f8a4ac4a4",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Model, loss ve optimizer kurma** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "44f5deac-791e-556b-8a25-ceb1a9a62e5d",
+    "lessonId": "e469ea2b-1af8-5dfd-a787-af7f8a4ac4a4",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "7199af0e-2401-5375-991d-0c8c7aa13188",
+    "lessonId": "e5b13d55-160d-5d57-8dd1-6a6c7a9d1b29",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda anomali tespiti ve küme değerlendirme konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "efbba36c-3a6d-5337-8865-1b2b04baed3c",
+    "lessonId": "e5b13d55-160d-5d57-8dd1-6a6c7a9d1b29",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Anomali tespiti ve küme değerlendirme** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "aad08fb2-6d98-51e6-bd79-1f1a694094f0",
+    "lessonId": "e5b13d55-160d-5d57-8dd1-6a6c7a9d1b29",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = Pipeline([\n    ('scale', StandardScaler()),\n    ('model', LogisticRegression(max_iter=1000))\n])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "54e8525c-83c9-538b-8d45-0b6b2c2e3af0",
+    "lessonId": "e5b13d55-160d-5d57-8dd1-6a6c7a9d1b29",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "makine-ogrenmesi-temelleri-m2-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "8db7fb32-4485-5ee2-a649-3ae0e83af234",
+    "lessonId": "e6d70ae9-c0f4-59ee-8824-cc0d282df259",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda batch inference tasarımı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "fdfcf3c7-b226-5b9c-b275-60f812b0b0a8",
+    "lessonId": "e6d70ae9-c0f4-59ee-8824-cc0d282df259",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Batch inference tasarımı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "ad0d2f0a-e6e7-538b-ab17-603a925d3c05",
+    "lessonId": "e6d70ae9-c0f4-59ee-8824-cc0d282df259",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "958b91b5-01a2-5e18-917b-b09deeca1ee6",
+    "lessonId": "e8303683-6b63-57a8-a5ec-63c20311d804",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda k-means ve müşteri segmentasyonu konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "d2d9e577-c2f1-5bae-b04a-38794164dcaf",
+    "lessonId": "e8303683-6b63-57a8-a5ec-63c20311d804",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **K-means ve müşteri segmentasyonu** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "54aee0e3-250e-5e0a-af49-3e6babc28ec7",
+    "lessonId": "e8303683-6b63-57a8-a5ec-63c20311d804",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = Pipeline([\n    ('scale', StandardScaler()),\n    ('model', LogisticRegression(max_iter=1000))\n])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "797a76af-72e4-5767-8f34-bb4bc52ef25a",
+    "lessonId": "ebf83e29-fa8c-5ae5-96b4-341443b23208",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda kısıtlar ve başarı kriteri yazma konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "7ab63559-1f82-5afd-930f-804579805858",
+    "lessonId": "ebf83e29-fa8c-5ae5-96b4-341443b23208",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Kısıtlar ve başarı kriteri yazma** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "1215d712-8a9e-5b09-af07-7eeb4bf0fe34",
+    "lessonId": "ebf83e29-fa8c-5ae5-96b4-341443b23208",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "markdown",
+    "code": "<gorev>\nKullanıcının seviyesine uygun, kaynaklı ve kısa bir açıklama üret.\n</gorev>\n<basari_kriterleri>\n- En fazla 5 madde\n- Varsayımları açıkça belirt\n- JSON formatında döndür\n</basari_kriterleri>",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "2af8a177-3c08-5de6-8bbe-c202b49237ae",
+    "lessonId": "ebf83e29-fa8c-5ae5-96b4-341443b23208",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "prompt-engineering-pratikleri-m1-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "c349f109-26cf-542d-97d2-75ee071ecf37",
+    "lessonId": "ed98bc72-44ff-53e6-bb9b-e8211a092fd4",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda aktivasyon fonksiyonları konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "09edd82d-1aaa-5ee3-8c58-9c7deac60d39",
+    "lessonId": "ed98bc72-44ff-53e6-bb9b-e8211a092fd4",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Aktivasyon fonksiyonları** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "686589f9-6f83-5cd1-881b-8624055f3172",
+    "lessonId": "ed98bc72-44ff-53e6-bb9b-e8211a092fd4",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "4ec9384d-17ce-5fb1-a23e-cdbc1e09e5c2",
+    "lessonId": "ef283f3f-db43-5d87-ae09-bfe196779818",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda autograd ile türev takibi konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "f00f6360-3a4e-5e53-beb8-a280c4fe6800",
+    "lessonId": "ef283f3f-db43-5d87-ae09-bfe196779818",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Autograd ile türev takibi** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "437e0c2f-3215-51eb-924a-0bbc59e29b7c",
+    "lessonId": "ef283f3f-db43-5d87-ae09-bfe196779818",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "63638c68-ccfb-5646-adf3-9427d5421b5a",
+    "lessonId": "eff32f26-5fb1-5326-8560-e204caca0a5c",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda confusion matrix okuma konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "6cd6ce4a-95f6-5494-b8b6-38682a52bb03",
+    "lessonId": "eff32f26-5fb1-5326-8560-e204caca0a5c",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Confusion matrix okuma** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "ed8af36e-41a9-5d89-8884-5deaed677493",
+    "lessonId": "eff32f26-5fb1-5326-8560-e204caca0a5c",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = Pipeline([\n    ('scale', StandardScaler()),\n    ('model', LogisticRegression(max_iter=1000))\n])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "796dfeac-8302-5543-ad04-46677dba8673",
+    "lessonId": "f13c74a6-1c53-5412-904c-a4ac1401b674",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda cross-validation ve leakage kontrolü konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "a75efbe8-5ca7-5612-8f71-acd0124a223b",
+    "lessonId": "f13c74a6-1c53-5412-904c-a4ac1401b674",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Cross-validation ve leakage kontrolü** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "1c3a17ea-7bf6-51f3-848c-af8d31f1318e",
+    "lessonId": "f13c74a6-1c53-5412-904c-a4ac1401b674",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = Pipeline([\n    ('scale', StandardScaler()),\n    ('model', LogisticRegression(max_iter=1000))\n])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "933bc545-a659-583a-bfde-bd31e604c0f1",
+    "lessonId": "f437a9a9-816b-5afc-a3d7-04c23070ce5b",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda model servis sözleşmesi konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "5b31d9da-b433-58ab-80c1-3f5490fa4c55",
+    "lessonId": "f437a9a9-816b-5afc-a3d7-04c23070ce5b",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Model servis sözleşmesi** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "f469f255-aea0-5722-9614-58aa5c80a13f",
+    "lessonId": "f437a9a9-816b-5afc-a3d7-04c23070ce5b",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "yaml",
+    "code": "model:\n  name: ai-academy-baseline\n  version: 1\nchecks:\n  min_accuracy: 0.82\n  max_latency_ms: 300\nrollback:\n  enabled: true",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "bfeea27e-c7f2-56f5-8504-07360dda73ab",
+    "lessonId": "f52beba4-581d-5673-b45f-e6c68d39aafe",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda feature map okuma konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "6faf1cb1-f1cb-59de-93a6-f202f207831a",
+    "lessonId": "f52beba4-581d-5673-b45f-e6c68d39aafe",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Feature map okuma** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "d5d10106-07cf-5b90-a613-20d91a644ab8",
+    "lessonId": "f52beba4-581d-5673-b45f-e6c68d39aafe",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "78e11188-3a39-54da-936b-40730003ce1c",
+    "lessonId": "f642bee3-ebdf-5b50-9e0a-ca6f4548f0e7",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda model kartı ve teknik rapor konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "dba1db32-d8ae-5d42-9fbe-3765b0d8783b",
+    "lessonId": "f642bee3-ebdf-5b50-9e0a-ca6f4548f0e7",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Model kartı ve teknik rapor** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "e4d9dd80-7ab5-5f70-b26f-c69fa116e387",
+    "lessonId": "f642bee3-ebdf-5b50-9e0a-ca6f4548f0e7",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "def normalize_text(text: str) -> str:\n    return ' '.join(text.lower().strip().split())\n\nsample = normalize_text('  AI   Engineering  ')\nprint(sample)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "6c8986dd-1af4-54c4-a37d-aea77eb8ba8e",
+    "lessonId": "f7cf0462-f76d-5393-a1c8-09d0ece57ef6",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda vektör, matris ve tensör kavramı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "5234188b-7236-5a4f-9d1b-6f0179d75f6b",
+    "lessonId": "f7cf0462-f76d-5393-a1c8-09d0ece57ef6",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Vektör, matris ve tensör kavramı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "1dea1ab6-755f-5be9-b462-7b9f4010bb65",
+    "lessonId": "f7cf0462-f76d-5393-a1c8-09d0ece57ef6",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import numpy as np\n\nX = np.array([[1.0, 0.2], [0.7, 1.3]])\nw = np.array([0.4, -0.1])\nscores = X @ w",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "abeb83e7-706f-5753-bd6f-2888dd4654a5",
+    "lessonId": "f8189461-ac6a-5bee-a877-1433206c13e6",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda araç çağrısı için alan tasarımı konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "4ee34063-05ed-5ba4-9053-dccf51b73d51",
+    "lessonId": "f8189461-ac6a-5bee-a877-1433206c13e6",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Araç çağrısı için alan tasarımı** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "684be718-9f54-54a7-b663-fd9ab8d866ae",
+    "lessonId": "f8189461-ac6a-5bee-a877-1433206c13e6",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "markdown",
+    "code": "<gorev>\nKullanıcının seviyesine uygun, kaynaklı ve kısa bir açıklama üret.\n</gorev>\n<basari_kriterleri>\n- En fazla 5 madde\n- Varsayımları açıkça belirt\n- JSON formatında döndür\n</basari_kriterleri>",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "ad87308a-1eb0-5c45-b5cb-0daad67fa936",
+    "lessonId": "f8189461-ac6a-5bee-a877-1433206c13e6",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "prompt-engineering-pratikleri-m2-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "bc3ec24d-88e5-5c65-bf5b-a8de37be8f76",
+    "lessonId": "f93cfbf9-b7c4-5d4f-9ad0-220bed016986",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda i̇ş metriği ile model metriği bağlama konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "fa295fe4-cf7a-5a09-853d-8c21493fa929",
+    "lessonId": "f93cfbf9-b7c4-5d4f-9ad0-220bed016986",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **İş metriği ile model metriği bağlama** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "d387773f-2cc2-5141-b710-d4cd36ebb046",
+    "lessonId": "f93cfbf9-b7c4-5d4f-9ad0-220bed016986",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "from sklearn.pipeline import Pipeline\nfrom sklearn.preprocessing import StandardScaler\nfrom sklearn.linear_model import LogisticRegression\n\npipeline = Pipeline([\n    ('scale', StandardScaler()),\n    ('model', LogisticRegression(max_iter=1000))\n])",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "a9a5d743-c3b8-5496-8e05-cf07273030fc",
+    "lessonId": "f93cfbf9-b7c4-5d4f-9ad0-220bed016986",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "model-degerlendirme-deneyler-m1-lab"
+    },
+    "sortOrder": 4
+  },
+  {
+    "id": "49ae1308-415c-5bfe-ac58-64072f6a800a",
+    "lessonId": "fda07d3f-3fd8-580c-be03-2d63c53fa249",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda dropout, weight decay ve erken durdurma konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "491b04be-20e4-5c70-a47a-4399a0d1fd5b",
+    "lessonId": "fda07d3f-3fd8-580c-be03-2d63c53fa249",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Dropout, weight decay ve erken durdurma** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "1ff56f05-a2e6-5d26-82a8-e95992a280eb",
+    "lessonId": "fda07d3f-3fd8-580c-be03-2d63c53fa249",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import torch\nimport torch.nn as nn\n\nmodel = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nx = torch.randn(16, 4)\ny_hat = model(x)",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "484ad647-1fa1-58d3-9c43-d178154d124c",
+    "lessonId": "ff1364d9-20f1-5d82-af06-6ea32d066d7b",
+    "type": "callout",
+    "title": "Öğrenme hedefi",
+    "body": "Bu dersin sonunda matris çarpımıyla özellik dönüşümü konusunu bir AI projesinde ne zaman ve neden kullanacağını açıklayabilmelisin.",
+    "calloutVariant": "info",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "icon": "target"
+    },
+    "sortOrder": 1
+  },
+  {
+    "id": "aeb089b9-8e4d-5364-8d37-73e36833927a",
+    "lessonId": "ff1364d9-20f1-5d82-af06-6ea32d066d7b",
+    "type": "markdown",
+    "title": "Konu anlatımı",
+    "body": "## Ders özeti\nBu ders, **Matris çarpımıyla özellik dönüşümü** konusunu AI Engineering bağlamında ele alır. Amaç yalnızca kavramı bilmek değil, bu kavramı gerçek bir ürün akışında nerede kullanacağını sezgisel olarak anlamaktır.\n\n### Neden önemli?\n- Model veya LLM uygulamasında yanlış varsayım maliyetli hatalara yol açabilir.\n- Erken aşamada doğru veri, doğru metrik ve doğru test kurgusu sonraki geliştirmeyi hızlandırır.\n- AI mühendisliği, araştırma sonucunu çalışan ürüne dönüştürme disiplinidir.\n\n### Uygulama kontrolü\n1. Girdiyi ve beklenen çıktıyı yaz.\n2. En küçük çalışan örneği oluştur.\n3. Sonucu bir metrik, test veya gözlemle doğrula.\n4. Hatanın kaynağını veri, model, prompt, sistem veya kullanıcı akışı olarak sınıflandır.\n",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "estimated_read_minutes": 5
+    },
+    "sortOrder": 2
+  },
+  {
+    "id": "5bfb530f-0edf-5941-91c8-1a9bc61042cb",
+    "lessonId": "ff1364d9-20f1-5d82-af06-6ea32d066d7b",
+    "type": "code",
+    "title": "Mini örnek",
+    "body": "Aşağıdaki örneği çalıştırıp çıktıyı değiştirerek gözlem yap.",
+    "codeLanguage": "python",
+    "code": "import numpy as np\n\nX = np.array([[1.0, 0.2], [0.7, 1.3]])\nw = np.array([0.4, -0.1])\nscores = X @ w",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "runnable": true
+    },
+    "sortOrder": 3
+  },
+  {
+    "id": "685730c3-9d89-5d32-8cef-eceae5c30479",
+    "lessonId": "ff1364d9-20f1-5d82-af06-6ea32d066d7b",
+    "type": "lab_embed",
+    "title": "Mini Lab",
+    "body": "Bu modülün pratiğini mini lab ile pekiştir.",
+    "data": {
+      "seed_pack": "ai-eng-academy-v1",
+      "lab_slug": "matematik-istatistik-ai-m1-lab"
+    },
+    "sortOrder": 4
+  }
+] as const;
+
 export const datasetPlacementQuestions = [
   {
     "id": "7c4b9a7b-a31e-534e-81dd-5aa5a5e1d43b",

@@ -88,35 +88,43 @@ export function CourseHeroVisual({
 
   return (
     <VisualFrame height={height} dark>
-      <Svg width="100%" height="100%" viewBox="0 0 320 210" style={StyleSheet.absoluteFill}>
-        <Rect x="0" y="0" width="320" height="210" fill="rgba(255,255,255,0.02)" />
-        {[34, 82, 130, 178, 226, 274].map((x) => (
-          <Line key={x} x1={x} y1="0" x2={x - 34} y2="210" stroke="rgba(255,255,255,0.045)" strokeWidth="1" />
+      <Svg width="100%" height="100%" viewBox="0 0 360 230" style={StyleSheet.absoluteFill}>
+        <Rect x="0" y="0" width="360" height="230" fill="#020a2e" />
+        {[236, 252, 268, 284, 300, 316, 332].map((x) => (
+          <Line key={`grid-v-${x}`} x1={x} y1="26" x2={x} y2="92" stroke="rgba(104,118,255,0.12)" strokeWidth="1" />
         ))}
-        <Path d="M34 166 C88 134, 134 154, 188 112 S258 70, 304 100" fill="none" stroke="rgba(32,199,232,0.2)" strokeWidth="4" strokeLinecap="round" />
-        {[64, 146, 234].map((cx) => (
-          <Circle key={cx} cx={cx} cy="151" r="7" fill="#20c7e8" opacity="0.5" />
+        {[34, 50, 66, 82].map((y) => (
+          <Line key={`grid-h-${y}`} x1="232" y1={y} x2="342" y2={y} stroke="rgba(104,118,255,0.10)" strokeWidth="1" />
         ))}
+        {[236, 252, 268, 284, 300, 316, 332].flatMap((x) => [34, 50, 66, 82].map((y) => (
+          <Circle key={`dot-${x}-${y}`} cx={x} cy={y} r="1.8" fill="rgba(80,92,230,0.18)" />
+        )))}
+        {[0, 1, 2, 3, 4, 5].map((index) => (
+          <Path
+            key={`wave-${index}`}
+            d={`M214 ${150 + index * 8} C250 ${126 + index * 2}, 284 ${104 + index * 4}, 358 ${108 + index * 9}`}
+            fill="none"
+            stroke="rgba(82,64,255,0.18)"
+            strokeWidth="1.2"
+          />
+        ))}
+        <Path d="M18 166 C76 140, 132 152, 182 126 S250 82, 332 108" fill="none" stroke="rgba(32,199,232,0.18)" strokeWidth="5" strokeLinecap="round" />
       </Svg>
       <View style={styles.courseHeroContent}>
         <View style={styles.courseHeroTop}>
           <View style={styles.courseHeroMark}>
-            <Zap size={24} color={colors.primary} fill={colors.primary} />
+            <Zap size={25} color="#8af8ff" fill="#8af8ff" />
           </View>
+          <View style={styles.courseHeroDivider} />
           <View style={styles.courseHeroEyebrowWrap}>
             <Text style={styles.courseHeroEyebrow}>Ders Rotası</Text>
             <Text style={styles.courseHeroMeta}>{metrics[1] ?? 'Seviye'} seviye</Text>
           </View>
-          <View style={styles.courseProgressBadge}>
-            <Text style={styles.courseProgressBadgeText}>%{clampedProgress}</Text>
-          </View>
+          <CourseProgressBadge progress={clampedProgress} />
         </View>
         <View style={styles.courseHeroCopy}>
           <Text style={styles.courseHeroTitle}>{title}</Text>
           <Text style={styles.courseHeroSubtitle}>{subtitle}</Text>
-        </View>
-        <View style={styles.courseHeroProgressTrack}>
-          <View style={[styles.courseHeroProgressFill, { width: `${clampedProgress}%` }]} />
         </View>
         <View style={styles.courseMetricRow}>
           {metrics.map((metric) => <MetricChip key={metric} label={metric} />)}
@@ -269,8 +277,38 @@ function VisualFrame({ children, dark = false, height }: HeightProp & { children
 function MetricChip({ label }: { label: string }) {
   return (
     <View style={styles.metricChip}>
-      <Check size={14} color={colors.green} />
+      <View style={styles.metricCheck}>
+        <Check size={17} color="#3cf5de" strokeWidth={3} />
+      </View>
       <Text style={styles.metricChipText}>{label}</Text>
+    </View>
+  );
+}
+
+function CourseProgressBadge({ progress }: { progress: number }) {
+  const radiusValue = 15;
+  const circumference = 2 * Math.PI * radiusValue;
+  const dashOffset = circumference - (circumference * progress) / 100;
+
+  return (
+    <View style={styles.courseProgressBadge}>
+      <Svg width="30" height="30" viewBox="0 0 38 38">
+        <Circle cx="19" cy="19" r={radiusValue} fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="4" />
+        <Circle
+          cx="19"
+          cy="19"
+          r={radiusValue}
+          fill="none"
+          stroke="#6f63ff"
+          strokeWidth="4"
+          strokeDasharray={`${circumference} ${circumference}`}
+          strokeDashoffset={dashOffset}
+          strokeLinecap="round"
+          rotation="-90"
+          origin="19, 19"
+        />
+      </Svg>
+      <Text style={styles.courseProgressBadgeText}>%{progress}</Text>
     </View>
   );
 }
@@ -292,7 +330,7 @@ const styles = StyleSheet.create({
     padding: spacing.lg,
   },
   visualFrameDark: {
-    borderColor: 'rgba(255,255,255,0.12)',
+    borderColor: 'rgba(119,112,255,0.48)',
   },
   heroGlassCard: {
     minWidth: 230,
@@ -354,78 +392,81 @@ const styles = StyleSheet.create({
   courseHeroContent: {
     width: '100%',
     alignSelf: 'stretch',
-    gap: spacing.md,
+    gap: spacing.sm,
+    justifyContent: 'space-between',
+    flex: 1,
   },
   courseHeroTop: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacing.sm,
+    gap: 10,
   },
   courseHeroMark: {
-    width: 46,
-    height: 46,
+    width: 48,
+    height: 48,
     borderRadius: 15,
-    backgroundColor: colors.surface,
+    backgroundColor: '#0b25c8',
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(142,150,255,0.65)',
+  },
+  courseHeroDivider: {
+    width: 1,
+    height: 40,
+    backgroundColor: 'rgba(255,255,255,0.22)',
+    marginHorizontal: 3,
   },
   courseHeroEyebrowWrap: {
     flex: 1,
   },
   courseHeroEyebrow: {
-    color: '#8ec5ff',
+    color: '#68dcff',
     fontSize: 11,
     fontWeight: '900',
+    letterSpacing: 0,
     textTransform: 'uppercase',
   },
   courseHeroMeta: {
-    color: '#d8e2ff',
+    color: '#d8dcff',
     fontSize: 12,
-    fontWeight: '800',
-    marginTop: 2,
+    fontWeight: '700',
+    marginTop: 4,
   },
   courseProgressBadge: {
-    minWidth: 54,
-    height: 34,
-    borderRadius: 17,
-    backgroundColor: 'rgba(255,255,255,0.12)',
-    borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.16)',
+    minWidth: 72,
+    height: 46,
+    borderRadius: 23,
+    backgroundColor: 'rgba(255,255,255,0.10)',
+    borderWidth: 1.5,
+    borderColor: 'rgba(255,255,255,0.18)',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: spacing.sm,
+    paddingHorizontal: 8,
+    flexDirection: 'row',
+    gap: 7,
   },
   courseProgressBadgeText: {
     color: colors.surface,
     fontWeight: '900',
-    fontSize: 13,
+    fontSize: 20,
+    letterSpacing: 0,
   },
   courseHeroCopy: {
-    maxWidth: 270,
+    maxWidth: 336,
   },
   courseHeroTitle: {
     color: colors.surface,
     fontWeight: '900',
-    fontSize: 23,
+    fontSize: 22,
     lineHeight: 27,
   },
   courseHeroSubtitle: {
-    color: '#c9d4ff',
+    color: '#cfd4f4',
     fontWeight: '700',
     fontSize: 12,
     lineHeight: 17,
     marginTop: 5,
-  },
-  courseHeroProgressTrack: {
-    height: 8,
-    borderRadius: 999,
-    backgroundColor: 'rgba(255,255,255,0.12)',
-    overflow: 'hidden',
-  },
-  courseHeroProgressFill: {
-    height: '100%',
-    borderRadius: 999,
-    backgroundColor: colors.cyan,
   },
   courseMetricRow: {
     width: '100%',
@@ -437,16 +478,29 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 5,
-    borderRadius: 999,
-    backgroundColor: 'rgba(255,255,255,0.12)',
-    paddingHorizontal: 10,
-    paddingVertical: 7,
+    gap: 6,
+    minHeight: 42,
+    borderRadius: 16,
+    backgroundColor: 'rgba(255,255,255,0.10)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.17)',
+    paddingHorizontal: 6,
+    paddingVertical: 6,
+  },
+  metricCheck: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: 'rgba(7,21,55,0.42)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.15)',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   metricChipText: {
     color: colors.surface,
     fontWeight: '800',
-    fontSize: 11,
+    fontSize: 12,
   },
   targetVisual: {
     width: 230,

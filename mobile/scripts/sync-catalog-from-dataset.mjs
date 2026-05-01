@@ -113,6 +113,23 @@ const lessons = catalog.lessons
     };
   });
 
+const lessonContentBlocks = catalog.blocks
+  .slice()
+  .sort((a, b) => a.lesson_id.localeCompare(b.lesson_id) || a.sort_order - b.sort_order)
+  .map((block) => ({
+    id: block.id,
+    lessonId: block.lesson_id,
+    type: block.block_type,
+    title: block.title ?? '',
+    body: block.body ?? '',
+    mediaUrl: block.media_url ?? undefined,
+    codeLanguage: block.code_language ?? undefined,
+    code: block.code ?? undefined,
+    calloutVariant: block.callout_variant ?? undefined,
+    data: block.data ?? {},
+    sortOrder: block.sort_order,
+  }));
+
 function mapQuestion(question) {
   const options = catalog.options
     .filter((option) => option.question_id === question.id)
@@ -163,6 +180,8 @@ export const datasetCourses = ${JSON.stringify(courses, null, 2)} as const;
 
 export const datasetLessons = ${JSON.stringify(lessons, null, 2)} as const;
 
+export const datasetLessonContentBlocks = ${JSON.stringify(lessonContentBlocks, null, 2)} as const;
+
 export const datasetPlacementQuestions = ${JSON.stringify(placementQuestions, null, 2)} as const;
 
 export const datasetQuizQuestions = ${JSON.stringify(quizQuestions, null, 2)} as const;
@@ -173,4 +192,4 @@ export const datasetLabs = ${JSON.stringify(labs, null, 2)} as const;
 mkdirSync(dirname(outputPath), { recursive: true });
 writeFileSync(outputPath, output, 'utf8');
 console.log(`Wrote ${outputPath}`);
-console.log(`Catalog: ${learningPaths.length} paths, ${courses.length} courses, ${lessons.length} lessons, ${placementQuestions.length} placement questions, ${quizQuestions.length} quiz questions, ${labs.length} labs.`);
+console.log(`Catalog: ${learningPaths.length} paths, ${courses.length} courses, ${lessons.length} lessons, ${lessonContentBlocks.length} blocks, ${placementQuestions.length} placement questions, ${quizQuestions.length} quiz questions, ${labs.length} labs.`);
