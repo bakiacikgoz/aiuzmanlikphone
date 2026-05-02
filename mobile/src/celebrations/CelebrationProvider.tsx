@@ -2,7 +2,7 @@ import React, { createContext, useCallback, useEffect, useMemo, useState, type R
 import { AppState } from 'react-native';
 
 import { CelebrationOverlay } from './CelebrationOverlay';
-import { createLocalCelebrationNotification, mapNotificationToCelebrationEvent, sortAndDedupeCelebrationEvents } from './events';
+import { createLocalCelebrationNotification, isMilestoneCelebrationEvent, isMilestoneCelebrationType, mapNotificationToCelebrationEvent, sortAndDedupeCelebrationEvents } from './events';
 import type { CelebrationEvent, EnqueueCelebrationInput } from './types';
 import {
   enqueueCelebrationEvent,
@@ -24,10 +24,11 @@ export function CelebrationProvider({ children }: { children: ReactNode }) {
 
   const refreshCelebrations = useCallback(async () => {
     const nextEvents = await getCelebrationEvents();
-    setPendingEvents((currentEvents) => sortAndDedupeCelebrationEvents([...currentEvents, ...nextEvents]));
+    setPendingEvents((currentEvents) => sortAndDedupeCelebrationEvents([...currentEvents, ...nextEvents].filter(isMilestoneCelebrationEvent)));
   }, []);
 
   const celebrate = useCallback(async (input: EnqueueCelebrationInput) => {
+    if (!isMilestoneCelebrationType(input.type)) return;
     const response = await enqueueCelebrationEvent(input).catch(() => ({
       id: `local:${input.dedupeKey || `${input.type}-${Date.now()}`}`,
       created: true,
@@ -41,7 +42,7 @@ export function CelebrationProvider({ children }: { children: ReactNode }) {
       ...localRow,
       id: response.id || localRow.id,
     });
-    if (localEvent) {
+    if (localEvent && isMilestoneCelebrationEvent(localEvent)) {
       setPendingEvents((currentEvents) => sortAndDedupeCelebrationEvents([...currentEvents, localEvent]));
     }
   }, []);

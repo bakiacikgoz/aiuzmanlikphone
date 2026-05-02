@@ -5082,12 +5082,12 @@ values
   ('ea53de86-8975-5602-9a79-00edb56a4d64', 'capstone-expert-v1', 'AI Engineer Uzmanlık Sertifikası', '<h1>AI Engineer Uzmanlık</h1><p>{{learner_name}} capstone projesini tamamlamıştır.</p>', 'certificates/capstone-bg.svg', 'certificates/seal.svg', 'AI Engineering Academy', 'published')
 on conflict (slug) do update set id = excluded.id, title = excluded.title, body_html = excluded.body_html, background_url = excluded.background_url, seal_url = excluded.seal_url, issuer_name = excluded.issuer_name, status = excluded.status;
 
-insert into public.plans (id, slug, name, description, price_cents, currency, ai_monthly_token_limit, features, is_active)
+insert into public.plans (id, slug, name, description, price_cents, currency, ai_monthly_token_limit, provider_product_id, provider_base_plan_id, entitlement, features, is_active)
 values
-  ('687d85c8-ac99-55f8-ab27-96da6a17de31', 'free', 'Free', 'Temel dersler ve sınırlı AI mentor kullanımı', 0, 'USD', 50000, '{"courses":"selected","ai_mentor":"limited","certificates":false}'::jsonb, true),
-  ('5047cf7f-31cf-5448-8598-fa56966a4e8a', 'pro', 'Pro', 'Tüm dersler, sertifikalar ve artırılmış AI mentor kotası', 1499, 'USD', 500000, '{"courses":"all","ai_mentor":"extended","certificates":true,"labs":true}'::jsonb, true),
-  ('04eba953-1b03-5c55-b552-9364d54abbb8', 'team', 'Team', 'Takım takibi, gelişmiş analitik ve içerik atama', 4999, 'USD', 2000000, '{"courses":"all","team_dashboard":true,"admin_reports":true}'::jsonb, true)
-on conflict (slug) do update set id = excluded.id, name = excluded.name, description = excluded.description, price_cents = excluded.price_cents, currency = excluded.currency, ai_monthly_token_limit = excluded.ai_monthly_token_limit, features = excluded.features, is_active = excluded.is_active;
+  ('687d85c8-ac99-55f8-ab27-96da6a17de31', 'free', 'Free', 'Temel dersler ve sınırlı AI mentor kullanımı', 0, 'USD', 50000, null, null, 'free', '{"courses":"selected","ai_mentor":"limited","certificates":false}'::jsonb, true),
+  ('5047cf7f-31cf-5448-8598-fa56966a4e8a', 'pro', 'Pro', 'Tüm dersler, sertifikalar ve artırılmış AI mentor kotası', 1499, 'USD', 500000, 'ai_academy_pro_monthly', 'monthly', 'pro', '{"courses":"all","ai_mentor":"extended","certificates":true,"labs":true}'::jsonb, true),
+  ('04eba953-1b03-5c55-b552-9364d54abbb8', 'team', 'Team', 'Takım takibi, gelişmiş analitik ve içerik atama', 4999, 'USD', 2000000, 'ai_academy_pro_yearly', 'yearly', 'pro', '{"courses":"all","team_dashboard":true,"admin_reports":true}'::jsonb, true)
+on conflict (slug) do update set id = excluded.id, name = excluded.name, description = excluded.description, price_cents = excluded.price_cents, currency = excluded.currency, ai_monthly_token_limit = excluded.ai_monthly_token_limit, provider_product_id = excluded.provider_product_id, provider_base_plan_id = excluded.provider_base_plan_id, entitlement = excluded.entitlement, features = excluded.features, is_active = excluded.is_active;
 
 insert into public.feature_flags (key, is_enabled, description, rules)
 values

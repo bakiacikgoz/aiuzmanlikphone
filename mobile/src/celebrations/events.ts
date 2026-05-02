@@ -21,6 +21,17 @@ const celebrationEventTypes: CelebrationEventType[] = [
   'level_assigned',
 ];
 
+const milestoneCelebrationEventTypes: CelebrationEventType[] = [
+  'league_promotion',
+  'league_demotion',
+  'league_top_rank',
+  'season_reward',
+  'badge_earned',
+  'course_completed',
+  'certificate_earned',
+  'level_assigned',
+];
+
 const leagueTiers: LeagueTier[] = ['bronze', 'silver', 'gold', 'platinum', 'diamond'];
 
 function asRecord(value: unknown): Record<string, unknown> {
@@ -41,6 +52,14 @@ function asLeagueTier(value: unknown): LeagueTier | undefined {
 
 export function asCelebrationEventType(value: unknown): CelebrationEventType | undefined {
   return celebrationEventTypes.includes(value as CelebrationEventType) ? value as CelebrationEventType : undefined;
+}
+
+export function isMilestoneCelebrationType(value: unknown): value is CelebrationEventType {
+  return milestoneCelebrationEventTypes.includes(value as CelebrationEventType);
+}
+
+export function isMilestoneCelebrationEvent(event: Pick<CelebrationEvent, 'type'>): boolean {
+  return isMilestoneCelebrationType(event.type);
 }
 
 export function mapNotificationToCelebrationEvent(row: CelebrationNotificationRow): CelebrationEvent | null {

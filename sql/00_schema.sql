@@ -45,6 +45,13 @@ create table if not exists public.interest_categories (
   is_active boolean not null default true
 );
 
+create table if not exists public.user_interests (
+  user_id uuid not null references public.profiles(id) on delete cascade,
+  interest_id uuid not null references public.interest_categories(id) on delete cascade,
+  created_at timestamptz not null default now(),
+  primary key (user_id, interest_id)
+);
+
 create table if not exists public.learning_goals (
   id uuid primary key,
   slug text not null unique,
@@ -302,8 +309,43 @@ create table if not exists public.plans (
   price_cents integer not null default 0,
   currency text not null default 'TRY',
   ai_monthly_token_limit integer not null default 0,
+  provider_product_id text,
+  provider_base_plan_id text,
+  entitlement text not null default 'free',
   features jsonb not null default '{}'::jsonb,
   is_active boolean not null default true
+);
+
+alter table public.plans add column if not exists provider_product_id text;
+alter table public.plans add column if not exists provider_base_plan_id text;
+alter table public.plans add column if not exists entitlement text not null default 'free';
+
+create table if not exists public.user_subscriptions (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references public.profiles(id) on delete cascade,
+  provider text not null default 'revenuecat',
+  app_user_id text not null,
+  product_id text,
+  entitlement text not null default 'pro',
+  status text not null default 'inactive',
+  expires_at timestamptz,
+  auto_renewing boolean,
+  raw_payload jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  unique (provider, app_user_id, entitlement)
+);
+
+create table if not exists public.account_deletion_requests (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references public.profiles(id) on delete set null,
+  email text,
+  status text not null default 'requested',
+  requested_from text not null default 'mobile',
+  reason text,
+  metadata jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
 );
 
 create table if not exists public.feature_flags (
@@ -563,6 +605,19 @@ create table if not exists public.ai_mentor_messages (
   created_at timestamptz not null default now()
 );
 
+create table if not exists public.ai_mentor_reports (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references public.profiles(id) on delete cascade,
+  conversation_id uuid references public.ai_mentor_conversations(id) on delete set null,
+  message_id uuid references public.ai_mentor_messages(id) on delete set null,
+  reason text not null default 'offensive_or_incorrect',
+  details text,
+  status text not null default 'open',
+  metadata jsonb not null default '{}'::jsonb,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
 create table if not exists public.ai_usage_ledger (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references public.profiles(id) on delete cascade,
@@ -742,9 +797,12 @@ for each row execute function public.handle_new_user();
 create or replace view public.v_learning_path_catalog as
 select
   lp.*,
-  count(c.id)::integer as course_count
+  count(distinct c.id)::integer as course_count,
+  count(distinct l.id)::integer as lesson_count
 from public.learning_paths lp
 left join public.courses c on c.path_id = lp.id and c.status = 'published'
+left join public.modules m on m.course_id = c.id and m.status = 'published'
+left join public.lessons l on l.module_id = m.id and l.status = 'published'
 where lp.status = 'published'
 group by lp.id;
 
@@ -921,6 +979,280 @@ begin
 end;
 $$;
 
+create or replace function public.submit_placement(
+  p_correct_count integer,
+  p_question_count integer
+)
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_assessment uuid;
+begin
+  select id into v_assessment
+  from public.assessments
+  where assessment_type = 'placement'
+    and status = 'published'
+    and is_active
+  order by sort_order nulls last, title
+  limit 1;
+
+  if v_assessment is null then
+    return jsonb_build_object(
+      'scorePercent', round((greatest(p_correct_count, 0)::numeric / greatest(p_question_count, 1)::numeric) * 100),
+      'level', case
+        when round((greatest(p_correct_count, 0)::numeric / greatest(p_question_count, 1)::numeric) * 100) >= 85 then 'advanced'
+        when round((greatest(p_correct_count, 0)::numeric / greatest(p_question_count, 1)::numeric) * 100) >= 60 then 'intermediate'
+        else 'beginner'
+      end,
+      'recommendedPathId', null
+    );
+  end if;
+
+  return public.submit_placement_assessment(v_assessment, p_correct_count, p_question_count);
+end;
+$$;
+
+create or replace function public.save_interests(
+  p_interest_names text[]
+)
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_user uuid := auth.uid();
+  v_saved text[];
+begin
+  if v_user is null then
+    raise exception 'Authentication required';
+  end if;
+
+  delete from public.user_interests where user_id = v_user;
+
+  insert into public.user_interests (user_id, interest_id)
+  select v_user, ic.id
+  from public.interest_categories ic
+  where ic.is_active
+    and (ic.name = any(p_interest_names) or ic.slug = any(p_interest_names))
+  on conflict do nothing;
+
+  select coalesce(array_agg(ic.name order by ic.sort_order), '{}') into v_saved
+  from public.user_interests ui
+  join public.interest_categories ic on ic.id = ui.interest_id
+  where ui.user_id = v_user;
+
+  return jsonb_build_object('saved', true, 'interests', coalesce(v_saved, '{}'));
+end;
+$$;
+
+create or replace function public.submit_quiz_answer(
+  p_question_id uuid,
+  p_option_id uuid
+)
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_user uuid := auth.uid();
+  v_assessment uuid;
+  v_is_correct boolean;
+  v_explanation text;
+begin
+  if v_user is null then
+    raise exception 'Authentication required';
+  end if;
+
+  select q.assessment_id, coalesce(o.is_correct, false), q.explanation
+    into v_assessment, v_is_correct, v_explanation
+  from public.assessment_questions q
+  join public.assessment_options o on o.question_id = q.id
+  where q.id = p_question_id
+    and o.id = p_option_id;
+
+  if v_assessment is null then
+    raise exception 'Question or option not found';
+  end if;
+
+  insert into public.assessment_attempts (
+    assessment_id, user_id, status, submitted_at, graded_at,
+    score, max_score, correct_count, wrong_count, metadata
+  )
+  values (
+    v_assessment, v_user, 'graded', now(), now(),
+    case when v_is_correct then 1 else 0 end, 1,
+    case when v_is_correct then 1 else 0 end,
+    case when v_is_correct then 0 else 1 end,
+    jsonb_build_object('question_id', p_question_id, 'option_id', p_option_id, 'source', 'mobile_quiz')
+  );
+
+  return jsonb_build_object(
+    'isCorrect', v_is_correct,
+    'explanation', coalesce(v_explanation, case when v_is_correct then 'Dogru cevap.' else 'Cevabi tekrar incele.' end)
+  );
+end;
+$$;
+
+create or replace function public.save_note(
+  p_lesson_id uuid,
+  p_body text,
+  p_title text default 'Ders Notu'
+)
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_user uuid := auth.uid();
+  v_note public.notes%rowtype;
+begin
+  if v_user is null then
+    raise exception 'Authentication required';
+  end if;
+
+  insert into public.notes (user_id, lesson_id, title, body)
+  values (v_user, p_lesson_id, nullif(trim(p_title), ''), trim(p_body))
+  returning * into v_note;
+
+  return jsonb_build_object('id', v_note.id, 'title', v_note.title, 'body', v_note.body);
+end;
+$$;
+
+create or replace function public.toggle_bookmark(
+  p_target_type text,
+  p_target_id uuid
+)
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_user uuid := auth.uid();
+  v_exists boolean;
+begin
+  if v_user is null then
+    raise exception 'Authentication required';
+  end if;
+
+  select exists (
+    select 1 from public.bookmarks
+    where user_id = v_user and target_type = p_target_type and target_id = p_target_id
+  ) into v_exists;
+
+  if v_exists then
+    delete from public.bookmarks
+    where user_id = v_user and target_type = p_target_type and target_id = p_target_id;
+    return jsonb_build_object('bookmarked', false);
+  end if;
+
+  insert into public.bookmarks (user_id, target_type, target_id)
+  values (v_user, p_target_type, p_target_id);
+  return jsonb_build_object('bookmarked', true);
+end;
+$$;
+
+create or replace function public.submit_lab_submission(
+  p_lab_id uuid,
+  p_parameters jsonb default '{}'::jsonb,
+  p_code text default null,
+  p_passed_tests integer default 0,
+  p_total_tests integer default 1
+)
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_user uuid := auth.uid();
+  v_status text;
+  v_score numeric;
+  v_submission public.lab_submissions%rowtype;
+begin
+  if v_user is null then
+    raise exception 'Authentication required';
+  end if;
+
+  v_status := case when greatest(p_passed_tests, 0) >= greatest(p_total_tests, 1) then 'passed' else 'failed' end;
+  v_score := round((greatest(p_passed_tests, 0)::numeric / greatest(p_total_tests, 1)::numeric) * 100);
+
+  insert into public.lab_submissions (lab_id, user_id, code, parameters, output, passed_tests, total_tests, score, status)
+  values (
+    p_lab_id,
+    v_user,
+    p_code,
+    coalesce(p_parameters, '{}'::jsonb),
+    jsonb_build_object('passedTests', p_passed_tests, 'totalTests', p_total_tests),
+    greatest(p_passed_tests, 0),
+    greatest(p_total_tests, 1),
+    v_score,
+    v_status
+  )
+  returning * into v_submission;
+
+  return jsonb_build_object('id', v_submission.id, 'status', v_status, 'score', v_score);
+end;
+$$;
+
+create or replace function public.issue_certificate(
+  p_course_id uuid
+)
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_user uuid := auth.uid();
+  v_course public.courses%rowtype;
+  v_template uuid;
+  v_certificate public.certificates%rowtype;
+begin
+  if v_user is null then
+    raise exception 'Authentication required';
+  end if;
+
+  select * into v_course from public.courses where id = p_course_id;
+  if v_course.id is null then
+    raise exception 'Course not found';
+  end if;
+
+  select id into v_template
+  from public.certificate_templates
+  where status = 'published'
+  order by case when slug = 'course-completion-v1' then 0 else 1 end, title
+  limit 1;
+
+  insert into public.certificates (user_id, course_id, path_id, template_id, certificate_no, title, status, verification_hash, metadata)
+  values (
+    v_user,
+    p_course_id,
+    v_course.path_id,
+    v_template,
+    'AEA-' || upper(substr(replace(gen_random_uuid()::text, '-', ''), 1, 10)),
+    v_course.title || ' Sertifikası',
+    'issued',
+    encode(digest(v_user::text || p_course_id::text || now()::text, 'sha256'), 'hex'),
+    jsonb_build_object('source', 'mobile_course_completion')
+  )
+  returning * into v_certificate;
+
+  return jsonb_build_object(
+    'id', v_certificate.id,
+    'certificateNo', v_certificate.certificate_no,
+    'title', v_certificate.title,
+    'issuedAt', v_certificate.issued_at
+  );
+end;
+$$;
+
 create index if not exists idx_notifications_celebration_queue
 on public.notifications (user_id, is_read, created_at)
 where (metadata->>'celebration') = 'true';
@@ -1035,15 +1367,15 @@ declare
   t text;
 begin
   foreach t in array array[
-    'profiles','skills','interest_categories','learning_goals','learning_paths','learning_path_skills',
+    'profiles','skills','interest_categories','user_interests','learning_goals','learning_paths','learning_path_skills',
     'courses','course_skills','course_prerequisites','modules','lessons','lesson_content_blocks',
     'lesson_resources','glossary_terms','assessments','assessment_questions','assessment_options',
-    'labs','lab_parameters','lab_test_cases','badges','rewards','certificate_templates','plans',
+    'labs','lab_parameters','lab_test_cases','badges','rewards','certificate_templates','plans','user_subscriptions',
     'feature_flags','league_tiers','league_seasons','league_groups','season_rewards','content_reviews',
     'content_embeddings','user_stats','path_enrollments','course_enrollments','module_progress',
     'lesson_progress','daily_goals','study_sessions','assessment_attempts','lab_submissions','notes',
     'highlights','bookmarks','ai_mentor_conversations','ai_mentor_messages','ai_usage_ledger',
-    'recommendations','notifications','user_badges','certificates','league_participants',
+    'recommendations','notifications','user_badges','certificates','account_deletion_requests','ai_mentor_reports','league_participants',
     'league_point_events','league_snapshots','friendships','challenges'
   ] loop
     execute format('alter table public.%I enable row level security', t);
@@ -1051,8 +1383,79 @@ begin
 end;
 $$;
 
+do $$
+declare
+  p record;
+begin
+  for p in
+    select * from (values
+      ('skills','public catalog select'),
+      ('interest_categories','public interest select'),
+      ('user_interests','own interests'),
+      ('learning_goals','public goals select'),
+      ('learning_paths','public paths select'),
+      ('learning_path_skills','public path skills select'),
+      ('courses','public courses select'),
+      ('course_skills','public course skills select'),
+      ('course_prerequisites','public prerequisites select'),
+      ('modules','public modules select'),
+      ('lessons','public lessons select'),
+      ('lesson_content_blocks','public lesson blocks select'),
+      ('lesson_resources','public lesson resources select'),
+      ('glossary_terms','public glossary select'),
+      ('assessments','public assessments select'),
+      ('assessment_questions','public questions select'),
+      ('assessment_options','public options select'),
+      ('labs','public labs select'),
+      ('lab_parameters','public lab params select'),
+      ('lab_test_cases','public lab cases select'),
+      ('badges','public badges select'),
+      ('rewards','public rewards select'),
+      ('certificate_templates','public templates select'),
+      ('plans','public plans select'),
+      ('user_subscriptions','own subscriptions select'),
+      ('feature_flags','public feature flags select'),
+      ('league_tiers','public league tiers select'),
+      ('league_seasons','public seasons select'),
+      ('league_groups','public groups select'),
+      ('season_rewards','public season rewards select'),
+      ('league_participants','public leaderboard select'),
+      ('league_snapshots','public snapshots select'),
+      ('profiles','own profile select'),
+      ('profiles','own profile update'),
+      ('user_stats','own stats select'),
+      ('path_enrollments','own path enrollments'),
+      ('course_enrollments','own course enrollments'),
+      ('module_progress','own module progress'),
+      ('lesson_progress','own lesson progress'),
+      ('daily_goals','own daily goals'),
+      ('study_sessions','own study sessions'),
+      ('assessment_attempts','own attempts'),
+      ('lab_submissions','own lab submissions'),
+      ('notes','own notes'),
+      ('highlights','own highlights'),
+      ('bookmarks','own bookmarks'),
+      ('ai_mentor_conversations','own mentor conversations'),
+      ('ai_mentor_messages','own mentor messages'),
+      ('ai_usage_ledger','own ai usage'),
+      ('ai_mentor_reports','own mentor reports'),
+      ('recommendations','own recommendations'),
+      ('notifications','own notifications'),
+      ('user_badges','own badges'),
+      ('certificates','own certificates'),
+      ('account_deletion_requests','own deletion requests'),
+      ('friendships','friendships visible'),
+      ('challenges','challenges visible')
+    ) as policies(table_name, policy_name)
+  loop
+    execute format('drop policy if exists %I on public.%I', p.policy_name, p.table_name);
+  end loop;
+end;
+$$;
+
 create policy "public catalog select" on public.skills for select using (true);
 create policy "public interest select" on public.interest_categories for select using (true);
+create policy "own interests" on public.user_interests for all using (user_id = auth.uid()) with check (user_id = auth.uid());
 create policy "public goals select" on public.learning_goals for select using (true);
 create policy "public paths select" on public.learning_paths for select using (true);
 create policy "public path skills select" on public.learning_path_skills for select using (true);
@@ -1074,6 +1477,7 @@ create policy "public badges select" on public.badges for select using (true);
 create policy "public rewards select" on public.rewards for select using (true);
 create policy "public templates select" on public.certificate_templates for select using (true);
 create policy "public plans select" on public.plans for select using (true);
+create policy "own subscriptions select" on public.user_subscriptions for select using (user_id = auth.uid());
 create policy "public feature flags select" on public.feature_flags for select using (true);
 create policy "public league tiers select" on public.league_tiers for select using (true);
 create policy "public seasons select" on public.league_seasons for select using (true);
@@ -1100,10 +1504,12 @@ create policy "own bookmarks" on public.bookmarks for all using (user_id = auth.
 create policy "own mentor conversations" on public.ai_mentor_conversations for all using (user_id = auth.uid()) with check (user_id = auth.uid());
 create policy "own mentor messages" on public.ai_mentor_messages for all using (user_id = auth.uid() or user_id is null) with check (user_id = auth.uid() or user_id is null);
 create policy "own ai usage" on public.ai_usage_ledger for select using (user_id = auth.uid());
+create policy "own mentor reports" on public.ai_mentor_reports for select using (user_id = auth.uid());
 create policy "own recommendations" on public.recommendations for all using (user_id = auth.uid()) with check (user_id = auth.uid());
 create policy "own notifications" on public.notifications for all using (user_id = auth.uid()) with check (user_id = auth.uid());
 create policy "own badges" on public.user_badges for select using (user_id = auth.uid());
 create policy "own certificates" on public.certificates for select using (user_id = auth.uid());
+create policy "own deletion requests" on public.account_deletion_requests for select using (user_id = auth.uid());
 create policy "friendships visible" on public.friendships for all using (requester_id = auth.uid() or addressee_id = auth.uid()) with check (requester_id = auth.uid() or addressee_id = auth.uid());
 create policy "challenges visible" on public.challenges for all using (challenger_id = auth.uid() or opponent_id = auth.uid()) with check (challenger_id = auth.uid() or opponent_id = auth.uid());
 
@@ -1119,7 +1525,14 @@ grant select (id, lesson_id, slug, title, description, language, starter_code, r
 grant select on public.v_labs_safe to anon, authenticated;
 
 grant execute on function public.submit_placement_assessment(uuid, integer, integer) to authenticated;
+grant execute on function public.submit_placement(integer, integer) to authenticated;
+grant execute on function public.save_interests(text[]) to authenticated;
 grant execute on function public.mark_lesson_progress(uuid, numeric) to authenticated;
+grant execute on function public.submit_quiz_answer(uuid, uuid) to authenticated;
+grant execute on function public.save_note(uuid, text, text) to authenticated;
+grant execute on function public.toggle_bookmark(text, uuid) to authenticated;
+grant execute on function public.submit_lab_submission(uuid, jsonb, text, integer, integer) to authenticated;
+grant execute on function public.issue_certificate(uuid) to authenticated;
 grant execute on function public.enqueue_celebration_notification(text, text, text, text, uuid, text, text, text, jsonb) to authenticated;
 grant execute on function public.mark_notification_read(uuid) to authenticated;
 

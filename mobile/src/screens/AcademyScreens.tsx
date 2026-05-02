@@ -1,5 +1,6 @@
 import { router, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
+import * as Linking from 'expo-linking';
 import type { ComponentType } from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Image, Modal, Platform, Pressable, StyleSheet, Text, TextInput, useWindowDimensions, View, type ImageSourcePropType } from 'react-native';
@@ -17,7 +18,9 @@ import {
   ChevronRight,
   CircleHelp,
   Clock3,
+  CreditCard,
   Download,
+  ExternalLink,
   Flame,
   FileText,
   Globe2,
@@ -43,6 +46,7 @@ import {
   Target,
   TrendingUp,
   Trophy,
+  Trash2,
   User,
   Zap,
 } from 'lucide-react-native';
@@ -79,6 +83,7 @@ import {
   countCorrectPlacementAnswers,
   createEmptyLessonFlowState,
   formatLabResultMessage,
+  getLessonSequenceStatus,
   getNextLessonInSequence,
   getPlacementStepLabel,
   getQuizResultMessage,
@@ -125,7 +130,15 @@ import {
   type PathCard,
   type QuizQuestion,
 } from '../lib/academyApi';
-import { askMentor } from '../lib/mentor';
+import { askMentor, reportMentorMessage, type MentorReply } from '../lib/mentor';
+import { requestAccountDeletion } from '../lib/compliance';
+import {
+  getSubscriptionStatus,
+  openSubscriptionManagement,
+  presentRevenueCatPaywall,
+  restoreRevenueCatPurchases,
+  type SubscriptionStatus,
+} from '../lib/subscription';
 import { buildDiceBearAvatarUrl, defaultAvatarConfig, getSavedAvatarConfig, type AvatarConfig } from '../lib/avatar';
 import { academyBadges, type AcademyBadge } from '../lib/badges';
 import {
@@ -187,6 +200,16 @@ const leagueAvatarPresets: Partial<AvatarConfig>[] = [
   { top: 'bun', hairColor: 'a55728', clothing: 'shirtCrewNeck', clothesColor: 'ffffff', skinColor: 'edb98a', mouth: 'default', eyes: 'happy', eyebrows: 'default', accessories: 'prescription01', preset: 'energetic' },
   { top: 'shaggy', hairColor: '262e33', clothing: 'graphicShirt', clothesColor: 'ff5c5c', skinColor: 'd08b5b', mouth: 'serious', eyes: 'default', eyebrows: 'defaultNatural', accessories: 'none', preset: 'classic' },
 ];
+const quizOptionLabels = ['A', 'B', 'C', 'D', 'E'];
+const publicSiteUrl = process.env.EXPO_PUBLIC_PUBLIC_SITE_URL ?? 'https://aiengineeringacademy.app';
+
+function getPublicPolicyUrl(path: string) {
+  return Platform.OS === 'web' ? path : `${publicSiteUrl}${path}`;
+}
+
+async function openPublicPolicy(path: string) {
+  await Linking.openURL(getPublicPolicyUrl(path));
+}
 
 function useAsyncData<T>(loader: () => Promise<T>, initialValue: T) {
   const [data, setData] = useState<T>(initialValue);
@@ -566,7 +589,7 @@ export function CourseDetailScreen() {
   const { data: paths } = useAsyncData<PathCard[]>(getLearningPaths, []);
   const { data: courses, error: courseError } = useAsyncData<CourseCard[]>(getCourseCatalog, []);
   const { data: allLessons, error: lessonsError } = useAsyncData<LessonCard[]>(getLessons, []);
-  const { data: lessonFlowState } = useAsyncData<LessonFlowState>(getLessonFlowState, createEmptyLessonFlowState());
+  const { data: lessonFlowState, setData: setLessonFlowState } = useAsyncData<LessonFlowState>(getLessonFlowState, createEmptyLessonFlowState());
   const featuredCourse = courses[0] ?? {
     title: 'Neural Networks 101',
     subtitle: 'Yapay sinir aglarinin temelleri',
@@ -602,8 +625,7 @@ export function CourseDetailScreen() {
   const lessonStatusSequence = allLessons.filter((lesson) => lesson.courseSlug && statusCourseSlugs.has(lesson.courseSlug));
   const completedLessonSlugs = new Set(lessonFlowState.completedLessonSlugs);
   const getVisibleLessonStatus = (lesson: LessonCard): LessonCard['status'] => {
-    if (completedLessonSlugs.has(lesson.slug)) return 'done';
-    return isLessonUnlocked(lessonStatusSequence.length ? lessonStatusSequence : visibleLessons, lesson.slug, completedLessonSlugs) ? 'active' : 'locked';
+    return getLessonSequenceStatus(lessonStatusSequence.length ? lessonStatusSequence : visibleLessons, lesson.slug, completedLessonSlugs);
   };
   const visibleCompletedCount = visibleLessons.filter((lesson) => completedLessonSlugs.has(lesson.slug)).length;
   const pathProgress = visibleLessons.length ? calculateProgressPercent(visibleCompletedCount, visibleLessons.length) : selectedCourse.progress;
@@ -623,6 +645,20 @@ export function CourseDetailScreen() {
   const lessonGroupSlugsKey = lessonGroups.map((group) => group.course.slug).join('|');
   const firstLessonGroupSlug = lessonGroups[0]?.course.slug ?? '';
   const [expandedCourseSlugs, setExpandedCourseSlugs] = useState<string[]>([]);
+
+  useFocusEffect(
+    useCallback(() => {
+      let mounted = true;
+      getLessonFlowState()
+        .then((nextState) => {
+          if (mounted) setLessonFlowState(nextState);
+        })
+        .catch(() => undefined);
+      return () => {
+        mounted = false;
+      };
+    }, [setLessonFlowState])
+  );
 
   useEffect(() => {
     if (!firstLessonGroupSlug) return;
@@ -1178,8 +1214,6 @@ function LessonQuizPanel({
         </View>
         <Text style={styles.stepKicker}>Ders Sonu Quiz</Text>
       </View>
-      <Text style={styles.learningStepTitle}>{quiz.title}</Text>
-      <Text style={styles.learningStepBody}>Sonraki derse geçmek için 5 sorudan en az 4 tanesini doğru cevaplamalısın.</Text>
       <View style={styles.quizProgressRow}>
         <Text style={styles.quizProgressText}>Soru {currentQuestionIndex + 1} / {quiz.questions.length}</Text>
         <Text style={styles.quizProgressText}>{answeredCount} cevaplandı</Text>
@@ -1205,13 +1239,22 @@ function LessonQuizPanel({
                 onPress={() => {
                   if (!quizResult) onSelectAnswer(currentQuestion.id, optionIndex);
                 }}
-                style={[
+                style={({ pressed }) => [
                   styles.lessonQuizOption,
+                  pressed && !quizResult && styles.lessonQuizOptionPressed,
                   selected && styles.lessonQuizOptionSelected,
                   checked && correct && styles.lessonQuizOptionCorrect,
                   wrongSelection && styles.lessonQuizOptionWrong,
                 ]}
               >
+                <Text style={[
+                  styles.lessonQuizOptionLabel,
+                  selected && styles.lessonQuizOptionLabelSelected,
+                  checked && correct && styles.lessonQuizOptionLabelCorrect,
+                  wrongSelection && styles.lessonQuizOptionLabelWrong,
+                ]}>
+                  {quizOptionLabels[optionIndex] ?? String(optionIndex + 1)})
+                </Text>
                 <Text style={[
                   styles.lessonQuizOptionText,
                   selected && styles.lessonQuizOptionTextSelected,
@@ -1316,16 +1359,17 @@ export function LessonPlayerScreen() {
     const nextState = await saveLessonQuizResult(selectedLesson.slug, result);
     setLessonFlowState(nextState);
     if (result.passed) {
-      await updateLessonProgress(selectedLesson.id, 100);
-      const eventType = nextLesson ? 'lesson_completed' : 'course_completed';
-      await celebrate({
-        type: eventType,
-        title: nextLesson ? 'Ders tamamlandı' : 'Kurs tamamlandı',
-        body: `${selectedLesson.title} akışını %${result.scorePercent} quiz başarısıyla tamamladın.`,
-        assetKey: 'achievement',
-        dedupeKey: `${eventType}-${selectedLesson.slug}-${result.submittedAt}`,
-        targetRoute: nextLesson ? `/lesson-player?lesson=${encodeURIComponent(nextLesson.slug)}` : '/paths',
-      });
+      updateLessonProgress(selectedLesson.id, 100).catch(() => undefined);
+      if (!nextLesson) {
+        await celebrate({
+          type: 'course_completed',
+          title: 'Kurs tamamlandı',
+          body: `${selectedLesson.title} akışını %${result.scorePercent} quiz başarısıyla tamamladın.`,
+          assetKey: 'achievement',
+          dedupeKey: `course-completed-${selectedLesson.slug}-${result.submittedAt}`,
+          targetRoute: '/paths',
+        });
+      }
     }
   }
 
@@ -1481,7 +1525,6 @@ export function ReadingScreen() {
 
 export function LabScreen() {
   useTheme();
-  const { celebrate } = useCelebrations();
   const params = useLocalSearchParams<{ lab?: string; lesson?: string }>();
   const selectedLabSlug = firstParam(params.lab);
   const selectedLessonSlug = firstParam(params.lesson);
@@ -1549,14 +1592,6 @@ export function LabScreen() {
         <PrimaryButton title="Calistir" onPress={async () => {
           const submitted = await submitLab(lab.id, values);
           setLabMessage(formatLabResultMessage(submitted));
-          await celebrate({
-            type: 'lab_completed',
-            title: 'Lab tamamlandı',
-            body: `${lab.title} uygulamasını başarıyla çalıştırdın.`,
-            assetKey: 'achievement',
-            dedupeKey: `lab-completed-${lab.id ?? selectedLabSlug ?? lab.title}`,
-            targetRoute: selectedLessonSlug ? `/lesson-player?lesson=${encodeURIComponent(selectedLessonSlug)}` : '/paths',
-          });
         }} icon={<Play size={18} color={colors.surface} />} style={styles.rowButton} />
       </View>
       {labMessage ? (
@@ -1579,7 +1614,6 @@ export function LabScreen() {
 
 export function QuizScreen() {
   useTheme();
-  const { celebrate } = useCelebrations();
   const [selected, setSelected] = useState(1);
   const [quizMessage, setQuizMessage] = useState<string | null>(null);
   const { data: quiz, error } = useAsyncData<QuizQuestion>(getQuizQuestion, {
@@ -1611,17 +1645,6 @@ export function QuizScreen() {
           }
           const result = await submitQuizAnswer(quiz.id, quiz.optionIds?.[selected]);
           setQuizMessage(getQuizResultMessage(result));
-          if (result.isCorrect) {
-            await celebrate({
-              type: 'quiz_correct',
-              title: 'Quiz doğru cevaplandı',
-              body: 'Doğru cevapla XP ilerlemesine katkı sağladın.',
-              assetKey: 'quiz-champion',
-              badgeSlug: 'quiz-champion',
-              dedupeKey: `quiz-correct-${quiz.id ?? quiz.title}`,
-              targetRoute: '/progress',
-            });
-          }
         }} style={styles.rowButton} />
       </View>
     </Screen>
@@ -1669,13 +1692,15 @@ export function MentorScreen() {
   useTheme();
   const { session } = useAuth();
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState([
+  const [conversationId, setConversationId] = useState<string | undefined>();
+  const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; text: string; messageId?: string; conversationId?: string; reported?: boolean }[]>([
     { role: 'user', text: 'Backpropagation neden onemlidir?' },
-    { role: 'assistant', text: 'Backpropagation, hatayi agin cikisindan girisine dogru geri yayarak her katmandaki agirliklarin nasil guncellenecegini hesaplar.' },
-    { role: 'assistant', text: 'Bu sayede model, hatayi azaltacak yonde ogrenir ve daha dogru tahminler yapmayi ogrenir.' },
+    { role: 'assistant', text: 'Backpropagation, hatayi agin cikisindan girisine dogru geri yayarak her katmandaki agirliklarin nasil guncellenecegini hesaplar.', messageId: 'local:seed-1' },
+    { role: 'assistant', text: 'Bu sayede model, hatayi azaltacak yonde ogrenir ve daha dogru tahminler yapmayi ogrenir.', messageId: 'local:seed-2' },
   ]);
   const [loading, setLoading] = useState(false);
   const [mentorError, setMentorError] = useState<string | null>(null);
+  const [quota, setQuota] = useState<MentorReply['quota']>();
 
   async function sendMessage(text = input) {
     if (!text.trim() || loading) return;
@@ -1684,12 +1709,39 @@ export function MentorScreen() {
     setLoading(true);
     try {
       setMentorError(null);
-      const answer = await askMentor(text, session?.access_token);
-      setMessages((current) => [...current, { role: 'assistant', text: answer }]);
+      const reply = await askMentor(text, session?.access_token, { conversationId });
+      if (reply.conversationId) setConversationId(reply.conversationId);
+      if (reply.quota) setQuota(reply.quota);
+      if (reply.entitlementRequired) {
+        setMentorError(reply.answer);
+        router.push('/paywall?source=mentor');
+        return;
+      }
+      setMessages((current) => [...current, {
+        role: 'assistant',
+        text: reply.answer,
+        messageId: reply.messageId,
+        conversationId: reply.conversationId,
+      }]);
     } catch (nextError) {
       setMentorError(formatAcademyError(nextError));
     } finally {
       setLoading(false);
+    }
+  }
+
+  async function reportMessage(messageIndex: number) {
+    const message = messages[messageIndex];
+    if (!message || message.role !== 'assistant' || message.reported) return;
+    try {
+      await reportMentorMessage({
+        messageId: message.messageId,
+        conversationId: message.conversationId ?? conversationId,
+        reason: 'offensive_or_incorrect',
+      }, session?.access_token);
+      setMessages((current) => current.map((item, index) => index === messageIndex ? { ...item, reported: true } : item));
+    } catch (nextError) {
+      setMentorError(formatAcademyError(nextError));
     }
   }
 
@@ -1698,9 +1750,21 @@ export function MentorScreen() {
       <Header title="AI Mentor" subtitle="Ders yardimcin" back right={<Bot size={24} color={colors.primary} />} />
       <View style={styles.chatArea}>
         {mentorError ? <Text style={styles.errorText}>{mentorError}</Text> : null}
+        {quota ? (
+          <View style={styles.mentorQuotaPill}>
+            <Text style={styles.mentorQuotaText}>
+              {quota.isPro ? 'Pro mentor' : 'Free mentor'} • {Math.min(quota.usedMessages + 1, quota.messageLimit)} / {quota.messageLimit} mesaj
+            </Text>
+          </View>
+        ) : null}
         {messages.map((message, index) => (
           <View key={`${message.role}-${index}`} style={[styles.messageBubble, message.role === 'user' && styles.userBubble]}>
             <Text style={[styles.messageText, message.role === 'user' && styles.userMessageText]}>{message.text}</Text>
+            {message.role === 'assistant' ? (
+              <Pressable accessibilityRole="button" onPress={() => reportMessage(index)} style={({ pressed }) => [styles.reportMentorButton, pressed && styles.pressed]}>
+                <Text style={styles.reportMentorText}>{message.reported ? 'Raporlandı' : 'Rapor et'}</Text>
+              </Pressable>
+            ) : null}
           </View>
         ))}
       </View>
@@ -1715,6 +1779,168 @@ export function MentorScreen() {
           <Send size={22} color={colors.surface} />
         </Pressable>
       </View>
+    </Screen>
+  );
+}
+
+export function PaywallScreen() {
+  useTheme();
+  const { user } = useAuth();
+  const [status, setStatus] = useState<SubscriptionStatus | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  const refreshStatus = useCallback(async () => {
+    const nextStatus = await getSubscriptionStatus(user?.id);
+    setStatus(nextStatus);
+  }, [user?.id]);
+
+  useEffect(() => {
+    refreshStatus().catch(() => undefined);
+  }, [refreshStatus]);
+
+  async function startPurchase() {
+    setLoading(true);
+    setMessage(null);
+    try {
+      const result = await presentRevenueCatPaywall(user?.id);
+      const nextStatus = await getSubscriptionStatus(user?.id);
+      setStatus(nextStatus);
+      if (nextStatus.isPro) {
+        router.push('/purchase-success');
+      } else if (result.presented) {
+        setMessage('Satın alma tamamlanmadı. Aboneliği tekrar deneyebilir veya satın almayı geri yükleyebilirsin.');
+      } else {
+        setMessage('RevenueCat paywall Expo Go içinde önizleme modunda. Gerçek satın alma için development build gerekiyor.');
+      }
+    } catch (nextError) {
+      setMessage(formatAcademyError(nextError));
+      router.push('/purchase-error');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <Screen>
+      <Header title="AI Academy Pro" subtitle="Tüm öğrenme yolunu aç" back right={<CreditCard size={24} color={colors.primary} />} />
+      <LinearGradient colors={['#111111', '#191c20', '#0f1419']} style={styles.paywallHero}>
+        <Text style={styles.paywallKicker}>PRO</Text>
+        <Text style={styles.paywallTitle}>AI mentor, tüm mini lablar ve sertifikalar</Text>
+        <Text style={styles.paywallSubtitle}>Reklamsız, odaklı ve ders bağlamında ilerleyen AI mühendisliği öğrenme deneyimi.</Text>
+      </LinearGradient>
+      <View style={styles.paywallFeatureStack}>
+        {[
+          ['Tüm kurslar', '14 kurs ve 126 dersin tamamına erişim'],
+          ['Uygulamalı lab', 'Mini lab denemeleri ve kontrollü kod çalıştırma'],
+          ['AI mentor', status?.isPro ? 'Pro mentor aktif' : 'Ücretsiz kotadan yüksek Pro kota'],
+          ['Sertifika', 'Kurs bitirme sertifikası ve doğrulama bilgisi'],
+        ].map(([title, subtitle]) => (
+          <Card key={title} style={styles.paywallFeatureCard}>
+            <ShieldCheck size={22} color={colors.green} />
+            <View style={styles.paywallFeatureCopy}>
+              <Text style={styles.paywallFeatureTitle}>{title}</Text>
+              <Text style={styles.paywallFeatureSubtitle}>{subtitle}</Text>
+            </View>
+          </Card>
+        ))}
+      </View>
+      {message ? <Text style={message.includes('önizleme') ? styles.successText : styles.errorText}>{message}</Text> : null}
+      <PrimaryButton title={loading ? 'Açılıyor' : status?.isPro ? 'Pro Aktif' : 'Pro ile Devam Et'} onPress={loading || status?.isPro ? undefined : startPurchase} icon={<ChevronRight size={24} color={colors.surface} strokeWidth={3} />} />
+      <OutlineButton title="Satın alımı geri yükle" onPress={async () => {
+        setLoading(true);
+        try {
+          await restoreRevenueCatPurchases(user?.id);
+          await refreshStatus();
+          setMessage('Satın alımlar kontrol edildi.');
+        } catch (nextError) {
+          setMessage(formatAcademyError(nextError));
+        } finally {
+          setLoading(false);
+        }
+      }} />
+    </Screen>
+  );
+}
+
+export function SubscriptionSettingsScreen() {
+  useTheme();
+  const { user } = useAuth();
+  const [status, setStatus] = useState<SubscriptionStatus | null>(null);
+  const [message, setMessage] = useState<string | null>(null);
+
+  useFocusEffect(
+    useCallback(() => {
+      let mounted = true;
+      getSubscriptionStatus(user?.id)
+        .then((nextStatus) => {
+          if (mounted) setStatus(nextStatus);
+        })
+        .catch((nextError) => {
+          if (mounted) setMessage(formatAcademyError(nextError));
+        });
+      return () => {
+        mounted = false;
+      };
+    }, [user?.id])
+  );
+
+  return (
+    <Screen>
+      <Header title="Abonelik" subtitle="AI Academy Pro" back backFallback="/profile" right={<CreditCard size={24} color={colors.primary} />} />
+      <Card style={styles.subscriptionStatusCard}>
+        <View style={styles.subscriptionStatusIcon}>
+          <CreditCard size={26} color={status?.isPro ? colors.green : colors.primary} />
+        </View>
+        <View style={styles.subscriptionStatusCopy}>
+          <Text style={styles.subscriptionStatusTitle}>{status?.isPro ? 'Pro aktif' : 'Free plan'}</Text>
+          <Text style={styles.subscriptionStatusSubtitle}>
+            {status?.isPro ? `Kaynak: ${status.source}${status.expiresAt ? ` • ${new Date(status.expiresAt).toLocaleDateString('tr-TR')}` : ''}` : 'Tüm kurslar, yüksek mentor kotası ve sertifika için Pro planı aç.'}
+          </Text>
+        </View>
+      </Card>
+      {message ? <Text style={styles.successText}>{message}</Text> : null}
+      <PrimaryButton title={status?.isPro ? 'Paywallı Gör' : 'Pro Planı Aç'} onPress={() => router.push('/paywall')} icon={<ChevronRight size={24} color={colors.surface} strokeWidth={3} />} />
+      <OutlineButton title="Satın alımı geri yükle" onPress={async () => {
+        try {
+          await restoreRevenueCatPurchases(user?.id);
+          setStatus(await getSubscriptionStatus(user?.id));
+          setMessage('Satın alımlar kontrol edildi.');
+        } catch (nextError) {
+          setMessage(formatAcademyError(nextError));
+        }
+      }} icon={<RotateCcw size={18} color={colors.primary} />} />
+      <OutlineButton title="Play Store aboneliklerini yönet" onPress={openSubscriptionManagement} icon={<ExternalLink size={18} color={colors.primary} />} />
+    </Screen>
+  );
+}
+
+export function PurchaseSuccessScreen() {
+  useTheme();
+  return (
+    <Screen>
+      <Header title="Pro Aktif" subtitle="Satın alma tamamlandı" back backFallback="/dashboard" />
+      <Card style={styles.purchaseResultCard}>
+        <ShieldCheck size={42} color={colors.green} />
+        <Text style={styles.purchaseResultTitle}>AI Academy Pro hazır</Text>
+        <Text style={styles.purchaseResultText}>Tüm kurslar, mini lablar, yüksek AI mentor kotası ve sertifika akışı hesabına bağlandı.</Text>
+      </Card>
+      <PrimaryButton title="Öğrenmeye Devam Et" onPress={() => router.replace('/dashboard')} icon={<ChevronRight size={24} color={colors.surface} strokeWidth={3} />} />
+    </Screen>
+  );
+}
+
+export function PurchaseErrorScreen() {
+  useTheme();
+  return (
+    <Screen>
+      <Header title="Satın Alma" subtitle="İşlem tamamlanamadı" back backFallback="/paywall" />
+      <Card style={styles.purchaseResultCard}>
+        <CircleHelp size={42} color={colors.amber} />
+        <Text style={styles.purchaseResultTitle}>Satın alma doğrulanamadı</Text>
+        <Text style={styles.purchaseResultText}>Bağlantıyı, Play Store test hesabını veya RevenueCat yapılandırmasını kontrol edip tekrar deneyebilirsin.</Text>
+      </Card>
+      <PrimaryButton title="Tekrar Dene" onPress={() => router.replace('/paywall')} icon={<ChevronRight size={24} color={colors.surface} strokeWidth={3} />} />
     </Screen>
   );
 }
@@ -1814,13 +2040,16 @@ export function ProgressScreen() {
 }
 
 export function ProfileScreen() {
-  const { user, signOut } = useAuth();
+  const { user, session, signOut } = useAuth();
   const { preference, setPreference, themeName } = useThemePreference();
   const { refreshCelebrations } = useCelebrations();
   const displayName = getDisplayName(user);
   const profileInitial = displayName.trim().charAt(0).toLocaleUpperCase('tr-TR') || 'A';
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [themeModalVisible, setThemeModalVisible] = useState(false);
+  const [deletionModalVisible, setDeletionModalVisible] = useState(false);
+  const [deletionLoading, setDeletionLoading] = useState(false);
+  const [deletionMessage, setDeletionMessage] = useState<string | null>(null);
   const themeLabel = getThemePreferenceLabel(preference);
   const profileStats = [
     { icon: BookOpen, value: '24', label: 'Ders', sublabel: 'Tamamlanan', tone: colors.primary, softTone: colors.primarySoft },
@@ -1830,12 +2059,32 @@ export function ProfileScreen() {
   const profileBadges = academyBadges.filter((badge) => badge.earned).slice(0, 3);
   const settingsItems = [
     { title: 'Avatar Oluştur', icon: User, onPress: () => router.push('/avatar') },
+    { title: 'Abonelik', icon: CreditCard, value: 'AI Academy Pro', onPress: () => router.push('/subscription-settings') },
     { title: 'Tema', icon: preference === 'system' ? Monitor : themeName === 'dark' ? Moon : Sun, value: themeLabel, onPress: () => setThemeModalVisible(true) },
     { title: 'Bildirimler', icon: FileText },
     { title: 'Dil', icon: Globe2 },
-    { title: 'Gizlilik', icon: Lock },
+    { title: 'Gizlilik Politikası', icon: Lock, onPress: () => openPublicPolicy('/privacy.html') },
+    { title: 'Kullanım Şartları', icon: FileText, onPress: () => openPublicPolicy('/terms.html') },
+    { title: 'Hesabımı Sil', icon: Trash2, onPress: () => setDeletionModalVisible(true) },
     { title: 'Destek', icon: Headphones },
   ];
+
+  async function submitDeletionRequest(reason?: string) {
+    setDeletionLoading(true);
+    setDeletionMessage(null);
+    try {
+      await requestAccountDeletion({
+        email: user?.email,
+        reason,
+        requestedFrom: 'mobile',
+      }, session?.access_token);
+      setDeletionMessage('Silme talebin alındı. Destek ekibi hesabın ve ilişkili veriler için süreci başlatacak.');
+    } catch (nextError) {
+      setDeletionMessage(formatAcademyError(nextError));
+    } finally {
+      setDeletionLoading(false);
+    }
+  }
 
   useFocusEffect(
     useCallback(() => {
@@ -1907,6 +2156,14 @@ export function ProfileScreen() {
         resolvedTheme={themeName}
         onClose={() => setThemeModalVisible(false)}
         onSelect={setPreference}
+      />
+      <AccountDeletionModal
+        visible={deletionModalVisible}
+        loading={deletionLoading}
+        message={deletionMessage}
+        email={user?.email}
+        onClose={() => setDeletionModalVisible(false)}
+        onSubmit={submitDeletionRequest}
       />
     </Screen>
   );
@@ -2093,6 +2350,64 @@ function ThemePreferenceModal({
                 </Pressable>
               );
             })}
+          </View>
+        </View>
+      </View>
+    </Modal>
+  );
+}
+
+function AccountDeletionModal({
+  visible,
+  loading,
+  message,
+  email,
+  onClose,
+  onSubmit,
+}: {
+  visible: boolean;
+  loading: boolean;
+  message: string | null;
+  email?: string;
+  onClose: () => void;
+  onSubmit: (reason?: string) => Promise<void>;
+}) {
+  const [reason, setReason] = useState('');
+
+  return (
+    <Modal transparent animationType="fade" visible={visible} onRequestClose={onClose}>
+      <View style={styles.themeModalBackdrop}>
+        <Pressable accessibilityRole="button" accessibilityLabel="Hesap silme penceresini kapat" onPress={onClose} style={StyleSheet.absoluteFill} />
+        <View style={styles.themeModalCard}>
+          <View style={styles.themeModalHeader}>
+            <View>
+              <Text style={styles.themeModalTitle}>Hesabımı Sil</Text>
+              <Text style={styles.themeModalSubtitle}>{email ?? 'Hesap'} için silme talebi oluşturulur</Text>
+            </View>
+            <Pressable accessibilityRole="button" onPress={onClose} style={({ pressed }) => [styles.themeModalClose, pressed && styles.pressed]}>
+              <ChevronRight size={24} color={colors.ink} strokeWidth={2.7} />
+            </Pressable>
+          </View>
+          <Text style={styles.deletionBody}>
+            Talep alındığında hesap, ilerleme, notlar, mentor konuşmaları ve ilişkili öğrenme verileri için silme süreci başlatılır. Aboneliğin varsa Play Store üzerinden ayrıca iptal etmen gerekir.
+          </Text>
+          <TextInput
+            value={reason}
+            onChangeText={setReason}
+            placeholder="İsteğe bağlı açıklama"
+            placeholderTextColor={colors.muted}
+            style={styles.deletionInput}
+            multiline
+          />
+          {message ? <Text style={message.includes('alındı') ? styles.successText : styles.errorText}>{message}</Text> : null}
+          <View style={styles.deletionActions}>
+            <OutlineButton title="Vazgeç" onPress={onClose} style={styles.deletionActionButton} />
+            <PrimaryButton
+              title={loading ? 'Gönderiliyor' : 'Talep Oluştur'}
+              onPress={loading ? undefined : () => onSubmit(reason)}
+              icon={<Trash2 size={18} color={colors.surface} />}
+              style={styles.deletionActionButton}
+            />
           </View>
         </View>
       </View>
@@ -4986,8 +5301,14 @@ function createStyles(themeColors: ThemeColors) {
     borderRadius: radius.md,
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.sm,
-    justifyContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
     backgroundColor: colors.surface,
+  },
+  lessonQuizOptionPressed: {
+    opacity: 0.86,
+    transform: [{ scale: 0.985 }],
   },
   lessonQuizOptionSelected: {
     borderColor: colors.primary,
@@ -5002,10 +5323,27 @@ function createStyles(themeColors: ThemeColors) {
     backgroundColor: colors.redSoft,
   },
   lessonQuizOptionText: {
+    flex: 1,
     color: colors.text,
     fontSize: 13,
     lineHeight: 19,
     fontWeight: '700',
+  },
+  lessonQuizOptionLabel: {
+    width: 28,
+    color: colors.ink,
+    fontSize: 14,
+    lineHeight: 20,
+    fontWeight: '900',
+  },
+  lessonQuizOptionLabelSelected: {
+    color: colors.primary,
+  },
+  lessonQuizOptionLabelCorrect: {
+    color: colors.green,
+  },
+  lessonQuizOptionLabelWrong: {
+    color: colors.red,
   },
   lessonQuizOptionTextSelected: {
     color: colors.ink,
@@ -5204,6 +5542,18 @@ function createStyles(themeColors: ThemeColors) {
     gap: spacing.md,
     paddingTop: spacing.lg,
   },
+  mentorQuotaPill: {
+    alignSelf: 'flex-start',
+    borderRadius: 999,
+    backgroundColor: colors.primarySoft,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.xs,
+  },
+  mentorQuotaText: {
+    color: colors.ink,
+    fontSize: 12,
+    fontWeight: '900',
+  },
   messageBubble: {
     maxWidth: '85%',
     padding: spacing.md,
@@ -5220,6 +5570,15 @@ function createStyles(themeColors: ThemeColors) {
   messageText: {
     color: colors.text,
     lineHeight: 20,
+  },
+  reportMentorButton: {
+    alignSelf: 'flex-start',
+    marginTop: spacing.sm,
+  },
+  reportMentorText: {
+    color: colors.muted,
+    fontSize: 12,
+    fontWeight: '900',
   },
   userMessageText: {
     color: colors.ink,
@@ -5253,6 +5612,102 @@ function createStyles(themeColors: ThemeColors) {
     backgroundColor: colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  paywallHero: {
+    borderRadius: radius.xl,
+    padding: spacing.xl,
+    gap: spacing.md,
+  },
+  paywallKicker: {
+    color: colors.green,
+    fontSize: 12,
+    letterSpacing: 0,
+    fontWeight: '900',
+  },
+  paywallTitle: {
+    color: colors.surface,
+    fontSize: 28,
+    lineHeight: 34,
+    fontWeight: '900',
+  },
+  paywallSubtitle: {
+    color: '#d6d8dc',
+    fontSize: 14,
+    lineHeight: 21,
+    fontWeight: '700',
+  },
+  paywallFeatureStack: {
+    gap: spacing.md,
+  },
+  paywallFeatureCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+    backgroundColor: colors.surfaceSoft,
+  },
+  paywallFeatureCopy: {
+    flex: 1,
+  },
+  paywallFeatureTitle: {
+    color: colors.ink,
+    fontSize: 16,
+    fontWeight: '900',
+  },
+  paywallFeatureSubtitle: {
+    color: colors.muted,
+    fontSize: 13,
+    lineHeight: 19,
+    fontWeight: '700',
+    marginTop: 3,
+  },
+  subscriptionStatusCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+    backgroundColor: colors.surfaceSoft,
+  },
+  subscriptionStatusIcon: {
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.line,
+  },
+  subscriptionStatusCopy: {
+    flex: 1,
+  },
+  subscriptionStatusTitle: {
+    color: colors.ink,
+    fontSize: 18,
+    fontWeight: '900',
+  },
+  subscriptionStatusSubtitle: {
+    color: colors.muted,
+    fontSize: 13,
+    lineHeight: 19,
+    fontWeight: '700',
+    marginTop: 4,
+  },
+  purchaseResultCard: {
+    alignItems: 'center',
+    gap: spacing.md,
+    backgroundColor: colors.surfaceSoft,
+  },
+  purchaseResultTitle: {
+    color: colors.ink,
+    fontSize: 22,
+    fontWeight: '900',
+    textAlign: 'center',
+  },
+  purchaseResultText: {
+    color: colors.muted,
+    fontSize: 14,
+    lineHeight: 21,
+    fontWeight: '700',
+    textAlign: 'center',
   },
   progressScreenContent: {
     paddingHorizontal: 18,
@@ -6181,6 +6636,32 @@ function createStyles(themeColors: ThemeColors) {
     backgroundColor: colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  deletionBody: {
+    color: colors.text,
+    fontSize: 14,
+    lineHeight: 21,
+    fontWeight: '700',
+  },
+  deletionInput: {
+    minHeight: 96,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: colors.line,
+    backgroundColor: colors.surfaceSoft,
+    padding: spacing.md,
+    color: colors.ink,
+    fontSize: 14,
+    lineHeight: 20,
+    fontWeight: '700',
+    textAlignVertical: 'top',
+  },
+  deletionActions: {
+    flexDirection: 'row',
+    gap: spacing.md,
+  },
+  deletionActionButton: {
+    flex: 1,
   },
   certificateTop: {
     backgroundColor: colors.primaryDark,

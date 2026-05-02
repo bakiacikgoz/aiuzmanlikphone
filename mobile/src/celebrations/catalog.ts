@@ -41,6 +41,8 @@ export type CelebrationArtwork = {
   primary: ImageSourcePropType;
   secondary?: ImageSourcePropType;
   accent: string;
+  kind: 'league' | 'badge' | 'course' | 'certificate' | 'level' | 'season' | 'generic';
+  kicker: string;
 };
 
 export function getCelebrationArtwork(event: CelebrationEvent): CelebrationArtwork {
@@ -49,6 +51,8 @@ export function getCelebrationArtwork(event: CelebrationEvent): CelebrationArtwo
       primary: leagueBadgeAssets[event.nextTier],
       secondary: event.previousTier ? leagueBadgeAssets[event.previousTier] : undefined,
       accent: tierAccents[event.nextTier],
+      kind: 'league',
+      kicker: event.type === 'league_promotion' ? 'Lig Yükseldi' : 'Lig Değişti',
     };
   }
 
@@ -57,6 +61,8 @@ export function getCelebrationArtwork(event: CelebrationEvent): CelebrationArtwo
     return {
       primary: badgeAssets[badgeKey],
       accent: '#d99a11',
+      kind: 'badge',
+      kicker: 'Rozet Kazanıldı',
     };
   }
 
@@ -65,12 +71,52 @@ export function getCelebrationArtwork(event: CelebrationEvent): CelebrationArtwo
     return {
       primary: leagueBadgeAssets[tierKey],
       accent: tierAccents[tierKey],
+      kind: 'league',
+      kicker: 'Lig Başarısı',
+    };
+  }
+
+  if (event.type === 'course_completed') {
+    return {
+      primary: genericAchievementAsset,
+      accent: '#35c77b',
+      kind: 'course',
+      kicker: 'Kurs Tamamlandı',
+    };
+  }
+
+  if (event.type === 'certificate_earned') {
+    return {
+      primary: genericAchievementAsset,
+      accent: '#5bb6e6',
+      kind: 'certificate',
+      kicker: 'Sertifika Kazanıldı',
+    };
+  }
+
+  if (event.type === 'level_assigned') {
+    return {
+      primary: genericAchievementAsset,
+      accent: '#f5a524',
+      kind: 'level',
+      kicker: 'Seviye Hazır',
+    };
+  }
+
+  if (event.type === 'season_reward') {
+    return {
+      primary: genericAchievementAsset,
+      accent: '#d99a11',
+      kind: 'season',
+      kicker: 'Sezon Ödülü',
     };
   }
 
   return {
     primary: genericAchievementAsset,
     accent: '#d99a11',
+    kind: 'generic',
+    kicker: 'Başarı Açıldı',
   };
 }
 

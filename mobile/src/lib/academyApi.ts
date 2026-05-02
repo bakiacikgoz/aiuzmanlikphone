@@ -356,6 +356,12 @@ export function formatAcademyError(error: unknown): string {
   if (message.includes('required secrets') || message.includes('DEEPSEEK')) {
     return 'AI Mentor icin Supabase DEEPSEEK_API_KEY secreti gerekli.';
   }
+  if (message.includes('mentor_quota_exceeded') || message.toLowerCase().includes('quota')) {
+    return 'AI Mentor kotan doldu. Pro ile devam edebilirsin.';
+  }
+  if (message.includes('rate_limited')) {
+    return 'Cok hizli mesaj gonderiyorsun. Kisa bir ara verip tekrar dene.';
+  }
   if (message.toLowerCase().includes('provider') || message.toLowerCase().includes('oauth') || message.toLowerCase().includes('google')) {
     return 'Google girisi icin Supabase Google provider yapilandirmasi gerekli.';
   }
@@ -710,7 +716,7 @@ export async function saveSelectedInterests(interests: string[]) {
 export async function updateLessonProgress(lessonId: string | undefined, progressPercent: number) {
   const { isSupabaseConfigured, supabase } = await getSupabaseClient();
   if (!isSupabaseConfigured || !lessonId) return { status: progressPercent >= 100 ? 'completed' : 'in_progress' };
-  const { data, error } = await supabase.rpc('update_lesson_progress', { p_lesson_id: lessonId, p_progress_percent: progressPercent });
+  const { data, error } = await supabase.rpc('mark_lesson_progress', { p_lesson_id: lessonId, p_progress_percent: progressPercent });
   if (error) throw error;
   return data;
 }

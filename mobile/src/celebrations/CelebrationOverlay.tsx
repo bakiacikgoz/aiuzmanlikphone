@@ -25,8 +25,10 @@ import {
   celebrationSparklesLottie,
   getCelebrationActionLabel,
   getCelebrationArtwork,
+  type CelebrationArtwork,
 } from './catalog';
 import type { CelebrationEvent } from './types';
+import { CertificateVisual, CourseHeroVisual, LevelBadgeVisual, SeasonRewardVisual } from '../components/AcademyVisuals';
 import { colors, radius, spacing } from '../theme';
 
 export function CelebrationOverlay({
@@ -102,18 +104,10 @@ export function CelebrationOverlay({
           </Pressable>
           <View style={[styles.kicker, { backgroundColor: `${artwork.accent}24` }]}>
             <Award size={17} color={artwork.accent} strokeWidth={2.7} />
-            <Text style={[styles.kickerText, { color: artwork.accent }]}>Başarı Açıldı</Text>
+            <Text style={[styles.kickerText, { color: artwork.accent }]}>{artwork.kicker}</Text>
           </View>
           <View style={styles.artStage}>
-            {showLeagueTransition ? (
-              <View style={styles.leagueTransition}>
-                <Image source={artwork.secondary} style={[styles.tierImage, styles.tierImagePrevious]} resizeMode="contain" />
-                <ChevronRight size={34} color={artwork.accent} strokeWidth={3} />
-                <Image source={artwork.primary} style={styles.tierImage} resizeMode="contain" />
-              </View>
-            ) : (
-              <Image source={artwork.primary} style={[styles.heroImage, compact && styles.heroImageCompact]} resizeMode="contain" />
-            )}
+            <CelebrationArtworkStage event={event} artwork={artwork} compact={compact} showLeagueTransition={showLeagueTransition} />
           </View>
           <Animated.View style={[styles.copyBlock, copyStyle]}>
             <Text style={styles.title}>{event.title}</Text>
@@ -130,6 +124,62 @@ export function CelebrationOverlay({
       </Animated.View>
     </Modal>
   );
+}
+
+function CelebrationArtworkStage({
+  event,
+  artwork,
+  compact,
+  showLeagueTransition,
+}: {
+  event: CelebrationEvent;
+  artwork: CelebrationArtwork;
+  compact: boolean;
+  showLeagueTransition: boolean;
+}) {
+  if (showLeagueTransition) {
+    return (
+      <View style={styles.leagueTransition}>
+        <Image source={artwork.secondary} style={[styles.tierImage, styles.tierImagePrevious]} resizeMode="contain" />
+        <ChevronRight size={34} color={artwork.accent} strokeWidth={3} />
+        <Image source={artwork.primary} style={styles.tierImage} resizeMode="contain" />
+      </View>
+    );
+  }
+
+  if (artwork.kind === 'course') {
+    return (
+      <View style={styles.embeddedVisual}>
+        <CourseHeroVisual height={compact ? 218 : 238} title="Kurs Tamamlandı" subtitle={event.title} metrics={['100%', 'Tamamlandı', 'Quiz geçti']} progress={100} />
+      </View>
+    );
+  }
+
+  if (artwork.kind === 'certificate') {
+    return (
+      <View style={styles.embeddedVisual}>
+        <CertificateVisual />
+      </View>
+    );
+  }
+
+  if (artwork.kind === 'level') {
+    return (
+      <View style={styles.embeddedVisual}>
+        <LevelBadgeVisual height={compact ? 214 : 236} />
+      </View>
+    );
+  }
+
+  if (artwork.kind === 'season') {
+    return (
+      <View style={styles.embeddedVisual}>
+        <SeasonRewardVisual height={compact ? 214 : 236} />
+      </View>
+    );
+  }
+
+  return <Image source={artwork.primary} style={[styles.heroImage, compact && styles.heroImageCompact]} resizeMode="contain" />;
 }
 
 function useReduceMotionPreference() {
@@ -224,6 +274,9 @@ const styles = StyleSheet.create({
   heroImageCompact: {
     width: 230,
     height: 230,
+  },
+  embeddedVisual: {
+    width: '100%',
   },
   leagueTransition: {
     width: '100%',

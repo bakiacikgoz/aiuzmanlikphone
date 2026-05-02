@@ -12,6 +12,7 @@ import {
   formatLabResultMessage,
   gradeLessonQuiz,
   getLessonFlowTarget,
+  getLessonSequenceStatus,
   getNextCourseLesson,
   getNextLessonInSequence,
   getPlacementStepLabel,
@@ -143,6 +144,17 @@ describe('academy domain helpers', () => {
     });
   });
 
+  it('builds lesson-specific quiz questions from the current lesson content', () => {
+    const lesson = lessons.find((item) => item.slug === 'python-ai-temelleri-m1-l1')!;
+    const blocks = lessonContentBlocks.filter((block) => block.lessonId === lesson.id);
+    const quiz = buildLessonQuiz(lesson, blocks);
+    const quizText = quiz.questions.flatMap((question) => [question.prompt, question.explanation, ...question.options]).join(' ');
+
+    expect(quizText).toContain('Python, paketler ve notebook akışı');
+    expect(quizText).toContain('ai engineering');
+    expect(quizText).not.toMatch(/projemiz|genel AI projesi|başlığı ezberle/i);
+  });
+
   it('unlocks only the first lesson until the previous lesson quiz is completed', () => {
     const sequence = [
       { slug: 'lesson-1' },
@@ -155,5 +167,18 @@ describe('academy domain helpers', () => {
     expect(isLessonUnlocked(sequence, 'lesson-2', state.completedLessonSlugs)).toBe(false);
     expect(isLessonUnlocked(sequence, 'lesson-2', ['lesson-1'])).toBe(true);
     expect(isLessonUnlocked(sequence, 'lesson-3', ['lesson-1'])).toBe(false);
+  });
+
+  it('maps completed lesson slugs into course-detail statuses', () => {
+    const sequence = [
+      { slug: 'lesson-1' },
+      { slug: 'lesson-2' },
+      { slug: 'lesson-3' },
+    ];
+
+    expect(getLessonSequenceStatus(sequence, 'lesson-1', [])).toBe('active');
+    expect(getLessonSequenceStatus(sequence, 'lesson-1', ['lesson-1'])).toBe('done');
+    expect(getLessonSequenceStatus(sequence, 'lesson-2', ['lesson-1'])).toBe('active');
+    expect(getLessonSequenceStatus(sequence, 'lesson-3', ['lesson-1'])).toBe('locked');
   });
 });

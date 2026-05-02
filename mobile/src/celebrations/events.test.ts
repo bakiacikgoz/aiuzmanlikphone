@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   createLocalCelebrationNotification,
+  isMilestoneCelebrationType,
   mapNotificationToCelebrationEvent,
   resolveCelebrationAssetKey,
   sortAndDedupeCelebrationEvents,
@@ -84,5 +85,14 @@ describe('celebration event mapping', () => {
     expect(resolveCelebrationAssetKey({
       type: 'course_completed',
     })).toBe('achievement');
+  });
+
+  it('keeps full-screen celebrations limited to milestone events', () => {
+    expect(isMilestoneCelebrationType('lesson_completed')).toBe(false);
+    expect(isMilestoneCelebrationType('quiz_correct')).toBe(false);
+    expect(isMilestoneCelebrationType('lab_completed')).toBe(false);
+    expect(isMilestoneCelebrationType('course_completed')).toBe(true);
+    expect(isMilestoneCelebrationType('badge_earned')).toBe(true);
+    expect(isMilestoneCelebrationType('league_promotion')).toBe(true);
   });
 });

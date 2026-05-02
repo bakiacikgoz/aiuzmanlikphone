@@ -16,10 +16,13 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.bakiacikgoz.aiengineeringacademy",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "permissions": [],
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
@@ -31,6 +34,12 @@
       "expo-router",
       "expo-sqlite",
       "expo-secure-store"
-    ]
+    ],
+    "extra": {
+      "environment": "production",
+      "revenueCatEntitlement": "pro",
+      "privacyPolicyUrl": "https://aiengineeringacademy.app/privacy.html",
+      "accountDeletionUrl": "https://aiengineeringacademy.app/account-deletion.html"
+    }
   }
 }

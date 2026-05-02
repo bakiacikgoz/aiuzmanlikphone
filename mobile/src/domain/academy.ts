@@ -86,6 +86,8 @@ export type LessonFlowState = {
   quizResultsByLessonSlug: Record<string, LessonQuizResult>;
 };
 
+export type LessonSequenceStatus = 'done' | 'active' | 'locked';
+
 export type LessonFlowTarget =
   | {
       kind: 'lab';
@@ -520,78 +522,161 @@ export function buildLessonLearningSteps(lesson: LessonFlowItem, blocks: LessonC
   return steps;
 }
 
+function sanitizeQuizText(value: string | undefined, fallback: string, maxLength = 132): string {
+  const cleaned = cleanMarkdownLine(value ?? '')
+    .replace(/\bAI projeleri\b/gi, 'AI uygulamaları')
+    .replace(/\bAI projesi\b/gi, 'AI uygulaması')
+    .replace(/\bprojelerinde\b/gi, 'uygulamalarında')
+    .replace(/\bprojesinde\b/gi, 'uygulamasında')
+    .replace(/\bprojeyi\b/gi, 'uygulamayı')
+    .replace(/\bprojemiz\b/gi, 'ders akışı')
+    .replace(/\bproje\b/gi, 'uygulama')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const text = cleaned || fallback;
+  return text.length > maxLength ? `${text.slice(0, maxLength - 1).trim()}…` : text;
+}
+
+function makeLessonQuizQuestion(
+  lessonSlug: string,
+  index: number,
+  prompt: string,
+  correctOption: string,
+  wrongOptions: string[],
+  explanation: string,
+  answerIndex = 0,
+): LessonQuizQuestion {
+  const sanitizedCorrectOption = sanitizeQuizText(correctOption, correctOption, 112);
+  const sanitizedWrongOptions = wrongOptions.slice(0, 3).map((option) => sanitizeQuizText(option, option, 112));
+  const boundedAnswerIndex = Math.min(Math.max(answerIndex, 0), sanitizedWrongOptions.length);
+  const options = sanitizedWrongOptions.slice();
+  options.splice(boundedAnswerIndex, 0, sanitizedCorrectOption);
+
+  return {
+    id: `${lessonSlug}-quiz-${index}`,
+    prompt: sanitizeQuizText(prompt, prompt, 160),
+    options,
+    answerIndex: boundedAnswerIndex,
+    explanation: sanitizeQuizText(explanation, explanation, 180),
+  };
+}
+
+function getPrimaryContentHints(subject: string, blocks: LessonContentSourceBlock[]) {
+  const sortedBlocks = blocks.slice().sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
+  const calloutBlock = sortedBlocks.find((block) => block.type === 'callout');
+  const markdownBlock = sortedBlocks.find((block) => block.type === 'markdown');
+  const markdownBody = markdownBlock?.body ?? '';
+  const whyItems = extractBullets(getMarkdownSection(markdownBody, 'Neden önemli?'), []);
+  const practiceItems = extractOrderedItems(getMarkdownSection(markdownBody, 'Uygulama kontrolü'), []);
+
+  return {
+    goal: sanitizeQuizText(calloutBlock?.body, `${subject} konusunu nerede kullanacağını açıklamak`),
+    why: sanitizeQuizText(whyItems[0], `${subject} için doğru varsayımı erken kontrol etmek`),
+    practice: sanitizeQuizText(practiceItems[0], `${subject} için örnek girdi ve beklenen çıktı yazmak`),
+  };
+}
+
+function buildCodeQuizQuestion(lessonSlug: string, codeBlock: LessonContentSourceBlock | undefined): LessonQuizQuestion | undefined {
+  const code = codeBlock?.code ?? '';
+  const normalizedCode = code.toLocaleLowerCase('tr-TR');
+
+  if (normalizedCode.includes('normalize_text')) {
+    return makeLessonQuizQuestion(
+      lessonSlug,
+      5,
+      "normalize_text('  AI   Engineering  ') kodu hangi çıktıyı üretir?",
+      'ai engineering',
+      ['AI Engineering', 'ai   engineering', 'AI   Engineering'],
+      'lower harfleri küçültür; strip dış boşlukları, split/join ise fazla iç boşlukları temizler.',
+      2,
+    );
+  }
+
+  if (normalizedCode.includes('pipeline') && normalizedCode.includes('standardscaler')) {
+    return makeLessonQuizQuestion(
+      lessonSlug,
+      5,
+      'Pipeline örneğinde StandardScaler adımının görevi nedir?',
+      'Veriyi ölçekleyip sonraki model adımına düzenli biçimde aktarmak',
+      ['Model çıktısını doğrudan kullanıcı profiline yazmak', 'Notebook hücrelerini rastgele sıraya dizmek', 'Eğitim metriğini tamamen kaldırmak'],
+      'Pipeline içinde scaler önce veriyi hazırlar, ardından model adımı aynı sırayla çalışır.',
+      1,
+    );
+  }
+
+  if (!codeBlock?.code) return undefined;
+
+  return makeLessonQuizQuestion(
+    lessonSlug,
+    5,
+    'Kod örneğinin sonucunu anlamak için hangi sıra izlenmelidir?',
+    'Girdiyi, dönüşümü ve çıktıyı sırayla takip etmek',
+    ['Sadece son satıra bakmak', 'Çıktıyı tahmin etmeden kodu değiştirmek', 'Hata mesajlarını yok saymak'],
+    'Kod bloğu, girdi-dönüşüm-çıktı ilişkisiyle okunduğunda dersin ana davranışı netleşir.',
+    3,
+  );
+}
+
 export function buildLessonQuiz(lesson: LessonFlowItem, blocks: LessonContentSourceBlock[]): LessonQuiz {
   const subject = normalizeSubject(lesson.title);
-  const hasCode = blocks.some((block) => block.type === 'code' && block.code);
+  const quizSubject = sanitizeQuizText(subject, subject, 96);
+  const codeBlock = blocks.find((block) => block.type === 'code' && block.code);
   const hasLab = blocks.some((block) => block.type === 'lab_embed');
+  const hints = getPrimaryContentHints(quizSubject, blocks);
+  const codeQuestion = buildCodeQuizQuestion(lesson.slug, codeBlock);
+  const questions = [
+    makeLessonQuizQuestion(
+      lesson.slug,
+      1,
+      `${quizSubject} dersinde ana odak hangisidir?`,
+      quizSubject,
+      ['Sadece profil ayarlarını düzenlemek', 'Lig sıralamasını tahmin etmek', 'Not ekranındaki butonları ezberlemek'],
+      `Bu quiz, ${quizSubject} dersinde anlatılan temel fikri kontrol eder.`,
+    ),
+    makeLessonQuizQuestion(
+      lesson.slug,
+      2,
+      `${quizSubject} için öğrenme hedefi aşağıdakilerden hangisine en yakındır?`,
+      hints.goal,
+      ['Konu başlığını okumadan ilerlemek', 'Sonucu kontrol etmeden geçmek', 'Ders dışı rozet ekranını incelemek'],
+      `Öğrenme hedefi ${quizSubject} dersinin sonunda açıklayabilmen gereken davranışı tarif eder.`,
+      1,
+    ),
+    makeLessonQuizQuestion(
+      lesson.slug,
+      3,
+      `${quizSubject} neden dikkat edilmesi gereken bir adımdır?`,
+      hints.why,
+      ['Varsayımları hiç kontrol etmemek için', 'Yanlış çıktıyı fark etmeden sürdürmek için', 'Sadece ekranı hızlıca geçmek için'],
+      `Neden önemli bölümü, ${quizSubject} bilgisinin hangi riski azalttığını açıklar.`,
+      2,
+    ),
+    makeLessonQuizQuestion(
+      lesson.slug,
+      4,
+      `${quizSubject} dersindeki uygulama kontrolünde ilk yapılacak iş hangisidir?`,
+      hints.practice,
+      ['Cevabı seçmeden quizden çıkmak', 'Önceki çıktıyı hiç okumamak', 'Kilitli derse doğrudan atlamak'],
+      'Uygulama kontrolü, dersi küçük ve doğrulanabilir adımlarla pekiştirir.',
+      3,
+    ),
+    codeQuestion ?? makeLessonQuizQuestion(
+      lesson.slug,
+      5,
+      hasLab ? 'Mini labdan sonra sıradaki dersin açılması için ne gerekir?' : 'Bu dersi tamamlamak için hangi kanıt gerekir?',
+      'Quiz başarı eşiğini geçerek dersi anladığını göstermek',
+      ['Labı veya örneği hiç kontrol etmemek', 'Yanlış cevaplardan sonra doğrudan geçmek', 'Öğrenme hedefini okumadan çıkmak'],
+      'Sıradaki ders kilidi, bu dersin quiz başarı eşiği geçildiğinde açılır.',
+      1,
+    ),
+  ];
 
   return {
     id: `${lesson.slug}-quiz`,
     lessonSlug: lesson.slug,
-    title: `${subject} Kontrol Quizi`,
+    title: `${quizSubject} Kontrol Quizi`,
     passingScore: 70,
-    questions: [
-      {
-        id: `${lesson.slug}-quiz-1`,
-        prompt: `${subject} dersinin ana amacı nedir?`,
-        options: [
-          'Konuyu gerçek bir AI projesinde ne zaman kullanacağını anlayıp uygulayabilmek',
-          'Sadece başlığı ezberlemek',
-          'Ölçüm yapmadan sonraki adıma geçmek',
-          'Tüm hataları kullanıcıya bırakmak',
-        ],
-        answerIndex: 0,
-        explanation: 'Dersin amacı kavramı ezberletmek değil, doğru bağlamda kullandırmaktır.',
-      },
-      {
-        id: `${lesson.slug}-quiz-2`,
-        prompt: `${subject} çalışırken ilk güvenli adım hangisidir?`,
-        options: [
-          'Rastgele büyük bir sistem kurmak',
-          'Girdi, beklenen çıktı ve başarı ölçütünü netleştirmek',
-          'Hataları görmezden gelmek',
-          'Sonucu ölçmeden yayınlamak',
-        ],
-        answerIndex: 1,
-        explanation: 'İyi tanımlanmış girdi, çıktı ve başarı ölçütü öğrenme ve geliştirme kalitesini artırır.',
-      },
-      {
-        id: `${lesson.slug}-quiz-3`,
-        prompt: 'Küçük çalışan örnek neden önemlidir?',
-        options: [
-          'Sadece ekranı doldurmak için kullanılır',
-          'Model eğitimini her zaman gereksiz yapar',
-          'Varsayımı hızlı test eder ve hatayı erken yakalatır',
-          'Veri kalitesini kontrol etmeyi engeller',
-        ],
-        answerIndex: 2,
-        explanation: 'Küçük örnek, karmaşık sisteme geçmeden önce varsayımı test etmeyi sağlar.',
-      },
-      {
-        id: `${lesson.slug}-quiz-4`,
-        prompt: hasCode ? 'Kod örneğini okurken en doğru yaklaşım hangisidir?' : 'Uygulama adımlarını izlerken en doğru yaklaşım hangisidir?',
-        options: [
-          'Sadece son satıra bakmak',
-          'Kodun veya adımın çıktısını hiç tahmin etmemek',
-          'Her şeyi tek seferde değiştirmek',
-          'Girdiyi, dönüşümü ve çıktıyı sırayla takip etmek',
-        ],
-        answerIndex: 3,
-        explanation: 'Kod veya uygulama adımı, girdi-dönüşüm-çıktı zinciriyle okunmalıdır.',
-      },
-      {
-        id: `${lesson.slug}-quiz-5`,
-        prompt: hasLab ? 'Mini lab yaptıktan sonra dersi tamamlamak için ne gerekir?' : 'Dersi tamamlamak için ne gerekir?',
-        options: [
-          'Quizde başarı eşiğini geçerek kavramı anladığını göstermek',
-          'Lab veya örneği hiç kontrol etmemek',
-          'Yanlış cevaptan sonra doğrudan geçmek',
-          'Öğrenme hedefini okumadan çıkmak',
-        ],
-        answerIndex: 0,
-        explanation: 'Sonraki ders kilidi quiz başarısıyla açılır; lab pekiştirme adımıdır.',
-      },
-    ],
+    questions,
   };
 }
 
@@ -621,6 +706,17 @@ export function isLessonUnlocked<T extends { slug: string }>(sequence: T[], less
   if (index === 0) return true;
   if (completed.has(lessonSlug)) return true;
   return completed.has(sequence[index - 1].slug);
+}
+
+export function getLessonSequenceStatus<T extends { slug: string }>(
+  sequence: T[],
+  lessonSlug: string | undefined,
+  completedLessonSlugs: Set<string> | string[],
+): LessonSequenceStatus {
+  if (!lessonSlug) return 'locked';
+  const completed = completedLessonSlugs instanceof Set ? completedLessonSlugs : new Set(completedLessonSlugs);
+  if (completed.has(lessonSlug)) return 'done';
+  return isLessonUnlocked(sequence, lessonSlug, completed) ? 'active' : 'locked';
 }
 
 export function getLessonFlowTarget(input: {
