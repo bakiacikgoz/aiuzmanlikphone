@@ -3,7 +3,7 @@ import {
   Award,
   BookOpen,
   Bot,
-  Check,
+  Clock3,
   GraduationCap,
   Play,
   ShieldCheck,
@@ -16,7 +16,15 @@ import {
 import { StyleSheet, Text, View } from 'react-native';
 import Svg, { Circle, Line, Path, Rect } from 'react-native-svg';
 
-import { colors, radius, shadow, spacing } from '../theme';
+import {
+  colors,
+  radius,
+  registerThemeStyles,
+  shadow,
+  spacing,
+  type ThemeColors,
+  type ThemeShadow,
+} from '../theme';
 
 type HeightProp = {
   height?: number;
@@ -25,7 +33,7 @@ type HeightProp = {
 export function BrandMark({ size = 52, dark = false }: { size?: number; dark?: boolean }) {
   return (
     <LinearGradient
-      colors={dark ? ['#1d4cff', '#16d7ff'] : ['#0b66f5', '#20c7e8']}
+      colors={dark ? ['#050505', '#3f3f46'] : ['#111111', '#52525b']}
       style={[styles.brandMark, { width: size, height: size, borderRadius: Math.round(size * 0.27) }]}
     >
       <Svg width="100%" height="100%" viewBox="0 0 64 64">
@@ -45,16 +53,16 @@ export function SplashHeroVisual({ height = 280 }: HeightProp) {
   return (
     <VisualFrame height={height} dark>
       <Svg width="100%" height="100%" viewBox="0 0 320 260" style={StyleSheet.absoluteFill}>
-        <Circle cx="164" cy="106" r="76" fill="none" stroke="rgba(32,199,232,0.28)" strokeWidth="2" />
+        <Circle cx="164" cy="106" r="76" fill="none" stroke="rgba(255,255,255,0.22)" strokeWidth="2" />
         <Circle cx="164" cy="106" r="116" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="2" />
         <Line x1="86" y1="92" x2="164" y2="58" stroke="rgba(255,255,255,0.28)" strokeWidth="2" />
         <Line x1="164" y1="58" x2="236" y2="104" stroke="rgba(255,255,255,0.28)" strokeWidth="2" />
         <Line x1="86" y1="92" x2="128" y2="166" stroke="rgba(255,255,255,0.24)" strokeWidth="2" />
         <Line x1="128" y1="166" x2="236" y2="104" stroke="rgba(255,255,255,0.24)" strokeWidth="2" />
-        <Circle cx="86" cy="92" r="9" fill="#20c7e8" />
+        <Circle cx="86" cy="92" r="9" fill="#d4d4d8" />
         <Circle cx="164" cy="58" r="9" fill="#ffffff" />
         <Circle cx="236" cy="104" r="9" fill="#35c77b" />
-        <Circle cx="128" cy="166" r="9" fill="#7357ff" />
+        <Circle cx="128" cy="166" r="9" fill="#a1a1aa" />
       </Svg>
       <View style={styles.heroGlassCard}>
         <GraduationCap size={36} color="#ffffff" strokeWidth={2.4} />
@@ -89,31 +97,31 @@ export function CourseHeroVisual({
   return (
     <VisualFrame height={height} dark>
       <Svg width="100%" height="100%" viewBox="0 0 360 230" style={StyleSheet.absoluteFill}>
-        <Rect x="0" y="0" width="360" height="230" fill="#020a2e" />
+        <Rect x="0" y="0" width="360" height="230" fill="#050505" />
         {[236, 252, 268, 284, 300, 316, 332].map((x) => (
-          <Line key={`grid-v-${x}`} x1={x} y1="26" x2={x} y2="92" stroke="rgba(104,118,255,0.12)" strokeWidth="1" />
+          <Line key={`grid-v-${x}`} x1={x} y1="26" x2={x} y2="92" stroke="rgba(255,255,255,0.10)" strokeWidth="1" />
         ))}
         {[34, 50, 66, 82].map((y) => (
-          <Line key={`grid-h-${y}`} x1="232" y1={y} x2="342" y2={y} stroke="rgba(104,118,255,0.10)" strokeWidth="1" />
+          <Line key={`grid-h-${y}`} x1="232" y1={y} x2="342" y2={y} stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
         ))}
         {[236, 252, 268, 284, 300, 316, 332].flatMap((x) => [34, 50, 66, 82].map((y) => (
-          <Circle key={`dot-${x}-${y}`} cx={x} cy={y} r="1.8" fill="rgba(80,92,230,0.18)" />
+          <Circle key={`dot-${x}-${y}`} cx={x} cy={y} r="1.8" fill="rgba(255,255,255,0.14)" />
         )))}
         {[0, 1, 2, 3, 4, 5].map((index) => (
           <Path
             key={`wave-${index}`}
             d={`M214 ${150 + index * 8} C250 ${126 + index * 2}, 284 ${104 + index * 4}, 358 ${108 + index * 9}`}
             fill="none"
-            stroke="rgba(82,64,255,0.18)"
+            stroke="rgba(255,255,255,0.14)"
             strokeWidth="1.2"
           />
         ))}
-        <Path d="M18 166 C76 140, 132 152, 182 126 S250 82, 332 108" fill="none" stroke="rgba(32,199,232,0.18)" strokeWidth="5" strokeLinecap="round" />
+        <Path d="M18 166 C76 140, 132 152, 182 126 S250 82, 332 108" fill="none" stroke="rgba(255,255,255,0.16)" strokeWidth="5" strokeLinecap="round" />
       </Svg>
       <View style={styles.courseHeroContent}>
         <View style={styles.courseHeroTop}>
           <View style={styles.courseHeroMark}>
-            <Zap size={25} color="#8af8ff" fill="#8af8ff" />
+            <Zap size={25} color="#ffffff" fill="#ffffff" />
           </View>
           <View style={styles.courseHeroDivider} />
           <View style={styles.courseHeroEyebrowWrap}>
@@ -180,7 +188,7 @@ export function LevelBadgeVisual({ height = 210 }: HeightProp) {
         <Text style={styles.levelMedalText}>ORTA</Text>
       </LinearGradient>
       <View style={styles.levelSparkA}><Star size={18} color="#ffd76a" fill="#ffd76a" /></View>
-      <View style={styles.levelSparkB}><Sparkles size={22} color="#20c7e8" /></View>
+      <View style={styles.levelSparkB}><Sparkles size={22} color={colors.cyan} /></View>
     </View>
   );
 }
@@ -254,7 +262,7 @@ export function SeasonRewardVisual({ height = 180 }: HeightProp) {
 
 export function CourseThumbVisual() {
   return (
-    <LinearGradient colors={['#071537', '#0b66f5']} style={styles.courseThumb}>
+    <LinearGradient colors={['#050505', '#3f3f46']} style={styles.courseThumb}>
       <BookOpen size={28} color={colors.surface} />
       <View style={styles.courseThumbPlay}>
         <Play size={14} color={colors.primary} fill={colors.primary} />
@@ -266,7 +274,7 @@ export function CourseThumbVisual() {
 function VisualFrame({ children, dark = false, height }: HeightProp & { children: React.ReactNode; dark?: boolean }) {
   return (
     <LinearGradient
-      colors={dark ? ['#020b2b', '#111a64'] : ['#ffffff', '#eef4ff']}
+      colors={dark ? ['#050505', '#1f1f22'] : [colors.surface, colors.surfaceSoft]}
       style={[styles.visualFrame, { height }, dark && styles.visualFrameDark]}
     >
       {children}
@@ -275,45 +283,58 @@ function VisualFrame({ children, dark = false, height }: HeightProp & { children
 }
 
 function MetricChip({ label }: { label: string }) {
+  const lowerLabel = label.toLocaleLowerCase('tr-TR');
+  const Icon = lowerLabel.includes('saat') || lowerLabel.includes('dk')
+    ? Clock3
+    : lowerLabel.includes('ders')
+      ? BookOpen
+      : GraduationCap;
+
   return (
     <View style={styles.metricChip}>
-      <View style={styles.metricCheck}>
-        <Check size={17} color="#3cf5de" strokeWidth={3} />
+      <View style={styles.metricIcon}>
+        <Icon size={16} color={colors.green} strokeWidth={2.8} />
       </View>
-      <Text style={styles.metricChipText}>{label}</Text>
+      <Text style={styles.metricChipText} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.82}>{label}</Text>
     </View>
   );
 }
 
 function CourseProgressBadge({ progress }: { progress: number }) {
-  const radiusValue = 15;
+  const size = 84;
+  const stroke = 7;
+  const radiusValue = (size - stroke) / 2;
   const circumference = 2 * Math.PI * radiusValue;
   const dashOffset = circumference - (circumference * progress) / 100;
 
   return (
     <View style={styles.courseProgressBadge}>
-      <Svg width="30" height="30" viewBox="0 0 38 38">
-        <Circle cx="19" cy="19" r={radiusValue} fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="4" />
+      <Svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} style={StyleSheet.absoluteFill}>
+        <Circle cx={size / 2} cy={size / 2} r={radiusValue} fill="none" stroke="rgba(255,255,255,0.11)" strokeWidth={stroke} />
         <Circle
-          cx="19"
-          cy="19"
+          cx={size / 2}
+          cy={size / 2}
           r={radiusValue}
           fill="none"
-          stroke="#6f63ff"
-          strokeWidth="4"
+          stroke={colors.primary}
+          strokeWidth={stroke}
           strokeDasharray={`${circumference} ${circumference}`}
           strokeDashoffset={dashOffset}
           strokeLinecap="round"
-          rotation="-90"
-          origin="19, 19"
+          transform={`rotate(-90 ${size / 2} ${size / 2})`}
         />
       </Svg>
+      <Text style={styles.courseProgressBadgeLabel}>İLERLEME</Text>
       <Text style={styles.courseProgressBadgeText}>%{progress}</Text>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
+function createStyles(themeColors: ThemeColors, themeShadow: ThemeShadow) {
+  const colors = themeColors;
+  const shadow = themeShadow;
+
+  return StyleSheet.create({
   brandMark: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -330,7 +351,7 @@ const styles = StyleSheet.create({
     padding: spacing.lg,
   },
   visualFrameDark: {
-    borderColor: 'rgba(119,112,255,0.48)',
+    borderColor: 'rgba(255,255,255,0.18)',
   },
   heroGlassCard: {
     minWidth: 230,
@@ -345,12 +366,12 @@ const styles = StyleSheet.create({
     padding: spacing.md,
   },
   visualWhiteTitle: {
-    color: colors.surface,
+    color: '#ffffff',
     fontWeight: '900',
     fontSize: 18,
   },
   visualWhiteCaption: {
-    color: '#c9d4ff',
+    color: 'rgba(255,255,255,0.72)',
     fontWeight: '700',
     fontSize: 12,
     marginTop: 2,
@@ -366,7 +387,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   heroStatusText: {
-    color: colors.surface,
+    color: '#ffffff',
     fontSize: 12,
     fontWeight: '900',
   },
@@ -392,9 +413,10 @@ const styles = StyleSheet.create({
   courseHeroContent: {
     width: '100%',
     alignSelf: 'stretch',
-    gap: spacing.sm,
-    justifyContent: 'space-between',
+    gap: 8,
+    justifyContent: 'flex-start',
     flex: 1,
+    position: 'relative',
   },
   courseHeroTop: {
     flexDirection: 'row',
@@ -402,18 +424,18 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   courseHeroMark: {
-    width: 48,
-    height: 48,
-    borderRadius: 15,
-    backgroundColor: '#0b25c8',
+    width: 46,
+    height: 46,
+    borderRadius: 14,
+    backgroundColor: 'rgba(255,255,255,0.14)',
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
-    borderColor: 'rgba(142,150,255,0.65)',
+    borderColor: 'rgba(255,255,255,0.24)',
   },
   courseHeroDivider: {
     width: 1,
-    height: 40,
+    height: 38,
     backgroundColor: 'rgba(255,255,255,0.22)',
     marginHorizontal: 3,
   },
@@ -421,86 +443,101 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   courseHeroEyebrow: {
-    color: '#68dcff',
+    color: colors.green,
     fontSize: 11,
+    lineHeight: 15,
     fontWeight: '900',
     letterSpacing: 0,
     textTransform: 'uppercase',
   },
   courseHeroMeta: {
-    color: '#d8dcff',
+    color: 'rgba(255,255,255,0.72)',
     fontSize: 12,
-    fontWeight: '700',
-    marginTop: 4,
+    lineHeight: 16,
+    fontWeight: '800',
+    marginTop: 3,
   },
   courseProgressBadge: {
-    minWidth: 72,
-    height: 46,
-    borderRadius: 23,
-    backgroundColor: 'rgba(255,255,255,0.10)',
-    borderWidth: 1.5,
-    borderColor: 'rgba(255,255,255,0.18)',
+    position: 'absolute',
+    right: 0,
+    top: 48,
+    width: 84,
+    height: 84,
+    borderRadius: 42,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 8,
-    flexDirection: 'row',
-    gap: 7,
+  },
+  courseProgressBadgeLabel: {
+    color: colors.green,
+    fontSize: 9,
+    lineHeight: 12,
+    fontWeight: '900',
+    letterSpacing: 0,
   },
   courseProgressBadgeText: {
-    color: colors.surface,
+    color: '#ffffff',
     fontWeight: '900',
-    fontSize: 20,
+    fontSize: 25,
+    lineHeight: 30,
     letterSpacing: 0,
   },
   courseHeroCopy: {
-    maxWidth: 336,
+    width: '66%',
+    maxWidth: 238,
+    marginTop: 10,
   },
   courseHeroTitle: {
-    color: colors.surface,
+    color: '#ffffff',
     fontWeight: '900',
-    fontSize: 22,
-    lineHeight: 27,
+    fontSize: 24,
+    lineHeight: 29,
   },
   courseHeroSubtitle: {
-    color: '#cfd4f4',
+    color: 'rgba(255,255,255,0.74)',
     fontWeight: '700',
-    fontSize: 12,
-    lineHeight: 17,
-    marginTop: 5,
+    fontSize: 11,
+    lineHeight: 16,
+    marginTop: 6,
   },
   courseMetricRow: {
-    width: '100%',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
     flexDirection: 'row',
-    gap: spacing.sm,
+    gap: 6,
   },
   metricChip: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 6,
-    minHeight: 42,
-    borderRadius: 16,
-    backgroundColor: 'rgba(255,255,255,0.10)',
+    gap: 5,
+    minHeight: 38,
+    borderRadius: 14,
+    backgroundColor: 'rgba(255,255,255,0.08)',
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.17)',
-    paddingHorizontal: 6,
-    paddingVertical: 6,
+    paddingHorizontal: 5,
+    paddingVertical: 4,
   },
-  metricCheck: {
+  metricIcon: {
     width: 24,
     height: 24,
     borderRadius: 12,
-    backgroundColor: 'rgba(7,21,55,0.42)',
+    backgroundColor: 'rgba(0,0,0,0.42)',
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.15)',
     alignItems: 'center',
     justifyContent: 'center',
   },
   metricChipText: {
-    color: colors.surface,
-    fontWeight: '800',
-    fontSize: 12,
+    color: '#ffffff',
+    fontWeight: '900',
+    fontSize: 11,
+    lineHeight: 14,
+    flexShrink: 1,
+    minWidth: 0,
   },
   targetVisual: {
     width: 230,
@@ -515,7 +552,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 16,
-    borderColor: '#d7e6ff',
+    borderColor: colors.line,
   },
   targetRingMid: {
     width: 118,
@@ -573,7 +610,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 2,
-    borderColor: '#cfe0ff',
+    borderColor: colors.line,
     ...shadow,
   },
   robotAntenna: {
@@ -610,7 +647,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   robotBodyCaption: {
-    color: '#d8e6ff',
+    color: colors.inverseText,
     fontSize: 11,
     fontWeight: '700',
     marginTop: 2,
@@ -672,7 +709,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface,
     padding: spacing.lg,
     borderWidth: 7,
-    borderColor: '#d8e6ff',
+    borderColor: colors.line,
   },
   certHeader: {
     flexDirection: 'row',
@@ -779,7 +816,7 @@ const styles = StyleSheet.create({
     height: 78,
   },
   podiumRank: {
-    color: colors.surface,
+    color: '#ffffff',
     fontSize: 24,
     fontWeight: '900',
   },
@@ -810,4 +847,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  });
+}
+
+let styles = createStyles(colors, shadow);
+
+registerThemeStyles((nextColors, nextShadow) => {
+  styles = createStyles(nextColors, nextShadow);
 });

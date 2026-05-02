@@ -106,9 +106,29 @@ begin
 
   insert into public.notifications (id, user_id, notification_type, title, body, target_type, target_id, is_read, metadata)
   values
-    ('94178c59-b94e-53ff-a291-5272f34abe07', u, 'achievement', 'Rozet kazandın', 'Neural Networks 101 modülünde ilerledin.', 'course', 'bcbfa4cb-70c6-528e-9e8e-e035e48606fb', false, '{"seed_pack":"ai-eng-academy-v1"}'),
-    ('01960101-1cc0-5004-8d62-04412a67ee9d', u, 'league', 'Altın Ligdesin', 'İlk 10 hedefine 260 puan kaldı.', 'league', 'f90bba73-fe51-5f52-b77b-793d3a6659d9', false, '{"seed_pack":"ai-eng-academy-v1"}')
-  on conflict (id) do update set title=excluded.title, body=excluded.body, is_read=excluded.is_read;
+    (
+      '94178c59-b94e-53ff-a291-5272f34abe07',
+      u,
+      'badge_earned',
+      'Rozet kazandın',
+      'Quiz Şampiyonu rozetini koleksiyonuna ekledin.',
+      'badge',
+      'b86265fa-4430-5564-aed9-33369b111e77',
+      false,
+      '{"seed_pack":"ai-eng-academy-v1","celebration":true,"event_type":"badge_earned","asset_key":"quiz-champion","dedupe_key":"demo-badge-quiz-champion","target_route":"/badges","badge_slug":"quiz-champion"}'
+    ),
+    (
+      '01960101-1cc0-5004-8d62-04412a67ee9d',
+      u,
+      'league_promotion',
+      'Altın Lige yükseldin',
+      'Bronz Ligden Altın Lige çıktın. İlk 10 hedefine 260 puan kaldı.',
+      'league',
+      'f90bba73-fe51-5f52-b77b-793d3a6659d9',
+      false,
+      '{"seed_pack":"ai-eng-academy-v1","celebration":true,"event_type":"league_promotion","asset_key":"gold","dedupe_key":"demo-league-promotion-gold","target_route":"/league","previous_tier":"bronze","next_tier":"gold","points":1840}'
+    )
+  on conflict (id) do update set title=excluded.title, body=excluded.body, is_read=excluded.is_read, metadata=excluded.metadata;
 
   insert into public.user_badges (id, user_id, badge_id, source_type, source_id, metadata)
   values

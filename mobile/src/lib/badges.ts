@@ -1,0 +1,133 @@
+export type AcademyBadge = {
+  id: string;
+  title: string;
+  shortTitle: string;
+  description: string;
+  requirement: string;
+  earned: boolean;
+  tone: string;
+  softTone: string;
+};
+
+export const academyBadges: AcademyBadge[] = [
+  {
+    id: 'algorithm-master',
+    title: 'Algoritma Ustası',
+    shortTitle: 'Algoritma\nUstası',
+    description: 'Temel algoritma akışlarını başarıyla tamamladı.',
+    requirement: 'Algoritma modülündeki tüm dersleri bitir.',
+    earned: true,
+    tone: '#d99a11',
+    softTone: '#fff7df',
+  },
+  {
+    id: 'quiz-champion',
+    title: 'Quiz Şampiyonu',
+    shortTitle: 'Quiz\nŞampiyonu',
+    description: 'Quizlerde güçlü bir doğruluk serisi yakaladı.',
+    requirement: 'Arka arkaya 3 quizden %80 üzeri skor al.',
+    earned: true,
+    tone: '#52525b',
+    softTone: '#efeff1',
+  },
+  {
+    id: 'consistent-learner',
+    title: 'İstikrarlı Öğrenci',
+    shortTitle: 'İstikrarlı\nÖğrenci',
+    description: 'Düzenli öğrenme ritmini korudu.',
+    requirement: '7 günlük öğrenme serisini tamamla.',
+    earned: true,
+    tone: '#111111',
+    softTone: '#eeeeef',
+  },
+  {
+    id: 'python-basics',
+    title: 'Python Temelleri',
+    shortTitle: 'Python\nTemelleri',
+    description: 'Python ile AI için temel kodlama pratiklerini açar.',
+    requirement: 'Python ile AI Temelleri kursunu tamamla.',
+    earned: false,
+    tone: '#2f855a',
+    softTone: '#eafaf1',
+  },
+  {
+    id: 'neural-explorer',
+    title: 'Sinir Ağı Kaşifi',
+    shortTitle: 'Sinir Ağı\nKaşifi',
+    description: 'Nöron ve ağırlık ilişkisini uygulamalı çözer.',
+    requirement: 'Neural Networks 101 içinde 5 dersi tamamla.',
+    earned: false,
+    tone: '#6366f1',
+    softTone: '#efeff1',
+  },
+  {
+    id: 'prompt-guardian',
+    title: 'Prompt Koruyucusu',
+    shortTitle: 'Prompt\nKoruyucusu',
+    description: 'Prompt güvenliği ve injection risklerini tanır.',
+    requirement: 'Prompt güvenliği quizinden %80 üzeri skor al.',
+    earned: false,
+    tone: '#0f766e',
+    softTone: '#eafaf1',
+  },
+  {
+    id: 'data-cleaner',
+    title: 'Veri Temizleyici',
+    shortTitle: 'Veri\nTemizleyici',
+    description: 'Model öncesi veri hazırlama adımlarını uygular.',
+    requirement: 'Veri temizleme mini laboratuvarını çalıştır.',
+    earned: false,
+    tone: '#b45309',
+    softTone: '#fff7df',
+  },
+  {
+    id: 'model-trainer',
+    title: 'Model Eğitmeni',
+    shortTitle: 'Model\nEğitmeni',
+    description: 'Eğitim döngüsü, loss ve tahmin çıktısını takip eder.',
+    requirement: 'İlk model eğitim laboratuvarını başarıyla bitir.',
+    earned: false,
+    tone: '#7c3aed',
+    softTone: '#efeff1',
+  },
+  {
+    id: 'deployment-pioneer',
+    title: 'Yayınlama Öncüsü',
+    shortTitle: 'Yayınlama\nÖncüsü',
+    description: 'AI çıktısını ürün akışına taşıma pratiği yapar.',
+    requirement: 'Deployment modülündeki ilk görevi tamamla.',
+    earned: false,
+    tone: '#be123c',
+    softTone: '#fff0f1',
+  },
+  {
+    id: 'lab-runner',
+    title: 'Lab Çalıştırıcı',
+    shortTitle: 'Lab\nÇalıştırıcı',
+    description: 'Kod çalıştırıcıda örnekleri düzenleyip test eder.',
+    requirement: '3 farklı kod örneğini çalıştır.',
+    earned: false,
+    tone: '#0284c7',
+    softTone: '#efeff1',
+  },
+  {
+    id: 'note-keeper',
+    title: 'Not Arşivcisi',
+    shortTitle: 'Not\nArşivcisi',
+    description: 'Derslerden kendi öğrenme notlarını çıkarır.',
+    requirement: '5 ders notu kaydet.',
+    earned: false,
+    tone: '#52525b',
+    softTone: '#efeff1',
+  },
+  {
+    id: 'league-climber',
+    title: 'Lig Tırmanıcısı',
+    shortTitle: 'Lig\nTırmanıcısı',
+    description: 'Haftalık ligde üst sıralara düzenli ilerler.',
+    requirement: 'Bir hafta içinde ligde ilk 10 içine gir.',
+    earned: false,
+    tone: '#ca8a04',
+    softTone: '#fff7df',
+  },
+];

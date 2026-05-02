@@ -1,6 +1,16 @@
 import type { User } from '@supabase/supabase-js';
 
 import {
+  createLocalCelebrationNotification,
+  mapNotificationToCelebrationEvent,
+  sortAndDedupeCelebrationEvents,
+} from '../celebrations/events';
+import type {
+  CelebrationEvent,
+  CelebrationNotificationRow,
+  EnqueueCelebrationInput,
+} from '../celebrations/types';
+import {
   courses as fallbackCourses,
   friendRanks as fallbackFriendRanks,
   interests as fallbackInterests,
@@ -34,7 +44,31 @@ function hasSupabaseAnonKey() {
 }
 
 const lessonFlowStateKey = 'ai-academy.lesson-flow-state.v1';
+const celebrationSeenKey = 'ai-academy.celebration-seen.v1';
 let memoryLessonFlowState: LessonFlowState = createEmptyLessonFlowState();
+let memorySeenCelebrationIds = new Set<string>();
+const memoryCelebrationRows: CelebrationNotificationRow[] = [
+  createLocalCelebrationNotification({
+    type: 'badge_earned',
+    title: 'Rozet kazandın',
+    body: 'Quiz Şampiyonu rozetini koleksiyonuna ekledin.',
+    assetKey: 'quiz-champion',
+    badgeSlug: 'quiz-champion',
+    dedupeKey: 'demo-badge-quiz-champion',
+    targetRoute: '/badges',
+  }, new Date('2026-05-01T09:00:00.000Z')),
+  createLocalCelebrationNotification({
+    type: 'league_promotion',
+    title: 'Altın Lige yükseldin',
+    body: 'Bronz Ligden Altın Lige çıktın. İlk 10 hedefine 260 puan kaldı.',
+    assetKey: 'gold',
+    previousTier: 'bronze',
+    nextTier: 'gold',
+    points: 1840,
+    dedupeKey: 'demo-league-promotion-gold',
+    targetRoute: '/league',
+  }, new Date('2026-05-01T09:01:00.000Z')),
+];
 
 type KeyValueStorage = {
   getItem: (key: string) => Promise<string | null>;
@@ -103,6 +137,36 @@ async function writeLessonFlowState(nextState: LessonFlowState): Promise<LessonF
     await storage.setItem(lessonFlowStateKey, JSON.stringify(normalizedState));
   }
   return cloneLessonFlowState(normalizedState);
+}
+
+async function readSeenCelebrationIds(): Promise<Set<string>> {
+  const storage = await getLessonFlowStorage();
+  if (!storage) return new Set(memorySeenCelebrationIds);
+
+  try {
+    const rawState = await storage.getItem(celebrationSeenKey);
+    const parsed = rawState ? JSON.parse(rawState) : [];
+    return new Set(Array.isArray(parsed) ? parsed.filter((id): id is string => typeof id === 'string') : []);
+  } catch {
+    return new Set(memorySeenCelebrationIds);
+  }
+}
+
+async function writeSeenCelebrationIds(ids: Set<string>) {
+  memorySeenCelebrationIds = new Set(ids);
+  const storage = await getLessonFlowStorage();
+  if (storage) {
+    await storage.setItem(celebrationSeenKey, JSON.stringify([...ids]));
+  }
+}
+
+function getLocalCelebrationEvents(seenIds: Set<string>) {
+  return sortAndDedupeCelebrationEvents(
+    memoryCelebrationRows
+      .filter((row) => !seenIds.has(row.id) && !seenIds.has(String(row.metadata?.dedupe_key ?? '')))
+      .map(mapNotificationToCelebrationEvent)
+      .filter((event): event is CelebrationEvent => Boolean(event)),
+  );
 }
 
 export type PathCard = {
@@ -538,6 +602,90 @@ export async function getLeaderboard() {
 
 export async function getFriendRanks() {
   return fallbackFriendRanks;
+}
+
+export async function getCelebrationEvents(): Promise<CelebrationEvent[]> {
+  const { isSupabaseConfigured, supabase } = await getSupabaseClient();
+  if (!isSupabaseConfigured) {
+    return getLocalCelebrationEvents(await readSeenCelebrationIds());
+  }
+
+  const { data, error } = await supabase
+    .from('notifications')
+    .select('id, notification_type, title, body, target_type, target_id, is_read, metadata, created_at')
+    .eq('is_read', false)
+    .filter('metadata->>celebration', 'eq', 'true')
+    .order('created_at', { ascending: true })
+    .limit(12);
+  if (error) throw error;
+
+  return sortAndDedupeCelebrationEvents(
+    ((data ?? []) as CelebrationNotificationRow[])
+      .map(mapNotificationToCelebrationEvent)
+      .filter((event): event is CelebrationEvent => Boolean(event)),
+  );
+}
+
+export async function enqueueCelebrationEvent(input: EnqueueCelebrationInput): Promise<{ id: string; created: boolean }> {
+  const { isSupabaseConfigured, supabase } = await getSupabaseClient();
+  if (!isSupabaseConfigured) {
+    const row = createLocalCelebrationNotification(input);
+    const exists = memoryCelebrationRows.some((item) => item.id === row.id || item.metadata?.dedupe_key === row.metadata?.dedupe_key);
+    if (!exists) memoryCelebrationRows.push(row);
+    return { id: row.id, created: !exists };
+  }
+
+  const metadata: Record<string, unknown> = {
+    badge_slug: input.badgeSlug,
+    previous_tier: input.previousTier,
+    next_tier: input.nextTier,
+    points: input.points,
+  };
+  Object.keys(metadata).forEach((key) => {
+    if (metadata[key] === undefined) delete metadata[key];
+  });
+
+  const { data, error } = await supabase.rpc('enqueue_celebration_notification', {
+    p_event_type: input.type,
+    p_title: input.title,
+    p_body: input.body ?? null,
+    p_target_type: input.targetType ?? 'celebration',
+    p_target_id: input.targetId ?? null,
+    p_asset_key: input.assetKey ?? null,
+    p_dedupe_key: input.dedupeKey ?? null,
+    p_target_route: input.targetRoute ?? null,
+    p_metadata: metadata,
+  });
+  if (error) throw error;
+
+  return {
+    id: String((data as { id?: unknown } | null)?.id ?? input.dedupeKey ?? `${input.type}-${Date.now()}`),
+    created: Boolean((data as { created?: unknown } | null)?.created ?? true),
+  };
+}
+
+export async function markCelebrationSeen(notificationId: string) {
+  if (notificationId.startsWith('local:')) {
+    const seenIds = await readSeenCelebrationIds();
+    seenIds.add(notificationId);
+    const row = memoryCelebrationRows.find((item) => item.id === notificationId);
+    const dedupeKey = row?.metadata?.dedupe_key;
+    if (typeof dedupeKey === 'string') seenIds.add(dedupeKey);
+    await writeSeenCelebrationIds(seenIds);
+    return { id: notificationId, isRead: true };
+  }
+
+  const { isSupabaseConfigured, supabase } = await getSupabaseClient();
+  if (!isSupabaseConfigured) {
+    const seenIds = await readSeenCelebrationIds();
+    seenIds.add(notificationId);
+    await writeSeenCelebrationIds(seenIds);
+    return { id: notificationId, isRead: true };
+  }
+
+  const { data, error } = await supabase.rpc('mark_notification_read', { p_notification_id: notificationId });
+  if (error) throw error;
+  return data ?? { id: notificationId, isRead: true };
 }
 
 export async function submitPlacement(correctCount: number, questionCount: number) {

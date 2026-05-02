@@ -12,7 +12,15 @@ import {
 } from 'lucide-react-native';
 
 import { BrandMark } from './AcademyVisuals';
-import { colors, radius, shadow, spacing } from '../theme';
+import {
+  colors,
+  radius,
+  registerThemeStyles,
+  shadow,
+  spacing,
+  type ThemeColors,
+  type ThemeShadow,
+} from '../theme';
 
 export type IconType = ComponentType<{ size?: number; color?: string; strokeWidth?: number }>;
 type RouteTarget = Parameters<typeof router.push>[0];
@@ -39,7 +47,7 @@ export function Screen({
   );
 
   return (
-    <SafeAreaView style={[styles.safeArea, fullWidth && styles.safeAreaFull]}>
+    <SafeAreaView edges={['top', 'left', 'right']} style={[styles.safeArea, fullWidth && styles.safeAreaFull]}>
       <View style={[styles.phone, fullWidth && styles.phoneFull]}>
         {content}
         {bottomTab ? <BottomNav active={bottomTab} /> : null}
@@ -75,8 +83,10 @@ export function Header({
     router.replace((backFallback ?? '/dashboard') as RouteTarget);
   }
 
+  const hasCopy = Boolean(title || subtitle);
+
   return (
-    <View style={styles.header}>
+    <View style={[styles.header, !hasCopy && styles.headerBare]}>
       {back ? (
         <IconButton icon={ChevronLeft} onPress={goBack} />
       ) : (
@@ -141,11 +151,11 @@ export function PrimaryButton({ title, onPress, icon, style }: { title: string; 
   );
 }
 
-export function OutlineButton({ title, onPress, icon, style }: { title: string; onPress?: () => void; icon?: ReactNode; style?: object }) {
+export function OutlineButton({ title, onPress, icon, style, textStyle }: { title: string; onPress?: () => void; icon?: ReactNode; style?: object; textStyle?: object }) {
   return (
     <Pressable accessibilityRole="button" onPress={onPress} style={({ pressed }) => [styles.outlineButton, style, pressed && styles.pressed]}>
       {icon}
-      <Text style={styles.outlineButtonText}>{title}</Text>
+      <Text style={[styles.outlineButtonText, textStyle]}>{title}</Text>
     </Pressable>
   );
 }
@@ -196,7 +206,7 @@ export function Pill({ label, tone = colors.primary }: { label: string; tone?: s
 function BottomNav({ active }: { active: 'home' | 'paths' | 'progress' | 'league' | 'profile' }) {
   const items: { key: typeof active; label: string; route: string; icon: IconType }[] = [
     { key: 'home', label: 'Ana Sayfa', route: '/dashboard', icon: Home },
-    { key: 'paths', label: 'Yollar', route: '/paths', icon: Map },
+    { key: 'paths', label: 'Dersler', route: '/paths', icon: Map },
     { key: 'progress', label: 'Ilerleme', route: '/progress', icon: BarChart3 },
     { key: 'league', label: 'Lig', route: '/league', icon: Trophy },
     { key: 'profile', label: 'Profil', route: '/profile', icon: User },
@@ -209,7 +219,7 @@ function BottomNav({ active }: { active: 'home' | 'paths' | 'progress' | 'league
         const selected = item.key === active;
         return (
           <Pressable key={item.key} onPress={() => router.push(item.route)} style={styles.navItem}>
-            <Icon size={22} color={selected ? colors.primary : '#8b96ad'} strokeWidth={2.4} />
+            <Icon size={22} color={selected ? colors.primary : colors.muted} strokeWidth={2.4} />
             <Text style={[styles.navLabel, selected && styles.navLabelActive]}>{item.label}</Text>
           </Pressable>
         );
@@ -218,11 +228,15 @@ function BottomNav({ active }: { active: 'home' | 'paths' | 'progress' | 'league
   );
 }
 
-const styles = StyleSheet.create<Record<string, any>>({
+function createStyles(themeColors: ThemeColors, themeShadow: ThemeShadow) {
+  const colors = themeColors;
+  const shadow = themeShadow;
+
+  return StyleSheet.create<Record<string, any>>({
   safeArea: {
     flex: 1,
     backgroundColor: colors.surfaceSoft,
-    alignItems: 'flex-start',
+    alignItems: 'stretch',
   },
   safeAreaFull: {
     alignItems: 'stretch',
@@ -230,8 +244,7 @@ const styles = StyleSheet.create<Record<string, any>>({
   phone: {
     flex: 1,
     width: '100%',
-    maxWidth: 390,
-    alignSelf: 'flex-start',
+    alignSelf: 'stretch',
     backgroundColor: colors.surface,
     overflow: 'hidden',
   },
@@ -263,31 +276,58 @@ const styles = StyleSheet.create<Record<string, any>>({
     alignSelf: 'center',
   },
   header: {
-    minHeight: 48,
+    minHeight: 62,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    gap: spacing.sm,
+    marginBottom: spacing.md,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 18,
+    borderWidth: 1,
+    borderColor: colors.line,
+    backgroundColor: colors.surface,
+    shadowColor: shadow.shadowColor,
+    shadowOpacity: 0.05,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 6 },
+    elevation: 2,
+  },
+  headerBare: {
+    minHeight: 44,
     marginBottom: spacing.sm,
+    paddingHorizontal: 0,
+    paddingVertical: 0,
+    borderRadius: 0,
+    borderWidth: 0,
+    backgroundColor: 'transparent',
+    shadowOpacity: 0,
+    shadowRadius: 0,
+    elevation: 0,
   },
   headerSpacer: {
-    width: 44,
+    width: 0,
   },
   headerTitleWrap: {
     flex: 1,
-    alignItems: 'center',
+    minWidth: 0,
+    alignItems: 'flex-start',
   },
   headerTitle: {
     color: colors.ink,
     fontSize: 18,
-    fontWeight: '800',
+    lineHeight: 23,
+    fontWeight: '900',
   },
   headerSubtitle: {
     color: colors.muted,
     fontSize: 12,
+    lineHeight: 16,
     marginTop: 2,
   },
   headerRight: {
-    width: 44,
+    minWidth: 42,
     alignItems: 'flex-end',
   },
   logoRow: {
@@ -312,7 +352,7 @@ const styles = StyleSheet.create<Record<string, any>>({
     lineHeight: 36,
   },
   logoTextLight: {
-    color: colors.surface,
+    color: '#ffffff',
   },
   logoTextSmall: {
     fontSize: 23,
@@ -397,7 +437,7 @@ const styles = StyleSheet.create<Record<string, any>>({
   progressTrack: {
     height: 8,
     borderRadius: 99,
-    backgroundColor: '#e7ebf5',
+    backgroundColor: colors.surfaceMuted,
     overflow: 'hidden',
   },
   progressFill: {
@@ -466,11 +506,18 @@ const styles = StyleSheet.create<Record<string, any>>({
     gap: 3,
   },
   navLabel: {
-    color: '#8b96ad',
+    color: colors.muted,
     fontSize: 10,
     fontWeight: '700',
   },
   navLabelActive: {
     color: colors.primary,
   },
+  });
+}
+
+let styles = createStyles(colors, shadow);
+
+registerThemeStyles((nextColors, nextShadow) => {
+  styles = createStyles(nextColors, nextShadow);
 });

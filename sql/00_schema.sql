@@ -921,6 +921,115 @@ begin
 end;
 $$;
 
+create index if not exists idx_notifications_celebration_queue
+on public.notifications (user_id, is_read, created_at)
+where (metadata->>'celebration') = 'true';
+
+create index if not exists idx_notifications_celebration_dedupe
+on public.notifications (user_id, ((metadata->>'dedupe_key')))
+where (metadata->>'celebration') = 'true' and metadata ? 'dedupe_key';
+
+create or replace function public.enqueue_celebration_notification(
+  p_event_type text,
+  p_title text,
+  p_body text default null,
+  p_target_type text default 'celebration',
+  p_target_id uuid default null,
+  p_asset_key text default null,
+  p_dedupe_key text default null,
+  p_target_route text default null,
+  p_metadata jsonb default '{}'::jsonb
+)
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_user uuid := auth.uid();
+  v_existing public.notifications%rowtype;
+  v_notification public.notifications%rowtype;
+  v_metadata jsonb;
+begin
+  if v_user is null then
+    raise exception 'Authentication required';
+  end if;
+
+  v_metadata := coalesce(p_metadata, '{}'::jsonb)
+    || jsonb_build_object(
+      'celebration', true,
+      'event_type', p_event_type,
+      'asset_key', p_asset_key,
+      'target_route', p_target_route
+    );
+
+  if p_dedupe_key is not null then
+    v_metadata := v_metadata || jsonb_build_object('dedupe_key', p_dedupe_key);
+
+    select *
+    into v_existing
+    from public.notifications
+    where user_id = v_user
+      and (metadata->>'celebration') = 'true'
+      and metadata->>'dedupe_key' = p_dedupe_key
+    order by created_at desc
+    limit 1;
+
+    if found then
+      return jsonb_build_object(
+        'id', v_existing.id,
+        'created', false,
+        'dedupeKey', p_dedupe_key
+      );
+    end if;
+  end if;
+
+  insert into public.notifications (
+    user_id, notification_type, title, body, target_type, target_id, is_read, metadata
+  )
+  values (
+    v_user, p_event_type, p_title, p_body, p_target_type, p_target_id, false, v_metadata
+  )
+  returning * into v_notification;
+
+  return jsonb_build_object(
+    'id', v_notification.id,
+    'created', true,
+    'dedupeKey', p_dedupe_key
+  );
+end;
+$$;
+
+create or replace function public.mark_notification_read(
+  p_notification_id uuid
+)
+returns jsonb
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_user uuid := auth.uid();
+  v_notification public.notifications%rowtype;
+begin
+  if v_user is null then
+    raise exception 'Authentication required';
+  end if;
+
+  update public.notifications
+  set is_read = true
+  where id = p_notification_id
+    and user_id = v_user
+  returning * into v_notification;
+
+  if not found then
+    raise exception 'Notification not found';
+  end if;
+
+  return jsonb_build_object('id', v_notification.id, 'isRead', v_notification.is_read);
+end;
+$$;
+
 do $$
 declare
   t text;
@@ -1011,6 +1120,8 @@ grant select on public.v_labs_safe to anon, authenticated;
 
 grant execute on function public.submit_placement_assessment(uuid, integer, integer) to authenticated;
 grant execute on function public.mark_lesson_progress(uuid, numeric) to authenticated;
+grant execute on function public.enqueue_celebration_notification(text, text, text, text, uuid, text, text, text, jsonb) to authenticated;
+grant execute on function public.mark_notification_read(uuid) to authenticated;
 
 insert into storage.buckets (id, name, public)
 values
